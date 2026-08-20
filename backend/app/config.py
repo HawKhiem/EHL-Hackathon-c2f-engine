@@ -38,6 +38,10 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     llm_enable_refusal_fallback: bool = True
 
+    # Rate limit for /llm/* (per client IP). These endpoints spend real money.
+    llm_rate_limit_times: int = 20
+    llm_rate_limit_seconds: int = 60
+
     # ---------- Server ----------
     backend_host: str = "127.0.0.1"
     backend_port: int = 8000

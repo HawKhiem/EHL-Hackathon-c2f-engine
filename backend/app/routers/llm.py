@@ -11,14 +11,25 @@ import logging
 from collections.abc import AsyncIterator
 from typing import Literal
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
+from app.config import get_settings
 from app.llm import get_llm
+from app.rate_limit import RateLimiter
 
 log = logging.getLogger(__name__)
-router = APIRouter(prefix="/llm", tags=["llm"])
+
+# These endpoints cost money per call, so they are rate limited by client IP.
+# Tune with LLM_RATE_LIMIT_TIMES / LLM_RATE_LIMIT_SECONDS in .env.
+_settings = get_settings()
+_limiter = RateLimiter(
+    times=_settings.llm_rate_limit_times,
+    seconds=_settings.llm_rate_limit_seconds,
+)
+
+router = APIRouter(prefix="/llm", tags=["llm"], dependencies=[Depends(_limiter)])
 
 
 class ChatMessage(BaseModel):
