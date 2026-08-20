@@ -1,0 +1,40 @@
+# --- env / secrets ---
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# --- node ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+
+# --- python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- supabase (local stack) ---
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+
+# --- editors / os ---
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+
+# --- agent tooling ---
+.codegraph/
+.claude/settings.local.json

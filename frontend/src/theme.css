@@ -1,0 +1,11 @@
+/* ------------------------------------------------------------------
+   Per-project theme overrides.
+
+   index.css defines the full token set. Redefine any of those tokens
+   here to re-skin the app without touching a single component.
+   Loaded after index.css, so whatever you put here wins.
+
+   Example:
+     :root      { --primary: oklch(0.55 0.20 250); --radius: 0.375rem; }
+     .dark      { --primary: oklch(0.72 0.17 250); }
+   ------------------------------------------------------------------ */

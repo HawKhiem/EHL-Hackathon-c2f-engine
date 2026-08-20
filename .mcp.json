@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "http://localhost:54321/mcp"
+    },
+    "lovable": {
+      "type": "http",
+      "url": "https://mcp.lovable.dev"
+    }
+  }
+}
