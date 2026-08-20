@@ -57,9 +57,27 @@ No Docker? Run `./setup.sh --no-db` to work without the database.
 | `supabase db reset` | Reapply migrations + seed |
 | `supabase status` | Local stack URLs and keys |
 | `npx shadcn@latest add dialog` | Add a shadcn component |
+| `just check` | Everything CI runs (lint, format, types, tests, build) |
+| `just fix` | Auto-fix lint + formatting on both sides |
+| `just test` | Tests only |
 
-A `Justfile` wraps these if you have [`just`](https://github.com/casey/just) installed
-(`just dev`, `just db-reset`, `just check`).
+A `Justfile` wraps these if you have [`just`](https://github.com/casey/just) installed;
+`just` on its own lists every target.
+
+## Quality gates
+
+| | |
+|---|---|
+| Backend | `ruff` (lint + format), `pytest` — 21 tests |
+| Frontend | `eslint`, `prettier`, `tsc`, `vitest` — 9 tests |
+| CI | `.github/workflows/ci.yml` — runs all of the above on every push and PR |
+
+`just check` runs exactly what CI runs, so a green local check means a green pipeline.
+Tests never touch a real LLM or a real network: the backend swaps in a `FakeProvider`,
+the frontend stubs `fetch`.
+
+CI is **verification only** — it does not deploy. Roughly two minutes, with dependency
+caching and superseded runs cancelled automatically.
 
 ## Layout
 
@@ -76,6 +94,7 @@ supabase/          migrations + seed
 setup.sh           install + run everything
 AGENTS.md          instructions for coding agents  <- read this
 CHALLENGE.md       paste the real brief here at kick-off
+.github/workflows  CI: lint, typecheck, test, build
 ```
 
 ## Working with coding agents

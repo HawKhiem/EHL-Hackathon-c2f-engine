@@ -207,6 +207,26 @@ the end of 2026. The CLI still prints the old ones — do not use them.
 
 ---
 
+## Tests
+
+There are tests. Keep them passing, and add to them when you add a feature.
+
+```
+backend/tests/          pytest. `conftest.py` has a FakeProvider so tests never
+                        call a real LLM or spend tokens.
+frontend/src/**/*.test.ts   vitest + jsdom.
+```
+
+Two rules that keep the suite useful:
+
+- **Never let a test hit a real provider or a real network.** Monkeypatch
+  `app.routers.llm.get_llm` (backend) or stub `fetch` (frontend).
+- **Test the thing that would actually break.** The SSE parser, the rate limiter, and
+  config resolution have tests because they have edge cases. Don't write tests that
+  only restate the type signature.
+
+---
+
 ## Writing anything a human will read
 
 Pitch copy, the project description, README text, UI microcopy, demo scripts — these are
@@ -243,11 +263,17 @@ These exist to prove the wiring and to be replaced:
 
 ## Before you say you are done
 
+Run exactly what CI runs — `just check`, or by hand:
+
 ```bash
-cd frontend && npm run build                              # typecheck + production build
-cd backend  && uv run python -c "from app.main import app"  # backend imports cleanly
-cd backend  && uv run ruff check .                        # lint
+cd frontend && npm run lint && npm run format:check && npm run build && npm run test
+cd backend  && uv run ruff check . && uv run ruff format --check . && uv run pytest -q
 ```
+
+`just fix` auto-fixes lint and formatting on both sides.
+
+CI (`.github/workflows/ci.yml`) runs the same commands on every push and PR, plus a check
+that `setup.sh` stays LF and parses. It does **not** deploy anything.
 
 Then load the app and click the thing you changed. A green typecheck is not a working
 feature.

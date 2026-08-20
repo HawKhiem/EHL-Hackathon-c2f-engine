@@ -133,8 +133,7 @@ export const api = {
           if (data === "[DONE]") return;
           try {
             const evt = JSON.parse(data) as
-              | { type: "token"; text: string }
-              | { type: "error"; message: string };
+              { type: "token"; text: string } | { type: "error"; message: string };
             if (evt.type === "token") onToken(evt.text);
             else throw new ApiError(evt.message, 500);
           } catch (err) {

@@ -20,6 +20,8 @@ web:
 api:
     cd backend && uv run uvicorn app.main:app --reload
 
+# ---------------------------------------------------------------- database
+
 # Wipe + re-migrate + re-seed local Postgres
 db-reset:
     supabase db reset
@@ -32,6 +34,8 @@ db-status:
 migration name:
     supabase migration new {{name}}
 
+# ------------------------------------------------------------ dependencies
+
 # Add a Python dependency (updates pyproject.toml + uv.lock)
 add package:
     cd backend && uv add {{package}}
@@ -40,8 +44,24 @@ add package:
 lock:
     cd backend && uv lock
 
-# Typecheck frontend, import backend, lint backend
-check:
-    cd frontend && npm run build
-    cd backend && uv run python -c "from app.main import app; print('backend ok')"
+# ----------------------------------------------------------------- quality
+
+# Run tests
+test:
+    cd frontend && npm run test
+    cd backend && uv run pytest -q
+
+# Lint both sides
+lint:
+    cd frontend && npm run lint
     cd backend && uv run ruff check .
+
+# Auto-fix and format everything
+fix:
+    cd frontend && npm run lint:fix && npm run format
+    cd backend && uv run ruff check --fix . && uv run ruff format .
+
+# Everything CI runs, in the same order. Run this before you push.
+check:
+    cd frontend && npm run lint && npm run format:check && npm run build && npm run test
+    cd backend && uv run ruff check . && uv run ruff format --check . && uv run pytest -q

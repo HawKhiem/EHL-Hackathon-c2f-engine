@@ -8,8 +8,8 @@ export default function App() {
         <h1 className="text-2xl font-semibold tracking-tight">Hackathon scaffold</h1>
         <p className="text-muted-foreground text-sm">
           Vite + React + Tailwind + shadcn · FastAPI · Supabase. Read{" "}
-          <code className="bg-muted rounded px-1 py-0.5 text-xs">CHALLENGE.md</code> for the
-          brief, <code className="bg-muted rounded px-1 py-0.5 text-xs">AGENTS.md</code> for the
+          <code className="bg-muted rounded px-1 py-0.5 text-xs">CHALLENGE.md</code> for the brief,{" "}
+          <code className="bg-muted rounded px-1 py-0.5 text-xs">AGENTS.md</code> for the
           architecture.
         </p>
         <StatusBar />
