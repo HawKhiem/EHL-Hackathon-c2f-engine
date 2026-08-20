@@ -1,0 +1,42 @@
+# Normalise line endings so a Windows contributor cannot break macOS/Linux
+# teammates. A shell script committed with CRLF fails with a confusing
+# "bad interpreter: /usr/bin/env bash^M", so these are pinned to LF regardless
+# of anyone's local core.autocrlf setting.
+
+# Default: normalise text on commit, check out native on Windows.
+* text=auto
+
+# Must be LF everywhere - executed by a shell.
+*.sh            text eol=lf
+Justfile        text eol=lf
+Makefile        text eol=lf
+
+# Must be LF everywhere - consumed by Linux containers / Postgres.
+*.sql           text eol=lf
+*.toml          text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+.env.example    text eol=lf
+
+# Keep source consistent across the team.
+*.py            text eol=lf
+*.ts            text eol=lf
+*.tsx           text eol=lf
+*.css           text eol=lf
+*.json          text eol=lf
+*.md            text eol=lf
+
+# Generated - keep diffs out of review, but still track them.
+frontend/package-lock.json  -diff linguist-generated
+backend/uv.lock             -diff linguist-generated
+
+# Binary: never touch.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
