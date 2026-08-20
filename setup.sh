@@ -145,12 +145,12 @@ if [ "$USE_DB" -eq 1 ]; then
       # from a different repo does not show up as "already running".
       printf "\n"
       warn "If the error above mentions a port already allocated, another local"
-      warn "Supabase project owns the default ports (54321-54327). Either:"
+      warn "Supabase project owns this branch's ports (54521-54527). Either:"
       warn "  1. stop it:  cd <other-project> && supabase stop"
       warn "  2. or give THIS project its own ports in supabase/config.toml"
       warn "     (api.port, db.port, studio.port, ...) and re-run."
       printf "\n"
-      docker ps --filter "publish=54322" --format '  holding 54322: {{.Names}}' 2>/dev/null || true
+      docker ps --filter "publish=54522" --format '  holding 54322: {{.Names}}' 2>/dev/null || true
       die "supabase start failed"
     fi
     ok "Supabase started"
@@ -176,7 +176,7 @@ if [ "$USE_DB" -eq 1 ]; then
   API_URL="$(get_status API_URL)"
   PUBLISHABLE="$(get_status PUBLISHABLE_KEY)"
   SECRET="$(get_status SECRET_KEY)"
-  [ -n "$API_URL" ] || API_URL="http://127.0.0.1:54321"
+  [ -n "$API_URL" ] || API_URL="http://127.0.0.1:54521"
 
   if [ -n "$PUBLISHABLE" ] && [ -n "$SECRET" ]; then
     set_env SUPABASE_URL "$API_URL"
@@ -213,6 +213,8 @@ fi
 
 step "Booting"
 
+VITE_PORT="$(sed -n 's/.*port: \([0-9]\{4\}\),.*/\1/p' frontend/vite.config.ts | head -1)"
+[ -n "$VITE_PORT" ] || VITE_PORT=5173
 BACKEND_PORT="$(read_env BACKEND_PORT)"
 [ -n "$BACKEND_PORT" ] || BACKEND_PORT=8000
 
@@ -248,9 +250,9 @@ while [ "$i" -lt 20 ]; do
 done
 
 printf "\n  %sStack is up%s\n" "$BOLD" "$OFF"
-printf "  %sapp%s              http://localhost:5173\n" "$GREEN" "$OFF"
+printf "  %sapp%s              http://localhost:%s\n" "$GREEN" "$OFF" "$VITE_PORT"
 printf "  %sapi docs%s         http://127.0.0.1:%s/docs\n" "$GREEN" "$OFF" "$BACKEND_PORT"
-printf "  %ssupabase studio%s  http://127.0.0.1:54323\n" "$GREEN" "$OFF"
+printf "  %ssupabase studio%s  http://127.0.0.1:54523\n" "$GREEN" "$OFF"
 printf "\n  %sCtrl-C stops both servers.%s\n\n" "$DIM" "$OFF"
 
 (cd frontend && exec npm run dev)

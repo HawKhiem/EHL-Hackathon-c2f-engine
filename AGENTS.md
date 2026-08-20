@@ -3,6 +3,8 @@
 Instructions for coding agents (Claude Code, Codex, Cursor) working in this repo.
 Humans: read `README.md` first, then this.
 
+**This is the `track/viktor` branch.** Read [TRACK.md](TRACK.md) for the design language, this branch's ports, and the kick-off checklist. The real brief goes in [CHALLENGE.md](CHALLENGE.md) and outranks any guess in TRACK.md.
+
 ---
 
 ## What this is
