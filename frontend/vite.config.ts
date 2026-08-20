@@ -11,10 +11,10 @@ export default defineConfig({
     alias: { "@": path.resolve(import.meta.dirname, "./src") },
   },
   server: {
-    port: 5173,
+    port: 5175,
     proxy: {
       "/api": {
-        target: process.env.BACKEND_URL ?? "http://127.0.0.1:8000",
+        target: process.env.BACKEND_URL ?? "http://127.0.0.1:8002",
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/api/, ""),
       },

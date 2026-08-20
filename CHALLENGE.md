@@ -8,7 +8,7 @@
 
 ## Track / partner
 
-<!-- Which challenge track this repo is for. -->
+**Cognition**
 
 ## The brief, verbatim
 
