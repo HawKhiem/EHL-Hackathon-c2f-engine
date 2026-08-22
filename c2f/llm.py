@@ -34,7 +34,7 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
    If the item is not covered OR not related, set t_low = t_mid = t_high = 0 and put
    your estimate of what the item WOULD cost if it were payable into t_if_covered.
 
-Be concrete and decisive. Think briefly, then answer with ONLY a JSON object of this
+Be concrete, decisive and FAST (you have 30 seconds). Do not deliberate; answer with ONLY a JSON object of this
 exact shape and nothing else (no markdown fences):
 
 {
@@ -42,7 +42,6 @@ exact shape and nothing else (no markdown fences):
   "items": [
     {
       "index": 1,
-      "description": "line item text as on the invoice",
       "covered": true,
       "related": true,
       "clause": "policy clause relied on, e.g. '4. Amount of indemnity'",
@@ -50,7 +49,7 @@ exact shape and nothing else (no markdown fences):
       "t_mid": 420,
       "t_high": 450,
       "t_if_covered": 0,
-      "reason": "one sentence"
+      "reason": "max 12 words"
     }
   ]
 }
@@ -109,7 +108,7 @@ def _mock(case: dict) -> dict:
 def _call_anthropic(case: dict, model: str, timeout: float) -> str:
     import anthropic
 
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"], timeout=timeout, max_retries=1)
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"], timeout=timeout, max_retries=0)
     content: list[dict] = [{"type": "text", "text": build_user_message(case)}]
     for img in case.get("images", []):
         content.append(
@@ -136,7 +135,7 @@ def _call_anthropic(case: dict, model: str, timeout: float) -> str:
 def _call_openai(case: dict, model: str, timeout: float) -> str:
     from openai import OpenAI
 
-    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=1)
+    client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
     content: list[dict] = [{"type": "text", "text": build_user_message(case)}]
     for img in case.get("images", []):
         content.append(
@@ -144,7 +143,8 @@ def _call_openai(case: dict, model: str, timeout: float) -> str:
         )
     kwargs: dict = {}
     if model.startswith(("gpt-5", "o")):
-        kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING", "low")
+        default = "minimal" if "mini" in model or "nano" in model else "low"
+        kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING_FAST" if default == "minimal" else "C2F_REASONING", default)
     resp = client.chat.completions.create(
         model=model,
         messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": content}],

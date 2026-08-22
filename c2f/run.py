@@ -21,8 +21,8 @@ from c2f.price import price_all
 from c2f.submit import ROOT, fetch_case, submit
 
 DEADLINE_S = 53.0  # clock restarts after decrypt (~1-3 s), server closes at 60 s after key release
-FULL_TIMEOUT_S = 40.0
-FAST_TIMEOUT_S = 25.0
+FULL_TIMEOUT_S = 50.0
+FAST_TIMEOUT_S = 45.0
 
 
 def log(msg: str, t0: float) -> None:
