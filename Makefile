@@ -18,7 +18,7 @@ define push_log
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check mock test $(GAMES)
+.PHONY: play check mock test fb $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
@@ -37,3 +37,9 @@ mock:
 
 test:
 	$(PY) -m pytest -q tests
+
+# Digest a finished game from the public leaderboard: inferred t bounds, our verdicts
+#   make fb G=2
+fb:
+	@test -n "$(G)" || { echo "usage: make fb G=<game_id>"; exit 1; }
+	$(PY) -m c2f.feedback $(G)

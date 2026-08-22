@@ -34,11 +34,9 @@ def transactions(game_id: int, team: str) -> list[dict]:
 
 
 def digest(game_id: int) -> dict:
+    """amount in the feed is the PAYOUT: accepted -> min(a, c); rejected -> a if fair (a <= t) else 0."""
     names = teams()
-    issued: dict[str, dict[int, float]] = collections.defaultdict(dict)
-    accepted: dict[str, dict[int, list]] = collections.defaultdict(lambda: collections.defaultdict(list))
-    b_lo: dict[str, dict[int, float]] = collections.defaultdict(dict)  # reviewer accepted a -> b >= a
-    b_hi: dict[str, dict[int, float]] = collections.defaultdict(dict)  # reviewer rejected a -> b < a
+    pay: dict[str, dict[int, list]] = collections.defaultdict(lambda: collections.defaultdict(list))  # issuer -> item -> [(reviewer, accepted, payout)]
     seen = set()
     for t in names:
         for x in transactions(game_id, t):
@@ -46,16 +44,46 @@ def digest(game_id: int) -> dict:
             if key in seen:
                 continue
             seen.add(key)
-            i, a = x["line_item_index"], x["amount"]
-            issued[x["issuer"]][i] = a
-            accepted[x["issuer"]][i].append(x["accepted"])
-            rv = x["reviewer"]
-            if x["accepted"]:
-                b_lo[rv][i] = max(b_lo[rv].get(i, 0.0), a)
-            elif a > 0:
-                b_hi[rv][i] = min(b_hi[rv].get(i, float("inf")), a)
-    items = sorted({i for t in issued for i in issued[t]})
-    return {"teams": names, "items": items, "issued": issued, "accepted": accepted, "b_lo": b_lo, "b_hi": b_hi}
+            pay[x["issuer"]][x["line_item_index"]].append((x["reviewer"], bool(x["accepted"]), float(x["amount"])))
+    items = sorted({i for t in pay for i in pay[t]})
+    issued: dict[str, dict[int, float | None]] = collections.defaultdict(dict)  # best guess of a
+    fair: dict[str, dict[int, bool | None]] = collections.defaultdict(dict)    # a <= t ?
+    t_lo: dict[int, float] = {i: 0.0 for i in items}
+    t_hi: dict[int, float] = {i: float("inf") for i in items}
+    for iss in names:
+        for i in items:
+            rows = pay[iss].get(i, [])
+            acc_pay = [p for _, a, p in rows if a]
+            rej_pay = [p for _, a, p in rows if not a]
+            a_guess = max(acc_pay) if acc_pay else (max(rej_pay) if rej_pay and max(rej_pay) > 0 else None)
+            issued[iss][i] = a_guess
+            if rej_pay:
+                if max(rej_pay) > 0:
+                    fair[iss][i] = True
+                    t_lo[i] = max(t_lo[i], max(rej_pay))
+                elif a_guess and a_guess > 0:
+                    fair[iss][i] = False
+                    t_hi[i] = min(t_hi[i], a_guess)
+                elif not acc_pay:
+                    fair[iss][i] = None  # rejected everywhere with 0: fraud, but a unknown (>0) or a=0
+            else:
+                fair[iss][i] = None
+    # reviewer limits: accepted a -> b >= a ; rejected a -> b < a
+    b_lo: dict[str, dict[int, float]] = collections.defaultdict(dict)
+    b_hi: dict[str, dict[int, float]] = collections.defaultdict(dict)
+    for iss in names:
+        for i in items:
+            a = issued[iss][i]
+            for rv, acc, _ in pay[iss].get(i, []):
+                if a is None:
+                    continue
+                if acc:
+                    b_lo[rv][i] = max(b_lo[rv].get(i, 0.0), a)
+                elif a > 0:
+                    b_hi[rv][i] = min(b_hi[rv].get(i, float("inf")), a)
+    accepted = {iss: {i: [a for _, a, _ in pay[iss].get(i, [])] for i in items} for iss in names}
+    return {"teams": names, "items": items, "issued": issued, "fair": fair, "t_lo": t_lo, "t_hi": t_hi,
+            "accepted": accepted, "b_lo": b_lo, "b_hi": b_hi, "pay": pay}
 
 
 def our_team(game_id: int, d: dict) -> str | None:
@@ -68,35 +96,71 @@ def our_team(game_id: int, d: dict) -> str | None:
     subs = [s for s in rec.get("submissions", []) if isinstance(s.get("response"), list)]
     if not subs:
         return None
-    ours = {r["index"]: r["charge_price"] for r in subs[-1]["rows"]}
+    ours_a = {r["index"]: r["charge_price"] for r in subs[-1]["rows"]}
+    ours_b = {r["index"]: r["acceptance_limit"] for r in subs[-1]["rows"]}
     best, best_n = None, -1
     for t in d["teams"]:
-        n = sum(1 for i, a in ours.items() if abs(d["issued"][t].get(i, -1) - a) < 0.01)
+        n = 0
+        for i in ours_a:
+            a = d["issued"][t].get(i)
+            if a is not None and abs(a - ours_a[i]) < 0.01:
+                n += 2
+            lo, hi = d["b_lo"][t].get(i, 0.0), d["b_hi"][t].get(i, float("inf"))
+            if lo <= ours_b[i] < hi:
+                n += 1
         if n > best_n:
             best, best_n = t, n
-    return best if best_n >= max(1, len(ours) // 2) else None
+    return best if best_n >= len(ours_a) else None
 
 
 def main(game_id: int) -> None:
     d = digest(game_id)
     us = our_team(game_id, d)
     print(f"game {game_id}: {len(d['teams'])} teams, items {d['items']}   us = {us or '?'}")
+    ours = None
+    p = ROOT / "runs" / f"game_{game_id:02d}.json"
+    if p.exists():
+        rec = json.loads(p.read_text())
+        subs = [s for s in rec.get("submissions", []) if isinstance(s.get("response"), list)]
+        if subs:
+            ours = {r["index"]: r for r in subs[-1]["rows"]}
+    print(f"{'item':>4} {'t_lo':>7} {'t_hi':>7} {'mkt_med':>7} | {'our a':>7} {'our b':>7}  verdict")
     for i in d["items"]:
-        charges = [(d["issued"][t].get(i, 0.0), t) for t in d["teams"]]
-        nonzero = [a for a, _ in charges if a > 0]
-        med = median(nonzero) if nonzero else 0.0
-        print(f"\n# item {i}: market median a = {med:.0f}  ({len(nonzero)} teams charged > 0)")
-        for a, t in sorted(charges, reverse=True):
-            acc = d["accepted"][t][i]
-            lo, hi = d["b_lo"][t].get(i), d["b_hi"][t].get(i)
-            b_txt = f"b in [{lo if lo is not None else 0:.0f}, {hi if hi is not None else float('inf'):.0f})"
-            mark = " <== us" if t == us else ""
-            print(f"   {t:22s} a={a:8.1f}  accepted {sum(acc):2d}/{len(acc):2d}   {b_txt}{mark}")
+        charges = [a for t in d["teams"] for a in [d["issued"][t].get(i)] if a]
+        med = median(charges) if charges else 0.0
+        lo, hi = d["t_lo"][i], d["t_hi"][i]
+        if ours and i in ours:
+            a, b = ours[i]["charge_price"], ours[i]["acceptance_limit"]
+            v = []
+            if a > 0 and hi < float("inf") and a >= hi:
+                v.append("a TOO HIGH (fraud)")
+            if a > 0 and a <= lo and lo > 0:
+                v.append("a fair")
+            if b < lo:
+                v.append("b TOO LOW (penalties)")
+            if hi < float("inf") and b >= hi:
+                v.append("b too high (paid fraud)")
+            a_s, b_s, v_s = f"{a:7.1f}", f"{b:7.1f}", ", ".join(v) or "-"
+        else:
+            a_s = b_s = "      ?"
+            v_s = "-"
+        print(f"{i:>4} {lo:7.0f} {hi if hi < float('inf') else 0:7.0f} {med:7.0f} | {a_s} {b_s}  {v_s}")
+    print("\n(t_hi 0 = unknown)  per item, charges by team (a, fair?, accepted):")
+    for i in d["items"]:
+        cells = []
+        for t in d["teams"]:
+            a = d["issued"][t].get(i)
+            if a:
+                f = d["fair"][t].get(i)
+                acc = d["accepted"][t][i]
+                cells.append(f"{t[:12]}={a:.0f}{'✓' if f else ('✗' if f is False else '?')}({sum(acc)}/{len(acc)})")
+        print(f"  #{i}: " + "  ".join(cells))
     if us:
         perf = requests.get(f"{B}/performance", params={"team": us}, timeout=15).json()
         print("\nour performance so far:", json.dumps(perf))
     out = ROOT / "runs" / f"feedback_game_{game_id:02d}.json"
-    out.write_text(json.dumps({k: v for k, v in d.items()}, indent=1, default=str))
+    slim = {k: v for k, v in d.items() if k != "pay"}
+    out.write_text(json.dumps(slim, indent=1, default=str))
     print(f"saved {out.relative_to(ROOT)}")
 
 
