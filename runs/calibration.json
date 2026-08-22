@@ -1,10 +1,10 @@
 {
- "bias": 0.925,
- "sigma": 0.73,
+ "bias": 0.956,
+ "sigma": 0.76,
  "p0": 0.31,
  "k": 0.5,
- "n_labels": 45,
- "n_coverage_misses": 11,
+ "n_labels": 46,
+ "n_coverage_misses": 12,
  "n_accept_points": 85,
  "labels": [
   {
@@ -321,6 +321,13 @@
    "t_lo": 87.3,
    "t_hi": 113.4,
    "t_mid": 240.0
+  },
+  {
+   "game": 10,
+   "item": 4,
+   "t_lo": 404.11,
+   "t_hi": null,
+   "t_mid": 200.0
   }
  ]
 }
