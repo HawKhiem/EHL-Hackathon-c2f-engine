@@ -320,3 +320,94 @@ hostile question because it is a theorem rather than a heuristic.
 
 The write-up's spine is the layer separation: semantic reasoning != probability estimation
 != decision making. Everything else is detail.
+
+---
+
+## 12. What case 0 taught us
+
+Case 0 is a single line item, `New Bike`, quantity 1. The whole case turns on
+policy section 4: the insurer reimburses **the market value at the time of the
+theft**, and the description states that value as EUR 420. Cover conditions are
+met (locked to a lamp post) and no exclusion applies. So `t = 420`, and an
+invoice line reading "New Bike" is worth EUR 420 rather than a new bicycle's
+price. QuantCo's own starter script hints at it: its placeholder values are
+`charge_price = 410`, `acceptance_limit = 430`.
+
+Scored offline against a field of five plausible opponents (`decision/payoff.py`,
+which reproduces the brief's worked example exactly):
+
+| strategy | a | b | net |
+|---|---|---|---|
+| oracle (knows `t`) | 420.00 | 420.00 | **+1280** |
+| ours, confident belief | 418.65 | 420.53 | **+1273** |
+| the `c2f/` engine's mock belief (380/420/450) | 402.50 | 410.55 | +983 |
+| ours, tight belief (+-6%) | 382.83 | 413.99 | +884 |
+| ours, heuristic fallback | 356.46 | 45.35 | +552 |
+| ours, loose belief (+-25%) | 330.02 | 389.66 | +420 |
+| ours, missed the clause | 659.33 | 692.63 | -161 |
+| naive, prices a new bike | 800.00 | 900.00 | -820 |
+
+Three conclusions, all of which changed the code:
+
+**The decision layer is not the bottleneck.** Given a correct belief it lands
+within 0.5% of an oracle that knows `t`. Every remaining euro is in the semantic
+layer. Effort goes there.
+
+**The pricing call needs the policy.** An earlier version withheld it, reasoning
+that a policy says nothing about market rates. That reasoning is wrong: the
+basis-of-indemnity clause *is* the price, and it outweighs any market estimate.
+Withholding it is the difference between +1273 and -161 on this case. The pricing
+prompt now leads with "find the basis of indemnity and apply THAT basis, not the
+wording of the invoice line".
+
+**A stated value must collapse the spread.** The `tight (+-6%)` row loses EUR 396
+against the oracle, and EUR 210 of that is one error: `b = 413.99` sits EUR 6
+below `t`, so it wrongfully rejects a fair EUR 420 charge and pays the 1.5x
+penalty. When the documents state the amount, hedging the range is not caution -
+it is the expensive choice. The prompt now asks for a near-zero spread in that
+case, and the `confident` row is what that produces. This applies to any
+implementation using a 1/3-quantile rule, including the `c2f/` engine: its
+triangular belief puts `b` below its own mid by construction, so a spread wider
+than reality is what costs it the 210.
+
+## 13. Confirmed API constraints
+
+- Line items are addressed by `index`, the invoice POS column. Never renumber.
+- **There is no results endpoint.** List games, fetch key, submit - that is all.
+  Per-matchup outcomes are not exposed, so Branch A of section 6 is unavailable
+  and the two global knobs are the learning mechanism. The leaderboard is the
+  only feedback channel.
+- Omitted line items default to `0 / 0` and still participate, so every parsed
+  item must appear in the payload. `b = 0` on a covered item pays the penalty to
+  every opponent.
+- 101 games exist (0-100). Game 0 is a permanent test game.
+- Archives are AES-256 zips. We read them with `pyzipper` rather than shelling
+  out to 7z: no per-machine install, no subprocess in the 60-second window. 7z is
+  not installed on at least one team machine, so the subprocess path fails there.
+
+## 14. Two engines currently live in this repo
+
+| | `backend/app/c2f/` (this design) | `c2f/` (the other engine) |
+|---|---|---|
+| LLM calls | 3 concurrent, structured | 1 call, fast+full passes |
+| belief | 5-knot ladder, log-space, lognormal tails | triangular `t_low/t_mid/t_high` |
+| `a` | `argmax a*S(a)` | `t_mid * (1 - 0.25 * spread)`, floored at `t_low` |
+| `b` | `Q(1 - (2/3)/p_valid)`, exact | `tri_quantile(.., 1/3)` |
+| decrypt | `pyzipper`, in-process | subprocess |
+| entry point | `python -m app.c2f.run` | `make <game_id>` |
+| offline scorer | `decision/payoff.py` | none |
+
+They agree on the economics that matter - the 2/3 rule, `b = 0` when uncovered,
+still charging on an uncovered item - which is a good sign for both.
+
+Two differences are substantive rather than cosmetic:
+
+* `a = t_mid * (1 - K * spread)` can never exceed `t_mid`. That forgoes R2: when
+  our belief is genuinely wide the revenue-maximising charge sits *above* the
+  median, and it forgoes the fraud-zone term entirely.
+* Only this design has an offline scorer, so only this one can answer "would that
+  change have made us money on the cases we have already seen".
+
+**Pick one before a live round.** Two submit paths for one team, with
+last-write-wins semantics and a 60-second window, is a way to lose a round to a
+race between our own processes.

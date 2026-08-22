@@ -42,6 +42,12 @@ class Settings(BaseSettings):
     llm_rate_limit_times: int = 20
     llm_rate_limit_seconds: int = 60
 
+    # ---------- QuantCo Claim to Fame ----------
+    # Team key from the organisers. Holding it is enough to submit on our
+    # behalf, so it is backend-only and never prefixed VITE_.
+    team_api_key: str = ""
+    c2f_base_url: str = "https://c2f.public.quantco.cloud"
+
     # ---------- Server ----------
     backend_host: str = "127.0.0.1"
     backend_port: int = 8000
@@ -65,6 +71,11 @@ class Settings(BaseSettings):
     @property
     def supabase_configured(self) -> bool:
         return bool(self.supabase_url and self.supabase_secret_key)
+
+    @property
+    def c2f_configured(self) -> bool:
+        """False means we can analyse a case but cannot submit for it."""
+        return bool(self.team_api_key and self.c2f_base_url)
 
 
 @lru_cache

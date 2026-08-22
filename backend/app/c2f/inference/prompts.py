@@ -8,6 +8,11 @@ Design rules these encode:
 * `p_valid` is asked for **jointly**. `p_covered * p_related` understates it
   because the two are strongly dependent.
 * Prices are asked for **per unit**. The quantity multiply happens in code.
+* The pricing call **gets the policy**. An early version withheld it on the
+  reasoning that a policy says nothing about market rates. Case 0 disproves
+  that: its section 4 pays market value at the time of theft, so a line
+  reading "New Bike" is worth EUR 420, not the price of a new bicycle. The
+  basis of indemnity *is* the price, and it outweighs any market estimate.
 * No prompt is told about `a`, `b`, the 2/3 rule, or the payoff table. The
   semantic layer answers "what do the documents imply"; the decision is not its
   business, and telling it about the incentives only invites it to skew the
@@ -47,25 +52,40 @@ Return ONLY a JSON array, one object per line item, no prose:
 """
 
 PRICING_SYSTEM = """\
-You are a German repair-cost assessor (Sachverständiger) pricing trade work.
+You are a senior insurance claims assessor deciding what a line item is WORTH \
+under a specific policy. You are not quoting a shop price - you are setting the \
+amount the insurer owes.
 
-For each invoice line item, give the plausible range of a FAIR market price. \
-Assume the item is legitimate and necessary - somebody else judges that.
+Work in this order:
+
+1. Find the policy's BASIS OF INDEMNITY - the clause saying what it pays. It is \
+usually one of: market value at the time of loss, replacement cost (new for old), \
+repair cost, or depreciated value. Apply THAT basis, not the wording of the \
+invoice line. An invoice line reading "New Bike", under a policy that reimburses \
+the market value at the time of the theft, is worth that market value - not the \
+price of a new bicycle.
+2. If the documents STATE the relevant amount (a stated value, an appraisal, a \
+sum insured, a purchase price with a date), that figure is the answer. Anchor on \
+it and make the spread NEARLY ZERO - put all five quantiles within a couple of \
+percent of each other. Do not widen the range to hedge; a stated value is the \
+strongest evidence you will get.
+3. Otherwise estimate from the market, and let the spread reflect your genuine \
+uncertainty: narrow for a commodity part you know well, wide for a vague \
+description.
+4. Apply any sum insured or deductible the policy states.
 
 Rules:
 - Price ONE UNIT of the item, not the whole line. Ignore the quantity entirely.
 - For labour lines, one unit is one hour (or whatever unit is stated).
-- Include applicable VAT in the figures.
-- Prices are in EUR.
-- q10 is a cheap-but-real price, q50 a typical workshop price, q90 an expensive \
-but still defensible one. Make the spread reflect your actual uncertainty: narrow \
-for a commodity part you know well, wide for a vague description.
+- Include applicable VAT in the figures. Prices are in EUR.
+- q10 is a defensibly low figure, q50 your best single estimate, q90 a defensibly high one.
 
 Return ONLY a JSON array, one object per line item, no prose:
 [
   {
     "item_id": "<exactly the id given to you>",
     "q10": 0, "q25": 0, "q50": 0, "q75": 0, "q90": 0,
+    "indemnity_basis": "<the clause you applied>",
     "unit_basis": "<what one unit is>",
     "price_basis": "<one sentence on where the number comes from>",
     "confidence": "high|medium|low"
@@ -117,8 +137,9 @@ def case_context(
 ) -> str:
     """One user message carrying the whole case.
 
-    `include_policy` is off for the pricing call: the policy says nothing about
-    market rates, and dropping it keeps that prompt short and fast.
+    `include_policy` exists to drop the policy block, but nothing does that now:
+    the pricing call needs it too, because the basis-of-indemnity clause sets the
+    price. See the module docstring.
     """
     blocks: list[str] = []
     if include_policy and policy.strip():

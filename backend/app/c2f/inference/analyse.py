@@ -117,7 +117,12 @@ async def analyse_case(
         return AnalysisResult([], {}, 0.0)
 
     validity_user = case_context(bundle.items, policy=bundle.policy, description=bundle.description)
-    pricing_user = case_context(bundle.items, description=bundle.description, include_policy=False)
+    # Pricing gets the policy too. An earlier version withheld it, reasoning
+    # that a policy says nothing about market rates. Case 0 disproves that: its
+    # basis-of-indemnity clause pays market value at the time of theft, so a
+    # line reading "New Bike" is worth EUR 420 rather than a new bicycle's
+    # price. The clause *is* the price, and it outweighs any market estimate.
+    pricing_user = validity_user
 
     tasks = [
         _call(

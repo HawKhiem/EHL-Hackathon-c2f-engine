@@ -31,6 +31,17 @@ class LineItem:
     quantity: float = 1.0
     unit: str | None = None
     raw_text: str | None = None
+    #: The POS column, which is what the submission API calls `index`. Never
+    #: renumbered: the server matches our prices to line items by this.
+    index: int = 0
+
+    @property
+    def submission_index(self) -> int:
+        """`index` if parsed, else a best effort at reading it off `item_id`."""
+        if self.index:
+            return self.index
+        digits = "".join(c for c in self.item_id if c.isdigit())
+        return int(digits) if digits else 0
 
 
 @dataclass(frozen=True, slots=True)

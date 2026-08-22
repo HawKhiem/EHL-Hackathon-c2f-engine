@@ -66,11 +66,18 @@ class ScriptedProvider:
 
     @staticmethod
     def _which(system: str) -> str:
-        if "claims examiner" in system:
+        """Route on each prompt's defining instruction, not its job title.
+
+        Titles are cosmetic and get reworded; these phrases are the reason each
+        prompt exists, so they cannot drift without the prompt changing purpose.
+        """
+        if "BOTH covered by the policy" in system:
             return "validity"
-        if "repair-cost assessor" in system:
+        if "BASIS OF INDEMNITY" in system:
             return "pricing"
-        return "skeptic"
+        if "adversarial claims auditor" in system:
+            return "skeptic"
+        raise AssertionError(f"unroutable system prompt: {system[:80]!r}")
 
 
 def bundle() -> CaseBundle:
@@ -268,3 +275,25 @@ def test_heuristic_inferences_are_submittable_with_no_model_at_all():
     assert [i.item_id for i in inferences] == ["1", "2"]
     assert all(i.degraded for i in inferences)
     assert all(i.unit_quantiles.q50 > 0 for i in inferences)
+
+
+@pytest.mark.asyncio
+async def test_the_pricing_call_receives_the_policy():
+    """Case 0's basis-of-indemnity clause sets the price, so pricing needs it.
+
+    Withholding the policy here cost EUR 1400 of net payoff on case 0 in offline
+    scoring: the model prices a new bicycle instead of the market value the
+    policy actually owes.
+    """
+    seen: dict[str, str] = {}
+
+    class Recorder(ScriptedProvider):
+        async def complete(self, messages, *, system=None, max_tokens=16_000):
+            seen[self._which(system or "")] = messages[0]["content"]
+            return await super().complete(messages, system=system, max_tokens=max_tokens)
+
+    provider = Recorder({"validity": "", "pricing": "", "skeptic": ""})
+    await analyse_case(bundle(), provider=provider)
+
+    assert "INSURANCE POLICY" in seen["pricing"]
+    assert "Comprehensive glass cover" in seen["pricing"]
