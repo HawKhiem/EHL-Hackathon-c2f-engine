@@ -146,7 +146,7 @@ def ask(rows: list[dict], model: str | None) -> dict:
 
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=180, max_retries=1)
     resp = client.chat.completions.create(
-        model=model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol",
+        model=model or os.environ.get("C2F_MODEL") or "gpt-5.6-terra",
         messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
         max_completion_tokens=6000,
     )

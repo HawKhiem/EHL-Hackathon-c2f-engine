@@ -6,7 +6,7 @@ caps, deductibles and exclusions at the end, so we ask the FASTEST model to pull
 and put them in FRONT of the verbatim text. The expensive pass then starts from the clauses
 that decide `covered` instead of having to find them.
 
-Cheap enough to run every game (~11-15 s on gpt-5.6-luna), but the game has a 60 s clock, so it is
+Cheap enough to run every game (~11-15 s), but the game has a 60 s clock, so it is
 best-effort by design: any failure or timeout means the run proceeds on the verbatim policy
 alone, which is still complete. run.py starts it in parallel and bounds the wait.
 """
@@ -20,8 +20,8 @@ from pathlib import Path
 from c2f.llm import _parse_json, provider
 
 # Fastest OpenAI model. Override with C2F_DIGEST_MODEL.
-FAST = {"openai": "gpt-5.6-luna"}
-TIMEOUT_S = 18.0  # gpt-5.6-luna needs 11-15 s on a 40-65k-char policy
+FAST = {"openai": "gpt-5.6-terra"}  # same model as the pricing passes; see c2f/llm.py
+TIMEOUT_S = 18.0  # needs 11-15 s on a 40-65k-char policy
 
 SYSTEM = """You are reading a German insurance policy for a claims expert who will decide,
 line by line, whether an invoice is payable. Extract ONLY the parts that BIND that decision.

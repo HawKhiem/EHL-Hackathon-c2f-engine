@@ -146,7 +146,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("game_id", type=int)
     ap.add_argument("--no-submit", action="store_true")
     ap.add_argument("--case-dir", type=Path, help="skip get_case.sh and use this folder")
-    ap.add_argument("--no-fast", action="store_true", help="skip the fast first pass")
+    # One pass by default. The fast pass was insurance from when the full pass ran on a
+    # slower model (gpt-5.6-sol, 7-35 s); now that everything is gpt-5.6-terra the full pass
+    # lands in 2-7 s and the second call bought a duplicate answer, not safety. --fast brings
+    # it back if a case ever runs long again.
+    ap.add_argument("--fast", dest="fast", action="store_true", help="also run the fast safety pass first")
+    ap.add_argument("--no-fast", dest="fast", action="store_false", help="skip the fast first pass (default)")
+    ap.set_defaults(fast=False)
     args = ap.parse_args(argv)
     try:
         llm.provider()  # fail before we touch the game if no LLM key is configured
@@ -193,7 +199,7 @@ def main(argv: list[str] | None = None) -> int:
         save()
         log(f"submitted [{tag}]: " + ", ".join(f"#{r['index']} a={r['charge_price']} b={r['acceptance_limit']}" for r in rows), t0)
 
-    # ---- MODEL: fast pass for safety, then ONE full pass that overwrites it. No votes.
+    # ---- MODEL: ONE pass. No votes, and no fast safety pass unless --fast is given.
     full_model = os.environ.get("C2F_MODEL")
     fast_model = os.environ.get("C2F_FAST_MODEL") or "gpt-5.6-terra"
 
@@ -207,11 +213,11 @@ def main(argv: list[str] | None = None) -> int:
     tags: dict = {}
     # fast + up to MAX_CHUNKS full chunks run at once; a pool of 2 would serialise the
     # chunks and defeat the split. (The policy digest lane is gone, so no slot for it.)
-    ex = ThreadPoolExecutor(max_workers=1 + MAX_CHUNKS)
+    ex = ThreadPoolExecutor(max_workers=(1 if args.fast else 0) + MAX_CHUNKS)
     try:
         # Fast pass and full pass start together; the fast pass is the safety net and must
         # not wait for anything. dict(case) so the two passes never share a mutable dict.
-        if not args.no_fast:
+        if args.fast:
             tags[ex.submit(run_model, fast_model, FAST_TIMEOUT_S, True, dict(case))] = "fast"
 
         budget = max(MIN_MODEL_S, DEADLINE_S - (time.time() - t0))

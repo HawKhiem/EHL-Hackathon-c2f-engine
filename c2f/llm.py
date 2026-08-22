@@ -1,4 +1,4 @@
-"""One model call per case. OpenAI only (default model gpt-5.6-sol, override C2F_MODEL).
+"""One model call per case. OpenAI only (default model gpt-5.6-terra, override C2F_MODEL).
 
 The model sees policy + description + invoice verbatim and returns JSON.
 """
@@ -12,6 +12,7 @@ import re
 import time
 
 from c2f.env import load_dotenv
+from c2f.history import HISTORY
 
 SYSTEM = """You are a senior insurance claims expert working in Germany. You assess invoices
 submitted after an insured event. For EVERY line item on the invoice you decide:
@@ -117,7 +118,10 @@ def build_user_message(case: dict, only: list[int] | None = None, sweep: bool = 
         else ""
     )
     return (
-        digest_txt
+        # Past rounds' recovered t brackets (c2f.history). Evidence for the size of a number,
+        # in front of the case so it frames the reading rather than second-guessing it after.
+        HISTORY
+        + digest_txt
         + f"<policy>\n{case['policy']}\n</policy>\n\n"
         f"<damage_description>\n{case['description']}\n</damage_description>\n\n"
         f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n"
@@ -218,7 +222,12 @@ def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, str
     prov = provider()
     t0 = time.time()
     system = SYSTEM + (STRICT_SUFFIX if strict else "") + addendum()
-    model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
+    # One model for every pass. Paired on the 9 games where both ran on the same case and the
+    # same prompt (12,13,14,16,17,19,20,21,22, scored against runs/truth_game_*.json), terra and
+    # sol call coverage identically (89% each) and terra prices no worse (median |log t error|
+    # 0.33 vs 0.39) - at roughly a third of the latency (2.4 s vs 6.8 s on game 22), which inside
+    # a 60 s clock is the whole ballgame. No measured reason to pay for two.
+    model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-terra"
     raw = _call_openai(case, model, timeout, system, fast=strict, only=only, sweep=sweep)
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):

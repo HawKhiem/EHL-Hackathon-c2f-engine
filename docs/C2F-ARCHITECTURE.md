@@ -36,12 +36,16 @@ get_case.sh     policy text        covered? related?     a = charge         runs
 | PRICE | `c2f/price.py` | model JSON | `[{index, charge_price, acceptance_limit}]` |
 | OUT | `c2f/submit.py` | rows | `PUT /api/games/NN/submissions`, log in `runs/` |
 
-`c2f/run.py` orchestrates. A **fast** pass (small model) and the digest start together; the
-fast rows are submitted the moment they land. **One full** pass then runs with the digest
-attached and overwrites them — last write wins on the server. Its timeout is whatever is
-left of the ~53 s clock (floor `MIN_MODEL_S`). The fast answer is insurance against a slow
-or failed full pass, *not* a vote: it is never aggregated. If both fail, nothing is
-submitted and the exit code is 1 — fall back to `./submit.sh NN 1:A:B ...` by hand.
+`c2f/run.py` orchestrates. **One pass**, on one model (`gpt-5.6-terra` everywhere). Its
+timeout is whatever is left of the ~53 s clock (floor `MIN_MODEL_S`); over `CHUNK_ITEMS`
+items it is split into parallel chunks so a slow chunk costs only its own rows, and every
+submission still carries the full row set. If it fails, nothing is submitted and the exit
+code is 1 — fall back to `./submit.sh NN 1:A:B ...` by hand.
+
+The old **fast** safety pass (a second, smaller model submitted the moment it landed, never
+aggregated) is off by default and available behind `--fast`. It was insurance from when the
+full pass ran on `gpt-5.6-sol` at 7–35 s; on terra the single pass lands in 2–7 s, so the
+second call bought a duplicate answer rather than safety.
 
 ## How the input is structured
 
@@ -74,8 +78,7 @@ against the context window — and cutting one drops the tail, which is where th
 and caps live.
 
 They *are* long enough to bury the decisive clauses, so `c2f/policy.py` runs a
-pre-extraction pass on every game: one call to the **fastest** model (`claude-haiku-4-5` /
-`gpt-5.6-luna`, override `C2F_DIGEST_MODEL`, ~3 s) reads policy.txt and returns the parts that
+pre-extraction pass on every game: one call to the same model (`gpt-5.6-terra`, override `C2F_DIGEST_MODEL`) reads policy.txt and returns the parts that
 bind — insured event, conditions, limits, deductibles, exclusions, obligations — rendered
 into a `<policy_digest>` block placed *in front of* the verbatim text. It is a reading aid,
 never a replacement: the full policy is still in the prompt and the prompt says so.
@@ -95,6 +98,9 @@ unknown.
 Prompt layout (`llm.build_user_message`):
 
 ```
+<market_history> ... </market_history>   (c2f/history.py: t brackets the market actually accepted
+                                        in past rounds, by category and by repeated label; omitted
+                                        if there are no truth files)
 <policy_digest> ... </policy_digest>   (limits/exclusions pulled out; omitted if that call failed)
 <policy> ... </policy>
 <damage_description> ... </damage_description>
@@ -143,9 +149,9 @@ Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUAN
 |---|---|
 | `TEAM_API_KEY` | QuantCo team key (required) |
 | `OPENAI_API_KEY` | required — OpenAI is the only provider `c2f/llm.py` and `c2f/policy.py` support |
-| `C2F_MODEL` | full-pass model (default `gpt-5.6-sol`) |
+| `C2F_MODEL` | full-pass model (default `gpt-5.6-terra`) |
 | `C2F_FAST_MODEL` | fast-pass model (default `gpt-5.6-terra`) |
-| `C2F_DIGEST_MODEL` | policy-digest model (default `gpt-5.6-luna`) |
+| `C2F_DIGEST_MODEL` | policy-digest model (default `gpt-5.6-terra`) |
 | `C2F_REASONING` | OpenAI `reasoning_effort` for the full pass (default `low`; gpt-5.6 floor is `none`, not `minimal`) |
 
 ## Logs
@@ -162,7 +168,7 @@ accept limits, the inferred `t` bounds). Output: actual vs replayed net and rank
 pessimistic and optimistic where outcomes are open, `runs/backtest/summary.json`.
 The verdict — a positive expected net in a majority of games plus a positive total; money is the
 only gate, rank is reported (top-3 = `RANK_TARGET`) but never fails a run — is always over the
-**last 5** old games (`WINDOW`) = the 5 most recent completed
+**last 10** old games (`WINDOW`) = the 10 most recent completed
 games with a decrypted case; `make backtest G=...` replays only those games and re-scores the rest
 from their stored replays, and an old game with no stored replay counts as not won and is listed
 as `missing`. Running it is a judgement call, not a gate — a pre-commit hook used to enforce it

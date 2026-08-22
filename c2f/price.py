@@ -35,7 +35,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from statistics import NormalDist
 
-UNCOVERED_CHARGE = 0.6  # fraction of the would-be price we charge on uncovered items
+UNCOVERED_CHARGE = 0.9  # fraction of the would-be price we charge on uncovered items.
+# Raised from 0.6: over 19 labelled games (c2f.accuracy) 31 of the 101 items we zeroed were
+# proven covered by the market, against only 5 of 136 priced items proven worthless. Wrongly
+# rejected fraud costs the issuer nothing, so the only cost of charging near the full
+# would-be price on an uncovered item is zero - and the upside is the third of them we
+# excluded by mistake.
 B_QUANTILE = 0.27  # c2f.autotune over games 1-17: +1,801 vs 0.20, better in 8 games, worse in 4 (4,399 of it from game 17); backtest 13-17 still 4/5.
 # The earlier walk down from 0.27 to 0.18 (games 6-10) overshot slightly: the market's t now runs
 # ABOVE our t_mid (calibrated bias 1.19), so refused fair charges cost more than they used to.

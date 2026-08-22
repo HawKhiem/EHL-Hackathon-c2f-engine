@@ -76,9 +76,21 @@ def infer(game_id: int) -> dict[int, dict]:
     games = [g["id"] for g in requests.get(f"{B}/games?completed_only=true&page_size=200", timeout=15).json()["items"]]
     gi = games.index(game_id)
     net = {}
+    short = 0
     for t in names:
         for m in requests.get(f"{B}/matchup", params={"team": t}, timeout=15).json()["items"]:
-            net[(t, m["opponent"])] = m["cells"][gi]
+            # A matchup row can lag the completed-games list: right after a game closes the
+            # server may still serve cells without it (and a team that joined late is short
+            # from the other end). The pair equations only ever NARROW the direct payout
+            # bounds, so a missing cell costs precision, never correctness - skip it.
+            cells = m.get("cells") or []
+            if gi >= len(cells):
+                short += 1
+                continue
+            net[(t, m["opponent"])] = cells[gi]
+    if short:
+        print(f"note: {short} matchup row(s) have no cell for game {game_id} yet - "
+              f"using payout evidence only for those pairs (rerun `make truth G={game_id}` later to tighten)")
 
     items = sorted({x["line_item_index"] for x in tx_list})
     charges = {i: sorted({x["amount"] for x in tx_list if x["line_item_index"] == i and x["amount"] > 0}) for i in items}

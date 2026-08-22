@@ -2219,6 +2219,156 @@
    "t_mid": 0.0,
    "t_lo": 0.0,
    "t_hi": 22.51
+  },
+  {
+   "game": 19,
+   "item": 1,
+   "bucket": "diagnostic/inspect",
+   "description": "Leak detection and moisture survey, pool room to plant room",
+   "covered": true,
+   "t_mid": 520.0,
+   "t_lo": 714.76,
+   "t_hi": 824.5
+  },
+  {
+   "game": 19,
+   "item": 2,
+   "bucket": "restoration/repair",
+   "description": "Locate and repair separated pool supply connection (pool technology)",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 57.3
+  },
+  {
+   "game": 19,
+   "item": 3,
+   "bucket": "drying/remediation",
+   "description": "Vacuum standing water and technical drying of pool room, conservatory and plant room",
+   "covered": true,
+   "t_mid": 2600.0,
+   "t_lo": 682.23,
+   "t_hi": 1373.59
+  },
+  {
+   "game": 19,
+   "item": 4,
+   "bucket": "valuables",
+   "description": "Reinstate flooring, wall surfaces and skirting on the water's path",
+   "covered": true,
+   "t_mid": 4600.0,
+   "t_lo": 854.46,
+   "t_hi": 1242.0
+  },
+  {
+   "game": 19,
+   "item": 5,
+   "bucket": "other",
+   "description": "Final site cleaning",
+   "covered": true,
+   "t_mid": 280.0,
+   "t_lo": 176.75,
+   "t_hi": 219.85
+  },
+  {
+   "game": 19,
+   "item": 6,
+   "bucket": "restoration/repair",
+   "description": "Clean / dry conservatory rug",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 247.0,
+   "t_hi": null
+  },
+  {
+   "game": 19,
+   "item": 7,
+   "bucket": "diagnostic/inspect",
+   "description": "Inspect plant-room electrical systems and pool technology",
+   "covered": true,
+   "t_mid": 220.0,
+   "t_lo": 472.5,
+   "t_hi": null
+  },
+  {
+   "game": 19,
+   "item": 8,
+   "bucket": "restoration/repair",
+   "description": "Upgrade to high-quality natural stone floor",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 154.55,
+   "t_hi": 647.93
+  },
+  {
+   "game": 19,
+   "item": 9,
+   "bucket": "ancillary/call-out",
+   "description": "Vehicle costs",
+   "covered": true,
+   "t_mid": 65.0,
+   "t_lo": 24.28,
+   "t_hi": 33.46
+  },
+  {
+   "game": 20,
+   "item": 1,
+   "bucket": "other",
+   "description": "Air conditioning unit - living room (higher-output replacement, larger cooling capacity than the damaged one)",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 2345.0,
+   "t_hi": null
+  },
+  {
+   "game": 20,
+   "item": 2,
+   "bucket": "other",
+   "description": "Installation",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 431.52,
+   "t_hi": 510.0
+  },
+  {
+   "game": 20,
+   "item": 3,
+   "bucket": "electronics",
+   "description": "Decorative floor console (chosen for room appearance, not required by the new unit)",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 41.0
+  },
+  {
+   "game": 20,
+   "item": 4,
+   "bucket": "ancillary/call-out",
+   "description": "Freight shipping",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 34.18,
+   "t_hi": 43.6
+  },
+  {
+   "game": 20,
+   "item": 5,
+   "bucket": "ancillary/call-out",
+   "description": "Express delivery surcharge",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 41.0
+  },
+  {
+   "game": 20,
+   "item": 6,
+   "bucket": "ancillary/call-out",
+   "description": "Contractor administration fee",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 19.0
   }
  ]
 }

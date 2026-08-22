@@ -5,6 +5,7 @@
 #   make test          unit tests
 #   make learn G=7     after game 7 closes: infer t bounds + recalibrate bias/sigma/acceptance (commits+pushes)
 #   make truth G=7      infer fair-value bounds for finished game 7 -> runs/truth_game_07.json
+#   make history        the t ranges the market accepted, as shown to the model -> runs/market_history.txt
 #   make postmortem     attribute past rounds' losses to named causes, ranked by euros
 #   make autotune       propose constant changes from that, gated on the backtest (no writes)
 #   make propose        ask a model for a PROMPT rule from the same evidence (no writes)
@@ -13,8 +14,9 @@
 # (set PUSH=0 to skip). A failed run still commits its log. The truth inference is then
 # attempted too and runs/truth_game_NN.json committed if it succeeded (it needs the game
 # to show as completed on the leaderboard; rerun `make truth G=N` later otherwise).
-# When a truth file exists, the calibration is refit and runs/calibration.json committed
-# if it changed -- so `make learn` is only needed to redo this by hand.
+# When a truth file exists, the calibration is refit AND the market-history block the prompt
+# shows the model is regenerated; runs/calibration.json and runs/market_history.txt are
+# committed if they changed -- so `make learn` is only needed to redo this by hand.
 PY := pixi run python
 PUSH ?= 1
 # after a game, wait this long for it to close on the leaderboard before inferring truth
@@ -42,21 +44,23 @@ define push_truth
 	$(call push_calibration,$(1))
 endef
 
-# $(call push_calibration,<game>) recalibrates once game <game>'s truth file exists.
+# $(call push_calibration,<game>) recalibrates once game <game>'s truth file exists, and
+# refreshes the market-history snapshot the prompt shows the model (c2f.history).
 define push_calibration
 	@if [ -f runs/truth_game_$$(printf '%02d' $(1)).json ]; then \
 	  $(PY) -m c2f.calibrate || echo "warning: calibration failed"; \
-	  if [ "$(PUSH)" = "1" ] && [ -n "$$(git status --porcelain -- runs/calibration.json)" ]; then \
-	    git add runs/calibration.json \
-	    && git commit -q -m "calibration: after game $(1)" -- runs/calibration.json \
-	    && git push -q && echo "pushed runs/calibration.json" \
+	  $(PY) -m c2f.history >/dev/null || echo "warning: market history refresh failed"; \
+	  if [ "$(PUSH)" = "1" ] && [ -n "$$(git status --porcelain -- runs/calibration.json runs/market_history.txt)" ]; then \
+	    git add runs/calibration.json runs/market_history.txt \
+	    && git commit -q -m "calibration: after game $(1)" -- runs/calibration.json runs/market_history.txt \
+	    && git push -q && echo "pushed runs/calibration.json runs/market_history.txt" \
 	    || echo "warning: could not commit/push runs/calibration.json"; \
 	  fi; \
 	fi
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check test fb truth backtest replay rescore postmortem autotune tune propose stage unstage $(GAMES)
+.PHONY: play check test fb truth history backtest replay rescore postmortem autotune tune propose stage unstage $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
@@ -79,9 +83,10 @@ learn:
 	@test -n "$(G)" || { echo "usage: make learn G=<game_id>"; exit 1; }
 	$(PY) -m c2f.truth $(G)
 	$(PY) -m c2f.calibrate
+	$(PY) -m c2f.history >/dev/null
 	@if [ "$(PUSH)" = "1" ]; then \
-	  git add runs/truth_game_$$(printf '%02d' $(G)).json runs/calibration.json && \
-	  git commit -q -m "learn: game $(G) truth + calibration" -- runs/truth_game_$$(printf '%02d' $(G)).json runs/calibration.json && git push -q && echo "pushed" \
+	  git add runs/truth_game_$$(printf '%02d' $(G)).json runs/calibration.json runs/market_history.txt && \
+	  git commit -q -m "learn: game $(G) truth + calibration" -- runs/truth_game_$$(printf '%02d' $(G)).json runs/calibration.json runs/market_history.txt && git push -q && echo "pushed" \
 	  || echo "warning: could not commit/push"; \
 	fi
 
@@ -94,6 +99,12 @@ fb:
 truth:
 	@test -n "$(G)" || { echo "usage: make truth G=<game_id>"; exit 1; }
 	$(call push_truth,$(G),0)
+
+# The t ranges the market actually accepted, per category and per repeated line label, as the
+# block c2f/llm.py puts in front of every prompt. Refreshed automatically after every round
+# (push_calibration); run it by hand to see the block, or after back-filling old truth files.
+history:
+	$(PY) -m c2f.history
 
 # THE evaluation: replay the CURRENT strategy on past games against the real opponents
 # (uses feedback + truth + calibration as components; calls the model, ~40 s/game)
