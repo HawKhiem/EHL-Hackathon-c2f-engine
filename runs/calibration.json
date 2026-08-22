@@ -1,10 +1,10 @@
 {
- "bias": 1.374,
- "sigma": 0.99,
+ "bias": 1.329,
+ "sigma": 1.0,
  "p0": 0.29,
  "k": 0.6,
- "n_labels": 113,
- "n_coverage_misses": 36,
+ "n_labels": 119,
+ "n_coverage_misses": 38,
  "n_accept_points": 127,
  "labels": [
   {
@@ -796,6 +796,48 @@
    "item": 13,
    "t_lo": 58.4,
    "t_hi": 86.81,
+   "t_mid": 65.0
+  },
+  {
+   "game": 19,
+   "item": 1,
+   "t_lo": 714.76,
+   "t_hi": 824.5,
+   "t_mid": 520.0
+  },
+  {
+   "game": 19,
+   "item": 3,
+   "t_lo": 682.23,
+   "t_hi": 1373.59,
+   "t_mid": 2600.0
+  },
+  {
+   "game": 19,
+   "item": 4,
+   "t_lo": 854.46,
+   "t_hi": 1242.0,
+   "t_mid": 4600.0
+  },
+  {
+   "game": 19,
+   "item": 5,
+   "t_lo": 176.75,
+   "t_hi": 219.85,
+   "t_mid": 280.0
+  },
+  {
+   "game": 19,
+   "item": 7,
+   "t_lo": 472.5,
+   "t_hi": null,
+   "t_mid": 220.0
+  },
+  {
+   "game": 19,
+   "item": 9,
+   "t_lo": 24.28,
+   "t_hi": 33.46,
    "t_mid": 65.0
   }
  ]
