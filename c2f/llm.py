@@ -96,16 +96,8 @@ Every line item index that appears on the invoice MUST appear exactly once."""
 
 
 def build_user_message(case: dict, only: list[int] | None = None, sweep: bool = False) -> str:
-    items_txt = ""
-    if case.get("items"):
-        rows = "\n".join(
-            f"  {it['index']} | {it['description']} | {it['quantity']:g} {it['unit']}" for it in case["items"]
-        )
-        items_txt = (
-            "\n<parsed_line_items note=\"a mechanical parse of the invoice above, as a reading aid; it can be "
-            "INCOMPLETE - every POS. number that appears in the invoice text must be priced, whether or not it is "
-            "listed here\">\n" + rows + "\n</parsed_line_items>\n"
-        )
+    # No <parsed_line_items> block: the invoice is not line-parsed (see c2f.extract). The
+    # model reads the full pdf text and decides for itself what the line items are.
     meta = case.get("invoice_meta") or {}
     meta_txt = " ".join(f'{k}="{v}"' for k, v in meta.items())
     # A fast model's extract of the clauses that bind (c2f.policy). Absent if that call failed:
@@ -125,7 +117,6 @@ def build_user_message(case: dict, only: list[int] | None = None, sweep: bool = 
         + f"<policy>\n{case['policy']}\n</policy>\n\n"
         f"<damage_description>\n{case['description']}\n</damage_description>\n\n"
         f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n"
-        f"{items_txt}"
         # Chunking keeps the WHOLE policy and invoice in front of the model and narrows only
         # the answer. Splitting the context instead would cost the cross-item signal - a
         # duplicated line, or labour inconsistent with the parts fitted - which is exactly

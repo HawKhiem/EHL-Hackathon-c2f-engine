@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from c2f.extract import load_case, parse_items, parse_meta
+from c2f.extract import load_case, parse_meta, pdf_text
 
 CASE0 = Path(__file__).resolve().parents[1] / "cases" / "case_00"
 
@@ -24,19 +24,6 @@ Created on 21 Aug 2026 Page 1 / 1
 """
 
 
-def test_parse_items_sample():
-    items = parse_items(SAMPLE)
-    assert [i["index"] for i in items] == [1, 2, 3]
-    assert items[0] == {"index": 1, "description": "New Bike", "quantity": 1.0, "unit": "unit"}
-    assert items[1]["quantity"] == 2.5 and items[1]["unit"] == "hours"
-    assert "rear wheel" in items[1]["description"]
-    assert items[2]["unit"] == "pcs"
-
-
-def test_parse_items_unknown_layout_returns_empty():
-    assert parse_items("nothing like an invoice here") == []
-
-
 def test_parse_meta():
     m = parse_meta(SAMPLE)
     assert m["trade"] == "Bikeshop"
@@ -52,7 +39,9 @@ def test_load_case_0():
     c = load_case(CASE0, 0)
     assert "BICYCLE THEFT" in c["policy"]
     assert "420" in c["description"]
-    assert c["items"] == [{"index": 1, "description": "New Bike", "quantity": 1.0, "unit": "unit"}]
+    # The invoice is never line-parsed: the model reads c["invoice_text"] itself.
+    assert c["items"] == []
+    assert "New Bike" in c["invoice_text"]
     assert c["invoice_meta"]["trade"] == "Bikeshop"
     assert c["images"] == []
 
@@ -173,56 +162,3 @@ Created on 21 Aug 2026 Page 1 / 1
 """
 
 
-def test_parse_items_game5_multi_invoice_glued_qty_and_flat_rate():
-    items = parse_items(GAME5)
-    assert [i["index"] for i in items] == list(range(1, 18))
-    by = {i["index"]: i for i in items}
-    assert by[1]["description"].endswith("beneath the kitchen sink") and by[1]["quantity"] == 1 and by[1]["unit"] == "pcs"
-    assert by[3] == {"index": 3, "description": "Service technician hours", "quantity": 14.0, "unit": "hrs"}
-    assert by[5]["description"] == "Freeing the affected pipe run beneath the kitchen sink"
-    assert by[5]["quantity"] == 1.0 and by[5]["unit"] == "pcs"
-    assert by[8]["description"] == "Replacement copper pipe section and transition fittings"
-    assert by[8]["quantity"] == 1.0 and by[8]["unit"] == "flat rate"
-    assert by[13]["quantity"] == 3.0
-    assert by[15]["unit"] == "flat rate"
-    assert "Mar" not in by[5]["description"]
-
-
-def test_parse_items_game4_dash_dash_and_flat_rate():
-    items = parse_items(GAME4)
-    assert [i["index"] for i in items] == list(range(1, 16))
-    by = {i["index"]: i for i in items}
-    assert by[4]["description"].endswith("(physically surge- damaged)") and by[4]["unit"] == "flat rate"
-    assert by[5] == {"index": 5, "description": "HDMI cables and remote controls", "quantity": 0.0, "unit": "–"}
-    assert by[7]["quantity"] == 1.0 and by[7]["unit"] == "pcs"
-    assert by[12]["description"] == "Vehicle costs – return visit"
-    assert by[14]["unit"] == "flat rate"
-
-
-def test_parse_items_keeps_every_line_across_any_gap_in_the_numbering():
-    """Game 11: 1..11 then 13..23, no item 12. Gaps are the invoice's business - and the jump
-    is not capped: whatever the numbering does, every item line ends up in the list."""
-    rows = [f"{i} Item {i} 1 pcs" for i in list(range(1, 12)) + list(range(13, 24)) + [80, 200]]
-    text = "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n" + "\n".join(rows) + "\nINVOICE\n"
-    items = parse_items(text)
-    assert [i["index"] for i in items] == list(range(1, 12)) + list(range(13, 24)) + [80, 200]
-
-
-def test_parse_items_wrapped_quantity_line_is_not_a_new_item():
-    """No gap limit means "10 pcs" under item 2 could look like item 10; the glued-line test
-    must keep it as item 2's quantity."""
-    text = "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Sink 1 pcs\n2 Very long description of the tap\n10 pcs\n3 Hose 3 m\nINVOICE\n"
-    items = parse_items(text)
-    assert [i["index"] for i in items] == [1, 2, 3]
-    assert items[1]["quantity"] == 10.0 and items[1]["unit"] == "pcs"
-
-
-def test_parse_items_drops_a_truncated_parse_rather_than_pricing_half_an_invoice():
-    """We never skip items: an item line the walker missed invalidates the whole parse, so
-    run.py falls back to the model reading the raw invoice text."""
-    text = (
-        "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Sink 1 pcs\n5 Tap 1 pcs\n"
-        "3 Bathtub 1 pcs\n"  # numbering goes backwards: unreachable, and unmistakably an item
-        "INVOICE\n"
-    )
-    assert parse_items(text) == []
