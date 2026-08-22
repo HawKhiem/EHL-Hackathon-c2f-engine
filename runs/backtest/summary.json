@@ -1,57 +1,15 @@
 {
  "team": "AsianSuperNerds",
  "games": {
-  "10": {
-   "actual_net": -63286.91,
-   "actual_rank": 14,
-   "pess_net": 12790.85,
-   "pess_rank": 7,
-   "opt_net": 12858.05,
-   "opt_rank": 7,
-   "exp_net": 12824.45,
-   "exp_rank": 7,
-   "best_team": "OPUSMOPUS",
-   "best_net": 82604.095,
-   "n_teams": 17,
-   "replayed_now": false
-  },
-  "11": {
-   "actual_net": -21352.615,
-   "actual_rank": 13,
-   "pess_net": 1908.19,
-   "pess_rank": 7,
-   "opt_net": 3697.86,
-   "opt_rank": 7,
-   "exp_net": 2803.03,
-   "exp_rank": 7,
-   "best_team": "TakeTheMoneyAndRun",
-   "best_net": 23176.850000000002,
-   "n_teams": 17,
-   "replayed_now": false
-  },
-  "12": {
-   "actual_net": 21076.375,
-   "actual_rank": 2,
-   "pess_net": -29786.44,
-   "pess_rank": 13,
-   "opt_net": 34794.3,
-   "opt_rank": 1,
-   "exp_net": 2503.93,
-   "exp_rank": 5,
-   "best_team": "eyay",
-   "best_net": 25778.319999999992,
-   "n_teams": 17,
-   "replayed_now": false
-  },
   "13": {
    "actual_net": -9362.599999999999,
    "actual_rank": 15,
-   "pess_net": -7536.12,
-   "pess_rank": 14,
-   "opt_net": -1842.1,
-   "opt_rank": 8,
-   "exp_net": -4689.11,
-   "exp_rank": 11,
+   "pess_net": -6381.81,
+   "pess_rank": 12,
+   "opt_net": 1025.47,
+   "opt_rank": 5,
+   "exp_net": -2678.17,
+   "exp_rank": 9,
    "best_team": "Codacabana",
    "best_net": 6206.045000000002,
    "n_teams": 17,
@@ -70,40 +28,82 @@
    "best_net": 1685.435,
    "n_teams": 17,
    "replayed_now": false
+  },
+  "15": {
+   "actual_net": -4868.870000000003,
+   "actual_rank": 8,
+   "pess_net": -2156.79,
+   "pess_rank": 7,
+   "opt_net": 8056.27,
+   "opt_rank": 4,
+   "exp_net": 2949.74,
+   "exp_rank": 5,
+   "best_team": "eyay",
+   "best_net": 15740.68,
+   "n_teams": 17,
+   "replayed_now": false
+  },
+  "16": {
+   "actual_net": 690.0,
+   "actual_rank": 2,
+   "pess_net": 570.0,
+   "pess_rank": 5,
+   "opt_net": 870.0,
+   "opt_rank": 2,
+   "exp_net": 720.0,
+   "exp_rank": 2,
+   "best_team": "error404 ai",
+   "best_net": 1578.32,
+   "n_teams": 17,
+   "replayed_now": false
+  },
+  "17": {
+   "actual_net": -48213.215000000004,
+   "actual_rank": 14,
+   "pess_net": -13053.26,
+   "pess_rank": 12,
+   "opt_net": 35910.28,
+   "opt_rank": 2,
+   "exp_net": 11428.51,
+   "exp_rank": 6,
+   "best_team": "TBD",
+   "best_net": 40199.17499999999,
+   "n_teams": 17,
+   "replayed_now": false
   }
  },
  "old_games": [
-  10,
-  11,
-  12,
   13,
-  14
+  14,
+  15,
+  16,
+  17
  ],
- "generated_at": 1787414255.3853405,
+ "generated_at": 1787415962.378897,
  "totals": {
-  "actual": -72323.815,
-  "pessimistic": -22912.579999999998,
-  "expected": 13730.740000000002,
-  "optimistic": 50374.05,
+  "actual": -61152.75000000001,
+  "pessimistic": -21310.920000000002,
+  "expected": 12708.52,
+  "optimistic": 46727.96,
   "profitable": 4,
-  "top_ranked": 0,
-  "good": 0,
+  "top_ranked": 1,
+  "good": 1,
   "rank_target": 3,
   "wins_pess": 0,
   "wins_exp": 0,
-  "wins_opt": 1,
+  "wins_opt": 0,
   "n_games": 5,
   "n_scored": 5,
   "missing": [],
   "success": true
  },
  "calibration": {
-  "bias": 1.191,
-  "sigma": 0.92,
+  "bias": 1.344,
+  "sigma": 1.0,
   "p0": 0.29,
   "k": 0.6,
-  "n_labels": 75,
-  "n_coverage_misses": 21,
+  "n_labels": 104,
+  "n_coverage_misses": 35,
   "n_accept_points": 127,
   "labels": [
    {
@@ -630,6 +630,209 @@
     "t_lo": 56.44,
     "t_hi": 80.0,
     "t_mid": 30.0
+   },
+   {
+    "game": 15,
+    "item": 1,
+    "t_lo": 297.73,
+    "t_hi": null,
+    "t_mid": 180.0
+   },
+   {
+    "game": 15,
+    "item": 2,
+    "t_lo": 218.0,
+    "t_hi": null,
+    "t_mid": 75.0
+   },
+   {
+    "game": 15,
+    "item": 3,
+    "t_lo": 506.15,
+    "t_hi": null,
+    "t_mid": 270.0
+   },
+   {
+    "game": 15,
+    "item": 4,
+    "t_lo": 253.53,
+    "t_hi": 284.76,
+    "t_mid": 135.0
+   },
+   {
+    "game": 15,
+    "item": 5,
+    "t_lo": 63.05,
+    "t_hi": null,
+    "t_mid": 55.0
+   },
+   {
+    "game": 15,
+    "item": 6,
+    "t_lo": 176.75,
+    "t_hi": null,
+    "t_mid": 30.0
+   },
+   {
+    "game": 15,
+    "item": 7,
+    "t_lo": 176.75,
+    "t_hi": 203.62,
+    "t_mid": 190.0
+   },
+   {
+    "game": 15,
+    "item": 8,
+    "t_lo": 65.0,
+    "t_hi": null,
+    "t_mid": 40.0
+   },
+   {
+    "game": 15,
+    "item": 11,
+    "t_lo": 52.68,
+    "t_hi": 100.0,
+    "t_mid": 420.0
+   },
+   {
+    "game": 15,
+    "item": 17,
+    "t_lo": 71.81,
+    "t_hi": null,
+    "t_mid": 45.0
+   },
+   {
+    "game": 15,
+    "item": 19,
+    "t_lo": 497.9,
+    "t_hi": null,
+    "t_mid": 90.0
+   },
+   {
+    "game": 15,
+    "item": 20,
+    "t_lo": 124.2,
+    "t_hi": null,
+    "t_mid": 65.0
+   },
+   {
+    "game": 17,
+    "item": 1,
+    "t_lo": 620.0,
+    "t_hi": null,
+    "t_mid": 420.0
+   },
+   {
+    "game": 17,
+    "item": 2,
+    "t_lo": 460.0,
+    "t_hi": 662.55,
+    "t_mid": 480.0
+   },
+   {
+    "game": 17,
+    "item": 3,
+    "t_lo": 230.0,
+    "t_hi": 273.82,
+    "t_mid": 240.0
+   },
+   {
+    "game": 17,
+    "item": 4,
+    "t_lo": 79.13,
+    "t_hi": null,
+    "t_mid": 83.3
+   },
+   {
+    "game": 17,
+    "item": 5,
+    "t_lo": 92.0,
+    "t_hi": 124.23,
+    "t_mid": 130.0
+   },
+   {
+    "game": 17,
+    "item": 7,
+    "t_lo": 150.0,
+    "t_hi": null,
+    "t_mid": 100.0
+   },
+   {
+    "game": 17,
+    "item": 8,
+    "t_lo": 1690.0,
+    "t_hi": null,
+    "t_mid": 2400.0
+   },
+   {
+    "game": 17,
+    "item": 9,
+    "t_lo": 562.6,
+    "t_hi": 670.0,
+    "t_mid": 900.0
+   },
+   {
+    "game": 17,
+    "item": 11,
+    "t_lo": 57.3,
+    "t_hi": 87.6,
+    "t_mid": 550.0
+   },
+   {
+    "game": 17,
+    "item": 12,
+    "t_lo": 139.23,
+    "t_hi": 144.0,
+    "t_mid": 180.0
+   },
+   {
+    "game": 17,
+    "item": 13,
+    "t_lo": 160.65,
+    "t_hi": 201.35,
+    "t_mid": 260.0
+   },
+   {
+    "game": 17,
+    "item": 14,
+    "t_lo": 180.0,
+    "t_hi": 196.6,
+    "t_mid": 260.0
+   },
+   {
+    "game": 17,
+    "item": 15,
+    "t_lo": 1013.79,
+    "t_hi": null,
+    "t_mid": 650.0
+   },
+   {
+    "game": 17,
+    "item": 16,
+    "t_lo": 2599.6,
+    "t_hi": 2732.19,
+    "t_mid": 3500.0
+   },
+   {
+    "game": 17,
+    "item": 17,
+    "t_lo": 508.72,
+    "t_hi": 619.24,
+    "t_mid": 1000.0
+   },
+   {
+    "game": 17,
+    "item": 18,
+    "t_lo": 379.65,
+    "t_hi": null,
+    "t_mid": 360.0
+   },
+   {
+    "game": 17,
+    "item": 19,
+    "t_lo": 150.0,
+    "t_hi": 169.55,
+    "t_mid": 60.0
    }
   ]
  }

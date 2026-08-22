@@ -1,0 +1,1004 @@
+{
+ "actual_net": -4868.870000000003,
+ "actual_rank": 8,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 253.76,
+    "acceptance_limit": 138.36
+   },
+   {
+    "index": 2,
+    "charge_price": 93.49,
+    "acceptance_limit": 50.97
+   },
+   {
+    "index": 3,
+    "charge_price": 380.65,
+    "acceptance_limit": 207.54
+   },
+   {
+    "index": 4,
+    "charge_price": 146.92,
+    "acceptance_limit": 80.1
+   },
+   {
+    "index": 5,
+    "charge_price": 66.78,
+    "acceptance_limit": 36.41
+   },
+   {
+    "index": 6,
+    "charge_price": 26.71,
+    "acceptance_limit": 14.56
+   },
+   {
+    "index": 7,
+    "charge_price": 193.66,
+    "acceptance_limit": 105.59
+   },
+   {
+    "index": 8,
+    "charge_price": 33.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 9,
+    "charge_price": 246.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 10,
+    "charge_price": 252.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 11,
+    "charge_price": 400.68,
+    "acceptance_limit": 218.46
+   },
+   {
+    "index": 12,
+    "charge_price": 156.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 13,
+    "charge_price": 390.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 14,
+    "charge_price": 75.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 15,
+    "charge_price": 33.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 16,
+    "charge_price": 57.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 17,
+    "charge_price": 27.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 18,
+    "charge_price": 228.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 19,
+    "charge_price": 306.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 20,
+    "charge_price": 93.49,
+    "acceptance_limit": 50.97
+   },
+   {
+    "index": 21,
+    "charge_price": 80.14,
+    "acceptance_limit": 43.69
+   },
+   {
+    "index": 22,
+    "charge_price": 39.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 23,
+    "charge_price": 27.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 24,
+    "charge_price": 27.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 25,
+    "charge_price": 108.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 26,
+    "charge_price": 27.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 27,
+    "charge_price": 57.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 28,
+    "charge_price": 18.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 29,
+    "charge_price": 51.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Escape-of-water consequential damage and necessary local repair/drying are insured; source fitting repair, unaffected areas, duplicates and improvements excluded.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(e) investigation necessary to locate source",
+     "t_low": 140,
+     "t_mid": 190,
+     "t_high": 250,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Necessary single investigation of concealed leaking joint"
+    },
+    {
+     "index": 2,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(e) moisture measurements",
+     "t_low": 45,
+     "t_mid": 70,
+     "t_high": 95,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Initial measurement supports documented local drying"
+    },
+    {
+     "index": 3,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(g) customary skilled labour",
+     "t_low": 180,
+     "t_mid": 285,
+     "t_high": 390,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Six hours excessive; accept roughly three necessary hours"
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(g) customary unskilled labour",
+     "t_low": 60,
+     "t_mid": 110,
+     "t_high": 170,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Limited assistance reasonable; six hours excessive"
+    },
+    {
+     "index": 5,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(f) one call-out charge",
+     "t_low": 35,
+     "t_mid": 50,
+     "t_high": 70,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "One local contractor journey is indemnifiable"
+    },
+    {
+     "index": 6,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(c) consumable installation material",
+     "t_low": 10,
+     "t_mid": 20,
+     "t_high": 35,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Only minor consumables attributable to investigation accepted"
+    },
+    {
+     "index": 7,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(a) dismantling affected components",
+     "t_low": 90,
+     "t_mid": 145,
+     "t_high": 210,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Local opening necessary around concealed fitting"
+    },
+    {
+     "index": 8,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.5 affected parts only",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 55,
+     "cap_uncertain": false,
+     "reason": "Damaged pipe insulation not established in description"
+    },
+    {
+     "index": 9,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.8(c) duplicated cost items excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 410,
+     "cap_uncertain": false,
+     "reason": "Duplicates item 8 and six hours are unsupported"
+    },
+    {
+     "index": 10,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.5 affected rooms only",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 420,
+     "cap_uncertain": false,
+     "reason": "Roof-space drying unrelated to cellar leak"
+    },
+    {
+     "index": 11,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(b),(e) necessary drying and equipment hire",
+     "t_low": 210,
+     "t_mid": 300,
+     "t_high": 410,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "One dryer for approximately two weeks is reasonable"
+    },
+    {
+     "index": 12,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.5 affected rooms only",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 260,
+     "cap_uncertain": false,
+     "reason": "Roof-space fans unrelated to basement moisture"
+    },
+    {
+     "index": 13,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.5 affected rooms only",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 650,
+     "cap_uncertain": false,
+     "reason": "Kitchen drying contradicts reported small cellar damage"
+    },
+    {
+     "index": 14,
+     "covered": false,
+     "related": false,
+     "clause": "2.4.3 fracture damage; 7.1.8(e) attributable repair",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 125,
+     "cap_uncertain": false,
+     "reason": "Leak was unsealed fitting, not damaged copper pipe"
+    },
+    {
+     "index": 15,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.9 components not previously present excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 55,
+     "cap_uncertain": false,
+     "reason": "Two transition pieces unsupported by simple fitting reseal"
+    },
+    {
+     "index": 16,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.8(e) unsupported material excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 95,
+     "cap_uncertain": false,
+     "reason": "Three metres copper pipe unrelated to faulty joint"
+    },
+    {
+     "index": 17,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.5 affected components only",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 45,
+     "cap_uncertain": false,
+     "reason": "Three metres insulation damage not established"
+    },
+    {
+     "index": 18,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(g) customary skilled labour",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 380,
+     "cap_uncertain": false,
+     "reason": "Technician work accompanies unsupported kitchen pipe replacement"
+    },
+    {
+     "index": 19,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.5 affected components only",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 510,
+     "cap_uncertain": false,
+     "reason": "Six-hour insulation restoration unsupported and excessive"
+    },
+    {
+     "index": 20,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(e) completion moisture measurement",
+     "t_low": 45,
+     "t_mid": 70,
+     "t_high": 95,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "One final measurement reasonably confirms drying completion"
+    },
+    {
+     "index": 21,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.1 repair debris and residues removal",
+     "t_low": 35,
+     "t_mid": 60,
+     "t_high": 90,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Modest final cleaning of local repair area"
+    },
+    {
+     "index": 22,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(h) furnishing-item removal",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 65,
+     "cap_uncertain": false,
+     "reason": "Kitchen table unrelated to cellar fitting leak"
+    },
+    {
+     "index": 23,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(h) damaged-item transport",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 45,
+     "cap_uncertain": false,
+     "reason": "Table transport unrelated to reported cellar damage"
+    },
+    {
+     "index": 24,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(h) damaged-item disposal",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 45,
+     "cap_uncertain": false,
+     "reason": "Table disposal unrelated to reported cellar damage"
+    },
+    {
+     "index": 25,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.1(d) furnishing items at current value",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 180,
+     "cap_uncertain": false,
+     "reason": "No table damage reported; age deduction also unknown"
+    },
+    {
+     "index": 26,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(h) replacement-item delivery",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 45,
+     "cap_uncertain": false,
+     "reason": "Replacement delivery follows unrelated table claim"
+    },
+    {
+     "index": 27,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(h) replacement-item setup",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 95,
+     "cap_uncertain": false,
+     "reason": "Two-hour table assembly unrelated and excessive"
+    },
+    {
+     "index": 28,
+     "covered": true,
+     "related": false,
+     "clause": "7.1.7(h) furnishing placement-area cleaning",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 30,
+     "cap_uncertain": false,
+     "reason": "Installation-area cleaning follows unrelated replacement"
+    },
+    {
+     "index": 29,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.8(f) unaffected property inspection excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 85,
+     "cap_uncertain": false,
+     "reason": "Garden furniture outside affected cellar area"
+    }
+   ]
+  },
+  "seconds": 41.5,
+  "repriced": true
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 39272.9,
+    "cost": 41429.69,
+    "net": -2156.79
+   },
+   "optimistic": {
+    "income": 49485.96,
+    "cost": 41429.69,
+    "net": 8056.27
+   }
+  },
+  "open_pairings": {
+   "income": 117,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 253.76,
+    "b": 138.36,
+    "t_lo": 297.73,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 4060.1600000000017,
+     "optimistic": 4060.1600000000017
+    },
+    "cost": {
+     "pessimistic": 2808.1600000000003,
+     "optimistic": 2808.1600000000003
+    }
+   },
+   "2": {
+    "a": 93.49,
+    "b": 50.97,
+    "t_lo": 218.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 1495.84,
+     "optimistic": 1495.84
+    },
+    "cost": {
+     "pessimistic": 1882.77,
+     "optimistic": 1882.77
+    }
+   },
+   "3": {
+    "a": 380.65,
+    "b": 207.54,
+    "t_lo": 506.15,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 6090.399999999999,
+     "optimistic": 6090.399999999999
+    },
+    "cost": {
+     "pessimistic": 6378.129999999999,
+     "optimistic": 6378.129999999999
+    }
+   },
+   "4": {
+    "a": 146.92,
+    "b": 80.1,
+    "t_lo": 253.53,
+    "t_hi": 284.76,
+    "fair": true,
+    "income": {
+     "pessimistic": 2350.7200000000003,
+     "optimistic": 2350.7200000000003
+    },
+    "cost": {
+     "pessimistic": 2350.225,
+     "optimistic": 2350.225
+    }
+   },
+   "5": {
+    "a": 66.78,
+    "b": 36.41,
+    "t_lo": 63.05,
+    "t_hi": null,
+    "fair": null,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 1068.4799999999998
+    },
+    "cost": {
+     "pessimistic": 639.9449999999999,
+     "optimistic": 639.9449999999999
+    }
+   },
+   "6": {
+    "a": 26.71,
+    "b": 14.56,
+    "t_lo": 176.75,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 427.3599999999999,
+     "optimistic": 427.3599999999999
+    },
+    "cost": {
+     "pessimistic": 937.8299999999999,
+     "optimistic": 937.8299999999999
+    }
+   },
+   "7": {
+    "a": 193.66,
+    "b": 105.59,
+    "t_lo": 176.75,
+    "t_hi": 203.62,
+    "fair": null,
+    "income": {
+     "pessimistic": 580.98,
+     "optimistic": 3098.5599999999995
+    },
+    "cost": {
+     "pessimistic": 1821.1750000000002,
+     "optimistic": 1821.1750000000002
+    }
+   },
+   "8": {
+    "a": 33.0,
+    "b": 0.0,
+    "t_lo": 65.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 528.0,
+     "optimistic": 528.0
+    },
+    "cost": {
+     "pessimistic": 823.2149999999999,
+     "optimistic": 823.2149999999999
+    }
+   },
+   "9": {
+    "a": 246.0,
+    "b": 0.0,
+    "t_lo": 497.9,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 3936.0,
+     "optimistic": 3936.0
+    },
+    "cost": {
+     "pessimistic": 3698.43,
+     "optimistic": 3698.43
+    }
+   },
+   "10": {
+    "a": 252.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 100.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 252.0,
+     "optimistic": 252.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "11": {
+    "a": 400.68,
+    "b": 218.46,
+    "t_lo": 52.68,
+    "t_hi": 100.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 801.36,
+     "optimistic": 801.36
+    },
+    "cost": {
+     "pessimistic": 881.48,
+     "optimistic": 881.48
+    }
+   },
+   "12": {
+    "a": 156.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 27.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 156.0,
+     "optimistic": 468.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "13": {
+    "a": 390.0,
+    "b": 0.0,
+    "t_lo": 271.44,
+    "t_hi": null,
+    "fair": null,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 6240.0
+    },
+    "cost": {
+     "pessimistic": 1632.465,
+     "optimistic": 1632.465
+    }
+   },
+   "14": {
+    "a": 75.0,
+    "b": 0.0,
+    "t_lo": 43.65,
+    "t_hi": 65.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 450.0,
+     "optimistic": 525.0
+    },
+    "cost": {
+     "pessimistic": 81.73499999999999,
+     "optimistic": 81.73499999999999
+    }
+   },
+   "15": {
+    "a": 33.0,
+    "b": 0.0,
+    "t_lo": 67.02,
+    "t_hi": 200.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 528.0,
+     "optimistic": 528.0
+    },
+    "cost": {
+     "pessimistic": 448.5900000000001,
+     "optimistic": 448.5900000000001
+    }
+   },
+   "16": {
+    "a": 57.0,
+    "b": 0.0,
+    "t_lo": 130.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 912.0,
+     "optimistic": 912.0
+    },
+    "cost": {
+     "pessimistic": 832.065,
+     "optimistic": 832.065
+    }
+   },
+   "17": {
+    "a": 27.0,
+    "b": 0.0,
+    "t_lo": 71.81,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 432.0,
+     "optimistic": 432.0
+    },
+    "cost": {
+     "pessimistic": 512.955,
+     "optimistic": 512.955
+    }
+   },
+   "18": {
+    "a": 228.0,
+    "b": 0.0,
+    "t_lo": 360.0,
+    "t_hi": 400.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 3648.0,
+     "optimistic": 3648.0
+    },
+    "cost": {
+     "pessimistic": 3636.3300000000004,
+     "optimistic": 3636.3300000000004
+    }
+   },
+   "19": {
+    "a": 306.0,
+    "b": 0.0,
+    "t_lo": 497.9,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 4896.0,
+     "optimistic": 4896.0
+    },
+    "cost": {
+     "pessimistic": 3703.635,
+     "optimistic": 3703.635
+    }
+   },
+   "20": {
+    "a": 93.49,
+    "b": 50.97,
+    "t_lo": 124.2,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 1495.84,
+     "optimistic": 1495.84
+    },
+    "cost": {
+     "pessimistic": 1357.26,
+     "optimistic": 1357.26
+    }
+   },
+   "21": {
+    "a": 80.14,
+    "b": 43.69,
+    "t_lo": 100.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 1282.2400000000002,
+     "optimistic": 1282.2400000000002
+    },
+    "cost": {
+     "pessimistic": 1036.2450000000001,
+     "optimistic": 1036.2450000000001
+    }
+   },
+   "22": {
+    "a": 39.0,
+    "b": 0.0,
+    "t_lo": 130.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 624.0,
+     "optimistic": 624.0
+    },
+    "cost": {
+     "pessimistic": 1178.205,
+     "optimistic": 1178.205
+    }
+   },
+   "23": {
+    "a": 27.0,
+    "b": 0.0,
+    "t_lo": 57.3,
+    "t_hi": 63.13,
+    "fair": true,
+    "income": {
+     "pessimistic": 432.0,
+     "optimistic": 432.0
+    },
+    "cost": {
+     "pessimistic": 327.96000000000004,
+     "optimistic": 327.96000000000004
+    }
+   },
+   "24": {
+    "a": 27.0,
+    "b": 0.0,
+    "t_lo": 47.0,
+    "t_hi": 56.17,
+    "fair": true,
+    "income": {
+     "pessimistic": 432.0,
+     "optimistic": 432.0
+    },
+    "cost": {
+     "pessimistic": 271.125,
+     "optimistic": 271.125
+    }
+   },
+   "25": {
+    "a": 108.0,
+    "b": 0.0,
+    "t_lo": 329.56,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 1728.0,
+     "optimistic": 1728.0
+    },
+    "cost": {
+     "pessimistic": 2218.665,
+     "optimistic": 2218.665
+    }
+   },
+   "26": {
+    "a": 27.0,
+    "b": 0.0,
+    "t_lo": 57.3,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 432.0,
+     "optimistic": 432.0
+    },
+    "cost": {
+     "pessimistic": 391.155,
+     "optimistic": 391.155
+    }
+   },
+   "27": {
+    "a": 57.0,
+    "b": 0.0,
+    "t_lo": 135.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 912.0,
+     "optimistic": 912.0
+    },
+    "cost": {
+     "pessimistic": 1173.8100000000002,
+     "optimistic": 1173.8100000000002
+    }
+   },
+   "28": {
+    "a": 18.0,
+    "b": 0.0,
+    "t_lo": 57.3,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 288.0,
+     "optimistic": 288.0
+    },
+    "cost": {
+     "pessimistic": 406.125,
+     "optimistic": 406.125
+    }
+   },
+   "29": {
+    "a": 51.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 39.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 102.0,
+     "optimistic": 102.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout",
+   "7": "truth+payout",
+   "8": "truth+payout",
+   "9": "truth+payout",
+   "10": "truth+payout",
+   "11": "truth+payout",
+   "12": "truth+payout",
+   "13": "truth+payout",
+   "14": "truth+payout",
+   "15": "truth+payout",
+   "16": "truth+payout",
+   "17": "truth+payout",
+   "18": "truth+payout",
+   "19": "truth+payout",
+   "20": "truth+payout",
+   "21": "truth+payout",
+   "22": "truth+payout",
+   "23": "truth+payout",
+   "24": "truth+payout",
+   "25": "truth+payout",
+   "26": "truth+payout",
+   "27": "truth+payout",
+   "28": "truth+payout",
+   "29": "truth+payout"
+  }
+ },
+ "pess_net": -2156.79,
+ "pess_rank": 7,
+ "opt_net": 8056.27,
+ "opt_rank": 4,
+ "exp_net": 2949.74,
+ "exp_rank": 5,
+ "best_team": "eyay",
+ "best_net": 15740.68,
+ "n_teams": 17,
+ "replayed_now": false
+}

@@ -36,7 +36,7 @@ from pathlib import Path
 from statistics import NormalDist
 
 UNCOVERED_CHARGE = 0.6  # fraction of the would-be price we charge on uncovered items
-B_QUANTILE = 0.20  # c2f.autotune over games 1-14: +732 vs 0.18, better in 7 games, worse in 1.
+B_QUANTILE = 0.27  # c2f.autotune over games 1-17: +1,801 vs 0.20, better in 8 games, worse in 4 (4,399 of it from game 17); backtest 13-17 still 4/5.
 # The earlier walk down from 0.27 to 0.18 (games 6-10) overshot slightly: the market's t now runs
 # ABOVE our t_mid (calibrated bias 1.19), so refused fair charges cost more than they used to.
 RISK_AVERSION = 0.55  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout.
