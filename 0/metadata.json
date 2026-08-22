@@ -1,0 +1,56 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0N664RMKWBC2PFK1K8GFXAT",
+  "session_id": "1e2b0e3c-1e21-4ee8-9e29-822a0c66a2a2",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-22T16:52:16.5168891Z",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "save_step_count": 1,
+  "files_touched": [
+    "runs/calibration.json"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "bbb81c9dd757",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 860,
+    "cache_creation_tokens": 1756024,
+    "cache_read_tokens": 223969627,
+    "output_tokens": 560507,
+    "api_call_count": 430
+  },
+  "session_metrics": {
+    "turn_count": 34
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-22T16:52:15.7994276Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 1203,
+    "human_modified": 1622,
+    "human_removed": 0,
+    "total_committed": 1203,
+    "total_lines_changed": 2825,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 1971,
+      "user_lines_removed": 811,
+      "agent_lines_added": 811,
+      "agent_lines_removed": 811,
+      "user_added_per_file": {
+        "runs/calibration.json": 863,
+        "runs/game_19.json": 957,
+        "runs/truth_game_19.json": 151
+      },
+      "user_removed_per_file": {
+        "runs/calibration.json": 811
+      }
+    }
+  ]
+}
