@@ -2,7 +2,6 @@
 #   make 7             play game 7 (start it a few seconds before the game opens)
 #   make play G=7      same thing
 #   make check         real model against the permanent test game 0 (needs an LLM key in .env)
-#   make mock          pipeline test against game 0 with a canned model answer
 #   make test          unit tests
 #   make learn G=7     after game 7 closes: infer t bounds + recalibrate b_scale (commits+pushes)
 #   make truth G=7      infer fair-value bounds for finished game 7 -> runs/truth_game_07.json
@@ -30,7 +29,7 @@ define push_truth
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check mock test fb truth $(GAMES)
+.PHONY: play check test fb truth $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
@@ -45,9 +44,6 @@ play:
 
 check:
 	$(PY) -m c2f.run 0
-
-mock:
-	$(PY) -m c2f.run 0 --mock
 
 test:
 	$(PY) -m pytest -q tests

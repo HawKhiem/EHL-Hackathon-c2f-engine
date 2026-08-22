@@ -3,7 +3,6 @@
 One command per game, must finish inside the 60 s window:
 
     pixi run python -m c2f.run 7          # play game 7 (polls key, decrypts, prices, submits)
-    pixi run python -m c2f.run 0 --mock   # test game, canned model answer
     pixi run python -m c2f.run 0 --no-submit --case-dir cases/case_00   # offline dry run
     pixi run python -m pytest -q tests
 

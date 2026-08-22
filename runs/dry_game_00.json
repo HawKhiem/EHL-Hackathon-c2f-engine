@@ -1,0 +1,200 @@
+{
+  "game_id": 0,
+  "started_at": 1787407127.63676,
+  "submissions": [
+    {
+      "tag": "fast",
+      "at_s": 3.8,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 402.5,
+          "acceptance_limit": 533.72
+        }
+      ],
+      "response": "skipped (--no-submit)"
+    },
+    {
+      "tag": "full x1",
+      "at_s": 6.9,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 410.0,
+          "acceptance_limit": 524.02
+        }
+      ],
+      "response": "skipped (--no-submit)"
+    },
+    {
+      "tag": "full x2",
+      "at_s": 9.6,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 410.0,
+          "acceptance_limit": 524.02
+        }
+      ],
+      "response": "skipped (--no-submit)"
+    },
+    {
+      "tag": "full x3",
+      "at_s": 12.1,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 410.0,
+          "acceptance_limit": 524.02
+        }
+      ],
+      "response": "skipped (--no-submit)"
+    }
+  ],
+  "case": {
+    "game_id": 0,
+    "policy": "===============================================================================\nBICYCLE THEFT INSURANCE - POLICY CONDITIONS\n===============================================================================\n\n1. PURPOSE\n\nThis policy insures the bicycle described in the schedule against theft. The\ninsurer indemnifies the policyholder for the financial loss suffered when the\ninsured bicycle is stolen.\n\n2. INSURED EVENT\n\nAn insured event is the theft of the insured bicycle, that is, its removal by a\nthird party with the intent of unlawfully keeping it.\n\n3. CONDITIONS OF COVER\n\nCover applies only where, at the time of the theft, the bicycle was secured with\na lock to a fixed object (a bike stand, railing, lamp post or comparable fixed\nstructure), or was kept in a locked room.\n\n4. AMOUNT OF INDEMNITY\n\nThe insurer reimburses the market value of the bicycle at the time of the theft,\nup to the sum insured stated in the schedule.\n\n5. EXCLUSIONS\n\nNot covered:\n  (a) theft of a bicycle that was left unlocked;\n  (b) loss of, or damage to, accessories carried loosely (lights, bags, pumps);\n  (c) theft caused intentionally by the policyholder.\n\n6. POLICYHOLDER DUTIES\n\nThe policyholder must report the theft to the police without delay and provide\nthe insurer with the crime reference and proof of the bicycle's value.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
+    "description": "Client came back from work, his mountain bike was stolen. The mountain bike was firmly locked against a lamp post. When he came back, the bike was worth 420 Euros.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0001\nDATE\n6 Jan 2026\nDUE\n20 Jan 2026\nTRADE\nBikeshop\nFROM\nBikey Bike Ltd\n8 Mosaic Mews\n60594 Tilebury\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 New Bike 1 unit\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Bikeshop",
+      "invoice_no": "2026-0001",
+      "date": "6 Jan 2026",
+      "vendor": "Bikey Bike Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "New Bike",
+        "quantity": 1.0,
+        "unit": "unit"
+      }
+    ],
+    "n_images": 0
+  },
+  "model_fast": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5-mini",
+      "seconds": 3.75
+    },
+    "output": {
+      "policy_summary": "Covers theft of insured bicycle if locked to fixed object; pays market value at time of theft up to sum insured; accessories excluded; must report to police.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "4. Amount of indemnity; 2. Insured event; 3. Conditions of cover",
+          "t_low": 380,
+          "t_mid": 420,
+          "t_high": 450,
+          "t_if_covered": 0,
+          "reason": "replacement market value ~\u20ac420 at theft time"
+        }
+      ]
+    }
+  },
+  "priced_fast": [
+    {
+      "index": 1,
+      "charge_price": 402.5,
+      "acceptance_limit": 533.72
+    }
+  ],
+  "model_full0": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 6.85
+    },
+    "output": {
+      "policy_summary": "Theft of the insured locked bicycle; indemnity = market value up to sum insured; excludes unlocked bikes and loose accessories.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "4. Amount of indemnity",
+          "t_low": 380,
+          "t_mid": 420,
+          "t_high": 420,
+          "t_if_covered": 0,
+          "reason": "Theft covered; pay market value capped at \u20ac420"
+        }
+      ]
+    }
+  },
+  "ensemble": {
+    "policy_summary": "Theft of the insured locked bicycle; indemnity = market value up to sum insured; excludes unlocked bikes and loose accessories.",
+    "items": [
+      {
+        "index": 1,
+        "covered": true,
+        "related": true,
+        "clause": "4. Amount of indemnity",
+        "t_low": 380.0,
+        "t_mid": 420.0,
+        "t_high": 420.0,
+        "t_if_covered": 0.0,
+        "reason": "Theft covered; pay market value capped at \u20ac420",
+        "votes": "3/3 covered"
+      }
+    ],
+    "n_votes": 3
+  },
+  "priced_full": [
+    {
+      "index": 1,
+      "charge_price": 410.0,
+      "acceptance_limit": 524.02
+    }
+  ],
+  "model_full2": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 9.63
+    },
+    "output": {
+      "policy_summary": "Theft of insured bicycle if locked; indemnity = market value at theft; excludes unlocked bikes and loose accessories.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "4. Amount of indemnity",
+          "t_low": 380,
+          "t_mid": 420,
+          "t_high": 420,
+          "t_if_covered": 0,
+          "reason": "Theft covered; reimburse market value, capped at 420 EUR."
+        }
+      ]
+    }
+  },
+  "model_full1": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 12.08
+    },
+    "output": {
+      "policy_summary": "Theft of locked bicycle insured; indemnity = market value at theft; exclusions: unlocked bikes, loose accessories.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "4. Amount of indemnity",
+          "t_low": 380,
+          "t_mid": 420,
+          "t_high": 420,
+          "t_if_covered": 0,
+          "reason": "Reimburse market value; capped at 420 EUR."
+        }
+      ]
+    }
+  },
+  "finished_at_s": 12.1
+}

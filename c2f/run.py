@@ -1,4 +1,4 @@
-"""Play one game:  pixi run python -m c2f.run GAME_ID [--mock] [--no-submit] [--case-dir DIR]
+"""Play one game:  pixi run python -m c2f.run GAME_ID [--no-submit] [--case-dir DIR]
 
 IN (get_case.sh) -> EXTRACT -> MODEL (fast + full in parallel) -> PRICE -> OUT (PUT + runs/).
 The fast model's answer is submitted as soon as it lands; the full model's answer
@@ -51,21 +51,15 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("game_id", type=int)
-    ap.add_argument("--mock", action="store_true", help="canned model answer, no API key needed")
     ap.add_argument("--no-submit", action="store_true")
     ap.add_argument("--case-dir", type=Path, help="skip get_case.sh and use this folder")
     ap.add_argument("--no-fast", action="store_true", help="skip the fast first pass")
     args = ap.parse_args(argv)
-    if not args.mock:
-        try:
-            prov = llm.provider()  # fail before we touch the game if no LLM key is configured
-        except RuntimeError as e:
-            print(f"ERROR: {e}", file=sys.stderr)
-            return 2
-        if prov == "mock":
-            print("ERROR: C2F_MOCK is set in your environment - refusing to play a real game on the canned "
-                  "answer. Run `unset C2F_MOCK`, or pass --mock if you really mean it.", file=sys.stderr)
-            return 2
+    try:
+        llm.provider()  # fail before we touch the game if no LLM key is configured
+    except RuntimeError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        return 2
 
     t0 = time.time()
     record: dict = {"game_id": args.game_id, "started_at": t0, "submissions": []}
@@ -111,10 +105,10 @@ def main(argv: list[str] | None = None) -> int:
     fast_model = os.environ.get("C2F_FAST_MODEL") or (
         "claude-sonnet-5" if os.environ.get("ANTHROPIC_API_KEY") else "gpt-5-mini"
     )
-    n_full = 1 if args.mock else int(os.environ.get("C2F_N_FULL", N_FULL))
+    n_full = int(os.environ.get("C2F_N_FULL", N_FULL))
 
     def run_model(tag: str, model: str | None, timeout: float, strict: bool):
-        return tag, llm.estimate(case, timeout=timeout, mock=args.mock, model=model, strict=strict)
+        return tag, llm.estimate(case, timeout=timeout, model=model, strict=strict)
 
     futures = {}
     ex = ThreadPoolExecutor(max_workers=n_full + 1)
@@ -122,7 +116,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         for i in range(n_full):
             futures[ex.submit(run_model, f"full{i}", full_model, FULL_TIMEOUT_S, False)] = f"full{i}"
-        if not args.no_fast and not args.mock:
+        if not args.no_fast:
             futures[ex.submit(run_model, "fast", fast_model, FAST_TIMEOUT_S, True)] = "fast"
 
         pending = set(futures)

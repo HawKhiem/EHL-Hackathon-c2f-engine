@@ -8,7 +8,6 @@ Code lives in `c2f/`, tests in `tests/`, per-game logs in `runs/`.
 ```
 make 7          # play game 7: wait for key → decrypt → extract → model → price → submit
 make check      # real model against the permanent test game 0
-make mock       # canned model answer, tests the plumbing
 make test       # unit tests
 ```
 

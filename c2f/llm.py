@@ -2,7 +2,7 @@
 
 ANTHROPIC_API_KEY -> Claude (default model claude-opus-5, override C2F_MODEL)
 OPENAI_API_KEY    -> OpenAI (default model gpt-5, override C2F_MODEL)
-neither          -> error (pass --mock or C2F_MOCK=1 for the canned answer)
+neither          -> error
 
 The model sees policy + description + invoice verbatim and returns JSON.
 """
@@ -87,28 +87,6 @@ def _parse_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
-def _mock(case: dict) -> dict:
-    items = case.get("items") or [{"index": 1, "description": "?"}]
-    return {
-        "policy_summary": "MOCK",
-        "items": [
-            {
-                "index": it["index"],
-                "description": it.get("description", ""),
-                "covered": True,
-                "related": True,
-                "clause": "mock",
-                "t_low": 380,
-                "t_mid": 420,
-                "t_high": 450,
-                "t_if_covered": 0,
-                "reason": "mock answer",
-            }
-            for it in items
-        ],
-    }
-
-
 def _call_anthropic(case: dict, model: str, timeout: float, system: str = SYSTEM) -> str:
     import anthropic
 
@@ -159,34 +137,29 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM) -
 
 
 def provider() -> str:
-    """Which backend a real run uses. Raises if no key: never silently play a real game on the mock."""
+    """Which backend to use. Raises if no key is configured."""
     load_dotenv()
-    if os.environ.get("C2F_MOCK"):
-        return "mock"
     if os.environ.get("ANTHROPIC_API_KEY"):
         return "anthropic"
     if os.environ.get("OPENAI_API_KEY"):
         return "openai"
-    raise RuntimeError("no LLM key: set ANTHROPIC_API_KEY or OPENAI_API_KEY (env or .env), or pass --mock / C2F_MOCK=1")
+    raise RuntimeError("no LLM key: set ANTHROPIC_API_KEY or OPENAI_API_KEY (env or .env)")
 
 
 STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whether an item is covered or related, answer covered=false (we can be corrected later, but a wrong acceptance pays a fraud)."
 
 
-def estimate(case: dict, *, timeout: float = 35.0, mock: bool = False, model: str | None = None, strict: bool = False) -> tuple[dict, dict]:
+def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, strict: bool = False) -> tuple[dict, dict]:
     """Return (model_json, meta). Raises on failure; caller decides the fallback."""
-    prov = "mock" if mock else provider()
+    prov = provider()
     t0 = time.time()
     system = SYSTEM + (STRICT_SUFFIX if strict else "")
     if prov == "anthropic":
         model = model or os.environ.get("C2F_MODEL") or "claude-opus-5"
         raw = _call_anthropic(case, model, timeout, system)
-    elif prov == "openai":
+    else:
         model = model or os.environ.get("C2F_MODEL") or "gpt-5"
         raw = _call_openai(case, model, timeout, system)
-    else:
-        model = "mock"
-        raw = json.dumps(_mock(case))
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):
         raise ValueError("model JSON has no items list")
