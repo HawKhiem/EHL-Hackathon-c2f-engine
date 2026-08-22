@@ -5,13 +5,13 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 87.23,
-    "acceptance_limit": 39.94
+    "charge_price": 87.71,
+    "acceptance_limit": 40.16
    },
    {
     "index": 2,
-    "charge_price": 142.48,
-    "acceptance_limit": 93.19
+    "charge_price": 143.25,
+    "acceptance_limit": 93.69
    }
   ],
   "estimate": {
@@ -51,14 +51,14 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 1852.24,
+    "income": 1862.25,
     "cost": 47.84,
-    "net": 1804.4
+    "net": 1814.41
    },
    "optimistic": {
-    "income": 2628.6,
+    "income": 2642.84,
     "cost": 47.84,
-    "net": 2580.76
+    "net": 2595.0
    }
   },
   "open_pairings": {
@@ -67,14 +67,14 @@
   },
   "items": {
    "1": {
-    "a": 87.23,
-    "b": 39.94,
+    "a": 87.71,
+    "b": 40.16,
     "t_lo": 0.0,
     "t_hi": 10.84,
     "fair": false,
     "income": {
      "pessimistic": 0.0,
-     "optimistic": 348.92
+     "optimistic": 350.84
     },
     "cost": {
      "pessimistic": 47.84,
@@ -82,14 +82,14 @@
     }
    },
    "2": {
-    "a": 142.48,
-    "b": 93.19,
+    "a": 143.25,
+    "b": 93.69,
     "t_lo": 0.0,
     "t_hi": 166.43,
     "fair": null,
     "income": {
-     "pessimistic": 1852.24,
-     "optimistic": 2279.68
+     "pessimistic": 1862.25,
+     "optimistic": 2292.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -102,11 +102,11 @@
    "2": "truth+payout"
   }
  },
- "pess_net": 1804.4,
+ "pess_net": 1814.41,
  "pess_rank": 4,
- "opt_net": 2580.76,
+ "opt_net": 2595.0,
  "opt_rank": 3,
- "exp_net": 2192.58,
+ "exp_net": 2204.7,
  "exp_rank": 3,
  "best_team": "Bin busy",
  "best_net": 3080.0,

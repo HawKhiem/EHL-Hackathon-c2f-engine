@@ -86,13 +86,20 @@ HUMAN_ONLY = {
 }
 
 
-def scored_games() -> list[int]:
-    """Games with a stored replay we can re-price without calling the model."""
-    return sorted(
+def scored_games(window: int | None = backtest.WINDOW) -> list[int]:
+    """Games with a stored replay we can re-price without calling the model.
+
+    The LAST `window` of them by default, the same population backtest.verdict gates on.
+    Older rounds were played by a different engine against a different field - games 1-11
+    predate the current model entirely - so a sign test run over all of them measures a
+    strategy nobody is proposing. `window=None` restores the full history.
+    """
+    every = sorted(
         int(p.stem.split("_")[-1])
         for p in backtest.OUT.glob("game_*.json")
         if (ROOT / "cases" / f"case_{int(p.stem.split('_')[-1]):02d}" / "policy.txt").exists()
     )
+    return every[-window:] if window else every
 
 
 def evaluate(games: list[int], us: str, nets: dict) -> dict[int, dict]:
@@ -159,11 +166,17 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--apply", action="store_true", help="write runs/tuning.json")
     ap.add_argument("--team", default="AsianSuperNerds")
+    ap.add_argument(
+        "--window",
+        type=int,
+        default=backtest.WINDOW,
+        help=f"tune over the last N stored replays (default {backtest.WINDOW}; 0 = every game on record)",
+    )
     args = ap.parse_args(argv)
 
-    games = scored_games()
+    games = scored_games(args.window or None)
     if len(games) < 3:
-        print(f"only {len(games)} stored replays - need at least 3 for the sign test")
+        print(f"only {len(games)} stored replays in the window - need at least 3 for the sign test")
         return 2
 
     # ---- 1. what went wrong, and how much of it is even tunable ----

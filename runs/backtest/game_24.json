@@ -1,0 +1,420 @@
+{
+ "actual_net": 35805.814999999995,
+ "actual_rank": 2,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 277.74,
+    "acceptance_limit": 181.66
+   },
+   {
+    "index": 2,
+    "charge_price": 197.24,
+    "acceptance_limit": 129.01
+   },
+   {
+    "index": 3,
+    "charge_price": 219.12,
+    "acceptance_limit": 143.32
+   },
+   {
+    "index": 4,
+    "charge_price": 225.62,
+    "acceptance_limit": 147.57
+   },
+   {
+    "index": 5,
+    "charge_price": 193.45,
+    "acceptance_limit": 126.53
+   },
+   {
+    "index": 6,
+    "charge_price": 76.5,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 7,
+    "charge_price": 336.22,
+    "acceptance_limit": 153.93
+   },
+   {
+    "index": 8,
+    "charge_price": 372.58,
+    "acceptance_limit": 170.58
+   },
+   {
+    "index": 9,
+    "charge_price": 179.12,
+    "acceptance_limit": 117.16
+   },
+   {
+    "index": 10,
+    "charge_price": 124.25,
+    "acceptance_limit": 81.27
+   },
+   {
+    "index": 11,
+    "charge_price": 144.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Escape-of-water damage and necessary repairs are insured; no cover for contractor devices, general cleaning, duplicates, or robot self-damage after operation.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(b), (e), (i)",
+     "t_low": 130,
+     "t_mid": 190,
+     "t_high": 230,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Necessary source investigation and moisture assessment; two measures plausible",
+     "_description": "Leak detection and moisture survey across affected rooms"
+    },
+    {
+     "index": 2,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1(b), 7.1.7(a), (b)",
+     "t_low": 170,
+     "t_mid": 240,
+     "t_high": 280,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Necessary strip-out and drying across documented water path",
+     "_description": "Strip-out and drying of guest WC, stairwell, living room and hobby room"
+    },
+    {
+     "index": 3,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1(b), 7.1.5, 7.1.7(c)",
+     "t_low": 130,
+     "t_mid": 210,
+     "t_high": 250,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Affected parquet, skirting and floor finishes require reinstatement",
+     "_description": "Reinstate parquet, skirting and floor coverings on the water's path"
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1(b), 7.1.5, 7.1.7(c)",
+     "t_low": 140,
+     "t_mid": 220,
+     "t_high": 260,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Wet hobby-room ceiling and affected wall surfaces documented",
+     "_description": "Restore and refinish plasterboard ceilings and wall surfaces"
+    },
+    {
+     "index": 5,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(e)",
+     "t_low": 90,
+     "t_mid": 135,
+     "t_high": 170,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Defective water-escape source part is expressly insured",
+     "_description": "Replace fill valve in toilet cistern"
+    },
+    {
+     "index": 6,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(a)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 85,
+     "cap_uncertain": false,
+     "reason": "General final cleaning is not a repair cost",
+     "_description": "Final site cleaning"
+    },
+    {
+     "index": 7,
+     "covered": true,
+     "related": true,
+     "clause": "4.8.1(a), 4.8.3, 7.1.1(d)",
+     "t_low": 150,
+     "t_mid": 230,
+     "t_high": 290,
+     "t_if_covered": 0,
+     "cap_uncertain": true,
+     "reason": "One wet billiard table; three identical services unsupported",
+     "_description": "Billiard table inspection, disassembly, re-covering and reassembly"
+    },
+    {
+     "index": 8,
+     "covered": true,
+     "related": true,
+     "clause": "4.8.1(a), 4.8.2, 4.8.3, 7.1.1(d)",
+     "t_low": 170,
+     "t_mid": 260,
+     "t_high": 320,
+     "t_if_covered": 0,
+     "cap_uncertain": true,
+     "reason": "One standard cloth, cue set and table light only",
+     "_description": "Replace billiard cloth, cue sets and overhead lighting fixture"
+    },
+    {
+     "index": 9,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(h), 7.1.10",
+     "t_low": 80,
+     "t_mid": 125,
+     "t_high": 160,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "One rug documented; cleaning precedes any replacement",
+     "_description": "Specialist cleaning and removal of water-damaged rug"
+    },
+    {
+     "index": 10,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(i)",
+     "t_low": 55,
+     "t_mid": 85,
+     "t_high": 115,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Inspection reasonably establishes extent of vacuum damage",
+     "_description": "Electrical inspection of robot vacuum cleaner"
+    },
+    {
+     "index": 11,
+     "covered": false,
+     "related": true,
+     "clause": "3.3(i)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 160,
+     "cap_uncertain": false,
+     "reason": "Vacuum self-damage after operating in escaping water excluded",
+     "_description": "Replacement robot vacuum cleaner (total loss)"
+    }
+   ]
+  },
+  "seconds": 15.6
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 34209.94,
+    "cost": 38330.92,
+    "net": -4120.99
+   },
+   "optimistic": {
+    "income": 37533.44,
+    "cost": 38330.92,
+    "net": -797.49
+   }
+  },
+  "open_pairings": {
+   "income": 49,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 277.74,
+    "b": 181.66,
+    "t_lo": 490.2,
+    "t_hi": 700.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 4443.839999999998,
+     "optimistic": 4443.839999999998
+    },
+    "cost": {
+     "pessimistic": 5017.67,
+     "optimistic": 5017.67
+    }
+   },
+   "2": {
+    "a": 197.24,
+    "b": 129.01,
+    "t_lo": 1365.0,
+    "t_hi": 1675.94,
+    "fair": true,
+    "income": {
+     "pessimistic": 3155.8399999999992,
+     "optimistic": 3155.8399999999992
+    },
+    "cost": {
+     "pessimistic": 4117.2,
+     "optimistic": 4117.2
+    }
+   },
+   "3": {
+    "a": 219.12,
+    "b": 143.32,
+    "t_lo": 240.0,
+    "t_hi": 884.05,
+    "fair": true,
+    "income": {
+     "pessimistic": 3505.9199999999987,
+     "optimistic": 3505.9199999999987
+    },
+    "cost": {
+     "pessimistic": 417.3,
+     "optimistic": 417.3
+    }
+   },
+   "4": {
+    "a": 225.62,
+    "b": 147.57,
+    "t_lo": 1024.0,
+    "t_hi": 1620.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 3609.9199999999987,
+     "optimistic": 3609.9199999999987
+    },
+    "cost": {
+     "pessimistic": 4084.5750000000003,
+     "optimistic": 4084.5750000000003
+    }
+   },
+   "5": {
+    "a": 193.45,
+    "b": 126.53,
+    "t_lo": 240.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 3095.1999999999994,
+     "optimistic": 3095.1999999999994
+    },
+    "cost": {
+     "pessimistic": 2664.0,
+     "optimistic": 2664.0
+    }
+   },
+   "6": {
+    "a": 76.5,
+    "b": 0.0,
+    "t_lo": 91.0,
+    "t_hi": 120.8,
+    "fair": true,
+    "income": {
+     "pessimistic": 1224.0,
+     "optimistic": 1224.0
+    },
+    "cost": {
+     "pessimistic": 136.5,
+     "optimistic": 136.5
+    }
+   },
+   "7": {
+    "a": 336.22,
+    "b": 153.93,
+    "t_lo": 921.96,
+    "t_hi": 1080.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 5379.520000000002,
+     "optimistic": 5379.520000000002
+    },
+    "cost": {
+     "pessimistic": 8553.675,
+     "optimistic": 8553.675
+    }
+   },
+   "8": {
+    "a": 372.58,
+    "b": 170.58,
+    "t_lo": 1071.78,
+    "t_hi": 1505.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 5961.28,
+     "optimistic": 5961.28
+    },
+    "cost": {
+     "pessimistic": 9480.599999999999,
+     "optimistic": 9480.599999999999
+    }
+   },
+   "9": {
+    "a": 179.12,
+    "b": 117.16,
+    "t_lo": 257.62,
+    "t_hi": 290.22,
+    "fair": true,
+    "income": {
+     "pessimistic": 2865.919999999999,
+     "optimistic": 2865.919999999999
+    },
+    "cost": {
+     "pessimistic": 3044.28,
+     "optimistic": 3044.28
+    }
+   },
+   "10": {
+    "a": 124.25,
+    "b": 81.27,
+    "t_lo": 102.79,
+    "t_hi": 150.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 248.5,
+     "optimistic": 1988.0
+    },
+    "cost": {
+     "pessimistic": 815.125,
+     "optimistic": 815.125
+    }
+   },
+   "11": {
+    "a": 144.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 162.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 720.0,
+     "optimistic": 2304.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout",
+   "7": "truth+payout",
+   "8": "truth+payout",
+   "9": "truth+payout",
+   "10": "truth+payout",
+   "11": "truth+payout"
+  }
+ },
+ "pess_net": -4120.99,
+ "pess_rank": 7,
+ "opt_net": -797.49,
+ "opt_rank": 7,
+ "exp_net": -2459.24,
+ "exp_rank": 7,
+ "best_team": "Codacabana",
+ "best_net": 40917.41,
+ "n_teams": 17,
+ "replayed_now": true
+}

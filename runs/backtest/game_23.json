@@ -5,18 +5,18 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 128.67,
-    "acceptance_limit": 58.91
+    "charge_price": 129.03,
+    "acceptance_limit": 59.08
    },
    {
     "index": 2,
-    "charge_price": 146.08,
-    "acceptance_limit": 66.88
+    "charge_price": 130.43,
+    "acceptance_limit": 59.72
    },
    {
     "index": 3,
-    "charge_price": 121.8,
-    "acceptance_limit": 55.77
+    "charge_price": 122.31,
+    "acceptance_limit": 56.0
    }
   ],
   "estimate": {
@@ -69,30 +69,30 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 6344.8,
+    "income": 6108.32,
     "cost": 5143.28,
-    "net": 1201.52
+    "net": 965.04
    },
    "optimistic": {
-    "income": 6344.8,
+    "income": 6108.32,
     "cost": 5143.28,
-    "net": 1201.52
+    "net": 965.04
    }
   },
   "open_pairings": {
-   "income": 9,
+   "income": 13,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 128.67,
-    "b": 58.91,
+    "a": 129.03,
+    "b": 59.08,
     "t_lo": 143.41,
     "t_hi": 165.38,
     "fair": true,
     "income": {
-     "pessimistic": 2058.7200000000003,
-     "optimistic": 2058.7200000000003
+     "pessimistic": 2064.48,
+     "optimistic": 2064.48
     },
     "cost": {
      "pessimistic": 205.5,
@@ -100,29 +100,29 @@
     }
    },
    "2": {
-    "a": 146.08,
-    "b": 66.88,
+    "a": 130.43,
+    "b": 59.72,
     "t_lo": 374.5,
     "t_hi": 396.0,
     "fair": true,
     "income": {
-     "pessimistic": 2337.2799999999997,
-     "optimistic": 2337.2799999999997
+     "pessimistic": 2086.8800000000006,
+     "optimistic": 2086.8800000000006
     },
     "cost": {
-     "pessimistic": 3531.9900000000002,
-     "optimistic": 3531.9900000000002
+     "pessimistic": 3531.99,
+     "optimistic": 3531.99
     }
    },
    "3": {
-    "a": 121.8,
-    "b": 55.77,
+    "a": 122.31,
+    "b": 56.0,
     "t_lo": 150.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 1948.7999999999995,
-     "optimistic": 1948.7999999999995
+     "pessimistic": 1956.9599999999994,
+     "optimistic": 1956.9599999999994
     },
     "cost": {
      "pessimistic": 1405.79,
@@ -136,11 +136,11 @@
    "3": "truth+payout"
   }
  },
- "pess_net": 1201.52,
+ "pess_net": 965.04,
  "pess_rank": 6,
- "opt_net": 1201.52,
+ "opt_net": 965.04,
  "opt_rank": 6,
- "exp_net": 1201.52,
+ "exp_net": 965.04,
  "exp_rank": 6,
  "best_team": "Nullpointer Naan",
  "best_net": 2867.459999999999,
