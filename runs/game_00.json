@@ -1,6 +1,6 @@
 {
   "game_id": 0,
-  "started_at": 1787404498.191116,
+  "started_at": 1787404583.333869,
   "submissions": [
     {
       "tag": "full x1",
@@ -12,9 +12,19 @@
           "acceptance_limit": 410.55
         }
       ],
-      "response": "skipped (--no-submit)"
+      "response": [
+        {
+          "game_id": 0,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 402.5,
+          "acceptance_limit": 410.55,
+          "submitted_at": "2026-08-22T13:16:23.514193Z"
+        }
+      ]
     }
   ],
+  "key_obtained_at": 1787404583.439256,
   "case": {
     "game_id": 0,
     "policy": "===============================================================================\nBICYCLE THEFT INSURANCE - POLICY CONDITIONS\n===============================================================================\n\n1. PURPOSE\n\nThis policy insures the bicycle described in the schedule against theft. The\ninsurer indemnifies the policyholder for the financial loss suffered when the\ninsured bicycle is stolen.\n\n2. INSURED EVENT\n\nAn insured event is the theft of the insured bicycle, that is, its removal by a\nthird party with the intent of unlawfully keeping it.\n\n3. CONDITIONS OF COVER\n\nCover applies only where, at the time of the theft, the bicycle was secured with\na lock to a fixed object (a bike stand, railing, lamp post or comparable fixed\nstructure), or was kept in a locked room.\n\n4. AMOUNT OF INDEMNITY\n\nThe insurer reimburses the market value of the bicycle at the time of the theft,\nup to the sum insured stated in the schedule.\n\n5. EXCLUSIONS\n\nNot covered:\n  (a) theft of a bicycle that was left unlocked;\n  (b) loss of, or damage to, accessories carried loosely (lights, bags, pumps);\n  (c) theft caused intentionally by the policyholder.\n\n6. POLICYHOLDER DUTIES\n\nThe policyholder must report the theft to the police without delay and provide\nthe insurer with the crime reference and proof of the bicycle's value.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
@@ -85,5 +95,5 @@
       "acceptance_limit": 410.55
     }
   ],
-  "finished_at_s": 0.0
+  "finished_at_s": 0.1
 }
