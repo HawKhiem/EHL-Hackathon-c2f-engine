@@ -1,0 +1,488 @@
+{
+  "game_id": 28,
+  "started_at": 1787424060.7450361,
+  "submissions": [
+    {
+      "tag": "full",
+      "at_s": 12.8,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 918.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 2,
+          "charge_price": 54.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 3,
+          "charge_price": 108.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 4,
+          "charge_price": 81.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 5,
+          "charge_price": 297.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 6,
+          "charge_price": 90.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 9450.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 540.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 225.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 54.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 918.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 54.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 108.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 81.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 297.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 90.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 9450.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 540.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 225.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        },
+        {
+          "game_id": 28,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 54.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T18:41:14.661600Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787424060.832533,
+  "case": {
+    "game_id": 28,
+    "policy": "===============================================================================\nRESIDENTIAL DWELLING INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\n===============================================================================\n\nThese conditions apply together with the General Contract Provisions and with\nthe Schedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods and percentages shown in square brackets are those stated\nin the Schedule. Only the peril groups recorded in the Schedule are insured.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nCombined residential buildings insurance protects the policyholder against the\nfinancial consequences of physical damage to their building. The perils that can\nbe insured are the ones bundled together in these conditions - fire, escape of\nwater, storm and hail, and further natural hazards among them. Which of the\ninsurable perils are actually covered is agreed between insurer and policyholder\nand recorded in the schedule. A peril group that is not recorded there is not\ninsured, and damage falling within it is borne by the policyholder.\n\nWhere insured property is destroyed or damaged by a peril that is insured, the\ninsurer indemnifies the cost of putting it back in the same kind and quality. The\ntechnical plant that serves the building, and the electrical installation\nbelonging to it, share in that cover. A range of consequential expenses triggered\nby such a loss event - the removal of what the event destroyed, and the measures\ntaken to limit the damage among them - is also carried.\n\nThe cover is a cover against causes, not against outlay. Every benefit under this\ncontract presupposes that damage to insured property was caused by an insured\nperil and that this has been established.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nInsured event - an event by which insured property was destroyed or damaged and\nwhich falls within a peril recorded as insured in the schedule.\n\nEstablished cause - the attribution of the damage to an insured peril, made by\nthe loss investigation and resting on the identification of the installation, the\ndefect or the occurrence from which the damage proceeded.\n\nCondition, as distinguished from cause - the state in which the insured property\nis found after an event: that a room, a basement, a plant room or a storey stands\nor has stood under water, that installations situated there have been submerged,\nor that parts of the building are wet. A condition of this kind is the result\nthat several different perils can produce, some insured and some not. Recording\nthe condition does not establish a cause, and no benefit under this contract\nfollows from the condition alone.\n\nInundation - the standing of water in or on parts of the building or of the\ninsured site that did not emerge from an installation of the building within the\nmeaning of 2.4.2. It is immaterial how the water reached the place where it was\nfound, whether from the ground, from the surface, from precipitation, from a\nbacking-up, from adjoining land, or from a source that was not identified.\n\nAffected part - a room, a surface, a building component, an installation or an\nitem in which physical damage caused by an insured event has been established by\nthe loss investigation.\n\nRepair cost - outlay that serves to put an affected part back into the condition\nit was in immediately before an insured event. Outlay that serves another purpose\nis not a repair cost, whatever heading it is invoiced under.\n\nPlant of the building - the installations permanently connected to the building\nthat serve its supply, its heating, its ventilation, its water or its power and\nremain in place once the work is finished. Plant of the building is insured\nproperty against the perils recorded in the schedule, and against those only.\n\nWorking equipment - the devices, appliances, machines, pumps and comparable items\nbrought to the insured site in order to carry out an operation and taken away\nagain once it is finished. Working equipment does not become part of the building\nand is not insured property.\n\nMeasure - an operation billed by reference to what it achieves rather than by\nreference to the items used to achieve it. The removal of standing water is an\nexample.\n\nJourney charge - a charge for attending the insured site, however described,\nincluding travel, vehicle, company vehicle, call-out, attendance and\nre-attendance charges.\n\nExclusion - a peril, a type of damage, an item of property or a type of outlay\nfor which no cover exists.\n\nDuties - the things the policyholder must do or refrain from doing before, during\nand after an insured event.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is destroyed or damaged by, or lost\nas a consequence of, the following events, insofar as the group in question is\nrecorded as insured in the schedule:\n\n  (a) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot.\n\n  (b) ESCAPE OF WATER.\n\n  (c) NATURAL HAZARDS, in two tiers:\n        (c1) storm and hail;\n        (c2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\n2.2 How the groups combine\n\nEach of the three groups (a), (b) and (c1) can be taken separately. The further\nnatural hazards under (c2) can only be taken in combination with one or more of\nthe perils in (a), (b) or (c1); they are not available on a standalone basis.\n\nWhere the schedule does not record group (c2), damage caused by any of the\nfurther natural hazards is not covered, and no part of such damage is brought\ninto cover by the fact that other groups are recorded.\n\n2.4 Escape of water defined\n\n2.4.2 Escape of water damage\nEscaping water means water that has emerged contrary to its intended purpose\nfrom:\n  (a) pipes of the water supply, whether supply or drainage lines, or hoses\n      connected to them;\n  (b) other installations connected to those pipes or hoses, or the\n      water-carrying parts of such installations;\n  (c) heating or air-conditioning systems;\n  (d) water-based extinguishing or sprinkler systems;\n  (e) water beds or aquaria.\n\nOperating fluids from heating or air-conditioning systems, and steam, also count\nas escaping water. Fluids intended for the generation of energy do not.\n\n2.4.3 What the peril requires\nThis peril presupposes both of the following:\n  (a) that the water proceeded from one of the sources in 2.4.2; and\n  (b) that this has been established as a cause within the meaning of 1.3, by\n      identification of the installation concerned and of the defect or the\n      occurrence by which the water left it.\n\nThe presence of water in a room, a basement, a plant room or another part of the\nbuilding is the condition that this peril can produce; it is not the peril. It is\nequally the condition that inundation produces, and inundation is not this peril.\nWhere the loss investigation records the condition without establishing which of\nthe two produced it, the requirements of this clause are not met.\n\n2.4.4 Where the requirements are not met\nWhere 2.4.3 is not satisfied, the damage is not damage by escape of water. It\nfalls to be considered under the natural hazards in 2.5, and is covered only\ninsofar as the schedule records the group into which it falls.\n\n2.5 Natural hazards defined\n\nStorm, hail and the further natural hazards are each defined as customarily in\nthese conditions. Flood means the inundation of the ground and soil of the\ninsured site, or of parts of the building, with substantial quantities of surface\nwater, whether from the overflow of surface waters, from precipitation, or from\nthe emergence of groundwater at the surface. Backing-up is present where water\nenters the building from the building's own drainage pipes or from installations\nconnected to them.\n\nInundation within the meaning of 1.3 falls within the further natural hazards\nunder 2.1(c2) and is insured only where that group is recorded in the schedule.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered. This applies irrespective of any contributing\ncauses.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered. This applies irrespective\nof any contributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered. This applies irrespective of any contributing causes.\n\n3.3 Exclusions within the escape of water peril\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) splash water or cleaning water;\n  (b) dry rot and house-rot fungi of every kind;\n  (c) groundwater, standing or flowing surface water, flood, precipitation, or a\n      backing-up of water brought about by any of these causes;\n  (d) earthquake, snow load, avalanche, volcanic eruption;\n  (e) ground subsidence or landslip - unless escaping water within the meaning of\n      2.4.2 caused the subsidence or the landslip;\n  (f) the perils of the fire group;\n  (g) storm, hail.\n\nDamage to buildings or parts of buildings that are not ready for occupation is\nnot covered.\n\n3.6 Inundation, and damage whose cause is not established\n\n3.6.1 The bar\nNo indemnity arises where the damage was caused by inundation within the meaning\nof 1.3 and the schedule does not record the group into which inundation falls,\nnor where the loss investigation records only the condition within the meaning of\n1.3 without establishing a cause.\n\n3.6.2 The bar applies to the whole claim\nThe bar in 3.6.1 operates on the claim as a whole and not on individual\npositions. Where it applies, the following are not indemnified, whatever they\nconsist of, whichever trade renders them, and however they are described or\ninvoiced:\n  (a) the repair, renewal or replacement of any installation, component,\n      circuit, surface or item, including the plant of the building and the\n      electrical installation, and including the adaptation, connection and\n      commissioning work belonging to a replacement;\n  (b) the labour of any trade, including the labour of examining, testing or\n      tracing what has been affected;\n  (c) the materials supplied and built in, whether itemised individually or\n      billed as a materials position;\n  (d) the measures taken, including those taken to remove standing water, to stop\n      the spread of water, or to prevent further damage, together with the\n      working equipment used for them, however that equipment is charged;\n  (e) the clearance, dismantling, removal and disposal of anything taken out,\n      whether it was taken out because of the damage or in the course of the\n      work;\n  (f) every journey charge, of every trade, on every invoice;\n  (g) every head of cost under Part 5, and the loss of rent or rental value.\n\n3.6.3 Why the bar reaches the ancillary heads\nThe costs under Part 5 and the ancillary charges under Part 7 are accessory to an\nindemnifiable damage to insured property. They have no existence independent of\nit. That work was genuinely carried out, that it was competently done, that it\nwas reasonable, necessary or urgent, and that it plainly relieved the\npolicyholder's situation are therefore not grounds on which any part of such a\nclaim is indemnified.\n\n3.6.4 Burden and effect\nIt is for the policyholder to establish the cause. Where the cause is not\nestablished, the position is the same as where an uninsured peril is established:\nno benefit is payable, and no deductible falls to be applied, since no indemnity\narises from which it could be deducted.\n\n3.6.5 What the bar does not do\nThe bar concerns this claim only. It does not affect the cover for later events,\ndoes not of itself entitle the insurer to terminate the contract, and does not\nprevent the policyholder from bringing forward, within the ordinary limitation\nperiod, evidence establishing a cause within the meaning of 1.3. Where such\nevidence is brought forward and accepted, the claim is assessed on its merits\nunder Parts 5 and 7.\n\n3.7 Work beyond the affected parts, and outlay that is not a repair cost\n\nWork carried out beyond those parts of the insured property that were themselves\naffected by an insured event is not covered. Outlay that does not constitute a\nrepair cost is not indemnified. The delimitation in each case is governed by\n7.1.5 to 7.1.9.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises:\n  (a) the buildings identified in the schedule;\n  (b) their building components;\n  (c) their building accessories;\n  (d) terraces on the insured site that directly adjoin the building;\n  (e) further site installations.\n\nProperty is insured against the perils recorded in the schedule and against those\nonly. That an item is insured property says nothing about whether the peril that\ndamaged it is covered.\n\n4.2 The categories defined\n\n4.2.1 Building and dwelling\nBuildings are structures connected to the ground. They must be capable of\naffording protection against external influences and, for the purposes of these\nconditions, must be intended for predominantly residential use.\n\n4.2.2 Building components\nBuilding components are items incorporated into a building that have lost their\nindependence through their firm connection with it. The plant of the building\nwithin the meaning of 1.3 counts as a building component, together with the\npipework, cabling, connection and discharge elements by which it is joined to the\nbuilding.\n\n4.2.3 Building accessories\nBuilding accessories are movable items located inside the building or attached to\nits exterior that serve the upkeep of the insured building or its predominant\nintended purpose.\n\n4.3 Property not insured\n\nNot insured:\n  (a) photovoltaic installations and their components;\n  (b) all items subsequently incorporated into the building by a tenant or by a\n      condominium owner where that person both procured or took the items over at\n      their own expense and bears the risk for them;\n  (c) electronically stored data and programs;\n  (d) working equipment within the meaning of 1.3, irrespective of who brings it\n      to the insured site, of how it is charged, and of whether it is hired or\n      purchased for the occasion.\n\n4.5 The insured location\n\nThe insured location is the insured site: the land parcel on which the insured\nbuilding stands, together with the building and its ancillary and technical\nrooms.\n\n4.7 Deductibles\n\nA deductible is the share of the indemnity that the policyholder bears itself per\ninsured event. It is deducted once from the indemnity, irrespective of how many\ntrades, invoices or heads of claim are involved. Where no indemnity arises, no\ndeductible is applied.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS, LOSS OF RENT AND RENTAL VALUE\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nWhere damage has been caused by an insured peril and a cause within the meaning\nof 1.3 has been established, the insurer reimburses the following costs, insofar\nas they were necessary as a consequence of the insured event and were actually\nincurred:\n  (a) debris removal, dismantling and disposal costs;\n  (b) costs of emergency and loss-mitigation measures;\n  (c) costs of moving and protecting property;\n  (d) costs of accommodating the occupants;\n  (e) costs of lost water, gas and heating oil, and of electricity lost from\n      storage installations.\n\nReimbursement of each of these heads is limited to the amount agreed for it. The\nwhole of this Part is subject to 3.6.\n\n5.2 The cost heads defined\n\n5.2.1 Debris removal, dismantling and disposal\nCosts incurred in clearing away and demolishing insured property, in removing the\nremains of that property, transporting them to the nearest disposal site,\ndepositing them and destroying them. Plant and installations that an insured\nevent has rendered unusable fall under this head, together with the work of\ndisconnecting and taking them out.\n\n5.2.2 Emergency and loss-mitigation measures\nCosts of the measures reasonably taken to stop the ingress or spread of water, to\nremove standing water from rooms, voids and shafts, and to prevent further\ndamage. Such a measure is indemnified by reference to what it achieves.\n\nThe charge for a measure is taken to cover everything deployed in order to\nachieve it, including the labour and the working equipment used. Working\nequipment is not separately indemnified alongside the charge for the measure it\nserved, however it is described, whether it is charged as a hire, a deployment, a\nsupply or a procurement, whether one item or several are charged, and whether the\ncontractor already owned it or obtained it for the occasion.\n\n5.2.3 Moving and protecting property\nCosts incurred in moving, altering or protecting other property, reimbursable\nwhere those measures serve to reinstate or replace insured property.\n\n5.2.4 Accommodation of the occupants\nCosts of accommodation in a hotel or similar, excluding incidentals, where a\ndwelling of the insured building cannot reasonably be used because the rooms\nthemselves are damaged, or because a supply, an installation or a technical room\nserving the dwelling has been put out of service by the insured event.\n\n5.3 Loss of rent and rental value\n\nThe insurer reimburses loss of rent where tenants of residential premises have\nlawfully stopped paying rent in whole or in part on account of an insured event,\nand the locally customary rental value of premises occupied by the policyholder\nitself where it cannot reasonably be expected to use at least parts of the\ndwelling.\n\n5.4 The period for loss of rent and rental value\n\nLoss of rent or rental value is reimbursed for the period during which the rooms\nare unusable, but for no longer than [number] months from the occurrence of the\ninsured event, and only to the extent that the policyholder has not culpably\ndelayed the resumption of use.\n\n\n-------------------------------------------------------------------------------\nPART 6 - BASIS OF COVER AND PREMIUM\n-------------------------------------------------------------------------------\n\n6.1 Insurable value\n\nThe insurable value forms the basis for calculating the indemnity.\n\n6.2 Index-linked reinstatement value with enhancement\n\nWhat is insured is the locally customary new-build value of the insured property\nidentified in the schedule, taken at the time of the insured event, together with\nthe additional costs arising from public-law restrictions on reinstatement and\nthe price increases arising between the occurrence of the insured event and\nreinstatement initiated without delay.\n\n6.3 Index-linked current value with enhancement where reinstatement is omitted or\n    delayed\n\nFor property that is not reinstated, or is reinstated late, only the index-linked\ncurrent value with enhancement is insured.\n\n6.5 How the premium is calculated\n\nThe bases for calculating the premium are the area, the building type, the\nconstruction and the fit-out, the use, the peril groups recorded as insured,\nother agreed features material to the premium calculation, and the adjustment\nfactor. The premium reflects the groups recorded; a group that has not been\nrated has not been insured.\n\n6.6 Adjustment of cover and premium\n\nWhere cover is adjusted in line with the development of building costs, the\npremium changes accordingly, by way of the adjustment factor taking effect from\n1 January of each year.\n\n6.7 Subsequent inclusion of a peril group\n\nThe policyholder may at any time request that a further peril group be included.\nInclusion takes effect from the date agreed and applies to events occurring after\nthat date; it does not extend to an event that has already occurred.\n\n\n-------------------------------------------------------------------------------\nPART 7 - CALCULATION AND PAYMENT OF THE INDEMNITY\n-------------------------------------------------------------------------------\n\n7.1 Basis of calculation\n\n7.1.1 Where damage has been caused by an insured peril and a cause within the\nmeaning of 1.3 has been established, the insurer reimburses:\n  (a) for destroyed buildings - the locally customary reinstatement costs, taken\n      at the time of the insured event;\n  (b) for damaged buildings and other damaged property - the necessary repair\n      costs at the time of the insured event, capped at the insurable value at\n      that time;\n  (c) for destroyed or lost plant of the building and other property - the\n      procurement price for property of the same kind and quality in new\n      condition, together with the cost of installing it and putting it into\n      service.\n\n7.1.5 Extent of the repair\nIndemnity is confined to those parts of the insured property that were themselves\naffected by the insured event. Work carried out in a room, on a surface, on a\nbuilding component, on an installation or on an item that was not itself affected\nis not covered, even where it is carried out for reasons of appearance or\nconvenience, at the same time as covered work, or by the same contractor and\ninvoiced together with it.\n\nWhere the parts of one installation form a functional unit and the unit cannot be\nbrought back into service by replacing a single part, that unit is the affected\npart.\n\n7.1.6 Continuous surfaces\nWhere only part of a single continuous surface was affected, indemnity extends to\nthe adjoining unaffected sections of that same surface only where a replacement\nmaterial corresponding to the original is no longer obtainable and a visible\ndiscontinuity would otherwise remain.\n\n7.1.7 Preparatory and ancillary work\nThe necessary repair costs under 7.1.1(b) and the replacement costs under\n7.1.1(c) include:\n  (a) disconnecting, dismantling, taking out and disposing of the affected\n      installations, components and finishes;\n  (b) the drying, dehumidification and moisture-removal measures necessary before\n      the repair can be carried out;\n  (c) materials of a type, quality, grade and specification corresponding to\n      those in place immediately before the insured event, including the small\n      materials, conductors, terminals, fixings and comparable consumable items\n      actually built into the covered work;\n  (d) where an affected installation cannot economically be repaired and is\n      replaced, the work of adapting the immediately adjoining supply, connection\n      and discharge elements so far as the replacement requires it, together with\n      the work of connecting it and putting it into service;\n  (e) the investigatory labour reasonably needed to establish which parts of an\n      installation were affected;\n  (f) the labour of the workers of each trade necessarily deployed on the covered\n      work, at the ordinary rate of that trade;\n  (g) one journey charge per insured event, the attendance of the trades being\n      treated as one head of cost however many trades attend and however many\n      invoices are rendered.\n\n7.1.8 Outlay that is not a repair cost\nThe following do not constitute repair costs and are not indemnified, however\nthey may be described or invoiced:\n  (a) measures directed at the general condition, cleanliness, upkeep,\n      appearance, preservation, modernisation or improvement of the insured\n      property, as distinct from making good the damage caused by an insured\n      event;\n  (b) outlay belonging to a contractor's own business operation rather than to\n      the repair - its own tools and consumable small equipment, its diagnostic\n      and measuring devices, the provisioning of its personnel, the provision and\n      running of its own vehicles and plant, and general administrative,\n      handling, processing, coordination or project management charges levied in\n      addition to itemised labour and materials. Working equipment within the\n      meaning of 1.3 belongs to this heading;\n  (c) the same item of cost invoiced more than once in respect of the same\n      insured event, whether by one contractor or across several trades;\n  (d) every journey charge beyond the first raised in respect of the insured\n      event.\n\n7.1.9 No improvement on the pre-loss standard\nReinstatement proceeds on the basis of the type, quality, grade and specification\nin place immediately before the insured event. Where a higher specification or a\npremium range is chosen instead, indemnity is limited to the cost of an\nequivalent standard-grade replacement.\n\n7.4 Costs\n\nInsured costs under Part 5 are reimbursed where it is demonstrated that they were\nactually incurred, subject to 3.6 and to the limits agreed for each head.\n\n7.7 Value added tax\n\nValue added tax is reimbursed only if and to the extent that it was actually\nincurred, and not where the policyholder is entitled to recover input tax.\n\n7.8 Deductible\n\nDeductibles are deducted from the indemnity in the amount agreed.\n\n7.9 When the indemnity falls due\n\nThe indemnity falls due once the insurer has conclusively determined the claim as\nto its basis and its amount. Where the insurer determines that no indemnity\narises, it notifies the policyholder in text form, stating the ground and the\nclause on which the determination rests.\n\n\n-------------------------------------------------------------------------------\nPART 8 - EXPERT DETERMINATION PROCEDURE\n-------------------------------------------------------------------------------\n\n8.1 Determining the amount of the loss\nAfter an insured event has occurred, the policyholder may require that the amount\nof the loss be determined in an expert determination procedure. Insurer and\npolicyholder may also agree on such a procedure jointly.\n\n8.2 The cause is not determined in this procedure\nThe procedure determines the amount of the loss. Whether the damage was caused by\nan insured peril, and whether a cause within the meaning of 1.3 has been\nestablished, are not determined in it unless the parties expressly agree to\nextend it to that question. Where the parties do so agree, the experts are to\nstate what installation, defect or occurrence the damage proceeded from, or that\nthis could not be established.\n\n8.3 Procedure before the determination\nEach party is to nominate one expert in text form. Before beginning their\ndeterminations, the two experts nominate in text form a third expert as umpire.\nWhere the experts cannot agree, the umpire is appointed by the court with local\njurisdiction for the loss location.\n\n8.4 Content of the determination\nThe experts' findings must state a schedule of the destroyed and the damaged\ninsured property with the corresponding insurable values, the reinstatement and\nreplacement costs, the residual values, and the insured costs and the insured\nloss of rent or rental value.\n\n8.5 Procedure after the determination\nThe findings of the experts, or of the umpire, are binding on the contracting\nparties. They are not binding where it is demonstrated that they manifestly\ndeviate substantially from the true state of affairs. A determination of the\namount of the loss does not oblige the insurer to pay where no indemnity arises\nunder Part 3.\n\n8.6 Costs\nUnless something else has been agreed, each party bears the costs of its own\nexpert. The costs of the umpire are borne by the two parties in equal shares.\n\n8.7 Duties remain unaffected\nThe expert determination procedure does not affect the policyholder's duties.\n\n\n-------------------------------------------------------------------------------\nPART 9 - POLICYHOLDER DUTIES AND INCREASE IN RISK\n-------------------------------------------------------------------------------\n\n9.1 Contractually agreed safety requirements before an insured event\n\n9.1.1 Insured property must be kept in proper condition at all times. This\napplies in particular to water-carrying installations and equipment. Defects or\ndamage to such property must be remedied without delay.\n\n9.1.2 Buildings or parts of buildings that are not in use must be inspected\nsufficiently frequently at every time of year, and the water-carrying\ninstallations there shut off, drained and kept drained.\n\n9.1.3 During the cold season all buildings and parts of buildings must be heated,\nand this must be checked sufficiently frequently.\n\n9.1.4 In rooms at risk of inundation or of backing-up, backflow prevention\ndevices must be kept operational, the drainage lines on the insured site kept\nclear, and installations sensitive to water kept clear of the floor where this is\nreasonably possible.\n\n9.2 Duties after an insured event\n\nThe policyholder must avert and mitigate the loss so far as it reasonably can,\nand must in particular take the measures needed to stop the ingress of water and\nto remove standing water without delay. Doing so is required of the policyholder\nirrespective of whether the event proves to be covered.\n\nBefore the affected parts are altered and before standing water is removed, the\npolicyholder must so far as reasonably possible record and preserve what shows\nwhere the water came from - the level reached, the direction of ingress, the\ncondition of the installations present - and must notify the insurer without\ndelay so that the cause can be established. Where this is not done, the\npolicyholder bears the consequences of the cause remaining unestablished, in\naccordance with 3.6.\n\n9.3 Consequences of a breach of duty\n\nWhere the policyholder breaches one of the duties in 9.1 or 9.2, the following\napplies, subject to the conditions set out in the general contract provisions:\nthe insurer is entitled to terminate the contract. It may also be wholly or\npartly released from liability.\n\n9.4 Circumstances constituting an increase in risk\n\nAn increase in risk subject to notification may exist in particular where a\ncircumstance changes about which the insurer asked before the contract was\nconcluded; where the building or the predominant part of it is no longer in use;\nwhere construction work renders it predominantly unusable; or where a commercial\noperation is taken up or changed within the building.\n\n\n-------------------------------------------------------------------------------\nPART 10 - CANCELLATION, SECURED LENDERS, TRANSFER OF OWNERSHIP\n-------------------------------------------------------------------------------\n\n10.1 Cancellation where a security right has been registered\n\nWhere a secured lender has registered its charge over the property, cancellation\nof the insurance relationship by the policyholder in respect of the fire peril\ngroup is effective only where the policyholder demonstrated, at least one month\nbefore expiry of the insurance contract, that the property was no longer\nencumbered with the charge, or that the secured lender consented to the\ncancellation. This does not apply to a cancellation following a disposal of the\nproperty, or to a cancellation in the insured event.\n\n10.2 Legal position following a transfer of ownership\n\nWhere the policyholder disposes of the insured property, the acquirer steps into\nits place in the insurance contract at the date of registration in the land\nregister, and from that time takes over the rights and obligations of the\npolicyholder. Seller and acquirer are jointly and severally liable for the\npremium for the insurance period in which the transfer of ownership occurs.\n\n10.3 Rights of cancellation on a transfer of ownership\n\nThe insurer is entitled to cancel the contract as against the acquirer on one\nmonth's notice, that right lapsing if it is not exercised within one month of the\ninsurer becoming aware of the disposal. The acquirer is entitled to cancel with\nimmediate effect or with effect from the end of the current insurance period, in\ntext form, that right lapsing one month after the acquisition. In either case the\nseller alone remains liable for payment of the premium.\n\n10.4 Duties of notification\n\nThe disposal must be notified to the insurer without delay, in text form, by the\nseller or by the acquirer. Where that notification has been omitted, the insurer\nis not obliged to pay in the insured event on the conditions set out in the\ngeneral contract provisions.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
+    "description": "Heavy rainfall over a short spell caused surface flooding that got into the basement, leaving roughly a meter of water standing in the plant room down there. This was rainwater coming in from outside, not anything to do with the plumbing - the pipes themselves were sound.\n\nThe boiler in the basement, along with its flue and storage tank, sat submerged and stopped working, so the whole unit had to be renewed rather than repaired. The old one was hauled out and disposed of, and the supply pipework was adjusted to suit the replacement.\n\nGetting the water out took a fair bit of pumping, so a submersible pump was brought in specifically for it. Once the water was down, an electrician spent the better part of a day and a half on site checking and rewiring the circuits that had been under water.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0221\nDATE\n8 Apr 2026\nDUE\n22 Apr 2026\nTRADE\nElectrical\nFROM\nSparky McShockface Electrical Ltd\n50 Ohm Street\n70565 Voltaville\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Electrician labour checking and rewiring the flooded\nbasement circuits\n12 hrs\n2 Vehicle costs 1 pcs\n3 Procurement of a motor pump 1 pcs\n4 Submersible pump 1 pcs\n5 Water extraction from the flooded basement 1 pcs\n6 Small electrical materials for the rewiring 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1\nInvoice\nINVOICE NO.\n2026-0222\nDATE\n8 Apr 2026\nDUE\n22 Apr 2026\nTRADE\nHeating\nFROM\nToasty Toes Heating Ltd\n19 Radiator Row\n90402 Warmingham\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n7 Renew boiler system including flue gas system and\nstorage tank\n1 flat rate\n8 Adjust supply pipework to fit the replacement boiler 1 flat rate\n9 Dispose of the old boiler system 1 \u2013\n10 Vehicle costs \u2013 \u2013\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Electrical",
+      "invoice_no": "2026-0221",
+      "date": "8 Apr 2026",
+      "vendor": "Sparky McShockface Electrical Ltd"
+    },
+    "items": [],
+    "n_images": 1
+  },
+  "model_full": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5.6-terra",
+      "seconds": 12.74
+    },
+    "output": {
+      "policy_summary": "Surface-flood damage requires insured further natural hazards (c2); no schedule confirmation is provided, so no indemnity arises.",
+      "items": [
+        {
+          "index": 1,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(b)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 1020,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 2,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(f)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 60,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 3,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(d)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 120,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 4,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(d)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 90,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 5,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(d)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 330,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 6,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(c)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 100,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 7,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(a)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 10500,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 8,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(a)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 600,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 9,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(e)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 250,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        },
+        {
+          "index": 10,
+          "covered": false,
+          "related": true,
+          "clause": "2.5, 3.6.1 and 3.6.2(f)",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 60,
+          "cap_uncertain": false,
+          "reason": "Flood claim lacks confirmed c2 schedule cover.",
+          "_description": ""
+        }
+      ]
+    }
+  },
+  "estimate": {
+    "items": [
+      {
+        "index": 1,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(b)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 1020,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 2,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(f)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 60,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 3,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(d)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 120,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 4,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(d)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 90,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 5,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(d)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 330,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 6,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(c)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 100,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 7,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(a)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 10500,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 8,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(a)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 600,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 9,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(e)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 250,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      },
+      {
+        "index": 10,
+        "covered": false,
+        "related": true,
+        "clause": "2.5, 3.6.1 and 3.6.2(f)",
+        "t_low": 0,
+        "t_mid": 0,
+        "t_high": 0,
+        "t_if_covered": 60,
+        "cap_uncertain": false,
+        "reason": "Flood claim lacks confirmed c2 schedule cover.",
+        "_description": ""
+      }
+    ]
+  },
+  "priced_full": [
+    {
+      "index": 1,
+      "charge_price": 918.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 2,
+      "charge_price": 54.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 3,
+      "charge_price": 108.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 4,
+      "charge_price": 81.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 5,
+      "charge_price": 297.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 6,
+      "charge_price": 90.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 7,
+      "charge_price": 9450.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 8,
+      "charge_price": 540.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 9,
+      "charge_price": 225.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 10,
+      "charge_price": 54.0,
+      "acceptance_limit": 0.0
+    }
+  ],
+  "finished_at_s": 13.8
+}
