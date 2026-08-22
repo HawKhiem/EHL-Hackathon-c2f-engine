@@ -185,3 +185,7 @@ Game 38 is also finished, check it
 ---
 
 Check our current implementation and see where are our pitfalls, analyze it deeply from a mathematical perspective and based on rounds 30 to 44
+
+---
+
+Yes try them now
