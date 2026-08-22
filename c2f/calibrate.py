@@ -19,7 +19,7 @@ import statistics
 import sys
 from statistics import NormalDist
 
-from c2f.price import BIAS_RANGE, CALIBRATION_PATH, DEFAULT_CALIBRATION, K_RANGE, P0_RANGE, SIGMA_RANGE
+from c2f.price import bucket_of, BIAS_RANGE, CALIBRATION_PATH, DEFAULT_CALIBRATION, K_RANGE, P0_RANGE, SIGMA_RANGE
 from c2f.submit import ROOT
 
 MIN_LABELS = 4
@@ -41,7 +41,11 @@ def estimates(game_id: int) -> dict[int, dict]:
             or (rec.get("model_full0") or {}).get("output")
         )
         if out:
-            return {int(it["index"]): it for it in out["items"]}
+            items = {int(it["index"]): it for it in out["items"]}
+            descs = {int(i["index"]): i.get("description", "") for i in rec.get("case", {}).get("items", [])}
+            for i, it in items.items():
+                it.setdefault("_description", descs.get(i, ""))
+            return items
     return {}
 
 
@@ -60,7 +64,8 @@ def labels() -> list[dict]:
                 continue
             mid = float(it.get("t_mid") or 0)
             covered = bool(it.get("covered")) and bool(it.get("related", True)) and mid > 0
-            rows.append({"game": g, "item": int(i), "t_lo": lo, "t_hi": hi, "t_mid": mid, "covered": covered})
+            rows.append({"game": g, "item": int(i), "t_lo": lo, "t_hi": hi, "t_mid": mid,
+                         "covered": covered, "bucket": bucket_of(it.get("_description", ""))})
     return rows
 
 
@@ -85,6 +90,35 @@ def fit_bias_sigma(rows: list[dict]) -> tuple[float, float]:
             if ll > best_ll:
                 best, best_ll = (mu, s), ll
     return math.exp(best[0]), best[1]
+
+
+#: Shrinkage weight: a bucket needs this many labels before it moves half way from the
+#: global bias to its own fit. Keeps a 5-label bucket from swinging the price.
+BUCKET_PRIOR = 6.0
+MIN_BUCKET_LABELS = 4
+
+
+def fit_bucket_bias(rows: list[dict], global_bias: float) -> dict[str, float]:
+    """Per-bucket bias, shrunk toward `global_bias` in log space (James-Stein style).
+
+    Fitting each bucket independently on 5-15 labels would just fit noise - that is the
+    same mistake the accept-limit sweep made when it found an "optimum" driven by one
+    game. Shrinking means a thin bucket barely moves and a well-evidenced one moves most
+    of the way.
+    """
+    out: dict[str, float] = {}
+    by: dict[str, list[dict]] = {}
+    for r in rows:
+        if r["t_mid"] > 0 and (r["t_lo"] > 0 or r.get("t_hi")):
+            by.setdefault(r.get("bucket", "other"), []).append(r)
+    for name, rs in by.items():
+        if len(rs) < MIN_BUCKET_LABELS:
+            continue
+        b, _sigma = fit_bias_sigma(rs)
+        n = len(rs)
+        shrunk = math.exp((n * math.log(b) + BUCKET_PRIOR * math.log(global_bias)) / (n + BUCKET_PRIOR))
+        out[name] = round(shrunk, 3)
+    return out
 
 
 def acceptance_points() -> list[tuple[float, float]]:
@@ -140,9 +174,17 @@ def main() -> None:
         tag = "ok" if r["covered"] and r["t_lo"] > 0 else ("model said NOT covered, t > 0" if not r["covered"] else "model said covered, t may be 0")
         print(f"  game {r['game']:2d} item {r['item']:2d}: t in [{r['t_lo']:7.0f}, {hi})  t_mid {r['t_mid']:7.0f}  {tag}")
     print(f"{len(fit_rows)} bracketed covered items -> bias {bias:.2f}, sigma {sigma:.2f}; {len(missed)} coverage misses")
+    buckets = fit_bucket_bias(fit_rows, bias)
     print(f"{len(pts)} over-charge acceptance points -> p0 {p0:.2f}, k {k:.2f}")
+    if buckets:
+        spread = f"{min(buckets.values()):.2f}-{max(buckets.values()):.2f}"
+        print(f"per-category bias ({len(buckets)} buckets, shrunk toward {bias:.2f}, range {spread}):")
+        for name, b in sorted(buckets.items(), key=lambda kv: -kv[1]):
+            arrow = "raise" if b > bias else ("lower" if b < bias else "same")
+            print(f"    {name:<20} {b:>5.2f}  ({arrow} vs global)")
     CALIBRATION_PATH.write_text(json.dumps({
         "bias": round(bias, 3), "sigma": round(sigma, 3), "p0": round(p0, 3), "k": round(k, 3),
+        "bias_by_bucket": buckets,
         "n_labels": len(fit_rows), "n_coverage_misses": len(missed), "n_accept_points": len(pts),
         "labels": [{k2: r[k2] for k2 in ("game", "item", "t_lo", "t_hi", "t_mid")} for r in fit_rows],
     }, indent=1))

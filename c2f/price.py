@@ -31,7 +31,7 @@ from __future__ import annotations
 
 import json
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from statistics import NormalDist
 
@@ -72,6 +72,33 @@ BIAS_RANGE = (0.5, 1.5)
 SIGMA_RANGE = (0.15, 1.0)
 P0_RANGE = (0.02, 0.8)
 K_RANGE = (0.0, 6.0)
+#: description keyword -> bucket. First match wins, so order matters: the specific
+#: trades come before the generic "labour" and "material" catch-alls.
+BUCKETS: list[tuple[str, tuple[str, ...]]] = [
+    ("ancillary/call-out", ("vehicle", "travel", "call-out", "callout", "shipping", "delivery",
+                            "disposal", "admin", "postage", "mileage")),
+    ("diagnostic/inspect", ("diagnos", "inspect", "assess", "report", "survey", "measurement",
+                            "moisture", "leak detection", "detection")),
+    ("drying/remediation", ("drying", "dehumid", "dryer", "fan", "vacuum", "extract",
+                            "stabilis", "stabiliz")),
+    ("electronics", ("tv", "television", "speaker", "laptop", "computer", "monitor", "console",
+                     "camera", "phone", "audio", "electronic", "appliance")),
+    ("valuables", ("watch", "jewel", "ring", "gold", "bicycle", "bike", "sunglasses", "designer")),
+    ("labour", ("hour", "hrs", "worker", "technician", "helper", "labour", "labor", "fitter")),
+    ("restoration/repair", ("restor", "repair", "renovat", "conservat", "paint", "tiling",
+                            "plaster", "skirting", "floor", "wall")),
+    ("material", ("material", "parts", "supply", "consumable")),
+]
+
+
+def bucket_of(description: str) -> str:
+    d = (description or "").lower()
+    for name, keys in BUCKETS:
+        if any(k in d for k in keys):
+            return name
+    return "other"
+
+
 CALIBRATION_PATH = Path(__file__).resolve().parent.parent / "runs" / "calibration.json"
 
 _N = NormalDist()
@@ -83,6 +110,19 @@ class Calibration:
     sigma: float = 0.4  # log-sd of true t around bias * t_mid
     p0: float = 0.35  # fraction of reviewers accepting a charge just over t
     k: float = 2.0  # acceptance decays as (a/t)^-k beyond t
+    #: bucket -> bias, where the labels support it. One global bias averages over
+    #: categories whose errors point in OPPOSITE directions: measured over games 12-17
+    #: we under-price material (median t_lo/t_mid 2.15) and labour (1.52) while
+    #: over-pricing drying/remediation (0.74) and restoration/repair (0.72), so a single
+    #: multiplier of 1.37 makes those last two worse. c2f.calibrate fits each bucket and
+    #: shrinks it toward the global one, so a thin bucket cannot swing far on 5 labels.
+    bias_by_bucket: dict[str, float] = field(default_factory=dict)
+
+    def bias_for(self, description: str | None) -> float:
+        """Bucket bias when we have one, else the global. Never guesses from a blank."""
+        if not description:
+            return self.bias
+        return self.bias_by_bucket.get(bucket_of(description), self.bias)
 
 
 DEFAULT_CALIBRATION = Calibration()
@@ -101,11 +141,22 @@ def calibration() -> Calibration:
         return DEFAULT_CALIBRATION
     if not all(math.isfinite(v) for v in vals.values()):
         return DEFAULT_CALIBRATION
+    raw = d.get("bias_by_bucket") or {}
+    buckets = {}
+    if isinstance(raw, dict):
+        for name, v in raw.items():
+            try:
+                fv = float(v)
+            except (TypeError, ValueError):
+                continue
+            if math.isfinite(fv):
+                buckets[str(name)] = _clamp(fv, BIAS_RANGE)
     return Calibration(
         bias=_clamp(vals["bias"], BIAS_RANGE),
         sigma=_clamp(vals["sigma"], SIGMA_RANGE),
         p0=_clamp(vals["p0"], P0_RANGE),
         k=_clamp(vals["k"], K_RANGE),
+        bias_by_bucket=buckets,
     )
 
 
@@ -135,7 +186,7 @@ class Belief:
     def from_estimate(cls, est: dict, cal: Calibration) -> "Belief":
         lo, mid, hi = sorted(_num(est.get(k)) for k in ("t_low", "t_mid", "t_high"))
         model_sigma = (math.log(hi) - math.log(lo)) / (2 * MODEL_SPREAD_Z) if lo > 0 and hi > lo else 0.0
-        return cls(mu=math.log(mid * cal.bias), sigma=_clamp(max(cal.sigma, model_sigma), SIGMA_RANGE))
+        return cls(mu=math.log(mid * cal.bias_for(est.get("_description"))), sigma=_clamp(max(cal.sigma, model_sigma), SIGMA_RANGE))
 
 
 def accept_limit(belief: Belief) -> float:

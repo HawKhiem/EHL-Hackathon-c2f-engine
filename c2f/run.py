@@ -59,6 +59,12 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
     for i in wanted:
         if i not in by_idx:  # parsed but the model skipped it: price as unknown, log loudly
             by_idx[i] = {"index": i, "covered": False, "related": False, "reason": "MISSING FROM MODEL OUTPUT"}
+    # The invoice wording rides along so c2f.price can pick a per-category bias. The model's
+    # own output has no description field, and the category is where the estimate's bias
+    # actually lives - one global multiplier is right for material and wrong for drying.
+    descs = {int(it["index"]): it.get("description", "") for it in case.get("items", [])}
+    for i in wanted:
+        by_idx[i].setdefault("_description", descs.get(i, ""))
     return [by_idx[i] for i in wanted]
 
 

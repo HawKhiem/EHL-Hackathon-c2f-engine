@@ -1,11 +1,21 @@
 {
  "bias": 1.374,
  "sigma": 0.99,
- "p0": 0.29,
+ "p0": 0.3,
  "k": 0.6,
+ "bias_by_bucket": {
+  "diagnostic/inspect": 1.464,
+  "restoration/repair": 1.048,
+  "other": 1.374,
+  "drying/remediation": 0.905,
+  "electronics": 0.93,
+  "ancillary/call-out": 1.144,
+  "labour": 1.445,
+  "material": 1.43
+ },
  "n_labels": 113,
  "n_coverage_misses": 36,
- "n_accept_points": 127,
+ "n_accept_points": 116,
  "labels": [
   {
    "game": 1,
