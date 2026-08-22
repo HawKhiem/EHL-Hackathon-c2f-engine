@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import math
 
-K_UNCERTAINTY = 0.25  # how much of the relative spread we shave off a
+K_UNCERTAINTY = 0.5  # how much of the relative spread we shave off a (game 2 showed ~20% overestimates)
 UNCOVERED_CHARGE = 0.6  # fraction of the would-be price we charge on uncovered items
 B_QUANTILE = 1 / 3
 

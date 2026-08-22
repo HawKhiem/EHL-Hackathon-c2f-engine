@@ -28,8 +28,10 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
                 t_low  : a price almost certainly acceptable
                 t_mid  : your best single estimate of the maximum acceptable price
                 t_high : a price that is probably already too expensive
-              Use market prices in Germany in 2026. Use any value hints in the damage
-              description (stated worth, age, make, size). Respect policy limits
+              Use market prices in Germany in 2026 for a standard / mid-range
+              replacement or a typical tradesman rate - NOT premium brands, NOT
+              worst-case. Claims experts are frugal: when unsure, go lower. Use any
+              value hints in the damage description (stated worth, age, make, size). Respect policy limits
               (sum insured, market value, caps, deductibles) - t must not exceed them.
    If the item is not covered OR not related, set t_low = t_mid = t_high = 0 and put
    your estimate of what the item WOULD cost if it were payable into t_if_covered.
