@@ -1,21 +1,21 @@
 {
- "bias": 1.443,
- "sigma": 0.97,
+ "bias": 1.524,
+ "sigma": 1.0,
  "p0": 0.29,
  "k": 0.6,
  "bias_by_bucket": {
-  "diagnostic/inspect": 1.906,
-  "restoration/repair": 1.271,
-  "other": 1.42,
-  "drying/remediation": 1.07,
-  "electronics": 1.011,
-  "ancillary/call-out": 1.318,
-  "valuables": 1.076,
-  "labour": 1.817,
-  "material": 1.899
+  "diagnostic/inspect": 1.903,
+  "restoration/repair": 1.287,
+  "other": 1.68,
+  "drying/remediation": 1.101,
+  "electronics": 1.035,
+  "ancillary/call-out": 1.31,
+  "valuables": 1.106,
+  "labour": 1.818,
+  "material": 1.99
  },
- "n_labels": 171,
- "n_coverage_misses": 56,
+ "n_labels": 184,
+ "n_coverage_misses": 60,
  "n_accept_points": 127,
  "labels": [
   {
@@ -1214,6 +1214,97 @@
    "t_lo": 513.01,
    "t_hi": 536.23,
    "t_mid": 320.0
+  },
+  {
+   "game": 35,
+   "item": 1,
+   "t_lo": 476.31,
+   "t_hi": 776.72,
+   "t_mid": 410.0
+  },
+  {
+   "game": 35,
+   "item": 2,
+   "t_lo": 705.36,
+   "t_hi": null,
+   "t_mid": 600.0
+  },
+  {
+   "game": 35,
+   "item": 4,
+   "t_lo": 116.55,
+   "t_hi": 125.69,
+   "t_mid": 45.0
+  },
+  {
+   "game": 35,
+   "item": 5,
+   "t_lo": 81.79,
+   "t_hi": 91.7,
+   "t_mid": 70.0
+  },
+  {
+   "game": 35,
+   "item": 6,
+   "t_lo": 441.34,
+   "t_hi": 560.79,
+   "t_mid": 250.0
+  },
+  {
+   "game": 35,
+   "item": 7,
+   "t_lo": 359.19,
+   "t_hi": null,
+   "t_mid": 170.0
+  },
+  {
+   "game": 35,
+   "item": 8,
+   "t_lo": 346.91,
+   "t_hi": 360.0,
+   "t_mid": 320.0
+  },
+  {
+   "game": 35,
+   "item": 9,
+   "t_lo": 24.0,
+   "t_hi": 45.35,
+   "t_mid": 170.0
+  },
+  {
+   "game": 35,
+   "item": 12,
+   "t_lo": 96.0,
+   "t_hi": null,
+   "t_mid": 15.0
+  },
+  {
+   "game": 35,
+   "item": 13,
+   "t_lo": 96.0,
+   "t_hi": null,
+   "t_mid": 15.0
+  },
+  {
+   "game": 35,
+   "item": 14,
+   "t_lo": 68.1,
+   "t_hi": null,
+   "t_mid": 9.0
+  },
+  {
+   "game": 35,
+   "item": 15,
+   "t_lo": 629.41,
+   "t_hi": 709.2,
+   "t_mid": 790.0
+  },
+  {
+   "game": 35,
+   "item": 18,
+   "t_lo": 1099.5,
+   "t_hi": null,
+   "t_mid": 1050.0
   }
  ]
 }
