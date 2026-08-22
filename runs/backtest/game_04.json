@@ -5,37 +5,37 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 542.5,
-    "acceptance_limit": 777.81
+    "charge_price": 337.32,
+    "acceptance_limit": 482.32
    },
    {
     "index": 2,
-    "charge_price": 500.0,
-    "acceptance_limit": 732.29
+    "charge_price": 224.88,
+    "acceptance_limit": 321.55
    },
    {
     "index": 3,
-    "charge_price": 607.5,
-    "acceptance_limit": 838.14
+    "charge_price": 337.32,
+    "acceptance_limit": 482.32
    },
    {
     "index": 4,
-    "charge_price": 20.0,
-    "acceptance_limit": 30.11
+    "charge_price": 11.24,
+    "acceptance_limit": 16.08
    },
    {
     "index": 5,
-    "charge_price": 36.0,
+    "charge_price": 30.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 6,
-    "charge_price": 36.0,
+    "charge_price": 24.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 7,
-    "charge_price": 30.0,
+    "charge_price": 42.0,
     "acceptance_limit": 0.0
    },
    {
@@ -50,17 +50,17 @@
    },
    {
     "index": 10,
-    "charge_price": 72.0,
+    "charge_price": 60.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 11,
-    "charge_price": 140.0,
-    "acceptance_limit": 229.54
+    "charge_price": 84.33,
+    "acceptance_limit": 120.58
    },
    {
     "index": 12,
-    "charge_price": 15.0,
+    "charge_price": 21.0,
     "acceptance_limit": 0.0
    },
    {
@@ -70,292 +70,292 @@
    },
    {
     "index": 14,
-    "charge_price": 12.0,
+    "charge_price": 18.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 15,
-    "charge_price": 16.25,
-    "acceptance_limit": 33.6
+    "charge_price": 23.89,
+    "acceptance_limit": 34.16
    }
   ],
   "ensemble": {
-   "policy_summary": "Residential building cover; overvoltage by lightning for appliances (2.3.3) with appliance sub-limit; strict repair-cost basis; many ancillary charges excluded (7.1.8); no cover for wear/ageing or undiagnosed items.",
+   "policy_summary": "Residential building cover; overvoltage to appliances insured within appliance sub-limit; ancillary delivery/installation/admin excluded; only proven damaged items; VAT reimbursed if incurred; deductible per schedule.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "2.3.3 Overvoltage; 7.1.1(b); 4.2.4 appliances",
+     "clause": "2.3.3; 7.1.1(b); 7.1.9",
      "t_low": 520.0,
      "t_mid": 600.0,
      "t_high": 750.0,
      "t_if_covered": 0.0,
-     "reason": "Mid-range 55\" TV replacement under surge damage.",
+     "reason": "Mid\u2011range 55\" TV replacement incl. VAT, surge damage proven.",
      "votes": "3/3 covered"
     },
     {
      "index": 2,
      "covered": true,
      "related": true,
-     "clause": "2.3.3 Overvoltage; 7.1.1(b); 4.2.4",
-     "t_low": 400.0,
-     "t_mid": 600.0,
-     "t_high": 800.0,
+     "clause": "2.3.3; 7.1.1(b); 7.1.9",
+     "t_low": 300.0,
+     "t_mid": 400.0,
+     "t_high": 650.0,
      "t_if_covered": 0.0,
-     "reason": "Speaker set surge-damaged; standard replacement pricing.",
+     "reason": "Standard speaker system replacement, reasonable mid\u2011range pricing.",
      "votes": "3/3 covered"
     },
     {
      "index": 3,
      "covered": true,
      "related": true,
-     "clause": "2.3.3 Overvoltage; 7.1.1(b); 4.2.4",
-     "t_low": 480.0,
-     "t_mid": 700.0,
-     "t_high": 850.0,
+     "clause": "2.3.3; 7.1.1(b); 7.1.9",
+     "t_low": 500.0,
+     "t_mid": 600.0,
+     "t_high": 750.0,
      "t_if_covered": 0.0,
-     "reason": "AV receiver failed from surge; mid-range replacement.",
+     "reason": "AV receiver mid\u2011range replacement after surge failure.",
      "votes": "3/3 covered"
     },
     {
      "index": 4,
      "covered": true,
      "related": true,
-     "clause": "2.3.3 Overvoltage; 7.1.1(b)",
+     "clause": "2.3.3; 7.1.1(b); 7.1.7",
      "t_low": 15.0,
-     "t_mid": 25.0,
+     "t_mid": 20.0,
      "t_high": 35.0,
      "t_if_covered": 0.0,
-     "reason": "Melted power strip/lead replaced; low-cost item.",
+     "reason": "Melted power lead replaced; small, necessary repair material.",
      "votes": "3/3 covered"
     },
     {
      "index": 5,
      "covered": false,
      "related": false,
-     "clause": "4.2.4 not appliances; 7.1.5 unaffected parts",
+     "clause": "4.2.4; 7.1.5; 4.3(d)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 60.0,
-     "reason": "Cables/remotes not insured appliances; damage unproven.",
+     "t_if_covered": 50.0,
+     "reason": "No proven physical damage to cables/remotes.",
      "votes": "0/3 covered"
     },
     {
      "index": 6,
      "covered": false,
      "related": false,
-     "clause": "4.2.4 not appliances; 7.1.5 unaffected",
+     "clause": "7.1.5; 4.3(d)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 60.0,
-     "reason": "Wall bracket not electrical; no surge damage shown.",
+     "t_if_covered": 40.0,
+     "reason": "Bracket shows no damage; not an affected item.",
      "votes": "0/3 covered"
     },
     {
      "index": 7,
      "covered": false,
      "related": false,
-     "clause": "2.3.10(c) wear/ageing exclusion",
+     "clause": "2.3.10(c); 7.1.5",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 50.0,
-     "reason": "Pre-existing faults; excluded by ageing/defect clause.",
+     "t_if_covered": 70.0,
+     "reason": "Pre\u2011existing failure; age\u2011related, not surge damage.",
      "votes": "0/3 covered"
     },
     {
      "index": 8,
      "covered": false,
      "related": false,
-     "clause": "4.2.4 damage must be established by loss investigation",
+     "clause": "4.2.4; 7.1.10",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
      "t_if_covered": 80.0,
-     "reason": "No diagnostic report; appliance not proven affected.",
+     "reason": "No diagnostic evidence of router damage.",
      "votes": "0/3 covered"
     },
     {
      "index": 9,
      "covered": false,
-     "related": false,
-     "clause": "7.1.8(b) delivery/transport excluded",
+     "related": true,
+     "clause": "7.1.8(b); 5.2.2",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
      "t_if_covered": 10.0,
-     "reason": "Shipping expressly excluded ancillary charge.",
+     "reason": "Delivery/shipping expressly excluded as ancillary charge.",
      "votes": "0/3 covered"
     },
     {
      "index": 10,
      "covered": false,
-     "related": false,
-     "clause": "7.1.8(c) fitting/commissioning excluded",
+     "related": true,
+     "clause": "7.1.8(c)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 120.0,
-     "reason": "Installation is not a repair cost under policy.",
+     "t_if_covered": 100.0,
+     "reason": "Installation/commissioning excluded from indemnity.",
      "votes": "0/3 covered"
     },
     {
      "index": 11,
      "covered": true,
      "related": true,
-     "clause": "4.2.4 loss investigation to establish damage; 7.1.1(b)",
-     "t_low": 120.0,
-     "t_mid": 180.0,
-     "t_high": 280.0,
-     "t_if_covered": 0.0,
-     "reason": "Reasonable diagnostic/report to evidence surge damage.",
-     "votes": "3/3 covered"
+     "clause": "7.1.1; 7.1.5; 7.1.10",
+     "t_low": 90.0,
+     "t_mid": 150.0,
+     "t_high": 220.0,
+     "t_if_covered": 140.0,
+     "reason": "Diagnostic inspection/report necessary to determine surge damage.",
+     "votes": "2/3 covered"
     },
     {
      "index": 12,
      "covered": false,
      "related": false,
-     "clause": "7.1.8(d) only one attendance per invoice; extra visit excluded",
+     "clause": "7.1.8(d); 3.1.5",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 25.0,
-     "reason": "Return-visit vehicle charge not reimbursable.",
-     "votes": "0/3 covered"
+     "t_if_covered": 35.0,
+     "reason": "Attendance on non\u2011indemnifiable invoice not reimbursable.",
+     "votes": "1/3 covered"
     },
     {
      "index": 13,
      "covered": false,
      "related": false,
-     "clause": "7.1.5 beyond affected parts; not a repair cost",
+     "clause": "3.1.5; 7.1.10",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
      "t_if_covered": 80.0,
-     "reason": "Distribution-board check exceeds damaged appliances.",
-     "votes": "0/3 covered"
+     "reason": "Board check tied to excluded arrangement/order.",
+     "votes": "1/3 covered"
     },
     {
      "index": 14,
      "covered": false,
      "related": false,
-     "clause": "3.1.5 service/admin; 7.1.8(e) admin overhead excluded",
+     "clause": "7.1.8(e); 3.1.5",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 20.0,
-     "reason": "Admin/claim-processing fee expressly excluded.",
+     "t_if_covered": 30.0,
+     "reason": "Administrative/claim\u2011processing fee expressly excluded.",
      "votes": "0/3 covered"
     },
     {
      "index": 15,
      "covered": true,
      "related": true,
-     "clause": "7.1.8(d) one call-out/vehicle charge per invoice allowed",
-     "t_low": 15.0,
-     "t_mid": 25.0,
-     "t_high": 50.0,
-     "t_if_covered": 0.0,
-     "reason": "Single attendance charge on invoice with covered work.",
-     "votes": "3/3 covered"
+     "clause": "7.1.8(d)",
+     "t_low": 20.0,
+     "t_mid": 42.5,
+     "t_high": 70.0,
+     "t_if_covered": 35.0,
+     "reason": "Vehicle cost for first attendance allowed once.",
+     "votes": "2/3 covered"
     }
    ],
    "n_votes": 3
   },
   "votes": 3,
   "errors": [],
-  "seconds": 33.6
+  "seconds": 30.9
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 5753.75,
-    "cost": 7577.01,
-    "net": -1823.26
+    "income": 12986.71,
+    "cost": 4683.18,
+    "net": 8303.54
    },
    "optimistic": {
-    "income": 17461.5,
-    "cost": 7577.01,
-    "net": 9884.49
+    "income": 16964.92,
+    "cost": 4683.18,
+    "net": 12281.75
    }
   },
   "open_pairings": {
-   "income": 85,
+   "income": 77,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 542.5,
-    "b": 777.81,
+    "a": 337.32,
+    "b": 482.32,
     "t_lo": 199.25,
     "t_hi": 530.0,
-    "fair": false,
+    "fair": null,
     "income": {
-     "pessimistic": 3797.5,
-     "optimistic": 3797.5
+     "pessimistic": 2361.24,
+     "optimistic": 5397.12
     },
     "cost": {
-     "pessimistic": 1670.4,
-     "optimistic": 1670.4
+     "pessimistic": 455.75,
+     "optimistic": 455.75
     }
    },
    "2": {
-    "a": 500.0,
-    "b": 732.29,
+    "a": 224.88,
+    "b": 321.55,
     "t_lo": 229.5,
     "t_hi": 335.0,
-    "fair": false,
+    "fair": true,
     "income": {
-     "pessimistic": 0.0,
-     "optimistic": 1000.0
+     "pessimistic": 3598.0800000000013,
+     "optimistic": 3598.0800000000013
     },
     "cost": {
-     "pessimistic": 2243.8199999999997,
-     "optimistic": 2243.8199999999997
+     "pessimistic": 685.25,
+     "optimistic": 685.25
     }
    },
    "3": {
-    "a": 607.5,
-    "b": 838.14,
+    "a": 337.32,
+    "b": 482.32,
     "t_lo": 532.5,
     "t_hi": null,
-    "fair": null,
+    "fair": true,
     "income": {
-     "pessimistic": 0.0,
-     "optimistic": 9720.0
+     "pessimistic": 5397.12,
+     "optimistic": 5397.12
     },
     "cost": {
-     "pessimistic": 2988.1,
-     "optimistic": 2988.1
+     "pessimistic": 3249.1,
+     "optimistic": 3249.1
     }
    },
    "4": {
-    "a": 20.0,
-    "b": 30.11,
+    "a": 11.24,
+    "b": 16.08,
     "t_lo": 28.0,
     "t_hi": 31.88,
     "fair": true,
     "income": {
-     "pessimistic": 320.0,
-     "optimistic": 320.0
+     "pessimistic": 179.84,
+     "optimistic": 179.84
     },
     "cost": {
-     "pessimistic": 72.65,
-     "optimistic": 72.65
+     "pessimistic": 108.975,
+     "optimistic": 108.975
     }
    },
    "5": {
-    "a": 36.0,
+    "a": 30.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 36.0,
-    "fair": false,
+    "fair": null,
     "income": {
-     "pessimistic": 144.0,
-     "optimistic": 144.0
+     "pessimistic": 120.0,
+     "optimistic": 480.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -363,14 +363,14 @@
     }
    },
    "6": {
-    "a": 36.0,
+    "a": 24.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 27.0,
-    "fair": false,
+    "fair": null,
     "income": {
-     "pessimistic": 72.0,
-     "optimistic": 72.0
+     "pessimistic": 48.0,
+     "optimistic": 384.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -378,14 +378,14 @@
     }
    },
    "7": {
-    "a": 30.0,
+    "a": 42.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 36.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 90.0,
-     "optimistic": 480.0
+     "pessimistic": 126.0,
+     "optimistic": 126.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -423,14 +423,14 @@
     }
    },
    "10": {
-    "a": 72.0,
+    "a": 60.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 45.0,
     "fair": false,
     "income": {
-     "pessimistic": 216.0,
-     "optimistic": 216.0
+     "pessimistic": 180.0,
+     "optimistic": 240.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -438,29 +438,29 @@
     }
    },
    "11": {
-    "a": 140.0,
-    "b": 229.54,
+    "a": 84.33,
+    "b": 120.58,
     "t_lo": 0.0,
     "t_hi": 45.0,
     "fair": false,
     "income": {
-     "pessimistic": 700.0,
-     "optimistic": 840.0
+     "pessimistic": 505.97999999999996,
+     "optimistic": 590.31
     },
     "cost": {
-     "pessimistic": 570.04,
-     "optimistic": 570.04
+     "pessimistic": 152.1,
+     "optimistic": 152.1
     }
    },
    "12": {
-    "a": 15.0,
+    "a": 21.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 18.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 45.0,
-     "optimistic": 240.0
+     "pessimistic": 63.0,
+     "optimistic": 63.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -483,14 +483,14 @@
     }
    },
    "14": {
-    "a": 12.0,
+    "a": 18.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 12.0,
     "fair": false,
     "income": {
      "pessimistic": 36.0,
-     "optimistic": 36.0
+     "optimistic": 54.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -498,28 +498,45 @@
     }
    },
    "15": {
-    "a": 16.25,
-    "b": 33.6,
+    "a": 23.89,
+    "b": 34.16,
     "t_lo": 0.0,
     "t_hi": 20.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 81.25,
-     "optimistic": 260.0
+     "pessimistic": 119.45,
+     "optimistic": 119.45
     },
     "cost": {
      "pessimistic": 32.0,
      "optimistic": 32.0
     }
    }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout",
+   "7": "truth+payout",
+   "8": "truth+payout",
+   "9": "truth+payout",
+   "10": "truth+payout",
+   "11": "truth+payout",
+   "12": "truth+payout",
+   "13": "truth+payout",
+   "14": "truth+payout",
+   "15": "truth+payout"
   }
  },
- "pess_net": -1823.26,
- "pess_rank": 9,
- "opt_net": 9884.49,
- "opt_rank": 2,
- "exp_net": 4030.61,
- "exp_rank": 3,
+ "pess_net": 8303.54,
+ "pess_rank": 2,
+ "opt_net": 12281.75,
+ "opt_rank": 1,
+ "exp_net": 10292.65,
+ "exp_rank": 1,
  "best_team": "error404 ai",
  "best_net": 10127.02,
  "n_teams": 17

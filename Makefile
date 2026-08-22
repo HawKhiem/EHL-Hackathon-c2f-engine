@@ -3,13 +3,13 @@
 #   make play G=7      same thing
 #   make check         real model against the permanent test game 0 (needs an LLM key in .env)
 #   make test          unit tests
-#   make learn G=7     after game 7 closes: infer t bounds + recalibrate b_scale (commits+pushes)
+#   make learn G=7     after game 7 closes: infer t bounds + recalibrate bias/sigma/acceptance (commits+pushes)
 #   make truth G=7      infer fair-value bounds for finished game 7 -> runs/truth_game_07.json
 # After make N / make play, the run log runs/game_NN.json is committed and pushed
 # (set PUSH=0 to skip). A failed run still commits its log. The truth inference is then
 # attempted too and runs/truth_game_NN.json committed if it succeeded (it needs the game
 # to show as completed on the leaderboard; rerun `make truth G=N` later otherwise).
-# When a truth file exists, b_scale is recalibrated and runs/calibration.json committed
+# When a truth file exists, the calibration is refit and runs/calibration.json committed
 # if it changed -- so `make learn` is only needed to redo this by hand.
 PY := pixi run python
 PUSH ?= 1
@@ -28,7 +28,7 @@ define push_log
 	$(call push_file,,$(1),run log)
 endef
 # $(call push_truth,<game>,<wait seconds>) waits for the game to close, then infers t bounds
-# and recalibrates b_scale from every truth file we have.
+# and refits the calibration from every truth + feedback file we have.
 define push_truth
 	@if [ "$(2)" -gt 0 ]; then \
 	  echo "waiting $(2)s for game $(1) to close on the leaderboard..."; sleep $(2); \
@@ -91,7 +91,8 @@ truth:
 	@test -n "$(G)" || { echo "usage: make truth G=<game_id>"; exit 1; }
 	$(call push_truth,$(G),0)
 
-# Replay the CURRENT strategy on past games against the real opponents (calls the model, ~40 s/game)
+# THE evaluation: replay the CURRENT strategy on past games against the real opponents
+# (uses feedback + truth + calibration as components; calls the model, ~40 s/game)
 #   make backtest            all completed games decrypted locally
 #   make backtest G="2 4 6"  specific games
 backtest:

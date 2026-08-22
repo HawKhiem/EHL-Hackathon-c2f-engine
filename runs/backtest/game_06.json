@@ -5,60 +5,60 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 1150.0,
-    "acceptance_limit": 1620.33
+    "charge_price": 10658.11,
+    "acceptance_limit": 825.71
    },
    {
     "index": 2,
-    "charge_price": 84.0,
+    "charge_price": 108.0,
     "acceptance_limit": 0.0
    }
   ],
   "ensemble": {
-   "policy_summary": "Buildings incl. fixed components; lightning overvoltage damages to appliances covered within appliance sub-limit; ancillary/diagnostic/installation/delivery charges excluded; indemnity limited to repair/replacement as pre-loss standard; deductibles per schedule.",
+   "policy_summary": "Covers building and appliances for lightning overvoltage; excludes delivery/installation, service/warranty and unrelated costs; VAT reimbursed if incurred; appliance class may be sub-limited.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "2.3.3 Overvoltage; 4.2.4 appliances; 7.1.1(b)(c); 7.1.9",
-     "t_low": 900.0,
-     "t_mid": 1350.0,
+     "clause": "2.3.3; 4.2.4; 7.1.1(c); 7.1.8(b)-(c); 7.1.9",
+     "t_low": 950.0,
+     "t_mid": 1200.0,
      "t_high": 1700.0,
      "t_if_covered": 0.0,
-     "reason": "Mid-range TV and speaker replacement under lightning surge sub-cover.",
+     "reason": "Mid-range TV and speaker replacement; exclude delivery/installation extras.",
      "votes": "3/3 covered"
     },
     {
      "index": 2,
      "covered": false,
-     "related": true,
-     "clause": "7.1.8(c)(d)(e); 5.1 exhaustive heads",
+     "related": false,
+     "clause": "7.1.8(a),(d); 3.1.5",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 140.0,
-     "reason": "Diagnostics/call-out not a repair cost; excluded ancillary outlay.",
-     "votes": "0/3 covered"
+     "t_if_covered": 180.0,
+     "reason": "Diagnostic report/call-out are non-repair, service-type charges.",
+     "votes": "1/3 covered"
     }
    ],
    "n_votes": 3
   },
   "votes": 3,
   "errors": [],
-  "seconds": 19.4
+  "seconds": 18.1
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 2804.0,
-    "cost": 7707.32,
-    "net": -4903.32
+    "income": 540.0,
+    "cost": 3361.69,
+    "net": -2821.69
    },
    "optimistic": {
-    "income": 5104.0,
-    "cost": 7707.32,
-    "net": -2603.32
+    "income": 11306.11,
+    "cost": 3361.69,
+    "net": 7944.42
    }
   },
   "open_pairings": {
@@ -67,29 +67,29 @@
   },
   "items": {
    "1": {
-    "a": 1150.0,
-    "b": 1620.33,
+    "a": 10658.11,
+    "b": 825.71,
     "t_lo": 765.0,
     "t_hi": 900.0,
     "fair": false,
     "income": {
-     "pessimistic": 2300.0,
-     "optimistic": 4600.0
+     "pessimistic": 0.0,
+     "optimistic": 10658.11
     },
     "cost": {
-     "pessimistic": 7707.32,
-     "optimistic": 7707.32
+     "pessimistic": 3361.6899999999996,
+     "optimistic": 3361.6899999999996
     }
    },
    "2": {
-    "a": 84.0,
+    "a": 108.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 45.0,
     "fair": false,
     "income": {
-     "pessimistic": 504.0,
-     "optimistic": 504.0
+     "pessimistic": 540.0,
+     "optimistic": 648.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -98,12 +98,12 @@
    }
   }
  },
- "pess_net": -4903.32,
- "pess_rank": 12,
- "opt_net": -2603.32,
- "opt_rank": 10,
- "exp_net": -3753.32,
- "exp_rank": 11,
+ "pess_net": -2821.69,
+ "pess_rank": 10,
+ "opt_net": 7944.42,
+ "opt_rank": 1,
+ "exp_net": 2561.36,
+ "exp_rank": 5,
  "best_team": "OPUSMOPUS",
  "best_net": 7830.3099999999995,
  "n_teams": 17

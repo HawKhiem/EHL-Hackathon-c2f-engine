@@ -15,7 +15,14 @@ in `.env` (see `.env.example`). Design: `docs/superpowers/specs/2026-08-22-c2f-e
 
 ## Backtest — required before changing the algorithm
 
-`make backtest` replays the current strategy on every past game whose case is decrypted
+`make backtest` is the **single evaluation entry point** — it folds in the other analysis
+tools as components: `c2f.feedback` (opponents' charges / accept-reject / payout-based `t`
+bounds), `c2f.truth` (tighter `t` bounds from the matchup cells, cached in
+`runs/truth_game_NN.json`) and the calibration in effect (`runs/calibration.json`, reported in
+the summary). `make fb` / `make truth` / `make learn` remain as building blocks for looking at
+one game or re-fitting the calibration; a strategy is judged only by `make backtest`.
+
+It replays the current strategy on every past game whose case is decrypted
 locally and scores it against what the other teams actually did that round (their charges,
 their accept/reject limits and the inferred fair-value bounds from the public leaderboard).
 It prints, per game, our actual net and rank vs the replayed net and rank (pessimistic /

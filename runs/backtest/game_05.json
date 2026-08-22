@@ -5,295 +5,295 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 235.0,
-    "acceptance_limit": 334.7
+    "charge_price": 1909.58,
+    "acceptance_limit": 147.94
    },
    {
     "index": 2,
-    "charge_price": 87.5,
-    "acceptance_limit": 128.35
+    "charge_price": 843.77,
+    "acceptance_limit": 65.37
    },
    {
     "index": 3,
-    "charge_price": 1140.0,
-    "acceptance_limit": 1429.52
+    "charge_price": 5773.14,
+    "acceptance_limit": 447.26
    },
    {
     "index": 4,
-    "charge_price": 36.25,
-    "acceptance_limit": 52.36
+    "charge_price": 310.86,
+    "acceptance_limit": 24.08
    },
    {
     "index": 5,
-    "charge_price": 92.5,
-    "acceptance_limit": 160.43
+    "charge_price": 1065.81,
+    "acceptance_limit": 82.57
    },
    {
     "index": 6,
-    "charge_price": 47.5,
-    "acceptance_limit": 75.73
+    "charge_price": 444.09,
+    "acceptance_limit": 34.4
    },
    {
     "index": 7,
-    "charge_price": 187.5,
-    "acceptance_limit": 266.6
+    "charge_price": 1776.35,
+    "acceptance_limit": 137.62
    },
    {
     "index": 8,
-    "charge_price": 162.5,
-    "acceptance_limit": 246.78
+    "charge_price": 1953.99,
+    "acceptance_limit": 151.38
    },
    {
     "index": 9,
-    "charge_price": 36.25,
-    "acceptance_limit": 52.36
+    "charge_price": 310.86,
+    "acceptance_limit": 24.08
    },
    {
     "index": 10,
-    "charge_price": 95.0,
-    "acceptance_limit": 197.18
+    "charge_price": 1243.45,
+    "acceptance_limit": 96.33
    },
    {
     "index": 11,
-    "charge_price": 190.0,
-    "acceptance_limit": 316.39
+    "charge_price": 1953.99,
+    "acceptance_limit": 151.38
    },
    {
     "index": 12,
-    "charge_price": 36.25,
-    "acceptance_limit": 52.36
+    "charge_price": 310.86,
+    "acceptance_limit": 24.08
    },
    {
     "index": 13,
-    "charge_price": 100.0,
-    "acceptance_limit": 146.46
+    "charge_price": 888.18,
+    "acceptance_limit": 68.81
    },
    {
     "index": 14,
-    "charge_price": 330.0,
-    "acceptance_limit": 0.0
+    "charge_price": 2442.48,
+    "acceptance_limit": 189.23
    },
    {
     "index": 15,
-    "charge_price": 87.5,
-    "acceptance_limit": 135.4
+    "charge_price": 799.36,
+    "acceptance_limit": 61.93
    },
    {
     "index": 16,
-    "charge_price": 30.0,
-    "acceptance_limit": 47.23
+    "charge_price": 310.86,
+    "acceptance_limit": 24.08
    },
    {
     "index": 17,
-    "charge_price": 36.25,
-    "acceptance_limit": 52.36
+    "charge_price": 310.86,
+    "acceptance_limit": 24.08
    }
   ],
   "ensemble": {
-   "policy_summary": "Buildings and furnishings insured for fire/escape of water/storm; buildings reinstatement, furnishings at current value; no upgrades or non-repair outlay.",
+   "policy_summary": "Residential building and furnishings insured; escape of water covered; repair costs incl. investigation/drying; furnishings at current value; no upgrades; one vehicle charge per invoice; VAT reimbursed if incurred.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "2.4 Escape of water; 7 Amount of indemnity (reinstatement)",
-     "t_low": 180.0,
-     "t_mid": 280.0,
-     "t_high": 360.0,
+     "clause": "2.4.2; 7.1.7(e)",
+     "t_low": 110.0,
+     "t_mid": 215.0,
+     "t_high": 260.0,
      "t_if_covered": 0.0,
-     "reason": "Leak tracing necessary to repair burst pipe.",
+     "reason": "Leak locating necessary to repair water escape.",
      "votes": "3/3 covered"
     },
     {
      "index": 2,
      "covered": true,
      "related": true,
-     "clause": "2.4; 7 Amount of indemnity",
+     "clause": "2.4.2; 7.1.7(e)",
      "t_low": 60.0,
-     "t_mid": 110.0,
+     "t_mid": 95.0,
      "t_high": 150.0,
      "t_if_covered": 0.0,
-     "reason": "Moisture checks to scope drying and repairs.",
+     "reason": "Moisture measurement to define drying extent.",
      "votes": "3/3 covered"
     },
     {
      "index": 3,
      "covered": true,
      "related": true,
-     "clause": "2.4; 7 Amount of indemnity",
-     "t_low": 560.0,
-     "t_mid": 1400.0,
-     "t_high": 1600.0,
+     "clause": "2.4.2; 7.1.7(g)",
+     "t_low": 300.0,
+     "t_mid": 650.0,
+     "t_high": 880.0,
      "t_if_covered": 0.0,
-     "reason": "Technician time, but 14 h excessive; cap to reasonable.",
+     "reason": "Reasonable labour for leak detection work.",
      "votes": "3/3 covered"
     },
     {
      "index": 4,
      "covered": true,
      "related": true,
-     "clause": "2.4; 7 Amount of indemnity",
-     "t_low": 25.0,
-     "t_mid": 45.0,
+     "clause": "7.1.7(f)",
+     "t_low": 20.0,
+     "t_mid": 35.0,
      "t_high": 60.0,
      "t_if_covered": 0.0,
-     "reason": "One site visit vehicle charge acceptable.",
+     "reason": "One vehicle charge per invoice allowed.",
      "votes": "3/3 covered"
     },
     {
      "index": 5,
      "covered": true,
      "related": true,
-     "clause": "2.4.3; 7 Amount of indemnity",
-     "t_low": 90.0,
+     "clause": "7.1.7(a)",
+     "t_low": 80.0,
      "t_mid": 120.0,
      "t_high": 200.0,
      "t_if_covered": 0.0,
-     "reason": "Expose pipework to access leak.",
+     "reason": "Access to affected pipe necessary.",
      "votes": "3/3 covered"
     },
     {
      "index": 6,
      "covered": true,
      "related": true,
-     "clause": "2.4.3; 7 Amount of indemnity",
-     "t_low": 40.0,
-     "t_mid": 60.0,
-     "t_high": 90.0,
+     "clause": "7.1.7(a)",
+     "t_low": 30.0,
+     "t_mid": 50.0,
+     "t_high": 80.0,
      "t_if_covered": 0.0,
-     "reason": "Remove wet insulation as part of repair.",
+     "reason": "Damaged insulation removal part of repair.",
      "votes": "3/3 covered"
     },
     {
      "index": 7,
      "covered": true,
      "related": true,
-     "clause": "2.4.3; 7 Amount of indemnity",
-     "t_low": 150.0,
-     "t_mid": 220.0,
-     "t_high": 280.0,
+     "clause": "2.4.2; 7.1.1(b)",
+     "t_low": 140.0,
+     "t_mid": 200.0,
+     "t_high": 300.0,
      "t_if_covered": 0.0,
-     "reason": "Labor to fix leak on copper pipe.",
+     "reason": "Leak repair on copper supply pipe.",
      "votes": "3/3 covered"
     },
     {
      "index": 8,
      "covered": true,
      "related": true,
-     "clause": "2.4.3; 7 Amount of indemnity",
-     "t_low": 90.0,
+     "clause": "7.1.7(c); 7.1.1(b)",
+     "t_low": 70.0,
      "t_mid": 220.0,
-     "t_high": 320.0,
+     "t_high": 340.0,
      "t_if_covered": 0.0,
-     "reason": "Materials for 1\u20132 m copper and fittings.",
+     "reason": "Pipe and fittings to reinstate supply.",
      "votes": "3/3 covered"
     },
     {
      "index": 9,
      "covered": true,
      "related": true,
-     "clause": "2.4; 7 Amount of indemnity",
-     "t_low": 25.0,
-     "t_mid": 45.0,
+     "clause": "7.1.7(f)",
+     "t_low": 20.0,
+     "t_mid": 35.0,
      "t_high": 60.0,
      "t_if_covered": 0.0,
-     "reason": "Plumber travel to site.",
+     "reason": "One vehicle charge per invoice allowed.",
      "votes": "3/3 covered"
     },
     {
      "index": 10,
      "covered": true,
      "related": true,
-     "clause": "2.4.2; 7 Amount of indemnity",
-     "t_low": 80.0,
-     "t_mid": 150.0,
-     "t_high": 300.0,
+     "clause": "7.1.7(b),(e)",
+     "t_low": 90.0,
+     "t_mid": 140.0,
+     "t_high": 240.0,
      "t_if_covered": 0.0,
-     "reason": "Dehumidifier rental for several drying days.",
+     "reason": "Dryer rental for affected rooms.",
      "votes": "3/3 covered"
     },
     {
      "index": 11,
      "covered": true,
      "related": true,
-     "clause": "2.4.2; 7 Amount of indemnity",
-     "t_low": 180.0,
-     "t_mid": 240.0,
-     "t_high": 380.0,
+     "clause": "7.1.7(b),(g)",
+     "t_low": 140.0,
+     "t_mid": 220.0,
+     "t_high": 360.0,
      "t_if_covered": 0.0,
-     "reason": "Set-up, monitoring and removal of drying equipment.",
+     "reason": "Drying service for floor and wall.",
      "votes": "3/3 covered"
     },
     {
      "index": 12,
      "covered": true,
      "related": true,
-     "clause": "2.4; 7 Amount of indemnity",
-     "t_low": 25.0,
-     "t_mid": 45.0,
+     "clause": "7.1.7(f)",
+     "t_low": 20.0,
+     "t_mid": 35.0,
      "t_high": 60.0,
      "t_if_covered": 0.0,
-     "reason": "Drying firm travel charge.",
+     "reason": "One vehicle charge per invoice allowed.",
      "votes": "3/3 covered"
     },
     {
      "index": 13,
      "covered": true,
      "related": true,
-     "clause": "2.4.2; 4.2.6; 6.1 current value",
-     "t_low": 80.0,
-     "t_mid": 120.0,
+     "clause": "7.1.7(h)",
+     "t_low": 50.0,
+     "t_mid": 100.0,
      "t_high": 160.0,
      "t_if_covered": 0.0,
-     "reason": "Disposal of irreparable water-damaged table.",
+     "reason": "Disposal of damaged table when replacing.",
      "votes": "3/3 covered"
     },
     {
      "index": 14,
-     "covered": false,
-     "related": false,
-     "clause": "4.2.6; 6.1 current value; 3.5 no upgrades",
-     "t_low": 0.0,
-     "t_mid": 0.0,
-     "t_high": 0.0,
-     "t_if_covered": 550.0,
-     "reason": "Premium upgrade beyond like-for-like current value.",
-     "votes": "0/3 covered"
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1(d); 7.1.9",
+     "t_low": 180.0,
+     "t_mid": 275.0,
+     "t_high": 380.0,
+     "t_if_covered": 300.0,
+     "reason": "Table covered at current value; upgrade not indemnified.",
+     "votes": "2/3 covered"
     },
     {
      "index": 15,
      "covered": true,
      "related": true,
-     "clause": "4.2.6; 6.1 current value",
-     "t_low": 80.0,
-     "t_mid": 105.0,
+     "clause": "7.1.7(h)",
+     "t_low": 50.0,
+     "t_mid": 90.0,
      "t_high": 150.0,
-     "t_if_covered": 120.0,
-     "reason": "Reasonable delivery/assembly for standard replacement.",
-     "votes": "2/3 covered"
+     "t_if_covered": 0.0,
+     "reason": "Delivery and assembly of replacement table.",
+     "votes": "3/3 covered"
     },
     {
      "index": 16,
      "covered": true,
      "related": true,
-     "clause": "7 Amount of indemnity (necessary measures)",
+     "clause": "7.1.7(h)",
      "t_low": 20.0,
-     "t_mid": 40.0,
+     "t_mid": 35.0,
      "t_high": 60.0,
      "t_if_covered": 0.0,
-     "reason": "Minor clean-up after works.",
+     "reason": "Cleaning installation area after replacement.",
      "votes": "3/3 covered"
     },
     {
      "index": 17,
      "covered": true,
      "related": true,
-     "clause": "7 Amount of indemnity",
-     "t_low": 25.0,
-     "t_mid": 45.0,
+     "clause": "7.1.7(f)",
+     "t_low": 20.0,
+     "t_mid": 35.0,
      "t_high": 60.0,
      "t_if_covered": 0.0,
-     "reason": "Carpenter travel to site.",
+     "reason": "One vehicle charge per invoice allowed.",
      "votes": "3/3 covered"
     }
    ],
@@ -301,140 +301,140 @@
   },
   "votes": 3,
   "errors": [],
-  "seconds": 35.3
+  "seconds": 29.8
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 20007.5,
-    "cost": 17039.97,
-    "net": 2967.53
+    "income": 310.86,
+    "cost": 12045.53,
+    "net": -11734.67
    },
    "optimistic": {
-    "income": 27475.0,
-    "cost": 17039.97,
-    "net": 10435.03
+    "income": 98054.59,
+    "cost": 12045.53,
+    "net": 86009.06
    }
   },
   "open_pairings": {
-   "income": 112,
+   "income": 56,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 235.0,
-    "b": 334.7,
+    "a": 1909.58,
+    "b": 147.94,
     "t_lo": 402.5,
     "t_hi": 875.0,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 3760.0,
-     "optimistic": 3760.0
+     "pessimistic": 0.0,
+     "optimistic": 3819.16
     },
     "cost": {
-     "pessimistic": 2055.085,
-     "optimistic": 2055.085
+     "pessimistic": 2708.97,
+     "optimistic": 2708.97
     }
    },
    "2": {
-    "a": 87.5,
-    "b": 128.35,
+    "a": 843.77,
+    "b": 65.37,
     "t_lo": 150.0,
     "t_hi": 199.25,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 1400.0,
-     "optimistic": 1400.0
+     "pessimistic": 0.0,
+     "optimistic": 843.77
     },
     "cost": {
-     "pessimistic": 996.81,
-     "optimistic": 996.81
+     "pessimistic": 1253.19,
+     "optimistic": 1253.19
     }
    },
    "3": {
-    "a": 1140.0,
-    "b": 1429.52,
+    "a": 5773.14,
+    "b": 447.26,
     "t_lo": 497.94,
     "t_hi": 773.5,
     "fair": false,
     "income": {
      "pessimistic": 0.0,
-     "optimistic": 4560.0
+     "optimistic": 23092.56
     },
     "cost": {
-     "pessimistic": 5508.88,
-     "optimistic": 5508.88
+     "pessimistic": 1195.9099999999999,
+     "optimistic": 1195.9099999999999
     }
    },
    "4": {
-    "a": 36.25,
-    "b": 52.36,
+    "a": 310.86,
+    "b": 24.08,
     "t_lo": 0.0,
     "t_hi": 38.25,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 290.0,
-     "optimistic": 580.0
+     "pessimistic": 310.86,
+     "optimistic": 621.72
     },
     "cost": {
-     "pessimistic": 168.5,
-     "optimistic": 168.5
+     "pessimistic": 0.0,
+     "optimistic": 0.0
     }
    },
    "5": {
-    "a": 92.5,
-    "b": 160.43,
+    "a": 1065.81,
+    "b": 82.57,
     "t_lo": 108.44,
     "t_hi": 130.5,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 1480.0,
-     "optimistic": 1480.0
+     "pessimistic": 0.0,
+     "optimistic": 1065.81
     },
     "cost": {
-     "pessimistic": 615.7,
-     "optimistic": 615.7
+     "pessimistic": 239.16,
+     "optimistic": 239.16
     }
    },
    "6": {
-    "a": 47.5,
-    "b": 75.73,
+    "a": 444.09,
+    "b": 34.4,
     "t_lo": 153.0,
     "t_hi": 300.0,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 760.0,
-     "optimistic": 760.0
+     "pessimistic": 0.0,
+     "optimistic": 444.09
     },
     "cost": {
-     "pessimistic": 719.38,
-     "optimistic": 719.38
+     "pessimistic": 792.36,
+     "optimistic": 792.36
     }
    },
    "7": {
-    "a": 187.5,
-    "b": 266.6,
+    "a": 1776.35,
+    "b": 137.62,
     "t_lo": 130.5,
     "t_hi": 180.0,
     "fair": false,
     "income": {
-     "pessimistic": 750.0,
-     "optimistic": 1125.0
+     "pessimistic": 0.0,
+     "optimistic": 3552.7
     },
     "cost": {
-     "pessimistic": 1107.48,
-     "optimistic": 1107.48
+     "pessimistic": 245.25,
+     "optimistic": 245.25
     }
    },
    "8": {
-    "a": 162.5,
-    "b": 246.78,
+    "a": 1953.99,
+    "b": 151.38,
     "t_lo": 53.56,
     "t_hi": 114.75,
     "fair": false,
     "income": {
-     "pessimistic": 162.5,
-     "optimistic": 650.0
+     "pessimistic": 0.0,
+     "optimistic": 3907.98
     },
     "cost": {
      "pessimistic": 477.01000000000005,
@@ -442,89 +442,89 @@
     }
    },
    "9": {
-    "a": 36.25,
-    "b": 52.36,
+    "a": 310.86,
+    "b": 24.08,
     "t_lo": 42.75,
     "t_hi": 180.0,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 580.0,
-     "optimistic": 580.0
+     "pessimistic": 0.0,
+     "optimistic": 310.86
     },
     "cost": {
-     "pessimistic": 163.47,
-     "optimistic": 163.47
+     "pessimistic": 245.20499999999998,
+     "optimistic": 245.20499999999998
     }
    },
    "10": {
-    "a": 95.0,
-    "b": 197.18,
+    "a": 1243.45,
+    "b": 96.33,
     "t_lo": 0.0,
     "t_hi": 122.4,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 665.0,
-     "optimistic": 1520.0
+     "pessimistic": 0.0,
+     "optimistic": 2486.9
     },
     "cost": {
-     "pessimistic": 603.9,
-     "optimistic": 603.9
+     "pessimistic": 0.0,
+     "optimistic": 0.0
     }
    },
    "11": {
-    "a": 190.0,
-    "b": 316.39,
+    "a": 1953.99,
+    "b": 151.38,
     "t_lo": 0.0,
     "t_hi": 92.16,
     "fair": false,
     "income": {
-     "pessimistic": 570.0,
-     "optimistic": 1140.0
+     "pessimistic": 0.0,
+     "optimistic": 3907.98
     },
     "cost": {
-     "pessimistic": 668.56,
-     "optimistic": 668.56
+     "pessimistic": 364.56,
+     "optimistic": 364.56
     }
    },
    "12": {
-    "a": 36.25,
-    "b": 52.36,
+    "a": 310.86,
+    "b": 24.08,
     "t_lo": 42.75,
     "t_hi": 150.0,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 580.0,
-     "optimistic": 580.0
+     "pessimistic": 0.0,
+     "optimistic": 310.86
     },
     "cost": {
-     "pessimistic": 163.47,
-     "optimistic": 163.47
+     "pessimistic": 245.20499999999998,
+     "optimistic": 245.20499999999998
     }
    },
    "13": {
-    "a": 100.0,
-    "b": 146.46,
+    "a": 888.18,
+    "b": 68.81,
     "t_lo": 150.0,
     "t_hi": 229.5,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 1600.0,
-     "optimistic": 1600.0
+     "pessimistic": 0.0,
+     "optimistic": 888.18
     },
     "cost": {
-     "pessimistic": 586.7,
-     "optimistic": 586.7
+     "pessimistic": 767.55,
+     "optimistic": 767.55
     }
    },
    "14": {
-    "a": 330.0,
-    "b": 0.0,
+    "a": 2442.48,
+    "b": 189.23,
     "t_lo": 360.0,
     "t_hi": null,
-    "fair": true,
+    "fair": null,
     "income": {
-     "pessimistic": 5280.0,
-     "optimistic": 5280.0
+     "pessimistic": 0.0,
+     "optimistic": 39079.68000000001
     },
     "cost": {
      "pessimistic": 1751.94,
@@ -532,58 +532,77 @@
     }
    },
    "15": {
-    "a": 87.5,
-    "b": 135.4,
+    "a": 799.36,
+    "b": 61.93,
     "t_lo": 300.0,
     "t_hi": null,
-    "fair": true,
+    "fair": null,
     "income": {
-     "pessimistic": 1400.0,
-     "optimistic": 1400.0
+     "pessimistic": 0.0,
+     "optimistic": 12789.760000000002
     },
     "cost": {
-     "pessimistic": 1245.11,
-     "optimistic": 1245.11
+     "pessimistic": 1511.0149999999999,
+     "optimistic": 1511.0149999999999
     }
    },
    "16": {
-    "a": 30.0,
-    "b": 47.23,
+    "a": 310.86,
+    "b": 24.08,
     "t_lo": 0.0,
     "t_hi": 42.5,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 150.0,
-     "optimistic": 480.0
+     "pessimistic": 0.0,
+     "optimistic": 621.72
     },
     "cost": {
-     "pessimistic": 42.5,
-     "optimistic": 42.5
+     "pessimistic": 0.0,
+     "optimistic": 0.0
     }
    },
    "17": {
-    "a": 36.25,
-    "b": 52.36,
+    "a": 310.86,
+    "b": 24.08,
     "t_lo": 42.75,
     "t_hi": 135.0,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 580.0,
-     "optimistic": 580.0
+     "pessimistic": 0.0,
+     "optimistic": 310.86
     },
     "cost": {
-     "pessimistic": 165.47,
-     "optimistic": 165.47
+     "pessimistic": 248.20499999999998,
+     "optimistic": 248.20499999999998
     }
    }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout",
+   "7": "truth+payout",
+   "8": "truth+payout",
+   "9": "truth+payout",
+   "10": "truth+payout",
+   "11": "truth+payout",
+   "12": "truth+payout",
+   "13": "truth+payout",
+   "14": "truth+payout",
+   "15": "truth+payout",
+   "16": "truth+payout",
+   "17": "truth+payout"
   }
  },
- "pess_net": 2967.53,
- "pess_rank": 5,
- "opt_net": 10435.03,
- "opt_rank": 3,
- "exp_net": 6701.28,
- "exp_rank": 4,
+ "pess_net": -11734.67,
+ "pess_rank": 11,
+ "opt_net": 86009.06,
+ "opt_rank": 1,
+ "exp_net": 37137.19,
+ "exp_rank": 1,
  "best_team": "error404 ai",
  "best_net": 18955.42,
  "n_teams": 17

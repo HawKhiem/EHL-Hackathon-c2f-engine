@@ -145,8 +145,8 @@
      "optimistic": 18800.0
     },
     "cost": {
-     "pessimistic": 6559.28,
-     "optimistic": 6559.28
+     "pessimistic": 6559.280000000001,
+     "optimistic": 6559.280000000001
     }
    },
    "2": {
@@ -224,6 +224,14 @@
      "optimistic": 513.09
     }
    }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout"
   }
  },
  "pess_net": 9152.84,

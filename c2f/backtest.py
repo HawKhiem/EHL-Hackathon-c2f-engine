@@ -15,6 +15,10 @@ reject whenever they could) and OPTIMISTIC (t just under t_hi, opponents accept 
 EXPECTED = midpoint of the two scenarios; a change is a SUCCESS only if the expected replay wins
 (rank 1) in more than half of the replayed games. The pre-commit hook enforces that.
 
+This is THE evaluation entry point. It uses the other tools as components:
+  feedback.digest  -> opponents' charges, accept/reject, payout-based t bounds
+  truth.infer      -> tighter t bounds from the matchup cells (cached in runs/truth_game_NN.json)
+  calibration.json -> reported alongside, so a result is tied to the calibration it ran with
 Writes runs/backtest/game_NN.json and runs/backtest/summary.json (+ a table on stdout).
 The pre-commit hook (.githooks/pre-commit) refuses algorithm commits without a fresh summary.
 """
@@ -34,17 +38,48 @@ from c2f import llm
 from c2f.ensemble import aggregate
 from c2f.extract import load_case
 from c2f.feedback import B, DEFAULT_TEAM, digest
+from c2f.policy import attach as attach_policy_digest
 from c2f.price import price_all
 from c2f.run import N_FULL, merge_estimates
 from c2f.submit import ROOT
+from c2f import truth as truth_mod
 
 OUT = ROOT / "runs" / "backtest"
 INF = float("inf")
 
 
+# ----------------------------------------------------------------------------- evidence
+def t_bounds(game_id: int, d: dict) -> dict:
+    """Tightest fair-value bounds per item: payout evidence (feedback.digest) merged with the
+    matchup-cell inference (truth.py). truth results are cached in runs/truth_game_NN.json."""
+    p = ROOT / "runs" / f"truth_game_{game_id:02d}.json"
+    tr: dict = {}
+    if p.exists():
+        tr = json.loads(p.read_text())
+    else:
+        try:
+            tr = {str(k): v for k, v in truth_mod.infer(game_id).items()}
+            p.write_text(json.dumps(tr, indent=1))
+        except Exception as e:  # noqa: BLE001 - truth is best-effort; payout bounds still apply
+            print(f"   (truth inference unavailable for game {game_id}: {e.__class__.__name__})")
+    src = {}
+    for i in d["items"]:
+        lo, hi = d["t_lo"][i], d["t_hi"][i]
+        v = tr.get(str(i))
+        if v:
+            lo = max(lo, float(v.get("t_lo") or 0.0))
+            if v.get("t_hi") is not None:
+                hi = min(hi, float(v["t_hi"]))
+        d["t_lo"][i], d["t_hi"][i] = lo, hi
+        src[i] = "truth+payout" if v else "payout"
+    return src
+
+
 # ----------------------------------------------------------------------------- replay
 def replay(game_id: int, n_votes: int = N_FULL) -> dict:
-    case = load_case(ROOT / "cases" / f"case_{game_id:02d}", game_id)
+    case_dir = ROOT / "cases" / f"case_{game_id:02d}"
+    case = load_case(case_dir, game_id)
+    attach_policy_digest(case, case_dir)  # same prompt the live run would build
     t0 = time.time()
     with ThreadPoolExecutor(max_workers=n_votes) as ex:
         futs = [ex.submit(llm.estimate, case, timeout=60, strict=False) for _ in range(n_votes)]
@@ -173,7 +208,9 @@ def main(argv: list[str] | None = None) -> int:
         else:
             rep = replay(g, args.votes)
         d = digest(g)
+        evidence = t_bounds(g, d)
         sc = score(g, rep["rows"], d, us)
+        sc["evidence"] = evidence
         others = [nets[t][g] for t in nets if t != us]
         best = max(nets.items(), key=lambda kv: kv[1][g])
         actual = nets.get(us, {}).get(g, float("nan"))
@@ -210,6 +247,11 @@ def main(argv: list[str] | None = None) -> int:
                              "wins_pess": wins_p, "wins_exp": wins_e, "wins_opt": wins_o, "n_games": n, "success": success}
         print(f"\ntotal: actual {tot_a:.0f} | replay pess {tot_p:.0f} ({wins_p} wins) | exp {tot_e:.0f} ({wins_e} wins) | opt {tot_o:.0f} ({wins_o} wins) over {n} games")
         print(f"VERDICT: {'SUCCESS' if success else 'NOT GOOD ENOUGH'} - expected replay wins {wins_e}/{n} old games (need > {n // 2})")
+    cal = ROOT / "runs" / "calibration.json"
+    if cal.exists():
+        c = json.loads(cal.read_text())
+        summary["calibration"] = c
+        print("calibration in effect:", {k: (round(v, 3) if isinstance(v, float) else v) for k, v in c.items() if not isinstance(v, list)})
     (OUT / "summary.json").write_text(json.dumps(summary, indent=1, default=str))
     print(f"saved {OUT.relative_to(ROOT)}/summary.json")
     return 0
