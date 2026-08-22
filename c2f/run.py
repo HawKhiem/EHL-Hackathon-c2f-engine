@@ -159,6 +159,8 @@ def main(argv: list[str] | None = None) -> int:
                 record[f"model_{tag}"] = {"meta": {k: v for k, v in meta.items() if k != "raw"}, "output": out}
                 record["estimate"] = out  # full runs last, so it wins; fast is the fallback
                 log(f"model [{tag}] {meta['model']} answered in {meta['seconds']}s", t0)
+                for w in meta.get("warnings", []):
+                    log(f"model [{tag}] WARNING: {w}", t0)
                 if tag == "full":
                     full_done = True
                 # once the full pass lands, the fast pass (if it landed too) is a free second
@@ -167,6 +169,15 @@ def main(argv: list[str] | None = None) -> int:
                 rows = price_all(merge_estimates(case, out), other_output=other_output)
                 record[f"priced_{tag}"] = rows
                 do_submit(rows, tag)
+
+        if pending:
+            # deadline hit (or full landed first and fast is still out there) with a call still
+            # in flight - it may finish after we've returned, but its result is lost either way.
+            # Record which pass that was so a $0-fast-only submission is visible in the log, not
+            # silently indistinguishable from "the full pass agreed with the fast one".
+            still = sorted(tags[f] for f in pending)
+            record["timed_out"] = still
+            log(f"deadline reached with {still} still in flight - abandoning, using best submission so far", t0)
     finally:
         ex.shutdown(wait=False, cancel_futures=True)
 

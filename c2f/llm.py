@@ -57,6 +57,11 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
    If the item is not covered OR not related, set t_low = t_mid = t_high = 0 and put
    your estimate of what the item WOULD cost if it were payable into t_if_covered.
 
+   This zero convention is ONLY for not-covered/not-related items. A covered AND related
+   item must always get t_mid > 0 - even when the exact cap/sub-limit figure is unknown
+   (cap_uncertain: true), still give your best frugal market-value estimate for the item
+   itself. Never leave t_low = t_mid = t_high = 0 for an item you marked covered.
+
 Be concrete, decisive and FAST (you have 30 seconds). Do not deliberate; answer with ONLY a JSON object of this
 exact shape and nothing else (no markdown fences):
 
@@ -115,6 +120,29 @@ def _parse_json(text: str) -> dict:
     if not m:
         raise ValueError(f"no JSON in model output: {text[:200]!r}")
     return json.loads(m.group(0))
+
+
+def _num(v) -> float:
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _validate_items(out: dict) -> list[str]:
+    """Flag items that break the SYSTEM contract: covered AND related but t_low = t_mid =
+    t_high = 0 - that zero convention is reserved for not-covered/not-related items (see
+    SYSTEM). c2f.price already treats a covered item with mid <= 0 the same as "not
+    covered", so this cannot silently mis-price anything further - it exists so the
+    violation is visible in the run log instead of looking like an ordinary $0 item."""
+    warnings = []
+    for it in out.get("items", []):
+        if not (it.get("covered") and it.get("related", True)):
+            continue
+        if max(_num(it.get(k)) for k in ("t_low", "t_mid", "t_high")) > 0:
+            continue
+        warnings.append(f"item {it.get('index')}: covered but t_low=t_mid=t_high=0 (t_if_covered={it.get('t_if_covered')})")
+    return warnings
 
 
 def _call_anthropic(case: dict, model: str, timeout: float, system: str = SYSTEM) -> str:
@@ -193,4 +221,8 @@ def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, str
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):
         raise ValueError("model JSON has no items list")
-    return out, {"provider": prov, "model": model, "seconds": round(time.time() - t0, 2), "raw": raw}
+    meta = {"provider": prov, "model": model, "seconds": round(time.time() - t0, 2), "raw": raw}
+    warnings = _validate_items(out)
+    if warnings:
+        meta["warnings"] = warnings
+    return out, meta
