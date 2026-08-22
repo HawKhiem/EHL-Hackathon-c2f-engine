@@ -1,0 +1,2501 @@
+[
+ {
+  "game": 1,
+  "index": 1,
+  "description": "Clean / dry conservatory rug",
+  "t_lo": 122.94,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 2,
+  "description": "Inspect plant-room electrical systems",
+  "t_lo": 227.66,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 3,
+  "description": "Preventive replacement of plant-room electrical components (no confirmed water contact)",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 4,
+  "description": "Upgrade to high-quality natural stone floor (upgrade from pre-loss ceramic tiling)",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 5,
+  "description": "Inspect pool technology",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 6,
+  "description": "Restore wall surfaces",
+  "t_lo": 569.16,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 7,
+  "description": "Final site cleaning",
+  "t_lo": 182.13,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 8,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 28.0
+ },
+ {
+  "game": 1,
+  "index": 9,
+  "description": "Leak detection pool pipeline",
+  "t_lo": 409.79,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 10,
+  "description": "Repair pool supply pipe connection",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 11,
+  "description": "Skilled worker hours",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 12,
+  "description": "Material for pool pipe repair",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 13,
+  "description": "Moisture measurement",
+  "t_lo": 227.66,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 14,
+  "description": "Vacuum water",
+  "t_lo": 105.78,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 15,
+  "description": "Room drying (pool/conservatory)",
+  "t_lo": 606.22,
+  "t_hi": null
+ },
+ {
+  "game": 1,
+  "index": 16,
+  "description": "Condensation dryer",
+  "t_lo": 0.0,
+  "t_hi": 176.0
+ },
+ {
+  "game": 1,
+  "index": 17,
+  "description": "Drying fan",
+  "t_lo": 0.0,
+  "t_hi": 144.0
+ },
+ {
+  "game": 1,
+  "index": 18,
+  "description": "Supply and install premium hardwood skirting boards (upgrade from pre-loss softwood)",
+  "t_lo": 98.02,
+  "t_hi": null
+ },
+ {
+  "game": 2,
+  "index": 1,
+  "description": "Speaker system (surge damaged)",
+  "t_lo": 310.0,
+  "t_hi": 425.0
+ },
+ {
+  "game": 2,
+  "index": 2,
+  "description": "Shipping",
+  "t_lo": 0.0,
+  "t_hi": 12.0
+ },
+ {
+  "game": 2,
+  "index": 3,
+  "description": "Installation",
+  "t_lo": 0.0,
+  "t_hi": 43.97
+ },
+ {
+  "game": 2,
+  "index": 4,
+  "description": "TV set",
+  "t_lo": 555.0,
+  "t_hi": 600.0
+ },
+ {
+  "game": 2,
+  "index": 5,
+  "description": "Property and liability damage to electronics",
+  "t_lo": 0.0,
+  "t_hi": 43.97
+ },
+ {
+  "game": 2,
+  "index": 6,
+  "description": "Property and liability damage to electronics - service order",
+  "t_lo": 0.0,
+  "t_hi": 18.0
+ },
+ {
+  "game": 2,
+  "index": 7,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 21.0
+ },
+ {
+  "game": 3,
+  "index": 1,
+  "description": "Clothing and jewellery stolen from the car",
+  "t_lo": 0.0,
+  "t_hi": 100.0
+ },
+ {
+  "game": 3,
+  "index": 2,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 100.0
+ },
+ {
+  "game": 4,
+  "index": 1,
+  "description": "TV set (surge damaged)",
+  "t_lo": 199.25,
+  "t_hi": 530.0
+ },
+ {
+  "game": 4,
+  "index": 2,
+  "description": "Speaker system (surge damaged)",
+  "t_lo": 229.5,
+  "t_hi": 335.0
+ },
+ {
+  "game": 4,
+  "index": 3,
+  "description": "AV receiver / amplifier (surge damaged)",
+  "t_lo": 532.5,
+  "t_hi": null
+ },
+ {
+  "game": 4,
+  "index": 4,
+  "description": "Melted mains plug and power lead (physically surge-damaged)",
+  "t_lo": 28.0,
+  "t_hi": 31.88
+ },
+ {
+  "game": 4,
+  "index": 5,
+  "description": "HDMI cables and remote controls",
+  "t_lo": 0.0,
+  "t_hi": 36.0
+ },
+ {
+  "game": 4,
+  "index": 6,
+  "description": "Wall-mount bracket",
+  "t_lo": 0.0,
+  "t_hi": 27.0
+ },
+ {
+  "game": 4,
+  "index": 7,
+  "description": "DVD player (was already failing before the storm, age-related)",
+  "t_lo": 0.0,
+  "t_hi": 36.0
+ },
+ {
+  "game": 4,
+  "index": 8,
+  "description": "Router (no diagnostic report provided)",
+  "t_lo": 0.0,
+  "t_hi": 38.3
+ },
+ {
+  "game": 4,
+  "index": 9,
+  "description": "Shipping",
+  "t_lo": 0.0,
+  "t_hi": 9.0
+ },
+ {
+  "game": 4,
+  "index": 10,
+  "description": "Installation",
+  "t_lo": 0.0,
+  "t_hi": 45.0
+ },
+ {
+  "game": 4,
+  "index": 11,
+  "description": "Diagnostic inspection and surge-failure report for damaged electronics",
+  "t_lo": 0.0,
+  "t_hi": 45.0
+ },
+ {
+  "game": 4,
+  "index": 12,
+  "description": "Vehicle costs \u2013 return visit",
+  "t_lo": 0.0,
+  "t_hi": 18.0
+ },
+ {
+  "game": 4,
+  "index": 13,
+  "description": "Wiring safety check of property distribution board",
+  "t_lo": 0.0,
+  "t_hi": 38.3
+ },
+ {
+  "game": 4,
+  "index": 14,
+  "description": "Administrative and claim-processing fee",
+  "t_lo": 0.0,
+  "t_hi": 12.0
+ },
+ {
+  "game": 4,
+  "index": 15,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 20.0
+ },
+ {
+  "game": 5,
+  "index": 1,
+  "description": "Leak detection call-out and electro-acoustic pinpointing of the leak beneath the kitchen sink",
+  "t_lo": 402.5,
+  "t_hi": 875.0
+ },
+ {
+  "game": 5,
+  "index": 2,
+  "description": "Moisture measurement of the kitchen floor and wall base",
+  "t_lo": 150.0,
+  "t_hi": 199.25
+ },
+ {
+  "game": 5,
+  "index": 3,
+  "description": "Service technician hours",
+  "t_lo": 497.94,
+  "t_hi": 773.5
+ },
+ {
+  "game": 5,
+  "index": 4,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 38.25
+ },
+ {
+  "game": 5,
+  "index": 5,
+  "description": "Freeing the affected pipe run beneath the kitchen sink",
+  "t_lo": 108.44,
+  "t_hi": 130.5
+ },
+ {
+  "game": 5,
+  "index": 6,
+  "description": "Removal and disposal of damaged pipe insulation",
+  "t_lo": 153.0,
+  "t_hi": 300.0
+ },
+ {
+  "game": 5,
+  "index": 7,
+  "description": "Repair of the confirmed leak on the copper supply pipe",
+  "t_lo": 130.5,
+  "t_hi": 180.0
+ },
+ {
+  "game": 5,
+  "index": 8,
+  "description": "Replacement copper pipe section and transition fittings",
+  "t_lo": 53.56,
+  "t_hi": 114.75
+ },
+ {
+  "game": 5,
+  "index": 9,
+  "description": "Vehicle costs",
+  "t_lo": 42.75,
+  "t_hi": 180.0
+ },
+ {
+  "game": 5,
+  "index": 10,
+  "description": "Condensation dryer for the kitchen, rental for the drying period",
+  "t_lo": 0.0,
+  "t_hi": 122.4
+ },
+ {
+  "game": 5,
+  "index": 11,
+  "description": "Room drying of the kitchen floor and wall base",
+  "t_lo": 0.0,
+  "t_hi": 92.16
+ },
+ {
+  "game": 5,
+  "index": 12,
+  "description": "Vehicle costs",
+  "t_lo": 42.75,
+  "t_hi": 150.0
+ },
+ {
+  "game": 5,
+  "index": 13,
+  "description": "Removal, transport and disposal of the water-damaged wooden kitchen table",
+  "t_lo": 150.0,
+  "t_hi": 229.5
+ },
+ {
+  "game": 5,
+  "index": 14,
+  "description": "Supply of replacement table - premium solid-oak designer model, higher specification than the original",
+  "t_lo": 360.0,
+  "t_hi": null
+ },
+ {
+  "game": 5,
+  "index": 15,
+  "description": "Delivery and assembly of the replacement table",
+  "t_lo": 300.0,
+  "t_hi": null
+ },
+ {
+  "game": 5,
+  "index": 16,
+  "description": "Cleaning of the installation area",
+  "t_lo": 0.0,
+  "t_hi": 42.5
+ },
+ {
+  "game": 5,
+  "index": 17,
+  "description": "Vehicle costs",
+  "t_lo": 42.75,
+  "t_hi": 135.0
+ },
+ {
+  "game": 6,
+  "index": 1,
+  "description": "Surge-damaged home electronics (speaker system and TV set)",
+  "t_lo": 765.0,
+  "t_hi": 900.0
+ },
+ {
+  "game": 6,
+  "index": 2,
+  "description": "Diagnostic surge-failure report and technician call-out",
+  "t_lo": 0.0,
+  "t_hi": 45.0
+ },
+ {
+  "game": 7,
+  "index": 1,
+  "description": "Air conditioning unit - living room (surge damaged, replaced like-for-like)",
+  "t_lo": 1232.54,
+  "t_hi": 1756.44
+ },
+ {
+  "game": 7,
+  "index": 2,
+  "description": "Air conditioning unit - kitchen (wall-mounted a couple of metres from the hob)",
+  "t_lo": 0.0,
+  "t_hi": 80.83
+ },
+ {
+  "game": 7,
+  "index": 3,
+  "description": "Installation - living-room unit",
+  "t_lo": 467.5,
+  "t_hi": 522.36
+ },
+ {
+  "game": 7,
+  "index": 4,
+  "description": "Installation - kitchen unit",
+  "t_lo": 0.0,
+  "t_hi": 123.63
+ },
+ {
+  "game": 7,
+  "index": 5,
+  "description": "Floor console (equivalent stand for the living-room unit)",
+  "t_lo": 53.6,
+  "t_hi": 74.18
+ },
+ {
+  "game": 7,
+  "index": 6,
+  "description": "Freight shipping",
+  "t_lo": 21.98,
+  "t_hi": 43.06
+ },
+ {
+  "game": 8,
+  "index": 1,
+  "description": "Remove and transport rug",
+  "t_lo": 53.0,
+  "t_hi": 60.0
+ },
+ {
+  "game": 8,
+  "index": 2,
+  "description": "High-quality LED lighting above billiard table",
+  "t_lo": 765.0,
+  "t_hi": null
+ },
+ {
+  "game": 8,
+  "index": 3,
+  "description": "Specialist rug cleaning",
+  "t_lo": 200.16,
+  "t_hi": null
+ },
+ {
+  "game": 8,
+  "index": 4,
+  "description": "Electrical inspection of robot vacuum cleaner",
+  "t_lo": 114.12,
+  "t_hi": 132.54
+ },
+ {
+  "game": 8,
+  "index": 5,
+  "description": "Replacement robot vacuum cleaner (total loss)",
+  "t_lo": 0.0,
+  "t_hi": 55.0
+ },
+ {
+  "game": 8,
+  "index": 6,
+  "description": "Disassemble billiard table",
+  "t_lo": 339.15,
+  "t_hi": 396.0
+ },
+ {
+  "game": 8,
+  "index": 7,
+  "description": "Inspect billiard table for moisture damage",
+  "t_lo": 200.0,
+  "t_hi": null
+ },
+ {
+  "game": 8,
+  "index": 8,
+  "description": "Replace damaged billiard cloth",
+  "t_lo": 452.2,
+  "t_hi": null
+ },
+ {
+  "game": 8,
+  "index": 9,
+  "description": "Recushion billiard table rails",
+  "t_lo": 454.5,
+  "t_hi": 488.33
+ },
+ {
+  "game": 8,
+  "index": 10,
+  "description": "Replace old cue sets",
+  "t_lo": 0.0,
+  "t_hi": 84.33
+ },
+ {
+  "game": 8,
+  "index": 11,
+  "description": "Align and reassemble billiard table",
+  "t_lo": 368.85,
+  "t_hi": 488.33
+ },
+ {
+  "game": 8,
+  "index": 12,
+  "description": "Administrative and claim-processing fee",
+  "t_lo": 0.0,
+  "t_hi": 1.0
+ },
+ {
+  "game": 8,
+  "index": 13,
+  "description": "Restore plasterboard ceiling",
+  "t_lo": 542.64,
+  "t_hi": 628.0
+ },
+ {
+  "game": 8,
+  "index": 14,
+  "description": "Fill ceiling and wall surfaces",
+  "t_lo": 339.45,
+  "t_hi": 372.78
+ },
+ {
+  "game": 8,
+  "index": 15,
+  "description": "Repaint and re-carpet master bedroom (adjacent, unaffected room)",
+  "t_lo": 0.0,
+  "t_hi": 1.0
+ },
+ {
+  "game": 8,
+  "index": 16,
+  "description": "Final site cleaning",
+  "t_lo": 90.0,
+  "t_hi": 95.58
+ },
+ {
+  "game": 8,
+  "index": 17,
+  "description": "Construction waste disposal",
+  "t_lo": 0.0,
+  "t_hi": 101.2
+ },
+ {
+  "game": 8,
+  "index": 18,
+  "description": "Drying fan",
+  "t_lo": 45.0,
+  "t_hi": 105.0
+ },
+ {
+  "game": 8,
+  "index": 19,
+  "description": "Control measurement during drying",
+  "t_lo": 184.32,
+  "t_hi": 222.05
+ },
+ {
+  "game": 8,
+  "index": 20,
+  "description": "Final measurement",
+  "t_lo": 90.0,
+  "t_hi": 128.41
+ },
+ {
+  "game": 8,
+  "index": 21,
+  "description": "Electricity for drying equipment (separately metered)",
+  "t_lo": 0.0,
+  "t_hi": 34.5
+ },
+ {
+  "game": 8,
+  "index": 22,
+  "description": "Vehicle costs \u2013 return visit",
+  "t_lo": 0.0,
+  "t_hi": 24.0
+ },
+ {
+  "game": 8,
+  "index": 23,
+  "description": "Remove floor covering in guest WC",
+  "t_lo": 145.48,
+  "t_hi": 169.57
+ },
+ {
+  "game": 8,
+  "index": 24,
+  "description": "Remove skirting boards",
+  "t_lo": 113.15,
+  "t_hi": 130.14
+ },
+ {
+  "game": 8,
+  "index": 25,
+  "description": "Insulation layer drying",
+  "t_lo": 573.0,
+  "t_hi": 703.04
+ },
+ {
+  "game": 8,
+  "index": 26,
+  "description": "Condensation dryer",
+  "t_lo": 45.0,
+  "t_hi": 150.0
+ },
+ {
+  "game": 8,
+  "index": 27,
+  "description": "Side channel compressor",
+  "t_lo": 60.0,
+  "t_hi": 134.52
+ },
+ {
+  "game": 8,
+  "index": 28,
+  "description": "Remove damaged parquet",
+  "t_lo": 157.83,
+  "t_hi": 183.16
+ },
+ {
+  "game": 8,
+  "index": 29,
+  "description": "Renew parquet floor",
+  "t_lo": 45.0,
+  "t_hi": 130.14
+ },
+ {
+  "game": 8,
+  "index": 30,
+  "description": "Supply and install new skirting boards",
+  "t_lo": 507.0,
+  "t_hi": null
+ },
+ {
+  "game": 8,
+  "index": 31,
+  "description": "Open water-damaged ceiling surface",
+  "t_lo": 89.95,
+  "t_hi": 158.27
+ },
+ {
+  "game": 8,
+  "index": 32,
+  "description": "Construction waste disposal",
+  "t_lo": 0.0,
+  "t_hi": 72.0
+ },
+ {
+  "game": 9,
+  "index": 1,
+  "description": "Repair of the storm-damaged shed roof section (timber and covering, restored to the pre-loss standard)",
+  "t_lo": 0.0,
+  "t_hi": 38.3
+ },
+ {
+  "game": 9,
+  "index": 2,
+  "description": "Full repaint of the entire shed, including the undamaged walls",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 9,
+  "index": 3,
+  "description": "Ultraviolet-resistant protective exterior coating",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 9,
+  "index": 4,
+  "description": "Renewal of all shed trim, including undamaged trim",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 9,
+  "index": 5,
+  "description": "Skilled carpentry labour for the roof repair",
+  "t_lo": 0.0,
+  "t_hi": 96.29
+ },
+ {
+  "game": 9,
+  "index": 6,
+  "description": "Contractor hand tools and reusable equipment",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 9,
+  "index": 7,
+  "description": "Vehicle costs",
+  "t_lo": 81.95,
+  "t_hi": 90.0
+ },
+ {
+  "game": 9,
+  "index": 8,
+  "description": "Vehicle costs \u2013 return visit",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 9,
+  "index": 9,
+  "description": "Catering for work crew",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 9,
+  "index": 10,
+  "description": "Cutting and removal of the storm-felled tree from the shed roof",
+  "t_lo": 862.59,
+  "t_hi": 1076.07
+ },
+ {
+  "game": 9,
+  "index": 11,
+  "description": "Lifting and earth-moving machinery hire",
+  "t_lo": 576.4,
+  "t_hi": 600.0
+ },
+ {
+  "game": 9,
+  "index": 12,
+  "description": "Vehicle costs",
+  "t_lo": 82.31,
+  "t_hi": 90.0
+ },
+ {
+  "game": 9,
+  "index": 13,
+  "description": "Disposal of shed roof timber and the broken glass pane (building debris)",
+  "t_lo": 87.3,
+  "t_hi": 113.4
+ },
+ {
+  "game": 9,
+  "index": 14,
+  "description": "Disposal of felled-tree green waste and root ball (single mass under one cubic metre)",
+  "t_lo": 0.0,
+  "t_hi": 113.4
+ },
+ {
+  "game": 9,
+  "index": 15,
+  "description": "Disposal and reinstatement of excavated soil and displaced paving around the shed",
+  "t_lo": 0.0,
+  "t_hi": 113.4
+ },
+ {
+  "game": 9,
+  "index": 16,
+  "description": "Transport charge for the tree waste (already billed by the tree service)",
+  "t_lo": 0.0,
+  "t_hi": 1.18
+ },
+ {
+  "game": 10,
+  "index": 1,
+  "description": "Translation from Spanish to English",
+  "t_lo": 0.0,
+  "t_hi": 72.0
+ },
+ {
+  "game": 10,
+  "index": 2,
+  "description": "Material costs",
+  "t_lo": 0.0,
+  "t_hi": 3.0
+ },
+ {
+  "game": 10,
+  "index": 3,
+  "description": "Compensation for stolen watch (premium replacement model, upgrade on the one taken)",
+  "t_lo": 7225.0,
+  "t_hi": null
+ },
+ {
+  "game": 10,
+  "index": 4,
+  "description": "Compensation for cash taken in robbery",
+  "t_lo": 404.11,
+  "t_hi": null
+ },
+ {
+  "game": 10,
+  "index": 5,
+  "description": "Replacement of designer sunglasses (mislaid separately, not taken in robbery)",
+  "t_lo": 0.0,
+  "t_hi": 38.3
+ },
+ {
+  "game": 10,
+  "index": 6,
+  "description": "Shipping",
+  "t_lo": 0.0,
+  "t_hi": 9.0
+ },
+ {
+  "game": 11,
+  "index": 1,
+  "description": "Indoor leak detection",
+  "t_lo": 357.38,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 2,
+  "description": "Skilled worker hours",
+  "t_lo": 754.28,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 3,
+  "description": "Material for the work",
+  "t_lo": 44.08,
+  "t_hi": 61.5
+ },
+ {
+  "game": 11,
+  "index": 4,
+  "description": "Vehicle costs",
+  "t_lo": 80.24,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 5,
+  "description": "Room drying 30 m\u00b2",
+  "t_lo": 250.13,
+  "t_hi": 336.0
+ },
+ {
+  "game": 11,
+  "index": 6,
+  "description": "Room dryer unit",
+  "t_lo": 0.0,
+  "t_hi": 57.3
+ },
+ {
+  "game": 11,
+  "index": 7,
+  "description": "Removal and disposal of damaged insulation",
+  "t_lo": 19.51,
+  "t_hi": 26.0
+ },
+ {
+  "game": 11,
+  "index": 8,
+  "description": "Wet insulation wool from basement",
+  "t_lo": 75.65,
+  "t_hi": 103.5
+ },
+ {
+  "game": 11,
+  "index": 9,
+  "description": "Room drying 50 m\u00b2",
+  "t_lo": 224.7,
+  "t_hi": 358.13
+ },
+ {
+  "game": 11,
+  "index": 10,
+  "description": "Room dryer unit",
+  "t_lo": 0.0,
+  "t_hi": 99.84
+ },
+ {
+  "game": 11,
+  "index": 11,
+  "description": "Drying fan",
+  "t_lo": 0.0,
+  "t_hi": 21.53
+ },
+ {
+  "game": 11,
+  "index": 13,
+  "description": "Profipress elbow 90\u00b0 copper 15mm model 01",
+  "t_lo": 44.0,
+  "t_hi": 63.25
+ },
+ {
+  "game": 11,
+  "index": 14,
+  "description": "Profipress elbow 90\u00b0 copper 15mm model 02",
+  "t_lo": 44.0,
+  "t_hi": 107.95
+ },
+ {
+  "game": 11,
+  "index": 15,
+  "description": "Profipress elbow 45\u00b0 copper 28mm model 03",
+  "t_lo": 0.0,
+  "t_hi": 6.8
+ },
+ {
+  "game": 11,
+  "index": 16,
+  "description": "Hose",
+  "t_lo": 32.53,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 17,
+  "description": "Helper hours",
+  "t_lo": 199.0,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 18,
+  "description": "Vehicle costs",
+  "t_lo": 94.0,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 19,
+  "description": "Transition piece 16x15mm",
+  "t_lo": 44.01,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 20,
+  "description": "Service technician hours",
+  "t_lo": 379.5,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 21,
+  "description": "Skilled worker hours",
+  "t_lo": 986.0,
+  "t_hi": null
+ },
+ {
+  "game": 11,
+  "index": 22,
+  "description": "Material costs",
+  "t_lo": 69.35,
+  "t_hi": 112.0
+ },
+ {
+  "game": 11,
+  "index": 23,
+  "description": "Vehicle costs",
+  "t_lo": 57.5,
+  "t_hi": null
+ },
+ {
+  "game": 12,
+  "index": 1,
+  "description": "Cleaning of affected floor areas in the utility room and adjoining hallway",
+  "t_lo": 93.45,
+  "t_hi": 109.78
+ },
+ {
+  "game": 12,
+  "index": 2,
+  "description": "Inspection of the washing machine and supply/drain connection to confirm no further leakage",
+  "t_lo": 135.66,
+  "t_hi": 153.99
+ },
+ {
+  "game": 12,
+  "index": 3,
+  "description": "Removal and disposal of water-damaged skirting boards",
+  "t_lo": 69.0,
+  "t_hi": 80.0
+ },
+ {
+  "game": 12,
+  "index": 4,
+  "description": "Replace skirting boards",
+  "t_lo": 119.2,
+  "t_hi": 150.0
+ },
+ {
+  "game": 12,
+  "index": 5,
+  "description": "Moisture measurement of the utility room and hallway floor",
+  "t_lo": 113.05,
+  "t_hi": 121.8
+ },
+ {
+  "game": 12,
+  "index": 6,
+  "description": "Drying of the affected floor area",
+  "t_lo": 232.15,
+  "t_hi": 263.0
+ },
+ {
+  "game": 12,
+  "index": 7,
+  "description": "Drying unit rental",
+  "t_lo": 48.96,
+  "t_hi": 92.16
+ },
+ {
+  "game": 12,
+  "index": 8,
+  "description": "Skilled worker hours",
+  "t_lo": 200.0,
+  "t_hi": 238.3
+ },
+ {
+  "game": 12,
+  "index": 9,
+  "description": "Transport of the high-value painting to the specialist restorer",
+  "t_lo": 145.5,
+  "t_hi": 160.0
+ },
+ {
+  "game": 12,
+  "index": 10,
+  "description": "Professional assessment of the high-value painting",
+  "t_lo": 400.0,
+  "t_hi": null
+ },
+ {
+  "game": 12,
+  "index": 11,
+  "description": "Conservatory drying and stabilisation of the painting",
+  "t_lo": 650.01,
+  "t_hi": null
+ },
+ {
+  "game": 12,
+  "index": 12,
+  "description": "Full restoration of the painting",
+  "t_lo": 2321.48,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 1,
+  "description": "Profipress elbow 90\u00b0 copper 15mm",
+  "t_lo": 38.4,
+  "t_hi": 88.19
+ },
+ {
+  "game": 13,
+  "index": 2,
+  "description": "Profipress elbow 90\u00b0 copper 28mm",
+  "t_lo": 96.0,
+  "t_hi": 184.44
+ },
+ {
+  "game": 13,
+  "index": 3,
+  "description": "Profipress elbow 45\u00b0 copper 28mm",
+  "t_lo": 18.0,
+  "t_hi": 38.28
+ },
+ {
+  "game": 13,
+  "index": 4,
+  "description": "Grub screw",
+  "t_lo": 8.0,
+  "t_hi": 12.0
+ },
+ {
+  "game": 13,
+  "index": 5,
+  "description": "Two-screw pipe clamp 25 mm",
+  "t_lo": 20.0,
+  "t_hi": 600.0
+ },
+ {
+  "game": 13,
+  "index": 6,
+  "description": "Copper pipe 15x1",
+  "t_lo": 90.44,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 7,
+  "description": "Service technician hours",
+  "t_lo": 593.37,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 8,
+  "description": "Helper hours",
+  "t_lo": 386.54,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 9,
+  "description": "Rock wool pipe insulation",
+  "t_lo": 50.75,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 10,
+  "description": "Binding wire",
+  "t_lo": 18.0,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 11,
+  "description": "Small parts and consumables",
+  "t_lo": 27.08,
+  "t_hi": 150.0
+ },
+ {
+  "game": 13,
+  "index": 12,
+  "description": "Vehicle costs",
+  "t_lo": 64.46,
+  "t_hi": null
+ },
+ {
+  "game": 13,
+  "index": 13,
+  "description": "Construction waste disposal",
+  "t_lo": 56.44,
+  "t_hi": 80.0
+ },
+ {
+  "game": 13,
+  "index": 14,
+  "description": "Repainting of basement hallway (outside boiler room)",
+  "t_lo": 0.0,
+  "t_hi": 130.0
+ },
+ {
+  "game": 13,
+  "index": 15,
+  "description": "Laminate flooring replacement \u2013 adjacent storage room (undamaged by leak)",
+  "t_lo": 0.0,
+  "t_hi": 130.0
+ },
+ {
+  "game": 13,
+  "index": 16,
+  "description": "Outdoor garden tap service",
+  "t_lo": 0.0,
+  "t_hi": 43.2
+ },
+ {
+  "game": 13,
+  "index": 17,
+  "description": "Processing flat fee",
+  "t_lo": 0.0,
+  "t_hi": 12.0
+ },
+ {
+  "game": 14,
+  "index": 1,
+  "description": "Bicycle frame replacement",
+  "t_lo": 0.0,
+  "t_hi": 130.0
+ },
+ {
+  "game": 14,
+  "index": 2,
+  "description": "Bicycle brake replacement",
+  "t_lo": 0.0,
+  "t_hi": 48.0
+ },
+ {
+  "game": 14,
+  "index": 3,
+  "description": "Shipping",
+  "t_lo": 0.0,
+  "t_hi": 7.12
+ },
+ {
+  "game": 14,
+  "index": 4,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 22.84
+ },
+ {
+  "game": 14,
+  "index": 5,
+  "description": "Assembly costs",
+  "t_lo": 0.0,
+  "t_hi": 25.0
+ },
+ {
+  "game": 14,
+  "index": 6,
+  "description": "Miscellaneous items",
+  "t_lo": 0.0,
+  "t_hi": 12.0
+ },
+ {
+  "game": 14,
+  "index": 7,
+  "description": "Apprentice hours",
+  "t_lo": 0.0,
+  "t_hi": 17.48
+ },
+ {
+  "game": 14,
+  "index": 8,
+  "description": "Skilled worker hours",
+  "t_lo": 0.0,
+  "t_hi": 36.15
+ },
+ {
+  "game": 14,
+  "index": 9,
+  "description": "Vehicle costs",
+  "t_lo": 24.9,
+  "t_hi": 40.0
+ },
+ {
+  "game": 14,
+  "index": 10,
+  "description": "Assembly costs",
+  "t_lo": 130.0,
+  "t_hi": 150.0
+ },
+ {
+  "game": 14,
+  "index": 11,
+  "description": "Miscellaneous items",
+  "t_lo": 0.0,
+  "t_hi": 6.0
+ },
+ {
+  "game": 14,
+  "index": 12,
+  "description": "Apprentice hours",
+  "t_lo": 35.51,
+  "t_hi": 37.48
+ },
+ {
+  "game": 14,
+  "index": 13,
+  "description": "Skilled worker hours",
+  "t_lo": 0.0,
+  "t_hi": 51.0
+ },
+ {
+  "game": 15,
+  "index": 1,
+  "description": "Indoor leak detection",
+  "t_lo": 297.73,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 2,
+  "description": "Moisture measurement",
+  "t_lo": 218.0,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 3,
+  "description": "Skilled worker hours",
+  "t_lo": 506.15,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 4,
+  "description": "Helper hours",
+  "t_lo": 253.53,
+  "t_hi": 284.76
+ },
+ {
+  "game": 15,
+  "index": 5,
+  "description": "Vehicle costs",
+  "t_lo": 63.05,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 6,
+  "description": "Small parts and consumables",
+  "t_lo": 176.75,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 7,
+  "description": "Expose pipeline",
+  "t_lo": 176.75,
+  "t_hi": 203.62
+ },
+ {
+  "game": 15,
+  "index": 8,
+  "description": "Removal and disposal of damaged insulation",
+  "t_lo": 65.0,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 9,
+  "description": "Removal and disposal of damaged insulation",
+  "t_lo": 497.9,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 10,
+  "description": "Room drying up to 25 m\u00b2 (roof space)",
+  "t_lo": 0.0,
+  "t_hi": 100.0
+ },
+ {
+  "game": 15,
+  "index": 11,
+  "description": "Condensation dryer",
+  "t_lo": 52.68,
+  "t_hi": 100.0
+ },
+ {
+  "game": 15,
+  "index": 12,
+  "description": "Drying fan (roof space)",
+  "t_lo": 0.0,
+  "t_hi": 27.0
+ },
+ {
+  "game": 15,
+  "index": 13,
+  "description": "Room drying up to 50 m\u00b2 (kitchen)",
+  "t_lo": 271.44,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 14,
+  "description": "Pipe repair, copper pipe 22\u201328 mm",
+  "t_lo": 43.65,
+  "t_hi": 65.0
+ },
+ {
+  "game": 15,
+  "index": 15,
+  "description": "Transition piece, copper 22/28 mm",
+  "t_lo": 67.02,
+  "t_hi": 200.0
+ },
+ {
+  "game": 15,
+  "index": 16,
+  "description": "Copper pipe 28 mm",
+  "t_lo": 130.0,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 17,
+  "description": "Pipe insulation 28 mm",
+  "t_lo": 71.81,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 18,
+  "description": "Service technician hours",
+  "t_lo": 360.0,
+  "t_hi": 400.0
+ },
+ {
+  "game": 15,
+  "index": 19,
+  "description": "Restore pipe insulation (installer)",
+  "t_lo": 497.9,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 20,
+  "description": "Final measurement",
+  "t_lo": 124.2,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 21,
+  "description": "Final site cleaning",
+  "t_lo": 100.0,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 22,
+  "description": "Removal of the water-damaged wooden kitchen table",
+  "t_lo": 130.0,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 23,
+  "description": "Transport of the damaged table",
+  "t_lo": 57.3,
+  "t_hi": 63.13
+ },
+ {
+  "game": 15,
+  "index": 24,
+  "description": "Disposal of the damaged table",
+  "t_lo": 47.0,
+  "t_hi": 56.17
+ },
+ {
+  "game": 15,
+  "index": 25,
+  "description": "Supply of replacement kitchen table, comparable specification to the original",
+  "t_lo": 329.56,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 26,
+  "description": "Delivery of the replacement table",
+  "t_lo": 57.3,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 27,
+  "description": "Assembly of the new table",
+  "t_lo": 135.0,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 28,
+  "description": "Cleaning of the installation area",
+  "t_lo": 57.3,
+  "t_hi": null
+ },
+ {
+  "game": 15,
+  "index": 29,
+  "description": "Inspection of further furniture items stored in the garden for moisture",
+  "t_lo": 0.0,
+  "t_hi": 39.0
+ },
+ {
+  "game": 16,
+  "index": 1,
+  "description": "Clothing and jewellery stolen from the car",
+  "t_lo": 0.0,
+  "t_hi": 130.0
+ },
+ {
+  "game": 16,
+  "index": 2,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 24.28
+ },
+ {
+  "game": 17,
+  "index": 1,
+  "description": "Damage assessment and inspection",
+  "t_lo": 620.0,
+  "t_hi": null
+ },
+ {
+  "game": 17,
+  "index": 2,
+  "description": "Indoor leak detection",
+  "t_lo": 460.0,
+  "t_hi": 662.55
+ },
+ {
+  "game": 17,
+  "index": 3,
+  "description": "Measurement technician",
+  "t_lo": 230.0,
+  "t_hi": 273.82
+ },
+ {
+  "game": 17,
+  "index": 4,
+  "description": "Vehicle costs",
+  "t_lo": 79.13,
+  "t_hi": null
+ },
+ {
+  "game": 17,
+  "index": 5,
+  "description": "Fleece covering",
+  "t_lo": 92.0,
+  "t_hi": 124.23
+ },
+ {
+  "game": 17,
+  "index": 6,
+  "description": "Disassembly of floor covering, skilled worker hourly rate",
+  "t_lo": 0.0,
+  "t_hi": 145.0
+ },
+ {
+  "game": 17,
+  "index": 7,
+  "description": "Material surcharge",
+  "t_lo": 150.0,
+  "t_hi": null
+ },
+ {
+  "game": 17,
+  "index": 8,
+  "description": "Floor covering removal \u2013 removal of linoleum incl. skirting and transport to the container",
+  "t_lo": 1690.0,
+  "t_hi": null
+ },
+ {
+  "game": 17,
+  "index": 9,
+  "description": "Preparation of floor surfaces for further processing",
+  "t_lo": 562.6,
+  "t_hi": 670.0
+ },
+ {
+  "game": 17,
+  "index": 10,
+  "description": "Catering for work crew",
+  "t_lo": 0.0,
+  "t_hi": 1.26
+ },
+ {
+  "game": 17,
+  "index": 11,
+  "description": "Construction waste disposal",
+  "t_lo": 57.3,
+  "t_hi": 87.6
+ },
+ {
+  "game": 17,
+  "index": 12,
+  "description": "Staff costs",
+  "t_lo": 139.23,
+  "t_hi": 144.0
+ },
+ {
+  "game": 17,
+  "index": 13,
+  "description": "Dust protection incl. material and labor",
+  "t_lo": 160.65,
+  "t_hi": 201.35
+ },
+ {
+  "game": 17,
+  "index": 14,
+  "description": "Kitchen disinfection",
+  "t_lo": 180.0,
+  "t_hi": 196.6
+ },
+ {
+  "game": 17,
+  "index": 15,
+  "description": "Special drying borehole (alternative to tile removal)",
+  "t_lo": 1013.79,
+  "t_hi": null
+ },
+ {
+  "game": 17,
+  "index": 16,
+  "description": "Large-area drying (from 50 m\u00b2)",
+  "t_lo": 2599.6,
+  "t_hi": 2732.19
+ },
+ {
+  "game": 17,
+  "index": 17,
+  "description": "Cavity drying",
+  "t_lo": 508.72,
+  "t_hi": 619.24
+ },
+ {
+  "game": 17,
+  "index": 18,
+  "description": "Skilled worker hours",
+  "t_lo": 379.65,
+  "t_hi": null
+ },
+ {
+  "game": 17,
+  "index": 19,
+  "description": "Material surcharge",
+  "t_lo": 150.0,
+  "t_hi": 169.55
+ },
+ {
+  "game": 17,
+  "index": 20,
+  "description": "Electricity costs",
+  "t_lo": 0.0,
+  "t_hi": 145.0
+ },
+ {
+  "game": 18,
+  "index": 1,
+  "description": "Leak detection & pinpointing of pipe defect beneath built-in bathtub",
+  "t_lo": 495.0,
+  "t_hi": 560.95
+ },
+ {
+  "game": 18,
+  "index": 2,
+  "description": "Moisture measurement with thermal imaging camera",
+  "t_lo": 0.0,
+  "t_hi": 57.3
+ },
+ {
+  "game": 18,
+  "index": 3,
+  "description": "Vehicle costs",
+  "t_lo": 67.9,
+  "t_hi": 86.81
+ },
+ {
+  "game": 18,
+  "index": 4,
+  "description": "Setup & rental of condensation dryers, bathroom & living room",
+  "t_lo": 641.09,
+  "t_hi": null
+ },
+ {
+  "game": 18,
+  "index": 5,
+  "description": "Electricity for drying equipment (separately metered)",
+  "t_lo": 0.0,
+  "t_hi": 28.0
+ },
+ {
+  "game": 18,
+  "index": 6,
+  "description": "Remove water-damaged laminate in living room",
+  "t_lo": 438.3,
+  "t_hi": null
+ },
+ {
+  "game": 18,
+  "index": 7,
+  "description": "Supply & install laminate incl. impact sound insulation",
+  "t_lo": 1380.0,
+  "t_hi": null
+ },
+ {
+  "game": 18,
+  "index": 8,
+  "description": "Replace skirting boards",
+  "t_lo": 393.49,
+  "t_hi": null
+ },
+ {
+  "game": 18,
+  "index": 9,
+  "description": "Construction waste disposal",
+  "t_lo": 57.3,
+  "t_hi": 85.5
+ },
+ {
+  "game": 18,
+  "index": 10,
+  "description": "Catering for work crew",
+  "t_lo": 0.0,
+  "t_hi": 0.42
+ },
+ {
+  "game": 18,
+  "index": 11,
+  "description": "Paint lower wall after water damage incl. surface preparation",
+  "t_lo": 613.68,
+  "t_hi": 721.23
+ },
+ {
+  "game": 18,
+  "index": 12,
+  "description": "Construction waste disposal",
+  "t_lo": 0.0,
+  "t_hi": 31.5
+ },
+ {
+  "game": 18,
+  "index": 13,
+  "description": "Vehicle costs",
+  "t_lo": 58.4,
+  "t_hi": 86.81
+ },
+ {
+  "game": 18,
+  "index": 14,
+  "description": "Vehicle costs \u2013 return visit",
+  "t_lo": 0.0,
+  "t_hi": 22.51
+ },
+ {
+  "game": 19,
+  "index": 1,
+  "description": "Leak detection and moisture survey, pool room to plant room",
+  "t_lo": 714.76,
+  "t_hi": 824.5
+ },
+ {
+  "game": 19,
+  "index": 2,
+  "description": "Locate and repair separated pool supply connection (pool technology)",
+  "t_lo": 0.0,
+  "t_hi": 57.3
+ },
+ {
+  "game": 19,
+  "index": 3,
+  "description": "Vacuum standing water and technical drying of pool room, conservatory and plant room",
+  "t_lo": 682.23,
+  "t_hi": 1373.59
+ },
+ {
+  "game": 19,
+  "index": 4,
+  "description": "Reinstate flooring, wall surfaces and skirting on the water's path",
+  "t_lo": 854.46,
+  "t_hi": 1242.0
+ },
+ {
+  "game": 19,
+  "index": 5,
+  "description": "Final site cleaning",
+  "t_lo": 176.75,
+  "t_hi": 219.85
+ },
+ {
+  "game": 19,
+  "index": 6,
+  "description": "Clean / dry conservatory rug",
+  "t_lo": 247.0,
+  "t_hi": null
+ },
+ {
+  "game": 19,
+  "index": 7,
+  "description": "Inspect plant-room electrical systems and pool technology",
+  "t_lo": 472.5,
+  "t_hi": null
+ },
+ {
+  "game": 19,
+  "index": 8,
+  "description": "Upgrade to high-quality natural stone floor",
+  "t_lo": 154.55,
+  "t_hi": 647.93
+ },
+ {
+  "game": 19,
+  "index": 9,
+  "description": "Vehicle costs",
+  "t_lo": 24.28,
+  "t_hi": 33.46
+ },
+ {
+  "game": 20,
+  "index": 1,
+  "description": "Air conditioning unit - living room (higher-output replacement, larger cooling capacity than the damaged one)",
+  "t_lo": 2345.0,
+  "t_hi": null
+ },
+ {
+  "game": 20,
+  "index": 2,
+  "description": "Installation",
+  "t_lo": 431.52,
+  "t_hi": 510.0
+ },
+ {
+  "game": 20,
+  "index": 3,
+  "description": "Decorative floor console (chosen for room appearance, not required by the new unit)",
+  "t_lo": 0.0,
+  "t_hi": 41.0
+ },
+ {
+  "game": 20,
+  "index": 4,
+  "description": "Freight shipping",
+  "t_lo": 34.18,
+  "t_hi": 43.6
+ },
+ {
+  "game": 20,
+  "index": 5,
+  "description": "Express delivery surcharge",
+  "t_lo": 0.0,
+  "t_hi": 41.0
+ },
+ {
+  "game": 20,
+  "index": 6,
+  "description": "Contractor administration fee",
+  "t_lo": 0.0,
+  "t_hi": 19.0
+ },
+ {
+  "game": 21,
+  "index": 1,
+  "description": "Diagnostic inspection of the cracked laptop",
+  "t_lo": 0.0,
+  "t_hi": 10.84
+ },
+ {
+  "game": 21,
+  "index": 2,
+  "description": "Laptop screen and lower-right corner repair",
+  "t_lo": 0.0,
+  "t_hi": 166.43
+ },
+ {
+  "game": 22,
+  "index": 1,
+  "description": "Kitchen air conditioning unit - replacement including installation and delivery",
+  "t_lo": 0.0,
+  "t_hi": 245.7
+ },
+ {
+  "game": 23,
+  "index": 1,
+  "description": "Recover stolen bicycle from secured location, incl. locksmith call-out and cutting of seized lock",
+  "t_lo": 143.41,
+  "t_hi": 165.38
+ },
+ {
+  "game": 23,
+  "index": 2,
+  "description": "Repair theft damage to bicycle (frame and brakes)",
+  "t_lo": 374.5,
+  "t_hi": 396.0
+ },
+ {
+  "game": 23,
+  "index": 3,
+  "description": "Labour and sundries",
+  "t_lo": 150.0,
+  "t_hi": null
+ },
+ {
+  "game": 24,
+  "index": 1,
+  "description": "Leak detection and moisture survey across affected rooms",
+  "t_lo": 490.2,
+  "t_hi": 700.0
+ },
+ {
+  "game": 24,
+  "index": 2,
+  "description": "Strip-out and drying of guest WC, stairwell, living room and hobby room",
+  "t_lo": 1365.0,
+  "t_hi": 1675.94
+ },
+ {
+  "game": 24,
+  "index": 3,
+  "description": "Reinstate parquet, skirting and floor coverings on the water's path",
+  "t_lo": 240.0,
+  "t_hi": 884.05
+ },
+ {
+  "game": 24,
+  "index": 4,
+  "description": "Restore and refinish plasterboard ceilings and wall surfaces",
+  "t_lo": 1024.0,
+  "t_hi": 1620.0
+ },
+ {
+  "game": 24,
+  "index": 5,
+  "description": "Replace fill valve in toilet cistern",
+  "t_lo": 240.0,
+  "t_hi": null
+ },
+ {
+  "game": 24,
+  "index": 6,
+  "description": "Final site cleaning",
+  "t_lo": 91.0,
+  "t_hi": 120.8
+ },
+ {
+  "game": 24,
+  "index": 7,
+  "description": "Billiard table inspection, disassembly, re-covering and reassembly",
+  "t_lo": 921.96,
+  "t_hi": 1080.0
+ },
+ {
+  "game": 24,
+  "index": 8,
+  "description": "Replace billiard cloth, cue sets and overhead lighting fixture",
+  "t_lo": 1071.78,
+  "t_hi": 1505.0
+ },
+ {
+  "game": 24,
+  "index": 9,
+  "description": "Specialist cleaning and removal of water-damaged rug",
+  "t_lo": 257.62,
+  "t_hi": 290.22
+ },
+ {
+  "game": 24,
+  "index": 10,
+  "description": "Electrical inspection of robot vacuum cleaner",
+  "t_lo": 102.79,
+  "t_hi": 150.0
+ },
+ {
+  "game": 24,
+  "index": 11,
+  "description": "Replacement robot vacuum cleaner (total loss)",
+  "t_lo": 0.0,
+  "t_hi": 162.0
+ },
+ {
+  "game": 25,
+  "index": 1,
+  "description": "Skilled worker hours",
+  "t_lo": 628.82,
+  "t_hi": null
+ },
+ {
+  "game": 25,
+  "index": 2,
+  "description": "Material for the work",
+  "t_lo": 118.37,
+  "t_hi": 138.57
+ },
+ {
+  "game": 25,
+  "index": 3,
+  "description": "Vehicle costs",
+  "t_lo": 81.45,
+  "t_hi": null
+ },
+ {
+  "game": 25,
+  "index": 4,
+  "description": "Indoor leak detection",
+  "t_lo": 471.04,
+  "t_hi": null
+ },
+ {
+  "game": 25,
+  "index": 5,
+  "description": "Room drying 30 m\u00b2",
+  "t_lo": 424.92,
+  "t_hi": 486.0
+ },
+ {
+  "game": 25,
+  "index": 6,
+  "description": "Room dryer unit",
+  "t_lo": 408.17,
+  "t_hi": 524.0
+ },
+ {
+  "game": 25,
+  "index": 7,
+  "description": "Wet insulation wool from basement",
+  "t_lo": 198.0,
+  "t_hi": 256.22
+ },
+ {
+  "game": 25,
+  "index": 8,
+  "description": "Profipress elbow 90\u00b0 copper 28mm model 01",
+  "t_lo": 82.3,
+  "t_hi": 124.61
+ },
+ {
+  "game": 25,
+  "index": 9,
+  "description": "Transition piece 15x19mm",
+  "t_lo": 65.0,
+  "t_hi": 124.2
+ },
+ {
+  "game": 25,
+  "index": 10,
+  "description": "Helper hours",
+  "t_lo": 229.17,
+  "t_hi": 238.43
+ },
+ {
+  "game": 25,
+  "index": 11,
+  "description": "Service technician hours",
+  "t_lo": 448.94,
+  "t_hi": 470.6
+ },
+ {
+  "game": 25,
+  "index": 12,
+  "description": "Vehicle costs",
+  "t_lo": 162.9,
+  "t_hi": null
+ },
+ {
+  "game": 25,
+  "index": 13,
+  "description": "Skilled worker hours",
+  "t_lo": 1097.15,
+  "t_hi": null
+ },
+ {
+  "game": 25,
+  "index": 14,
+  "description": "Material costs",
+  "t_lo": 0.0,
+  "t_hi": 58.75
+ },
+ {
+  "game": 25,
+  "index": 15,
+  "description": "Vehicle costs",
+  "t_lo": 81.45,
+  "t_hi": null
+ },
+ {
+  "game": 26,
+  "index": 1,
+  "description": "Disassembly and assembly service",
+  "t_lo": 95.47,
+  "t_hi": 106.2
+ },
+ {
+  "game": 26,
+  "index": 2,
+  "description": "Construction dryer",
+  "t_lo": 282.33,
+  "t_hi": 378.0
+ },
+ {
+  "game": 26,
+  "index": 3,
+  "description": "Rock wool pipe insulation",
+  "t_lo": 37.17,
+  "t_hi": 41.94
+ },
+ {
+  "game": 26,
+  "index": 4,
+  "description": "Construction waste disposal",
+  "t_lo": 58.39,
+  "t_hi": 60.0
+ },
+ {
+  "game": 26,
+  "index": 5,
+  "description": "Wall levelling material",
+  "t_lo": 65.0,
+  "t_hi": null
+ },
+ {
+  "game": 26,
+  "index": 6,
+  "description": "Rough renovation",
+  "t_lo": 181.39,
+  "t_hi": 206.58
+ },
+ {
+  "game": 26,
+  "index": 7,
+  "description": "Mounting / service opening",
+  "t_lo": 130.23,
+  "t_hi": 176.75
+ },
+ {
+  "game": 26,
+  "index": 8,
+  "description": "Premium large-format designer wall tiles 120 x 120 cm (upgraded from the original standard basement tiles)",
+  "t_lo": 0.0,
+  "t_hi": 43.6
+ },
+ {
+  "game": 26,
+  "index": 9,
+  "description": "Premium grout",
+  "t_lo": 11.3,
+  "t_hi": 11.64
+ },
+ {
+  "game": 26,
+  "index": 10,
+  "description": "Premium silicone sealant",
+  "t_lo": 0.0,
+  "t_hi": 14.56
+ },
+ {
+  "game": 26,
+  "index": 11,
+  "description": "Vehicle costs",
+  "t_lo": 81.0,
+  "t_hi": null
+ },
+ {
+  "game": 26,
+  "index": 12,
+  "description": "Skilled worker hours",
+  "t_lo": 980.01,
+  "t_hi": null
+ },
+ {
+  "game": 27,
+  "index": 1,
+  "description": "Translation from Spanish to English",
+  "t_lo": 0.0,
+  "t_hi": 39.62
+ },
+ {
+  "game": 27,
+  "index": 2,
+  "description": "Material costs",
+  "t_lo": 0.0,
+  "t_hi": 0.01
+ },
+ {
+  "game": 27,
+  "index": 3,
+  "description": "Compensation for robbery damage",
+  "t_lo": 3000.0,
+  "t_hi": 3022.15
+ },
+ {
+  "game": 27,
+  "index": 4,
+  "description": "Shipping",
+  "t_lo": 0.0,
+  "t_hi": 7.0
+ },
+ {
+  "game": 28,
+  "index": 1,
+  "description": "Electrician labour checking and rewiring the flooded basement circuits",
+  "t_lo": 0.0,
+  "t_hi": 402.95
+ },
+ {
+  "game": 28,
+  "index": 2,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 24.28
+ },
+ {
+  "game": 28,
+  "index": 3,
+  "description": "Procurement of a motor pump",
+  "t_lo": 0.0,
+  "t_hi": 49.5
+ },
+ {
+  "game": 28,
+  "index": 4,
+  "description": "Submersible pump",
+  "t_lo": 0.0,
+  "t_hi": 49.5
+ },
+ {
+  "game": 28,
+  "index": 5,
+  "description": "Water extraction from the flooded basement",
+  "t_lo": 0.0,
+  "t_hi": 49.5
+ },
+ {
+  "game": 28,
+  "index": 6,
+  "description": "Small electrical materials for the rewiring",
+  "t_lo": 0.0,
+  "t_hi": 47.15
+ },
+ {
+  "game": 28,
+  "index": 7,
+  "description": "Renew boiler system including flue gas system and storage tank",
+  "t_lo": 0.0,
+  "t_hi": 49.5
+ },
+ {
+  "game": 28,
+  "index": 8,
+  "description": "Adjust supply pipework to fit the replacement boiler",
+  "t_lo": 0.0,
+  "t_hi": 49.5
+ },
+ {
+  "game": 28,
+  "index": 9,
+  "description": "Dispose of the old boiler system",
+  "t_lo": 0.0,
+  "t_hi": 49.5
+ },
+ {
+  "game": 28,
+  "index": 10,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 36.0
+ },
+ {
+  "game": 29,
+  "index": 1,
+  "description": "Water extraction from the flooded plant room",
+  "t_lo": 0.0,
+  "t_hi": 100.0
+ },
+ {
+  "game": 29,
+  "index": 2,
+  "description": "Renew the water-damaged boiler, flue and storage tank and adjust the supply pipework",
+  "t_lo": 0.0,
+  "t_hi": 57.3
+ },
+ {
+  "game": 29,
+  "index": 3,
+  "description": "Dispose of the old boiler system",
+  "t_lo": 516.03,
+  "t_hi": null
+ },
+ {
+  "game": 29,
+  "index": 4,
+  "description": "Vehicle costs",
+  "t_lo": 80.23,
+  "t_hi": 85.5
+ },
+ {
+  "game": 30,
+  "index": 1,
+  "description": "Disassembly/reassembly, construction dryer for the drying period and standard pipe insulation",
+  "t_lo": 432.0,
+  "t_hi": 478.96
+ },
+ {
+  "game": 30,
+  "index": 2,
+  "description": "Construction waste disposal",
+  "t_lo": 57.3,
+  "t_hi": 72.56
+ },
+ {
+  "game": 30,
+  "index": 3,
+  "description": "Wall preparation, rough repair and mounting opening in the affected basement area",
+  "t_lo": 378.0,
+  "t_hi": 404.14
+ },
+ {
+  "game": 30,
+  "index": 4,
+  "description": "Standard wall tiling incl. standard silicone sealant",
+  "t_lo": 449.99,
+  "t_hi": null
+ },
+ {
+  "game": 30,
+  "index": 5,
+  "description": "Vehicle costs",
+  "t_lo": 100.0,
+  "t_hi": null
+ },
+ {
+  "game": 31,
+  "index": 1,
+  "description": "Leak detection call-out and pinpointing of the sink supply leak",
+  "t_lo": 432.0,
+  "t_hi": null
+ },
+ {
+  "game": 31,
+  "index": 2,
+  "description": "Moisture measurement of the kitchen floor and wall base",
+  "t_lo": 154.68,
+  "t_hi": null
+ },
+ {
+  "game": 31,
+  "index": 3,
+  "description": "Service technician hours",
+  "t_lo": 576.0,
+  "t_hi": 680.36
+ },
+ {
+  "game": 31,
+  "index": 4,
+  "description": "Vehicle costs",
+  "t_lo": 24.28,
+  "t_hi": 36.0
+ },
+ {
+  "game": 31,
+  "index": 5,
+  "description": "Freeing the affected pipe run beneath the kitchen sink",
+  "t_lo": 115.49,
+  "t_hi": 147.83
+ },
+ {
+  "game": 31,
+  "index": 6,
+  "description": "Removal and disposal of damaged insulation",
+  "t_lo": 146.66,
+  "t_hi": null
+ },
+ {
+  "game": 31,
+  "index": 7,
+  "description": "Repair of the confirmed leak",
+  "t_lo": 114.0,
+  "t_hi": 144.0
+ },
+ {
+  "game": 31,
+  "index": 8,
+  "description": "Replacement copper pipe section and standard insulation",
+  "t_lo": 61.74,
+  "t_hi": 144.53
+ },
+ {
+  "game": 31,
+  "index": 9,
+  "description": "Room drying line item for the roof space (Dachstuhl)",
+  "t_lo": 0.0,
+  "t_hi": 39.62
+ },
+ {
+  "game": 31,
+  "index": 10,
+  "description": "Condensation dryer (kitchen)",
+  "t_lo": 52.73,
+  "t_hi": 90.69
+ },
+ {
+  "game": 31,
+  "index": 11,
+  "description": "Room drying of the kitchen floor and wall base",
+  "t_lo": 49.5,
+  "t_hi": 193.35
+ },
+ {
+  "game": 31,
+  "index": 12,
+  "description": "Drying fan (roof space)",
+  "t_lo": 0.0,
+  "t_hi": 39.62
+ },
+ {
+  "game": 31,
+  "index": 13,
+  "description": "Final site cleaning of the covered work area",
+  "t_lo": 78.46,
+  "t_hi": 86.64
+ },
+ {
+  "game": 31,
+  "index": 14,
+  "description": "Vehicle costs",
+  "t_lo": 81.0,
+  "t_hi": null
+ },
+ {
+  "game": 31,
+  "index": 15,
+  "description": "Cleaning of entire apartment",
+  "t_lo": 0.0,
+  "t_hi": 39.62
+ },
+ {
+  "game": 31,
+  "index": 16,
+  "description": "Removal, transport and disposal of the water-damaged wooden kitchen table",
+  "t_lo": 139.1,
+  "t_hi": 158.52
+ },
+ {
+  "game": 31,
+  "index": 17,
+  "description": "Delivery and assembly of the replacement table",
+  "t_lo": 315.0,
+  "t_hi": null
+ },
+ {
+  "game": 31,
+  "index": 18,
+  "description": "Inspection of further furniture items stored in the garden for moisture",
+  "t_lo": 0.0,
+  "t_hi": 19.0
+ },
+ {
+  "game": 32,
+  "index": 1,
+  "description": "Speaker system",
+  "t_lo": 171.03,
+  "t_hi": 278.5
+ },
+ {
+  "game": 32,
+  "index": 2,
+  "description": "Shipping",
+  "t_lo": 0.0,
+  "t_hi": 13.49
+ },
+ {
+  "game": 32,
+  "index": 3,
+  "description": "Installation",
+  "t_lo": 0.0,
+  "t_hi": 46.04
+ },
+ {
+  "game": 32,
+  "index": 4,
+  "description": "TV set",
+  "t_lo": 513.01,
+  "t_hi": 536.23
+ },
+ {
+  "game": 32,
+  "index": 5,
+  "description": "Property and liability damage to electronics",
+  "t_lo": 0.0,
+  "t_hi": 39.62
+ },
+ {
+  "game": 32,
+  "index": 6,
+  "description": "Property and liability damage to electronics - service order",
+  "t_lo": 0.0,
+  "t_hi": 32.13
+ },
+ {
+  "game": 32,
+  "index": 7,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 20.0
+ }
+]

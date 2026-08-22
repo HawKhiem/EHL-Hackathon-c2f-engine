@@ -1,25 +1,29 @@
-"""Load ROOT/.env into os.environ (existing variables win). Imported for its side effect."""
-
+"""Minimal .env loader. A handful of key=value lines doesn't need the python-dotenv
+dependency; this reads them into os.environ (without overriding real shell vars) itself."""
 from __future__ import annotations
 
 import os
-from pathlib import Path
+import pathlib
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 
-def load_dotenv(path: Path = ROOT / ".env") -> None:
+def _load_dotenv() -> None:
+    path = ROOT / ".env"
     if not path.exists():
         return
-    for line in path.read_text().splitlines():
+    for line in path.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if not line or line.startswith("#") or "=" not in line:
             continue
-        k, v = line.split("=", 1)
-        k = k.strip()
-        if k.startswith("export "):
-            k = k[7:].strip()
-        os.environ.setdefault(k, v.strip().strip('"').strip("'"))
+        key, _, value = line.partition("=")
+        os.environ.setdefault(key.strip(), value.strip())
 
 
-load_dotenv()
+_load_dotenv()
+
+TEAM_API_KEY = os.environ.get("TEAM_API_KEY", "")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+BASE_URL = os.environ.get("C2F_BASE_URL", "https://c2f.public.quantco.cloud").rstrip("/")
+MODEL = os.environ.get("C2F_MODEL", "gpt-5.6-terra")
+REASONING = os.environ.get("C2F_REASONING", "medium")
