@@ -24,14 +24,24 @@ ZIP="cases/$CASE.zip"
 OUT="cases/$CASE"
 [[ -f "$ZIP" ]] || { echo "missing $ZIP"; exit 1; }
 
-# Poll for the key (it 4xx's until start_time); retry quickly until it appears
+# Poll for the key (it 4xx's until start_time); retry quickly until it appears.
+# A failed curl is a RETRY, never the end of the run: under `set -e` an unguarded
+# command substitution would abort the whole script on one DNS or connection blip,
+# and `-s` would swallow the reason (empty stdout, empty stderr, exit 6). That cost
+# us game 25. The `|| true` and the timeouts below are what make the loop a loop.
+# Progress goes to stderr so stdout stays parseable by the caller.
+KEY_WAIT_S="${KEY_WAIT_S:-120}"
 t0=$(date +%s)
 while :; do
-  RESP="$(curl -s -w '\n%{http_code}' -H "X-API-Key: $TEAM_API_KEY" "$BASE_URL/api/games/$GAME_ID/key")"
+  RESP="$(curl -sS --connect-timeout 2 --max-time 5 -w '\n%{http_code}' \
+            -H "X-API-Key: $TEAM_API_KEY" "$BASE_URL/api/games/$GAME_ID/key" 2>/dev/null || true)"
   CODE="${RESP##*$'\n'}"; BODY="${RESP%$'\n'*}"
   if [[ "$CODE" == "200" ]]; then break; fi
-  if (( $(date +%s) - t0 > 120 )); then echo "gave up: $CODE $BODY"; exit 1; fi
-  printf '\r  waiting for key... (%s)' "$CODE"; sleep 0.3
+  if (( $(date +%s) - t0 > KEY_WAIT_S )); then
+    echo "gave up after ${KEY_WAIT_S}s: code='${CODE:-none}' body='${BODY:0:200}'"
+    exit 1
+  fi
+  printf '\r  waiting for key... (%s)' "${CODE:-conn}" >&2; sleep 0.3
 done
 KEY="$(printf '%s' "$BODY" | sed -E 's/.*"decryption_key" *: *"([^"]*)".*/\1/')"
 echo; echo "KEY: $KEY"

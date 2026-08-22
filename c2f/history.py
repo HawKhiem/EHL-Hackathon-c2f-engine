@@ -15,10 +15,12 @@ from __future__ import annotations
 
 import collections
 import re
+import statistics
 
 from c2f.accuracy import rows
 
 MIN_N = 3  # a bucket needs this many observations before it is worth a line
+MIN_PAIRED = 3  # ...and this many carrying BOTH bounds before we quote a two-sided band
 MAX_LABELS = 12  # recurring labels listed verbatim, most-seen first
 
 
@@ -26,22 +28,40 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9 ]", "", s.lower()).strip()
 
 
-def _band(obs: list[dict]) -> tuple[float, float | None]:
-    """Middle of the observed evidence: the median proven-floor and the median ceiling."""
-    los = sorted(r["t_lo"] for r in obs if r["t_lo"] > 0)
-    his = sorted(r["t_hi"] for r in obs if r["t_hi"] is not None)
-    lo = los[len(los) // 2] if los else 0.0
-    hi = his[len(his) // 2] if his else None
-    return lo, hi
+def _band(obs: list[dict]) -> tuple[float, float | None, int]:
+    """Both ends of the band measured over the SAME items, and price signal only.
+
+    Two things went wrong when the ends were medians over whatever happened to carry each
+    bound. (1) The subsets are disjoint - ancillary/call-out had 23 floors and 32 ceilings
+    but only 13 items with both - so the printed ceiling landed UNDER the printed floor in
+    every bucket, while no single item is inverted (0 of 104). (2) A t_hi on an item with
+    no proven floor is a COVERAGE refusal, not a price ceiling: the market refused it at
+    any price. Those were 69 of 173 ceilings and their median is 41 against 184 for real
+    ones, so pooling them taught the model to under-price the covered items too.
+
+    So: only items proven to be worth something carry price signal, and a two-sided band is
+    quoted only from the items carrying both bounds. Returns (lo, hi, n_behind_the_band).
+    """
+    priced = [r for r in obs if r["t_lo"] > 0]
+    if not priced:
+        return 0.0, None, 0
+    paired = [r for r in priced if r["t_hi"] is not None]
+    if len(paired) >= MIN_PAIRED:
+        return (
+            statistics.median(r["t_lo"] for r in paired),
+            statistics.median(r["t_hi"] for r in paired),
+            len(paired),
+        )
+    return statistics.median(r["t_lo"] for r in priced), None, len(priced)
 
 
-def _fmt(lo: float, hi: float | None) -> str:
-    """The two medians are censored differently, so they can cross - say so, never fake a range."""
+def _fmt(lo: float, hi: float | None, n: int) -> str:
+    """Never print a range whose ends were not measured on the same items."""
     if lo > 0 and hi is not None:
-        return f"paid up to ~EUR {lo:.0f}; refused above ~EUR {hi:.0f}"
+        return f"fair value sat between ~EUR {lo:.0f} and ~EUR {hi:.0f}  (n={n} with both bounds)"
     if lo > 0:
-        return f"paid at least ~EUR {lo:.0f} (never refused)"
-    return f"refused above ~EUR {hi:.0f}" if hi is not None else "no signal"
+        return f"paid at least ~EUR {lo:.0f}, never refused  (n={n})"
+    return "no price signal - every observation was refused as not covered"
 
 
 def build() -> str:
@@ -59,8 +79,8 @@ def build() -> str:
     for b, obs in sorted(by_bucket.items(), key=lambda x: -len(x[1])):
         if b == "other" or len(obs) < MIN_N:
             continue
-        lo, hi = _band(obs)
-        rng = _fmt(lo, hi)
+        lo, hi, n = _band(obs)
+        rng = _fmt(lo, hi, n)
         # ratio of what the market proved to what we guessed: >1 = we came in too low
         ratios = sorted(r["t_lo"] / r["t_mid"] for r in obs if r["t_mid"] > 0 and r["t_lo"] > 0)
         hint = ""
@@ -70,7 +90,7 @@ def build() -> str:
                 hint = "  (we habitually UNDER-price this category)"
             elif med <= 0.8:
                 hint = "  (we habitually OVER-price this category)"
-        lines.append(f"  {b:<20} n={len(obs):<3} {rng}{hint}")
+        lines.append(f"  {b:<20} {rng}{hint}")
 
     by_label = collections.defaultdict(list)
     for r in R:
@@ -81,8 +101,8 @@ def build() -> str:
     )[:MAX_LABELS]
     label_lines = []
     for k, obs in repeats:
-        lo, hi = _band(obs)
-        label_lines.append(f"  {k[:38]:<40} n={len(obs):<3} {_fmt(lo, hi)}")
+        lo, hi, n = _band(obs)
+        label_lines.append(f"  {k[:38]:<40} {_fmt(lo, hi, n)}")
 
     if not lines and not label_lines:
         return ""

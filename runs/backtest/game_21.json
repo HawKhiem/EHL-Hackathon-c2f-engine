@@ -5,91 +5,90 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 87.71,
-    "acceptance_limit": 40.16
+    "charge_price": 118.93,
+    "acceptance_limit": 54.45
    },
    {
     "index": 2,
-    "charge_price": 143.25,
-    "acceptance_limit": 93.69
+    "charge_price": 345.95,
+    "acceptance_limit": 158.39
    }
   ],
   "estimate": {
-   "policy_summary": "Portable equipment accidental impact is covered; repair/diagnostic only, subject to unknown equipment and diagnostic caps.",
+   "policy_summary": "Portable laptop impact damage and necessary examination/repair are insured; schedule limits, sub-limit and deductible are unstated.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "5.2.3 Examination and assessment of damaged portable insured equipment",
-     "t_low": 45,
-     "t_mid": 60,
-     "t_high": 80,
+     "clause": "5.2.3 Examination and assessment; 2.6.2",
+     "t_low": 55,
+     "t_mid": 80,
+     "t_high": 100,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "Necessary diagnostic for established accidental laptop impact damage.",
+     "reason": "Necessary diagnostic for insured impact damage.",
      "_description": "Diagnostic inspection of the cracked laptop"
     },
     {
      "index": 2,
      "covered": true,
      "related": true,
-     "clause": "2.6.3 and 7.1.10 Repair of portable insured equipment",
-     "t_low": 125,
-     "t_mid": 155,
-     "t_high": 195,
+     "clause": "7.1.1(d), 7.1.7(e), 7.1.10",
+     "t_low": 260,
+     "t_mid": 360,
+     "t_high": 440,
      "t_if_covered": 0,
-     "cap_uncertain": false,
-     "reason": "Screen crack and dented corner arise from same impact.",
+     "cap_uncertain": true,
+     "reason": "Screen and impacted corner are documented event damage.",
      "_description": "Laptop screen and lower-right corner repair"
     }
    ]
   },
-  "seconds": 7.4,
-  "repriced": true
+  "seconds": 6.4
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 1862.25,
-    "cost": 47.84,
-    "net": 1814.41
+    "income": 2767.6,
+    "cost": 149.13,
+    "net": 2618.47
    },
    "optimistic": {
-    "income": 2642.84,
-    "cost": 47.84,
-    "net": 2595.0
+    "income": 3589.27,
+    "cost": 149.13,
+    "net": 3440.14
    }
   },
   "open_pairings": {
-   "income": 20,
+   "income": 5,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 87.71,
-    "b": 40.16,
+    "a": 118.93,
+    "b": 54.45,
     "t_lo": 0.0,
     "t_hi": 10.84,
     "fair": false,
     "income": {
      "pessimistic": 0.0,
-     "optimistic": 350.84
+     "optimistic": 475.72
     },
     "cost": {
-     "pessimistic": 47.84,
-     "optimistic": 47.84
+     "pessimistic": 149.13,
+     "optimistic": 149.13
     }
    },
    "2": {
-    "a": 143.25,
-    "b": 93.69,
+    "a": 345.95,
+    "b": 158.39,
     "t_lo": 0.0,
     "t_hi": 166.43,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 1862.25,
-     "optimistic": 2292.0
+     "pessimistic": 2767.5999999999995,
+     "optimistic": 3113.5499999999993
     },
     "cost": {
      "pessimistic": 0.0,
@@ -102,14 +101,14 @@
    "2": "truth+payout"
   }
  },
- "pess_net": 1814.41,
- "pess_rank": 4,
- "opt_net": 2595.0,
- "opt_rank": 3,
- "exp_net": 2204.7,
- "exp_rank": 3,
+ "pess_net": 2618.47,
+ "pess_rank": 3,
+ "opt_net": 3440.14,
+ "opt_rank": 1,
+ "exp_net": 3029.3,
+ "exp_rank": 2,
  "best_team": "Bin busy",
  "best_net": 3080.0,
  "n_teams": 17,
- "replayed_now": false
+ "replayed_now": true
 }

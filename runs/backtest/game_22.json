@@ -5,58 +5,57 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 1125.0,
+    "charge_price": 2970.0,
     "acceptance_limit": 0.0
    }
   ],
   "estimate": {
-   "policy_summary": "Fixed building installations damaged by lightning-caused overvoltage are covered like-for-like; upgrades, excess units and unproven perils excluded.",
+   "policy_summary": "Buildings and fixed installations covered for lightning/atmospheric overvoltage; like-for-like repairs only, no upgrades or unrelated work.",
    "items": [
     {
      "index": 1,
      "covered": false,
      "related": true,
-     "clause": "2.3.3, 7.1.9 and 7.1.10",
+     "clause": "2.3.3 Overvoltage caused by lightning; 7.1.9 Replacement of an affected installation",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 1250,
+     "t_if_covered": 3300,
      "cap_uncertain": false,
      "reason": "No lightning or atmospheric-electricity cause evidenced; only one unit damaged.",
      "_description": "Kitchen air conditioning unit - replacement including installation and delivery"
     }
    ]
   },
-  "seconds": 8.9,
-  "repriced": true
+  "seconds": 17.5
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 9000.0,
+    "income": 0.0,
     "cost": 0.0,
-    "net": 9000.0
+    "net": 0.0
    },
    "optimistic": {
-    "income": 11250.0,
+    "income": 2970.0,
     "cost": 0.0,
-    "net": 11250.0
+    "net": 2970.0
    }
   },
   "open_pairings": {
-   "income": 2,
+   "income": 1,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 1125.0,
+    "a": 2970.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 245.7,
     "fair": false,
     "income": {
-     "pessimistic": 9000.0,
-     "optimistic": 11250.0
+     "pessimistic": 0.0,
+     "optimistic": 2970.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -68,14 +67,14 @@
    "1": "truth+payout"
   }
  },
- "pess_net": 9000.0,
- "pess_rank": 4,
- "opt_net": 11250.0,
- "opt_rank": 3,
- "exp_net": 10125.0,
- "exp_rank": 3,
+ "pess_net": 0.0,
+ "pess_rank": 11,
+ "opt_net": 2970.0,
+ "opt_rank": 10,
+ "exp_net": 1485.0,
+ "exp_rank": 11,
  "best_team": "Bin busy",
  "best_net": 14840.0,
  "n_teams": 17,
- "replayed_now": false
+ "replayed_now": true
 }

@@ -27,14 +27,21 @@ def headers() -> dict:
     return {"X-API-Key": api_key()}
 
 
-def fetch_case(game_id: int, timeout: float = 120) -> Path:
-    """Run get_case.sh (polls the key, 7z-extracts). Returns the case dir."""
+KEY_WAIT_S = float(os.environ.get("KEY_WAIT_S", 120))  # how long get_case.sh polls for the key
+
+
+def fetch_case(game_id: int, timeout: float | None = None) -> Path:
+    """Run get_case.sh (polls the key, 7z-extracts). Returns the case dir.
+
+    The timeout must sit ABOVE the script's own poll budget, or Python kills the poll at the
+    same second the script would have reported why it failed - a TimeoutExpired instead of
+    "gave up after 120s: code='404'"."""
     out = ROOT / "cases" / f"case_{game_id:02d}"
     r = subprocess.run(
         ["bash", str(ROOT / "get_case.sh"), str(game_id)],
         capture_output=True,
         text=True,
-        timeout=timeout,
+        timeout=timeout if timeout is not None else KEY_WAIT_S + 30,
         cwd=ROOT,
     )
     if r.returncode != 0:

@@ -1,11 +1,12 @@
 # Claim to Fame shortcuts.  Usage:
-#   make 7             play game 7 (start it a few seconds before the game opens)
-#   make play G=7      same thing
+#   make 7             play game 7 (start any time in the 15 min before it opens)
+#   make play G=7      same thing  (safe to start early: KEY_WAIT_S=900 by default)
 #   make check         real model against the permanent test game 0 (needs an LLM key in .env)
 #   make test          unit tests
 #   make learn G=7     after game 7 closes: infer t bounds + recalibrate bias/sigma/acceptance (commits+pushes)
 #   make truth G=7      infer fair-value bounds for finished game 7 -> runs/truth_game_07.json
 #   make history        the t ranges the market accepted, as shown to the model -> runs/market_history.txt
+#   make deviation      how far t/a/b sit from the market's proven fair value, and what it cost
 #   make postmortem     attribute past rounds' losses to named causes, ranked by euros
 #   make autotune       propose constant changes from that, gated on the backtest (no writes)
 #   make propose        ask a model for a PROMPT rule from the same evidence (no writes)
@@ -19,6 +20,11 @@
 # committed if they changed -- so `make learn` is only needed to redo this by hand.
 PY := pixi run python
 PUSH ?= 1
+# How long get_case.sh polls for the decryption key before giving up. run.py restarts the
+# 60 s clock the moment the key appears, so waiting longer costs nothing and `make N` can be
+# started well before the game opens. Game 25 was lost to the old 120 s budget plus a curl
+# blip that killed the poll outright.
+export KEY_WAIT_S ?= 900
 # after a game, wait this long for it to close on the leaderboard before inferring truth
 TRUTH_WAIT ?= 60
 
@@ -60,7 +66,7 @@ define push_calibration
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check test fb truth history backtest replay rescore postmortem autotune tune propose stage unstage $(GAMES)
+.PHONY: play check test fb truth history backtest replay rescore deviation postmortem autotune tune propose stage unstage $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
@@ -121,6 +127,15 @@ replay:
 
 # old name for the default behaviour
 rescore: backtest
+
+# How far t, a and b sit from the fair value the market proved, per bucket and per game,
+# plus the euros each mistake cost against an oracle that knew t.
+#   make deviation                       the boards we actually submitted
+#   make deviation REPRICE=1             stored estimates, priced by today's constants
+#   make deviation G=14-24               only those games
+#   make deviation SWEEP=B_QUANTILE=0.27,0.3333,0.42   one line per candidate value
+deviation:
+	$(PY) -m c2f.deviation $(if $(G),--games $(G),) $(if $(REPRICE),--reprice,) $(if $(SWEEP),--sweep $(SWEEP),)
 
 # Attribute a finished round's money to named causes, with the action for each.
 #   make postmortem G=10     one game

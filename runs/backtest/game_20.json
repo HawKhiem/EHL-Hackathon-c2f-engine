@@ -5,88 +5,88 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 495.0,
+    "charge_price": 405.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 2,
-    "charge_price": 315.0,
+    "charge_price": 585.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 3,
-    "charge_price": 108.0,
+    "charge_price": 162.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 4,
-    "charge_price": 22.5,
+    "charge_price": 49.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 5,
-    "charge_price": 18.0,
+    "charge_price": 40.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 6,
-    "charge_price": 22.5,
+    "charge_price": 58.5,
     "acceptance_limit": 0.0
    }
   ],
   "estimate": {
-   "policy_summary": "Building damage from insured perils; lightning-caused overvoltage only, like-for-like fixed installations, excluding upgrades, decorative additions, express surcharges and administration.",
+   "policy_summary": "Fixed building installations damaged by lightning surge are covered like-for-like; upgrades, decorative additions, express surcharges and administration are excluded.",
    "items": [
     {
      "index": 1,
      "covered": false,
-     "related": true,
-     "clause": "2.3.3; 3.5; 7.1.9-7.1.10",
+     "related": false,
+     "clause": "3.5(a)-(c), 7.1.9-7.1.10",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 550,
+     "t_if_covered": 450,
      "cap_uncertain": false,
-     "reason": "No lightning causation stated; replacement is higher-output upgrade.",
+     "reason": "Larger higher-output unit is excluded new equipment.",
      "_description": "Air conditioning unit - living room (higher-output replacement, larger cooling capacity than the damaged one)"
     },
     {
      "index": 2,
      "covered": false,
      "related": true,
-     "clause": "2.3.3; 7.1.9(c)",
+     "clause": "3.5(e), 7.1.11",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 350,
+     "t_if_covered": 650,
      "cap_uncertain": false,
-     "reason": "Underlying surge lacks stated lightning causation.",
+     "reason": "Installation ancillary to excluded upgraded replacement.",
      "_description": "Installation"
     },
     {
      "index": 3,
      "covered": false,
      "related": false,
-     "clause": "3.5(d); 7.1.10",
+     "clause": "3.5(d), 7.1.10",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 120,
+     "t_if_covered": 180,
      "cap_uncertain": false,
-     "reason": "Decorative console is not required for reinstatement.",
+     "reason": "Decorative console is not required for replacement.",
      "_description": "Decorative floor console (chosen for room appearance, not required by the new unit)"
     },
     {
      "index": 4,
      "covered": false,
      "related": true,
-     "clause": "2.3.3; 7.1.11-7.1.12",
+     "clause": "3.5(e), 7.1.11",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 25,
+     "t_if_covered": 55,
      "cap_uncertain": false,
-     "reason": "Ancillary freight follows non-payable replacement.",
+     "reason": "Freight follows excluded upgraded principal item.",
      "_description": "Freight shipping"
     },
     {
@@ -97,7 +97,7 @@
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 20,
+     "t_if_covered": 45,
      "cap_uncertain": false,
      "reason": "Express timed-delivery surcharge is expressly excluded.",
      "_description": "Express delivery surcharge"
@@ -110,27 +110,26 @@
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 25,
+     "t_if_covered": 65,
      "cap_uncertain": false,
      "reason": "Contractor administration is own business overhead.",
      "_description": "Contractor administration fee"
     }
    ]
   },
-  "seconds": 10.3,
-  "repriced": true
+  "seconds": 13.5
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 13531.5,
+    "income": 7672.5,
     "cost": 27734.25,
-    "net": -14202.75
+    "net": -20061.75
    },
    "optimistic": {
-    "income": 13806.0,
+    "income": 9508.5,
     "cost": 27734.25,
-    "net": -13928.25
+    "net": -18225.75
    }
   },
   "open_pairings": {
@@ -139,14 +138,14 @@
   },
   "items": {
    "1": {
-    "a": 495.0,
+    "a": 405.0,
     "b": 0.0,
     "t_lo": 2345.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 7920.0,
-     "optimistic": 7920.0
+     "pessimistic": 6480.0,
+     "optimistic": 6480.0
     },
     "cost": {
      "pessimistic": 23586.45,
@@ -154,14 +153,14 @@
     }
    },
    "2": {
-    "a": 315.0,
+    "a": 585.0,
     "b": 0.0,
     "t_lo": 431.52,
     "t_hi": 510.0,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 5040.0,
-     "optimistic": 5040.0
+     "pessimistic": 585.0,
+     "optimistic": 1755.0
     },
     "cost": {
      "pessimistic": 3996.18,
@@ -169,14 +168,14 @@
     }
    },
    "3": {
-    "a": 108.0,
+    "a": 162.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 41.0,
     "fair": false,
     "income": {
-     "pessimistic": 108.0,
-     "optimistic": 108.0
+     "pessimistic": 162.0,
+     "optimistic": 162.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -184,14 +183,14 @@
     }
    },
    "4": {
-    "a": 22.5,
+    "a": 49.5,
     "b": 0.0,
     "t_lo": 34.18,
     "t_hi": 43.6,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 360.0,
-     "optimistic": 360.0
+     "pessimistic": 247.5,
+     "optimistic": 346.5
     },
     "cost": {
      "pessimistic": 151.62,
@@ -199,14 +198,14 @@
     }
    },
    "5": {
-    "a": 18.0,
+    "a": 40.5,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 41.0,
     "fair": null,
     "income": {
-     "pessimistic": 36.0,
-     "optimistic": 288.0
+     "pessimistic": 81.0,
+     "optimistic": 648.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -214,14 +213,14 @@
     }
    },
    "6": {
-    "a": 22.5,
+    "a": 58.5,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 19.0,
     "fair": false,
     "income": {
-     "pessimistic": 67.5,
-     "optimistic": 90.0
+     "pessimistic": 117.0,
+     "optimistic": 117.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -238,14 +237,14 @@
    "6": "truth+payout"
   }
  },
- "pess_net": -14202.75,
- "pess_rank": 11,
- "opt_net": -13928.25,
- "opt_rank": 11,
- "exp_net": -14065.5,
- "exp_rank": 11,
+ "pess_net": -20061.75,
+ "pess_rank": 12,
+ "opt_net": -18225.75,
+ "opt_rank": 12,
+ "exp_net": -19143.75,
+ "exp_rank": 12,
  "best_team": "error404 ai",
  "best_net": 14610.849999999999,
  "n_teams": 17,
- "replayed_now": false
+ "replayed_now": true
 }

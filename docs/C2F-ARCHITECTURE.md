@@ -150,6 +150,41 @@ pass alone decides the numbers and the fast one is kept only as the fallback sub
 
 Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUANTILE`.
 
+## How far off are t, a and b? (`c2f/deviation.py`)
+
+```
+make deviation                                     # the boards we actually submitted
+make deviation REPRICE=1 G=14-24                   # stored estimates, priced by today's constants
+make deviation SWEEP=B_QUANTILE=0.27,0.3333,0.42   # one line per candidate value
+```
+
+`c2f.calibrate` fits the bias and sigma; `c2f.accuracy` says which category is wrong. Neither
+says how far the three numbers we ship land from the truth, which is what pricing is trying to
+minimise. This does, on one scale for all three: with `t` known the best charge is `a = t`
+(anything under is paid by all 16, anything over by only `p0 (a/t)^-k` of them, worth less
+than `t` everywhere below the `4t` cap) and the best limit is `b = t` (accept iff the charge is
+fair). So all three targets are the same number and the distances are comparable.
+
+Truth is interval-censored, so the distance is too: the gap to `[t_lo, t_hi)`, **0 while the
+value sits inside the bracket**. Nothing is invented about where inside it `t` sits.
+
+The report shows that gap **in euros** — how far the value would have to move to reach the
+nearest proven bound, summed over the group (`t EUR`, `a EUR`, `b EUR`), with the under/over
+item counts beside it (`t u/o`) because a net figure hides both directions. The same gap in
+log units is kept for the `objective` scalar and the `--sweep` table: it is scale-free, and
+being 50 EUR off on a 60 EUR item is a different mistake from 50 EUR off on 6,000.
+
+The regret column needs no assumption at all: `truth_game_NN.json` lists every charge the field
+issued, and the rules price our mistakes on them exactly — `b` under a charge proven fair costs
+`0.5c`, `b` over one proven fraudulent costs `min(c, 4t)`, `a` at or under the proven floor
+leaves `(t_lo - a) x 16` on the table. **That total, not the log distance, is the number to
+minimise**: distance is symmetric and the payoffs are not, which is why the `b` sweep keeps
+improving the distance well past the point where refused-fraud money starts costing more than
+it saves. A sweep winner is a *candidate* — gate it on money the way `c2f.autotune` does (total
+plus a majority of games) before moving a constant.
+
+Per-item rows land in `runs/deviation.json`.
+
 ## Configuration (`.env`)
 
 | Var | Meaning |

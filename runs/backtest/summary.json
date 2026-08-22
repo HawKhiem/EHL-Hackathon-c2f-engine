@@ -1,150 +1,134 @@
 {
  "team": "AsianSuperNerds",
  "games": {
-  "15": {
-   "actual_net": -4868.870000000003,
-   "actual_rank": 8,
-   "pess_net": 11105.74,
-   "pess_rank": 4,
-   "opt_net": 21400.79,
-   "opt_rank": 1,
-   "exp_net": 16253.26,
-   "exp_rank": 1,
-   "best_team": "eyay",
-   "best_net": 15740.68,
-   "n_teams": 17,
-   "replayed_now": false
-  },
-  "16": {
-   "actual_net": 690.0,
-   "actual_rank": 2,
-   "pess_net": 450.0,
-   "pess_rank": 5,
-   "opt_net": 855.0,
-   "opt_rank": 2,
-   "exp_net": 652.5,
-   "exp_rank": 3,
-   "best_team": "error404 ai",
-   "best_net": 1578.32,
-   "n_teams": 17,
-   "replayed_now": false
-  },
   "17": {
    "actual_net": -48213.215000000004,
    "actual_rank": 14,
-   "pess_net": -11184.13,
-   "pess_rank": 10,
-   "opt_net": 20352.34,
-   "opt_rank": 4,
-   "exp_net": 4584.11,
-   "exp_rank": 7,
+   "pess_net": -46105.1,
+   "pess_rank": 14,
+   "opt_net": -21384.45,
+   "opt_rank": 12,
+   "exp_net": -33744.78,
+   "exp_rank": 13,
    "best_team": "TBD",
    "best_net": 40199.17499999999,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "18": {
    "actual_net": -1630.350000000013,
    "actual_rank": 8,
-   "pess_net": -9846.46,
-   "pess_rank": 10,
-   "opt_net": 11561.09,
-   "opt_rank": 3,
-   "exp_net": 857.32,
+   "pess_net": 4950.83,
+   "pess_rank": 7,
+   "opt_net": 6714.79,
+   "opt_rank": 6,
+   "exp_net": 5832.81,
    "exp_rank": 7,
    "best_team": "TBD",
    "best_net": 16314.120000000003,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "19": {
    "actual_net": -3494.6050000000105,
    "actual_rank": 8,
-   "pess_net": -2723.76,
-   "pess_rank": 7,
-   "opt_net": -2075.76,
-   "opt_rank": 7,
-   "exp_net": -2399.76,
-   "exp_rank": 7,
+   "pess_net": 10649.88,
+   "pess_rank": 4,
+   "opt_net": 12991.82,
+   "opt_rank": 4,
+   "exp_net": 11820.85,
+   "exp_rank": 4,
    "best_team": "eyay",
    "best_net": 35875.295,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "20": {
    "actual_net": -12026.25,
    "actual_rank": 11,
-   "pess_net": -14202.75,
-   "pess_rank": 11,
-   "opt_net": -13928.25,
-   "opt_rank": 11,
-   "exp_net": -14065.5,
-   "exp_rank": 11,
+   "pess_net": -20061.75,
+   "pess_rank": 12,
+   "opt_net": -18225.75,
+   "opt_rank": 12,
+   "exp_net": -19143.75,
+   "exp_rank": 12,
    "best_team": "error404 ai",
    "best_net": 14610.849999999999,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "21": {
    "actual_net": 2640.0,
    "actual_rank": 3,
-   "pess_net": 1814.41,
-   "pess_rank": 4,
-   "opt_net": 2595.0,
-   "opt_rank": 3,
-   "exp_net": 2204.7,
-   "exp_rank": 3,
+   "pess_net": 2618.47,
+   "pess_rank": 3,
+   "opt_net": 3440.14,
+   "opt_rank": 1,
+   "exp_net": 3029.3,
+   "exp_rank": 2,
    "best_team": "Bin busy",
    "best_net": 3080.0,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "22": {
    "actual_net": 9900.0,
    "actual_rank": 4,
-   "pess_net": 9000.0,
-   "pess_rank": 4,
-   "opt_net": 11250.0,
-   "opt_rank": 3,
-   "exp_net": 10125.0,
-   "exp_rank": 3,
+   "pess_net": 0.0,
+   "pess_rank": 11,
+   "opt_net": 2970.0,
+   "opt_rank": 10,
+   "exp_net": 1485.0,
+   "exp_rank": 11,
    "best_team": "Bin busy",
    "best_net": 14840.0,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "23": {
    "actual_net": 542.1299999999992,
    "actual_rank": 8,
-   "pess_net": 965.04,
-   "pess_rank": 6,
-   "opt_net": 965.04,
-   "opt_rank": 6,
-   "exp_net": 965.04,
-   "exp_rank": 6,
+   "pess_net": 94.51,
+   "pess_rank": 8,
+   "opt_net": 5561.71,
+   "opt_rank": 1,
+   "exp_net": 2828.11,
+   "exp_rank": 2,
    "best_team": "Nullpointer Naan",
    "best_net": 2867.459999999999,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "24": {
    "actual_net": 35805.814999999995,
    "actual_rank": 2,
-   "pess_net": -4120.99,
-   "pess_rank": 7,
-   "opt_net": -797.49,
-   "opt_rank": 7,
-   "exp_net": -2459.24,
-   "exp_rank": 7,
+   "pess_net": 6680.28,
+   "pess_rank": 6,
+   "opt_net": 7898.68,
+   "opt_rank": 6,
+   "exp_net": 7289.48,
+   "exp_rank": 6,
    "best_team": "Codacabana",
    "best_net": 40917.41,
+   "n_teams": 17,
+   "replayed_now": true
+  },
+  "25": {
+   "actual_net": -54292.72499999999,
+   "actual_rank": 16,
+   "pess_net": -23158.89,
+   "pess_rank": 16,
+   "opt_net": 20138.25,
+   "opt_rank": 2,
+   "exp_net": -1510.32,
+   "exp_rank": 9,
+   "best_team": "Teamers",
+   "best_net": 22617.660000000003,
    "n_teams": 17,
    "replayed_now": true
   }
  },
  "old_games": [
-  15,
-  16,
   17,
   18,
   19,
@@ -152,44 +136,48 @@
   21,
   22,
   23,
-  24
+  24,
+  25,
+  26
  ],
- "generated_at": 1787421455.6326358,
+ "generated_at": 1787422651.0557609,
  "totals": {
-  "actual": -20655.345000000038,
-  "pessimistic": -18742.899999999998,
-  "expected": 16717.43,
-  "optimistic": 52177.76,
-  "profitable": 7,
-  "top_ranked": 4,
-  "good": 4,
+  "actual": -70769.20000000003,
+  "pessimistic": -64331.77,
+  "expected": -22113.3,
+  "optimistic": 20105.19,
+  "profitable": 6,
+  "top_ranked": 2,
+  "good": 2,
   "rank_target": 3,
   "wins_pess": 0,
-  "wins_exp": 1,
-  "wins_opt": 1,
+  "wins_exp": 0,
+  "wins_opt": 2,
   "n_games": 10,
-  "n_scored": 10,
-  "missing": [],
-  "success": true
+  "n_scored": 9,
+  "missing": [
+   26
+  ],
+  "success": false
  },
  "calibration": {
-  "bias": 1.374,
+  "bias": 1.484,
   "sigma": 1.0,
   "p0": 0.29,
   "k": 0.6,
   "bias_by_bucket": {
-   "diagnostic/inspect": 1.471,
-   "restoration/repair": 1.032,
-   "other": 1.442,
-   "drying/remediation": 0.827,
-   "electronics": 0.93,
-   "ancillary/call-out": 1.082,
-   "valuables": 1.05,
-   "labour": 1.448,
-   "material": 1.43
+   "diagnostic/inspect": 1.496,
+   "restoration/repair": 1.191,
+   "other": 1.441,
+   "drying/remediation": 1.117,
+   "electronics": 0.967,
+   "ancillary/call-out": 1.196,
+   "valuables": 1.091,
+   "labour": 1.495,
+   "material": 1.491
   },
-  "n_labels": 131,
-  "n_coverage_misses": 45,
+  "n_labels": 148,
+  "n_coverage_misses": 53,
   "n_accept_points": 127,
   "labels": [
    {
@@ -1108,6 +1096,125 @@
     "t_lo": 102.79,
     "t_hi": 150.0,
     "t_mid": 60.0
+   },
+   {
+    "game": 25,
+    "item": 4,
+    "t_lo": 471.04,
+    "t_hi": null,
+    "t_mid": 210.0
+   },
+   {
+    "game": 25,
+    "item": 5,
+    "t_lo": 424.92,
+    "t_hi": 486.0,
+    "t_mid": 125.0
+   },
+   {
+    "game": 25,
+    "item": 6,
+    "t_lo": 408.17,
+    "t_hi": 524.0,
+    "t_mid": 72.0
+   },
+   {
+    "game": 25,
+    "item": 8,
+    "t_lo": 82.3,
+    "t_hi": 124.61,
+    "t_mid": 74.0
+   },
+   {
+    "game": 25,
+    "item": 9,
+    "t_lo": 65.0,
+    "t_hi": 124.2,
+    "t_mid": 22.0
+   },
+   {
+    "game": 25,
+    "item": 10,
+    "t_lo": 229.17,
+    "t_hi": 238.43,
+    "t_mid": 220.0
+   },
+   {
+    "game": 25,
+    "item": 11,
+    "t_lo": 448.94,
+    "t_hi": 470.6,
+    "t_mid": 350.0
+   },
+   {
+    "game": 25,
+    "item": 13,
+    "t_lo": 1097.15,
+    "t_hi": null,
+    "t_mid": 770.0
+   },
+   {
+    "game": 26,
+    "item": 1,
+    "t_lo": 95.47,
+    "t_hi": 106.2,
+    "t_mid": 65.0
+   },
+   {
+    "game": 26,
+    "item": 2,
+    "t_lo": 282.33,
+    "t_hi": 378.0,
+    "t_mid": 55.0
+   },
+   {
+    "game": 26,
+    "item": 4,
+    "t_lo": 58.39,
+    "t_hi": 60.0,
+    "t_mid": 40.0
+   },
+   {
+    "game": 26,
+    "item": 5,
+    "t_lo": 65.0,
+    "t_hi": null,
+    "t_mid": 35.0
+   },
+   {
+    "game": 26,
+    "item": 6,
+    "t_lo": 181.39,
+    "t_hi": 206.58,
+    "t_mid": 70.0
+   },
+   {
+    "game": 26,
+    "item": 7,
+    "t_lo": 130.23,
+    "t_hi": 176.75,
+    "t_mid": 130.0
+   },
+   {
+    "game": 26,
+    "item": 9,
+    "t_lo": 11.3,
+    "t_hi": 11.64,
+    "t_mid": 20.0
+   },
+   {
+    "game": 26,
+    "item": 11,
+    "t_lo": 81.0,
+    "t_hi": null,
+    "t_mid": 45.0
+   },
+   {
+    "game": 26,
+    "item": 12,
+    "t_lo": 980.01,
+    "t_hi": null,
+    "t_mid": 420.0
    }
   ]
  }

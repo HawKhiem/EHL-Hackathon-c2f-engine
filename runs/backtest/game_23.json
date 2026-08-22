@@ -5,94 +5,93 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 129.03,
-    "acceptance_limit": 59.08
+    "charge_price": 213.94,
+    "acceptance_limit": 97.95
    },
    {
     "index": 2,
-    "charge_price": 130.43,
-    "acceptance_limit": 59.72
+    "charge_price": 168.05,
+    "acceptance_limit": 76.94
    },
    {
     "index": 3,
-    "charge_price": 122.31,
-    "acceptance_limit": 56.0
+    "charge_price": 341.7,
+    "acceptance_limit": 156.45
    }
   ],
   "estimate": {
-   "policy_summary": "Theft-damaged bicycle repair and necessary recovery costs are covered; mobility sub-limit and recovery cap are unstated, while servicing and operational diagnostics are excluded.",
+   "policy_summary": "Theft recovery and necessary bicycle theft repairs are insured, subject to unknown mobility/recovery sub-limits; servicing, duplicates and trade diagnostics are excluded.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "5.2.2(b), 5.2.2(d), 7.1.8(f)",
-     "t_low": 80,
-     "t_mid": 120,
-     "t_high": 150,
+     "clause": "2.3.2; 5.2.2; 7.1.8(g)",
+     "t_low": 140,
+     "t_mid": 180,
+     "t_high": 220,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "One necessary recovery, locksmith attendance and lock cutting accepted.",
+     "reason": "One recovery necessary; three claimed recoveries are excessive.",
      "_description": "Recover stolen bicycle from secured location, incl. locksmith call-out and cutting of seized lock"
     },
     {
      "index": 2,
      "covered": true,
      "related": true,
-     "clause": "7.1.1(b), 7.1.7(a)-(c)",
-     "t_low": 75,
-     "t_mid": 125,
-     "t_high": 155,
+     "clause": "2.3.1(b); 7.1.1(b); 7.1.7",
+     "t_low": 130,
+     "t_mid": 155,
+     "t_high": 190,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "Frame and brake theft damage requires economical standard repair.",
+     "reason": "Only one bicycle's theft damage requires repair.",
      "_description": "Repair theft damage to bicycle (frame and brakes)"
     },
     {
      "index": 3,
      "covered": true,
      "related": true,
-     "clause": "7.1.7(d)-(e)",
-     "t_low": 50,
-     "t_mid": 85,
-     "t_high": 105,
+     "clause": "7.1.7(d)-(e); 7.1.10",
+     "t_low": 190,
+     "t_mid": 230,
+     "t_high": 270,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "Necessary repair and recovery labour plus consumed sundries.",
+     "reason": "Necessary workshop labour and consumables for one bicycle.",
      "_description": "Labour and sundries"
     }
    ]
   },
-  "seconds": 14.2,
-  "repriced": true
+  "seconds": 11.7
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 6108.32,
-    "cost": 5143.28,
-    "net": 965.04
+    "income": 4828.2,
+    "cost": 4733.69,
+    "net": 94.51
    },
    "optimistic": {
-    "income": 6108.32,
-    "cost": 5143.28,
-    "net": 965.04
+    "income": 10295.4,
+    "cost": 4733.69,
+    "net": 5561.71
    }
   },
   "open_pairings": {
-   "income": 13,
+   "income": 17,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 129.03,
-    "b": 59.08,
+    "a": 213.94,
+    "b": 97.95,
     "t_lo": 143.41,
     "t_hi": 165.38,
-    "fair": true,
+    "fair": false,
     "income": {
-     "pessimistic": 2064.48,
-     "optimistic": 2064.48
+     "pessimistic": 2139.4,
+     "optimistic": 2139.4
     },
     "cost": {
      "pessimistic": 205.5,
@@ -100,33 +99,33 @@
     }
    },
    "2": {
-    "a": 130.43,
-    "b": 59.72,
+    "a": 168.05,
+    "b": 76.94,
     "t_lo": 374.5,
     "t_hi": 396.0,
     "fair": true,
     "income": {
-     "pessimistic": 2086.8800000000006,
-     "optimistic": 2086.8800000000006
+     "pessimistic": 2688.8,
+     "optimistic": 2688.8
     },
     "cost": {
-     "pessimistic": 3531.99,
-     "optimistic": 3531.99
+     "pessimistic": 3531.9900000000002,
+     "optimistic": 3531.9900000000002
     }
    },
    "3": {
-    "a": 122.31,
-    "b": 56.0,
+    "a": 341.7,
+    "b": 156.45,
     "t_lo": 150.0,
     "t_hi": null,
-    "fair": true,
+    "fair": null,
     "income": {
-     "pessimistic": 1956.9599999999994,
-     "optimistic": 1956.9599999999994
+     "pessimistic": 0.0,
+     "optimistic": 5467.199999999998
     },
     "cost": {
-     "pessimistic": 1405.79,
-     "optimistic": 1405.79
+     "pessimistic": 996.2,
+     "optimistic": 996.2
     }
    }
   },
@@ -136,14 +135,14 @@
    "3": "truth+payout"
   }
  },
- "pess_net": 965.04,
- "pess_rank": 6,
- "opt_net": 965.04,
- "opt_rank": 6,
- "exp_net": 965.04,
- "exp_rank": 6,
+ "pess_net": 94.51,
+ "pess_rank": 8,
+ "opt_net": 5561.71,
+ "opt_rank": 1,
+ "exp_net": 2828.11,
+ "exp_rank": 2,
  "best_team": "Nullpointer Naan",
  "best_net": 2867.459999999999,
  "n_teams": 17,
- "replayed_now": false
+ "replayed_now": true
 }

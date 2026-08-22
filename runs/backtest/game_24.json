@@ -5,267 +5,267 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 277.74,
-    "acceptance_limit": 181.66
+    "charge_price": 312.2,
+    "acceptance_limit": 204.2
    },
    {
     "index": 2,
-    "charge_price": 197.24,
-    "acceptance_limit": 129.01
+    "charge_price": 444.01,
+    "acceptance_limit": 290.41
    },
    {
     "index": 3,
-    "charge_price": 219.12,
-    "acceptance_limit": 143.32
+    "charge_price": 171.3,
+    "acceptance_limit": 112.04
    },
    {
     "index": 4,
-    "charge_price": 225.62,
-    "acceptance_limit": 147.57
+    "charge_price": 187.0,
+    "acceptance_limit": 122.31
    },
    {
     "index": 5,
-    "charge_price": 193.45,
-    "acceptance_limit": 126.53
+    "charge_price": 207.64,
+    "acceptance_limit": 135.81
    },
    {
     "index": 6,
-    "charge_price": 76.5,
+    "charge_price": 99.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 7,
-    "charge_price": 336.22,
-    "acceptance_limit": 153.93
+    "charge_price": 713.59,
+    "acceptance_limit": 326.71
    },
    {
     "index": 8,
-    "charge_price": 372.58,
-    "acceptance_limit": 170.58
+    "charge_price": 486.88,
+    "acceptance_limit": 222.91
    },
    {
     "index": 9,
-    "charge_price": 179.12,
-    "acceptance_limit": 117.16
+    "charge_price": 157.52,
+    "acceptance_limit": 103.03
    },
    {
     "index": 10,
-    "charge_price": 124.25,
-    "acceptance_limit": 81.27
+    "charge_price": 312.2,
+    "acceptance_limit": 204.2
    },
    {
     "index": 11,
-    "charge_price": 144.0,
+    "charge_price": 180.0,
     "acceptance_limit": 0.0
    }
   ],
   "estimate": {
-   "policy_summary": "Escape-of-water damage and necessary repairs are insured; no cover for contractor devices, general cleaning, duplicates, or robot self-damage after operation.",
+   "policy_summary": "Escape-of-water damage, necessary repairs and investigation covered; own appliance damage, general cleaning and unknown contents sub-limits excluded/limited.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "7.1.7(b), (e), (i)",
-     "t_low": 130,
-     "t_mid": 190,
-     "t_high": 230,
+     "clause": "7.1.7(b), (e), (i) Preparatory investigation and moisture measurement",
+     "t_low": 180,
+     "t_mid": 210,
+     "t_high": 240,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Necessary source investigation and moisture assessment; two measures plausible",
+     "reason": "One necessary leak-location and moisture survey is indemnified.",
      "_description": "Leak detection and moisture survey across affected rooms"
     },
     {
      "index": 2,
      "covered": true,
      "related": true,
-     "clause": "7.1.1(b), 7.1.7(a), (b)",
-     "t_low": 170,
-     "t_mid": 240,
-     "t_high": 280,
+     "clause": "7.1.1(b), 7.1.7(a)-(b) Necessary repair and drying costs",
+     "t_low": 340,
+     "t_mid": 400,
+     "t_high": 440,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Necessary strip-out and drying across documented water path",
+     "reason": "Necessary strip-out and drying of documented water-damaged rooms.",
      "_description": "Strip-out and drying of guest WC, stairwell, living room and hobby room"
     },
     {
      "index": 3,
      "covered": true,
      "related": true,
-     "clause": "7.1.1(b), 7.1.5, 7.1.7(c)",
-     "t_low": 130,
-     "t_mid": 210,
-     "t_high": 250,
+     "clause": "7.1.1(b), 7.1.5, 7.1.7(c) Necessary repairs to affected components",
+     "t_low": 140,
+     "t_mid": 158,
+     "t_high": 175,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Affected parquet, skirting and floor finishes require reinstatement",
+     "reason": "Water-path floor finishes and skirting require standard-grade reinstatement.",
      "_description": "Reinstate parquet, skirting and floor coverings on the water's path"
     },
     {
      "index": 4,
      "covered": true,
      "related": true,
-     "clause": "7.1.1(b), 7.1.5, 7.1.7(c)",
+     "clause": "7.1.1(b), 7.1.5 Necessary repair of affected surfaces",
      "t_low": 140,
-     "t_mid": 220,
-     "t_high": 260,
+     "t_mid": 158,
+     "t_high": 175,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Wet hobby-room ceiling and affected wall surfaces documented",
+     "reason": "Moisture-damaged plasterboard ceilings and walls are affected building surfaces.",
      "_description": "Restore and refinish plasterboard ceilings and wall surfaces"
     },
     {
      "index": 5,
      "covered": true,
      "related": true,
-     "clause": "7.1.7(e)",
-     "t_low": 90,
-     "t_mid": 135,
-     "t_high": 170,
+     "clause": "7.1.7(e) Defective water-source part and making good",
+     "t_low": 110,
+     "t_mid": 145,
+     "t_high": 165,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Defective water-escape source part is expressly insured",
+     "reason": "Failed cistern fill valve was the escape-of-water source.",
      "_description": "Replace fill valve in toilet cistern"
     },
     {
      "index": 6,
      "covered": false,
      "related": true,
-     "clause": "7.1.8(a)",
+     "clause": "7.1.8(a) General cleanliness is not a repair cost",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 85,
+     "t_if_covered": 110,
      "cap_uncertain": false,
-     "reason": "General final cleaning is not a repair cost",
+     "reason": "Final site cleaning is general cleanliness, not documented debris disposal.",
      "_description": "Final site cleaning"
     },
     {
      "index": 7,
      "covered": true,
      "related": true,
-     "clause": "4.8.1(a), 4.8.3, 7.1.1(d)",
-     "t_low": 150,
-     "t_mid": 230,
-     "t_high": 290,
+     "clause": "4.8.1(a), 4.8.3, 7.1.1(d) Large-format leisure furniture contents",
+     "t_low": 400,
+     "t_mid": 480,
+     "t_high": 540,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "One wet billiard table; three identical services unsupported",
+     "reason": "One water-damaged billiard table requires specialist restoration work.",
      "_description": "Billiard table inspection, disassembly, re-covering and reassembly"
     },
     {
      "index": 8,
      "covered": true,
      "related": true,
-     "clause": "4.8.1(a), 4.8.2, 4.8.3, 7.1.1(d)",
-     "t_low": 170,
-     "t_mid": 260,
-     "t_high": 320,
+     "clause": "4.8.1(a), 4.8.2-4.8.4 Contents sub-limit applies per table",
+     "t_low": 260,
+     "t_mid": 340,
+     "t_high": 400,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "One standard cloth, cue set and table light only",
+     "reason": "Standard table cloth, cues and lighting are damaged table accessories.",
      "_description": "Replace billiard cloth, cue sets and overhead lighting fixture"
     },
     {
      "index": 9,
      "covered": true,
      "related": true,
-     "clause": "7.1.7(h), 7.1.10",
+     "clause": "7.1.10, 7.1.7(h) Restoration by cleaning and handling",
      "t_low": 80,
-     "t_mid": 125,
-     "t_high": 160,
+     "t_mid": 110,
+     "t_high": 130,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "One rug documented; cleaning precedes any replacement",
+     "reason": "One water-damaged rug should be specialist-cleaned rather than replaced.",
      "_description": "Specialist cleaning and removal of water-damaged rug"
     },
     {
      "index": 10,
      "covered": true,
      "related": true,
-     "clause": "7.1.7(i)",
-     "t_low": 55,
-     "t_mid": 85,
-     "t_high": 115,
+     "clause": "7.1.7(i) Inspection of potentially affected property",
+     "t_low": 180,
+     "t_mid": 210,
+     "t_high": 235,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Inspection reasonably establishes extent of vacuum damage",
+     "reason": "Inspection is covered even if the vacuum itself is excluded.",
      "_description": "Electrical inspection of robot vacuum cleaner"
     },
     {
      "index": 11,
      "covered": false,
      "related": true,
-     "clause": "3.3(i)",
+     "clause": "3.3(i) Appliance damage after contact with escaping water",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 160,
+     "t_if_covered": 200,
      "cap_uncertain": false,
-     "reason": "Vacuum self-damage after operating in escaping water excluded",
+     "reason": "Robot vacuum's own water damage is expressly excluded.",
      "_description": "Replacement robot vacuum cleaner (total loss)"
     }
    ]
   },
-  "seconds": 15.6
+  "seconds": 20.2
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 34209.94,
-    "cost": 38330.92,
-    "net": -4120.99
+    "income": 44772.24,
+    "cost": 38091.96,
+    "net": 6680.28
    },
    "optimistic": {
-    "income": 37533.44,
-    "cost": 38330.92,
-    "net": -797.49
+    "income": 45990.64,
+    "cost": 38091.96,
+    "net": 7898.68
    }
   },
   "open_pairings": {
-   "income": 49,
+   "income": 28,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 277.74,
-    "b": 181.66,
+    "a": 312.2,
+    "b": 204.2,
     "t_lo": 490.2,
     "t_hi": 700.0,
     "fair": true,
     "income": {
-     "pessimistic": 4443.839999999998,
-     "optimistic": 4443.839999999998
+     "pessimistic": 4995.199999999999,
+     "optimistic": 4995.199999999999
     },
     "cost": {
-     "pessimistic": 5017.67,
-     "optimistic": 5017.67
+     "pessimistic": 4926.469999999999,
+     "optimistic": 4926.469999999999
     }
    },
    "2": {
-    "a": 197.24,
-    "b": 129.01,
+    "a": 444.01,
+    "b": 290.41,
     "t_lo": 1365.0,
     "t_hi": 1675.94,
     "fair": true,
     "income": {
-     "pessimistic": 3155.8399999999992,
-     "optimistic": 3155.8399999999992
+     "pessimistic": 7104.160000000003,
+     "optimistic": 7104.160000000003
     },
     "cost": {
-     "pessimistic": 4117.2,
-     "optimistic": 4117.2
+     "pessimistic": 3997.2,
+     "optimistic": 3997.2
     }
    },
    "3": {
-    "a": 219.12,
-    "b": 143.32,
+    "a": 171.3,
+    "b": 112.04,
     "t_lo": 240.0,
     "t_hi": 884.05,
     "fair": true,
     "income": {
-     "pessimistic": 3505.9199999999987,
-     "optimistic": 3505.9199999999987
+     "pessimistic": 2740.8000000000006,
+     "optimistic": 2740.8000000000006
     },
     "cost": {
      "pessimistic": 417.3,
@@ -273,14 +273,14 @@
     }
    },
    "4": {
-    "a": 225.62,
-    "b": 147.57,
+    "a": 187.0,
+    "b": 122.31,
     "t_lo": 1024.0,
     "t_hi": 1620.0,
     "fair": true,
     "income": {
-     "pessimistic": 3609.9199999999987,
-     "optimistic": 3609.9199999999987
+     "pessimistic": 2992.0,
+     "optimistic": 2992.0
     },
     "cost": {
      "pessimistic": 4084.5750000000003,
@@ -288,29 +288,29 @@
     }
    },
    "5": {
-    "a": 193.45,
-    "b": 126.53,
+    "a": 207.64,
+    "b": 135.81,
     "t_lo": 240.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 3095.1999999999994,
-     "optimistic": 3095.1999999999994
+     "pessimistic": 3322.2399999999984,
+     "optimistic": 3322.2399999999984
     },
     "cost": {
-     "pessimistic": 2664.0,
-     "optimistic": 2664.0
+     "pessimistic": 2596.295,
+     "optimistic": 2596.295
     }
    },
    "6": {
-    "a": 76.5,
+    "a": 99.0,
     "b": 0.0,
     "t_lo": 91.0,
     "t_hi": 120.8,
-    "fair": true,
+    "fair": null,
     "income": {
-     "pessimistic": 1224.0,
-     "optimistic": 1224.0
+     "pessimistic": 990.0,
+     "optimistic": 1584.0
     },
     "cost": {
      "pessimistic": 136.5,
@@ -318,29 +318,29 @@
     }
    },
    "7": {
-    "a": 336.22,
-    "b": 153.93,
+    "a": 713.59,
+    "b": 326.71,
     "t_lo": 921.96,
     "t_hi": 1080.0,
     "fair": true,
     "income": {
-     "pessimistic": 5379.520000000002,
-     "optimistic": 5379.520000000002
+     "pessimistic": 11417.44,
+     "optimistic": 11417.44
     },
     "cost": {
-     "pessimistic": 8553.675,
-     "optimistic": 8553.675
+     "pessimistic": 8283.675,
+     "optimistic": 8283.675
     }
    },
    "8": {
-    "a": 372.58,
-    "b": 170.58,
+    "a": 486.88,
+    "b": 222.91,
     "t_lo": 1071.78,
     "t_hi": 1505.0,
     "fair": true,
     "income": {
-     "pessimistic": 5961.28,
-     "optimistic": 5961.28
+     "pessimistic": 7790.080000000001,
+     "optimistic": 7790.080000000001
     },
     "cost": {
      "pessimistic": 9480.599999999999,
@@ -348,14 +348,14 @@
     }
    },
    "9": {
-    "a": 179.12,
-    "b": 117.16,
+    "a": 157.52,
+    "b": 103.03,
     "t_lo": 257.62,
     "t_hi": 290.22,
     "fair": true,
     "income": {
-     "pessimistic": 2865.919999999999,
-     "optimistic": 2865.919999999999
+     "pessimistic": 2520.32,
+     "optimistic": 2520.32
     },
     "cost": {
      "pessimistic": 3044.28,
@@ -363,29 +363,29 @@
     }
    },
    "10": {
-    "a": 124.25,
-    "b": 81.27,
+    "a": 312.2,
+    "b": 204.2,
     "t_lo": 102.79,
     "t_hi": 150.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 248.5,
-     "optimistic": 1988.0
+     "pessimistic": 0.0,
+     "optimistic": 624.4
     },
     "cost": {
-     "pessimistic": 815.125,
-     "optimistic": 815.125
+     "pessimistic": 1125.0700000000002,
+     "optimistic": 1125.0700000000002
     }
    },
    "11": {
-    "a": 144.0,
+    "a": 180.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 162.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 720.0,
-     "optimistic": 2304.0
+     "pessimistic": 900.0,
+     "optimistic": 900.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -407,12 +407,12 @@
    "11": "truth+payout"
   }
  },
- "pess_net": -4120.99,
- "pess_rank": 7,
- "opt_net": -797.49,
- "opt_rank": 7,
- "exp_net": -2459.24,
- "exp_rank": 7,
+ "pess_net": 6680.28,
+ "pess_rank": 6,
+ "opt_net": 7898.68,
+ "opt_rank": 6,
+ "exp_net": 7289.48,
+ "exp_rank": 6,
  "best_team": "Codacabana",
  "best_net": 40917.41,
  "n_teams": 17,
