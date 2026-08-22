@@ -1,0 +1,122 @@
+{
+ "game": 1,
+ "findings": [
+  {
+   "cause": "NO_SUBMISSION",
+   "euros": 8273.7,
+   "item": null,
+   "detail": "no submission recorded in the run log"
+  },
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 391.86,
+   "item": 1,
+   "detail": "we called it not covered; t >= 123, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 1967.04,
+   "item": 1,
+   "detail": "charged 0 on an item proven fair to 123"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 906.45,
+   "item": 2,
+   "detail": "b=0 under the true ceiling; t >= 228, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 3642.56,
+   "item": 2,
+   "detail": "charged 0 on an item proven fair to 228"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 2387.25,
+   "item": 6,
+   "detail": "b=0 under the true ceiling; t >= 569, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 9106.56,
+   "item": 6,
+   "detail": "charged 0 on an item proven fair to 569"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 649.44,
+   "item": 7,
+   "detail": "b=0 under the true ceiling; t >= 182, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 2914.08,
+   "item": 7,
+   "detail": "charged 0 on an item proven fair to 182"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1247.67,
+   "item": 9,
+   "detail": "b=0 under the true ceiling; t >= 410, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 6556.64,
+   "item": 9,
+   "detail": "charged 0 on an item proven fair to 410"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 547.89,
+   "item": 13,
+   "detail": "b=0 under the true ceiling; t >= 228, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 3642.56,
+   "item": 13,
+   "detail": "charged 0 on an item proven fair to 228"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 302.67,
+   "item": 14,
+   "detail": "b=0 under the true ceiling; t >= 106, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 1692.48,
+   "item": 14,
+   "detail": "charged 0 on an item proven fair to 106"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1693.44,
+   "item": 15,
+   "detail": "b=0 under the true ceiling; t >= 606, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 9699.52,
+   "item": 15,
+   "detail": "charged 0 on an item proven fair to 606"
+  },
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 147.03,
+   "item": 18,
+   "detail": "we called it not covered; t >= 98, refused fair charges"
+  },
+  {
+   "cause": "MISSED_CHARGE",
+   "euros": 1568.32,
+   "item": 18,
+   "detail": "charged 0 on an item proven fair to 98"
+  }
+ ],
+ "n_opponents": 16,
+ "income": 0,
+ "claims_paid": 0
+}

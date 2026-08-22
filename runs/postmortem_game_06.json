@@ -1,0 +1,26 @@
+{
+ "game": 6,
+ "findings": [
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 4345.63,
+   "item": 1,
+   "detail": "b=1851 above the true ceiling (t < 900)"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 10865.0,
+   "item": 1,
+   "detail": "a=1375 paid by 1/16; a<=765 would be paid by all"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 626.24,
+   "item": 2,
+   "detail": "b=209 above the true ceiling (t < 45)"
+  }
+ ],
+ "n_opponents": 16,
+ "income": 1955.0,
+ "claims_paid": 8333.56
+}
