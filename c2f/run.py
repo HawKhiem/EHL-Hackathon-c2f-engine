@@ -56,6 +56,14 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--case-dir", type=Path, help="skip get_case.sh and use this folder")
     ap.add_argument("--no-fast", action="store_true", help="skip the fast first pass")
     args = ap.parse_args(argv)
+    if not args.mock:
+        try:
+            prov = llm.provider()  # fail before we touch the game if no LLM key is configured
+        except RuntimeError as e:
+            print(f"ERROR: {e}", file=sys.stderr)
+            return 2
+        if prov == "mock":
+            print("WARNING: C2F_MOCK is set - playing with the canned answer", file=sys.stderr)
 
     t0 = time.time()
     record: dict = {"game_id": args.game_id, "started_at": t0, "submissions": []}

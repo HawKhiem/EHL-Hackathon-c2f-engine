@@ -2,7 +2,7 @@
 
 ANTHROPIC_API_KEY -> Claude (default model claude-opus-5, override C2F_MODEL)
 OPENAI_API_KEY    -> OpenAI (default model gpt-5, override C2F_MODEL)
-neither / --mock  -> canned answer (for testing the pipeline)
+neither          -> error (pass --mock or C2F_MOCK=1 for the canned answer)
 
 The model sees policy + description + invoice verbatim and returns JSON.
 """
@@ -13,6 +13,8 @@ import json
 import os
 import re
 import time
+
+from c2f.env import load_dotenv
 
 SYSTEM = """You are a senior insurance claims expert working in Germany. You assess invoices
 submitted after an insured event. For EVERY line item on the invoice you decide:
@@ -157,13 +159,15 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM) -
 
 
 def provider() -> str:
+    """Which backend a real run uses. Raises if no key: never silently play a real game on the mock."""
+    load_dotenv()
     if os.environ.get("C2F_MOCK"):
         return "mock"
     if os.environ.get("ANTHROPIC_API_KEY"):
         return "anthropic"
     if os.environ.get("OPENAI_API_KEY"):
         return "openai"
-    return "mock"
+    raise RuntimeError("no LLM key: set ANTHROPIC_API_KEY or OPENAI_API_KEY (env or .env), or pass --mock / C2F_MOCK=1")
 
 
 STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whether an item is covered or related, answer covered=false (we can be corrected later, but a wrong acceptance pays a fraud)."

@@ -9,18 +9,15 @@ from pathlib import Path
 
 import requests
 
+from c2f.env import load_dotenv
+
 BASE_URL = "https://c2f.public.quantco.cloud"
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def api_key() -> str:
+    load_dotenv()
     key = os.environ.get("TEAM_API_KEY")
-    if not key:
-        env = ROOT / ".env"
-        if env.exists():
-            for line in env.read_text().splitlines():
-                if line.startswith("TEAM_API_KEY="):
-                    key = line.split("=", 1)[1].strip().strip('"').strip("'")
     if not key:
         raise RuntimeError("TEAM_API_KEY not set (env or .env)")
     return key

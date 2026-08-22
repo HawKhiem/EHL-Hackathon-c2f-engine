@@ -127,4 +127,10 @@ def main(game_id: int) -> None:
 
 
 if __name__ == "__main__":
-    main(int(sys.argv[1]))
+    gid = int(sys.argv[1])
+    try:
+        main(gid)
+    except (requests.HTTPError, ValueError) as e:
+        # 409 from /transactions or game missing from completed list: the game has not closed yet
+        print(f"truth: game {gid} is not available on the leaderboard yet ({e.__class__.__name__}); rerun `make truth G={gid}` once it has closed")
+        sys.exit(1)
