@@ -21,7 +21,7 @@ import requests
 from c2f.submit import ROOT
 
 B = "https://c2f.public.quantco.cloud/leaderboard/api"
-DEFAULT_TEAM = "Nullpointer Naan"  # identified from game-2 bounds; override with C2F_TEAM
+DEFAULT_TEAM = "AsianSuperNerds" 
 
 
 def teams() -> list[str]:
