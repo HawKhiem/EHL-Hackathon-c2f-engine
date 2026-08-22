@@ -60,8 +60,14 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
     # union of parsed indices and model indices: never drop a line the model saw in the raw text
     wanted = sorted(set(it["index"] for it in case.get("items", [])) | set(by_idx))
     for i in wanted:
-        if i not in by_idx:  # parsed but the model skipped it: price as unknown, log loudly
-            by_idx[i] = {"index": i, "covered": False, "related": False, "reason": "MISSING FROM MODEL OUTPUT"}
+        if i not in by_idx:
+            # A POS number no chunk has priced yet. It must be a COMPLETE uncovered item, not
+            # a bare stub: c2f.validate requires t_low/t_mid/t_high on every item, so a stub
+            # is reported as a fatal invalid estimate and 30 of them bury the one real FATAL
+            # in the log of a 39-item case. 0/0 is the intended ignorant placeholder (see the
+            # submit-after-every-chunk note below), so say so explicitly and stay valid.
+            by_idx[i] = {"index": i, "covered": False, "related": False, "t_low": 0, "t_mid": 0,
+                         "t_high": 0, "t_if_covered": 0, "reason": "not priced by any chunk yet"}
     # The invoice wording rides along so c2f.price can pick a per-category bias. The model's
     # own output has no description field, and the category is where the estimate's bias
     # actually lives - one global multiplier is right for material and wrong for drying.
@@ -237,10 +243,21 @@ def main(argv: list[str] | None = None) -> int:
                 fast_peek = None
         parsed_idx = sorted({int(it["index"]) for it in case.get("items", [])})
         chunks = plan_chunks(parsed_idx, fast_peek) if parsed_idx else [None]
+        asked: dict[str, list[int]] = {}  # tag -> the POS numbers that chunk was asked for
         for n, chunk in enumerate(chunks):
             tag = "full" if len(chunks) == 1 else f"full[{n + 1}/{len(chunks)}]"
-            # chunk 0 also sweeps for POS numbers the parser missed
-            tags[ex.submit(run_model_only, full_model, budget, dict(case), chunk, n == 0)] = tag
+            # The LAST chunk sweeps for POS numbers the parser missed - not the first.
+            # A sweeping chunk is not really a chunk: it is told to price every POS number in
+            # the invoice that is absent from its list, so it answers for the whole invoice and
+            # takes whole-invoice time. Measured on case 15 (29 items, chunk [1..10], two runs
+            # each, run concurrently so load is equal): sweep 32-36 s returning 29 items,
+            # no sweep 17-28 s returning 10. Carrying that ~12 s on chunk 0 put it on the
+            # BIGGEST-stake items (plan_chunks ranks them first), so the lines worth most sat
+            # at the 0/0 placeholder longest - and games 10 and 15 were both lost to the clock.
+            # On the last, smallest, lowest-stake chunk the same insurance costs the least.
+            tags[ex.submit(run_model_only, full_model, budget, dict(case), chunk,
+                           n == len(chunks) - 1)] = tag
+            asked[tag] = list(chunk) if chunk else list(parsed_idx)
         if len(chunks) > 1:
             log(f"full pass split into {len(chunks)} chunks: {chunks}", t0)
 
@@ -272,6 +289,18 @@ def main(argv: list[str] | None = None) -> int:
 
                 if is_full:
                     full_seen.add(tag)
+                    # THIS is a missing item: a POS number we put in front of the model and
+                    # asked it to price, that is absent from its answer. Distinct from a line
+                    # a later chunk still owns, and the only one worth shouting about - the
+                    # parse exists so that a silent skip cannot pass for a priced line.
+                    answered = {int(it["index"]) for it in out.get("items", [])
+                                if str(it.get("index", "")).lstrip("-").isdigit()}
+                    skipped = [i for i in asked.get(tag, []) if i not in answered]
+                    if skipped:
+                        record.setdefault("skipped_by_model", []).extend(
+                            {"tag": tag, "index": i} for i in skipped)
+                        log(f"model [{tag}] SKIPPED {len(skipped)} item(s) it was asked to "
+                            f"price: {skipped} - they stay at the 0/0 placeholder", t0)
                     # Accumulate: each chunk refines its own items, and the accumulated set is
                     # re-priced and submitted in FULL every time. Submitting only the chunk's
                     # rows would rely on the server keeping omitted lines, and the handbook is

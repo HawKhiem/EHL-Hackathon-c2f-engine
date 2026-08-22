@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from c2f.extract import load_case, parse_meta, pdf_text
+from c2f.extract import load_case, parse_meta, parse_pos, pdf_text
 
 CASE0 = Path(__file__).resolve().parents[1] / "cases" / "case_00"
 
@@ -39,8 +39,9 @@ def test_load_case_0():
     c = load_case(CASE0, 0)
     assert "BICYCLE THEFT" in c["policy"]
     assert "420" in c["description"]
-    # The invoice is never line-parsed: the model reads c["invoice_text"] itself.
-    assert c["items"] == []
+    # POS numbers only, advisory; the model still reads c["invoice_text"] itself.
+    assert [it["index"] for it in c["items"]] == [1]
+    assert c["items"][0]["description"] == "New Bike"
     assert "New Bike" in c["invoice_text"]
     assert c["invoice_meta"]["trade"] == "Bikeshop"
     assert c["images"] == []
@@ -162,3 +163,124 @@ Created on 21 Aug 2026 Page 1 / 1
 """
 
 
+
+# Real pypdf output from game 27: the invoice that broke the old unit-list parser. "68 lines"
+# was not a known unit, item 1 failed to match, and the all-or-nothing guard discarded all
+# four items - so the case shipped with no chunk plan and no category labels.
+GAME27 = """ITEMS
+POS. DESCRIPTION AMOUNTUNIT TOTAL
+1 Translation from Spanish to English 68 lines
+2 Material costs 1 pcs
+INVOICE
+Created on 21 Aug 2026 Page 1 / 1
+Invoice
+INVOICE NO.
+2026-0036
+DUE
+31 Jan 2026
+TRADE
+Compensation
+ITEMS
+POS. DESCRIPTION AMOUNTUNIT TOTAL
+3 Compensation for robbery damage 1 pcs
+4 Shipping 1 pcs
+INVOICE
+Created on 21 Aug 2026 Page 1 / 1
+"""
+
+# Real pypdf output from game 28: item 1's quantity wrapped onto a line of its own as
+# "12 hrs". Read as a POS number that is simply larger than the last one, it opens item 12
+# and every item under it becomes part of its description.
+GAME28 = """ITEMS
+POS. DESCRIPTION AMOUNTUNIT TOTAL
+1 Electrician labour checking and rewiring the flooded
+basement circuits
+12 hrs
+2 Vehicle costs 1 pcs
+3 Procurement of a motor pump 1 pcs
+INVOICE
+Created on 21 Aug 2026 Page 1 / 1
+"""
+
+# Real pypdf output from game 11 (trimmed): POS numbers are NOT gap-free - the invoice runs
+# 1..11 then 13..23 with no item 12, across two invoices in one PDF. A parser that demands
+# exactly the next index drops twelve items; that cost two thirds of game 11's loss.
+GAME11 = """ITEMS
+POS. DESCRIPTION AMOUNTUNIT TOTAL
+1 Indoor leak detection 1 pcs
+INVOICE
+Created on 21 Aug 2026 Page 1 / 1
+Invoice
+TRADE
+Drying Technology
+ITEMS
+POS. DESCRIPTION AMOUNTUNIT TOTAL
+10 Room dryer unit 1 pcs
+11 Drying fan 1 pcs
+INVOICE
+Created on 21 Aug 2026 Page 1 / 1
+Invoice
+TRADE
+Plumbing
+ITEMS
+POS. DESCRIPTION AMOUNTUNIT TOTAL
+13 Profipress elbow 90 copper 15mm model 01 5 pcs
+14 Profipress elbow 90 copper 15mm model 02 5 pcs
+INVOICE
+Created on 21 Aug 2026 Page 1 / 1
+"""
+
+
+def idxs(text):
+    return [it["index"] for it in parse_pos(text)]
+
+
+def test_parse_pos_multi_invoice_and_wrapped_descriptions():
+    items = parse_pos(GAME5)
+    assert [it["index"] for it in items] == list(range(1, 18))
+    by = {it["index"]: it["description"] for it in items}
+    # a description wrapped over three lines is rejoined, and the trailing "1 pcs" is dropped
+    assert by[1] == "Leak detection call-out and electro-acoustic pinpointing of the leak beneath the kitchen sink"
+    assert by[3] == "Service technician hours"
+    # "DUE / 5 Mar 2026" between invoices must not become item 5
+    assert by[5].startswith("Freeing the affected pipe run")
+
+
+def test_parse_pos_no_quantity_and_no_unit():
+    # game 4: "- -" for quantity and unit, and a "flat rate" after a wrapped line
+    assert idxs(GAME4) == list(range(1, 16))
+    by = {it["index"]: it["description"] for it in parse_pos(GAME4)}
+    assert by[5] == "HDMI cables and remote controls"
+    assert by[6] == "Wall-mount bracket"
+
+
+def test_parse_pos_unknown_unit_does_not_lose_the_invoice():
+    # THE game 27 regression: "68 lines" is not a unit anyone listed, and it must not matter.
+    items = parse_pos(GAME27)
+    assert [it["index"] for it in items] == [1, 2, 3, 4]
+    assert items[0]["description"] == "Translation from Spanish to English"
+
+
+def test_parse_pos_wrapped_quantity_is_not_a_new_item():
+    # THE game 28 regression: the orphaned "12 hrs" must stay part of item 1.
+    items = parse_pos(GAME28)
+    assert [it["index"] for it in items] == [1, 2, 3]
+    assert items[0]["description"].startswith("Electrician labour checking and rewiring")
+    assert items[1]["description"] == "Vehicle costs"
+
+
+def test_parse_pos_keeps_gaps_in_the_numbering():
+    # game 11: ... 10, 11, then 13. The gap is the invoice's business, not ours - we neither
+    # renumber nor stop reading at it.
+    assert idxs(GAME11) == [1, 10, 11, 13, 14]
+
+
+def test_parse_pos_must_start_at_one():
+    # A table that does not open at POS 1 means we misread the layout. No parse is the safe
+    # answer: the model still gets the full invoice text, we only lose the chunk plan.
+    assert parse_pos(GAME11.replace("1 Indoor leak detection 1 pcs", "7 Indoor leak detection 1 pcs")) == []
+
+
+def test_parse_pos_returns_nothing_rather_than_guessing():
+    assert parse_pos("no invoice table here at all") == []
+    assert parse_pos("") == []

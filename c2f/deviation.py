@@ -112,15 +112,29 @@ def reprice(est: dict[int, dict], cal: P.Calibration) -> dict[int, dict]:
     return rows
 
 
+#: Sweeping `bias` alone is a trap: c2f.price.Calibration.bias_for falls back to the global
+#: bias ONLY for an item with no description, so on a labelled corpus the swept value reaches
+#: almost nothing and the lever reads as flat when it is not. `bias_mult` scales the global
+#: bias AND every per-bucket bias together, which is the lever we actually have.
+BIAS_MULT = "bias_mult"
+
+
 def apply_overrides(over: dict[str, float]) -> P.Calibration:
     """UPPERCASE keys patch c2f.price constants (read at call time); lowercase ones override
-    the calibration fields. Returns the calibration to price with."""
+    the calibration fields. `bias_mult` is a pseudo-field: it multiplies the global bias and
+    every entry of bias_by_bucket. Returns the calibration to price with."""
     cal = P.calibration()
     for name, value in over.items():
         if name.isupper():
             if not hasattr(P, name):
                 raise SystemExit(f"c2f.price has no constant {name}")
             setattr(P, name, value)
+        elif name == BIAS_MULT:
+            cal = dataclasses.replace(
+                cal,
+                bias=cal.bias * value,
+                bias_by_bucket={k: v * value for k, v in cal.bias_by_bucket.items()},
+            )
         else:
             if name not in {f.name for f in dataclasses.fields(P.Calibration)}:
                 raise SystemExit(f"Calibration has no field {name}")
@@ -380,7 +394,8 @@ def main(argv: list[str] | None = None) -> int:
                          "reading the boards we submitted")
     ap.add_argument("--sweep", action="append", default=[],
                     help="NAME=v1,v2,... - a c2f.price constant (B_QUANTILE, RISK_AVERSION, "
-                         "UNCOVERED_CHARGE, CAP_MULT) or a calibration field (bias, sigma, p0, k). "
+                         "UNCOVERED_CHARGE, CAP_MULT), a calibration field (bias, sigma, p0, k), "
+                         "or bias_mult (scales the global AND per-bucket bias together). "
                          "Implies --reprice; repeat for a grid over several names.")
     ap.add_argument("--json", dest="json_out", metavar="PATH", default=str(ROOT / "runs" / "deviation.json"),
                     help="where to write the per-item rows (default runs/deviation.json)")
@@ -398,7 +413,8 @@ def main(argv: list[str] | None = None) -> int:
             if not vals:
                 raise SystemExit(f"--sweep wants NAME=v1,v2,...  got {spec!r}")
             grid[name.strip()] = [float(v) for v in vals.split(",")]
-        baseline = {n: (getattr(P, n) if n.isupper() else getattr(P.calibration(), n)) for n in grid}
+        baseline = {n: (getattr(P, n) if n.isupper() else
+                        (1.0 if n == BIAS_MULT else getattr(P.calibration(), n))) for n in grid}
         print(f"sweeping {', '.join(f'{n} over {v}' for n, v in grid.items())} "
               f"(baseline {', '.join(f'{n}={v}' for n, v in baseline.items())})\n")
         combos: list[dict[str, float]] = [{}]

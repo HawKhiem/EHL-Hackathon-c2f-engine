@@ -2369,6 +2369,676 @@
    "t_mid": 0.0,
    "t_lo": 0.0,
    "t_hi": 19.0
+  },
+  {
+   "game": 21,
+   "item": 1,
+   "bucket": "diagnostic/inspect",
+   "description": "Diagnostic inspection of the cracked laptop",
+   "covered": true,
+   "t_mid": 50.0,
+   "t_lo": 0.0,
+   "t_hi": 10.84
+  },
+  {
+   "game": 21,
+   "item": 2,
+   "bucket": "electronics",
+   "description": "Laptop screen and lower-right corner repair",
+   "covered": true,
+   "t_mid": 380.0,
+   "t_lo": 0.0,
+   "t_hi": 166.43
+  },
+  {
+   "game": 22,
+   "item": 1,
+   "bucket": "ancillary/call-out",
+   "description": "Kitchen air conditioning unit - replacement including installation and delivery",
+   "covered": true,
+   "t_mid": 1100.0,
+   "t_lo": 0.0,
+   "t_hi": 245.7
+  },
+  {
+   "game": 23,
+   "item": 1,
+   "bucket": "ancillary/call-out",
+   "description": "Recover stolen bicycle from secured location, incl. locksmith call-out and cutting of seized lock",
+   "covered": true,
+   "t_mid": 135.0,
+   "t_lo": 143.41,
+   "t_hi": 165.38
+  },
+  {
+   "game": 23,
+   "item": 2,
+   "bucket": "valuables",
+   "description": "Repair theft damage to bicycle (frame and brakes)",
+   "covered": true,
+   "t_mid": 130.0,
+   "t_lo": 374.5,
+   "t_hi": 396.0
+  },
+  {
+   "game": 23,
+   "item": 3,
+   "bucket": "labour",
+   "description": "Labour and sundries",
+   "covered": true,
+   "t_mid": 60.0,
+   "t_lo": 150.0,
+   "t_hi": null
+  },
+  {
+   "game": 24,
+   "item": 1,
+   "bucket": "diagnostic/inspect",
+   "description": "Leak detection and moisture survey across affected rooms",
+   "covered": true,
+   "t_mid": 150.0,
+   "t_lo": 490.2,
+   "t_hi": 700.0
+  },
+  {
+   "game": 24,
+   "item": 2,
+   "bucket": "drying/remediation",
+   "description": "Strip-out and drying of guest WC, stairwell, living room and hobby room",
+   "covered": true,
+   "t_mid": 2800.0,
+   "t_lo": 1365.0,
+   "t_hi": 1675.94
+  },
+  {
+   "game": 24,
+   "item": 3,
+   "bucket": "valuables",
+   "description": "Reinstate parquet, skirting and floor coverings on the water's path",
+   "covered": true,
+   "t_mid": 1800.0,
+   "t_lo": 240.0,
+   "t_hi": 884.05
+  },
+  {
+   "game": 24,
+   "item": 4,
+   "bucket": "restoration/repair",
+   "description": "Restore and refinish plasterboard ceilings and wall surfaces",
+   "covered": true,
+   "t_mid": 1600.0,
+   "t_lo": 1024.0,
+   "t_hi": 1620.0
+  },
+  {
+   "game": 24,
+   "item": 5,
+   "bucket": "other",
+   "description": "Replace fill valve in toilet cistern",
+   "covered": true,
+   "t_mid": 150.0,
+   "t_lo": 240.0,
+   "t_hi": null
+  },
+  {
+   "game": 24,
+   "item": 6,
+   "bucket": "other",
+   "description": "Final site cleaning",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 91.0,
+   "t_hi": 120.8
+  },
+  {
+   "game": 24,
+   "item": 7,
+   "bucket": "diagnostic/inspect",
+   "description": "Billiard table inspection, disassembly, re-covering and reassembly",
+   "covered": true,
+   "t_mid": 420.0,
+   "t_lo": 921.96,
+   "t_hi": 1080.0
+  },
+  {
+   "game": 24,
+   "item": 8,
+   "bucket": "other",
+   "description": "Replace billiard cloth, cue sets and overhead lighting fixture",
+   "covered": true,
+   "t_mid": 270.0,
+   "t_lo": 1071.78,
+   "t_hi": 1505.0
+  },
+  {
+   "game": 24,
+   "item": 9,
+   "bucket": "other",
+   "description": "Specialist cleaning and removal of water-damaged rug",
+   "covered": true,
+   "t_mid": 160.0,
+   "t_lo": 257.62,
+   "t_hi": 290.22
+  },
+  {
+   "game": 24,
+   "item": 10,
+   "bucket": "diagnostic/inspect",
+   "description": "Electrical inspection of robot vacuum cleaner",
+   "covered": true,
+   "t_mid": 60.0,
+   "t_lo": 102.79,
+   "t_hi": 150.0
+  },
+  {
+   "game": 24,
+   "item": 11,
+   "bucket": "drying/remediation",
+   "description": "Replacement robot vacuum cleaner (total loss)",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 162.0
+  },
+  {
+   "game": 25,
+   "item": 1,
+   "bucket": "labour",
+   "description": "Skilled worker hours",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 628.82,
+   "t_hi": null
+  },
+  {
+   "game": 25,
+   "item": 2,
+   "bucket": "material",
+   "description": "Material for the work",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 118.37,
+   "t_hi": 138.57
+  },
+  {
+   "game": 25,
+   "item": 3,
+   "bucket": "ancillary/call-out",
+   "description": "Vehicle costs",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 81.45,
+   "t_hi": null
+  },
+  {
+   "game": 25,
+   "item": 4,
+   "bucket": "diagnostic/inspect",
+   "description": "Indoor leak detection",
+   "covered": true,
+   "t_mid": 210.0,
+   "t_lo": 471.04,
+   "t_hi": null
+  },
+  {
+   "game": 25,
+   "item": 5,
+   "bucket": "drying/remediation",
+   "description": "Room drying 30 m²",
+   "covered": true,
+   "t_mid": 125.0,
+   "t_lo": 424.92,
+   "t_hi": 486.0
+  },
+  {
+   "game": 25,
+   "item": 6,
+   "bucket": "drying/remediation",
+   "description": "Room dryer unit",
+   "covered": true,
+   "t_mid": 72.0,
+   "t_lo": 408.17,
+   "t_hi": 524.0
+  },
+  {
+   "game": 25,
+   "item": 7,
+   "bucket": "other",
+   "description": "Wet insulation wool from basement",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 198.0,
+   "t_hi": 256.22
+  },
+  {
+   "game": 25,
+   "item": 8,
+   "bucket": "other",
+   "description": "Profipress elbow 90° copper 28mm model 01",
+   "covered": true,
+   "t_mid": 74.0,
+   "t_lo": 82.3,
+   "t_hi": 124.61
+  },
+  {
+   "game": 25,
+   "item": 9,
+   "bucket": "other",
+   "description": "Transition piece 15x19mm",
+   "covered": true,
+   "t_mid": 22.0,
+   "t_lo": 65.0,
+   "t_hi": 124.2
+  },
+  {
+   "game": 25,
+   "item": 10,
+   "bucket": "labour",
+   "description": "Helper hours",
+   "covered": true,
+   "t_mid": 220.0,
+   "t_lo": 229.17,
+   "t_hi": 238.43
+  },
+  {
+   "game": 25,
+   "item": 11,
+   "bucket": "labour",
+   "description": "Service technician hours",
+   "covered": true,
+   "t_mid": 350.0,
+   "t_lo": 448.94,
+   "t_hi": 470.6
+  },
+  {
+   "game": 25,
+   "item": 12,
+   "bucket": "ancillary/call-out",
+   "description": "Vehicle costs",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 162.9,
+   "t_hi": null
+  },
+  {
+   "game": 25,
+   "item": 13,
+   "bucket": "labour",
+   "description": "Skilled worker hours",
+   "covered": true,
+   "t_mid": 770.0,
+   "t_lo": 1097.15,
+   "t_hi": null
+  },
+  {
+   "game": 25,
+   "item": 14,
+   "bucket": "material",
+   "description": "Material costs",
+   "covered": true,
+   "t_mid": 220.0,
+   "t_lo": 0.0,
+   "t_hi": 58.75
+  },
+  {
+   "game": 25,
+   "item": 15,
+   "bucket": "ancillary/call-out",
+   "description": "Vehicle costs",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 81.45,
+   "t_hi": null
+  },
+  {
+   "game": 26,
+   "item": 1,
+   "bucket": "other",
+   "description": "Disassembly and assembly service",
+   "covered": true,
+   "t_mid": 65.0,
+   "t_lo": 95.47,
+   "t_hi": 106.2
+  },
+  {
+   "game": 26,
+   "item": 2,
+   "bucket": "drying/remediation",
+   "description": "Construction dryer",
+   "covered": true,
+   "t_mid": 55.0,
+   "t_lo": 282.33,
+   "t_hi": 378.0
+  },
+  {
+   "game": 26,
+   "item": 3,
+   "bucket": "other",
+   "description": "Rock wool pipe insulation",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 37.17,
+   "t_hi": 41.94
+  },
+  {
+   "game": 26,
+   "item": 4,
+   "bucket": "ancillary/call-out",
+   "description": "Construction waste disposal",
+   "covered": true,
+   "t_mid": 40.0,
+   "t_lo": 58.39,
+   "t_hi": 60.0
+  },
+  {
+   "game": 26,
+   "item": 5,
+   "bucket": "restoration/repair",
+   "description": "Wall levelling material",
+   "covered": true,
+   "t_mid": 35.0,
+   "t_lo": 65.0,
+   "t_hi": null
+  },
+  {
+   "game": 26,
+   "item": 6,
+   "bucket": "restoration/repair",
+   "description": "Rough renovation",
+   "covered": true,
+   "t_mid": 70.0,
+   "t_lo": 181.39,
+   "t_hi": 206.58
+  },
+  {
+   "game": 26,
+   "item": 7,
+   "bucket": "other",
+   "description": "Mounting / service opening",
+   "covered": true,
+   "t_mid": 130.0,
+   "t_lo": 130.23,
+   "t_hi": 176.75
+  },
+  {
+   "game": 26,
+   "item": 8,
+   "bucket": "valuables",
+   "description": "Premium large-format designer wall tiles 120 x 120 cm (upgraded from the original standard basement tiles)",
+   "covered": true,
+   "t_mid": 60.0,
+   "t_lo": 0.0,
+   "t_hi": 43.6
+  },
+  {
+   "game": 26,
+   "item": 9,
+   "bucket": "other",
+   "description": "Premium grout",
+   "covered": true,
+   "t_mid": 20.0,
+   "t_lo": 11.3,
+   "t_hi": 11.64
+  },
+  {
+   "game": 26,
+   "item": 10,
+   "bucket": "other",
+   "description": "Premium silicone sealant",
+   "covered": true,
+   "t_mid": 18.0,
+   "t_lo": 0.0,
+   "t_hi": 14.56
+  },
+  {
+   "game": 26,
+   "item": 11,
+   "bucket": "ancillary/call-out",
+   "description": "Vehicle costs",
+   "covered": true,
+   "t_mid": 45.0,
+   "t_lo": 81.0,
+   "t_hi": null
+  },
+  {
+   "game": 26,
+   "item": 12,
+   "bucket": "labour",
+   "description": "Skilled worker hours",
+   "covered": true,
+   "t_mid": 420.0,
+   "t_lo": 980.01,
+   "t_hi": null
+  },
+  {
+   "game": 27,
+   "item": 1,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 39.62
+  },
+  {
+   "game": 27,
+   "item": 2,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 0.01
+  },
+  {
+   "game": 27,
+   "item": 3,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 3000.0,
+   "t_hi": 3022.15
+  },
+  {
+   "game": 27,
+   "item": 4,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 7.0
+  },
+  {
+   "game": 28,
+   "item": 1,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 402.95
+  },
+  {
+   "game": 28,
+   "item": 2,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 24.28
+  },
+  {
+   "game": 28,
+   "item": 3,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 49.5
+  },
+  {
+   "game": 28,
+   "item": 4,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 49.5
+  },
+  {
+   "game": 28,
+   "item": 5,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 49.5
+  },
+  {
+   "game": 28,
+   "item": 6,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 47.15
+  },
+  {
+   "game": 28,
+   "item": 7,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 49.5
+  },
+  {
+   "game": 28,
+   "item": 8,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 49.5
+  },
+  {
+   "game": 28,
+   "item": 9,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 49.5
+  },
+  {
+   "game": 28,
+   "item": 10,
+   "bucket": "other",
+   "description": "",
+   "covered": false,
+   "t_mid": 0.0,
+   "t_lo": 0.0,
+   "t_hi": 36.0
+  },
+  {
+   "game": 29,
+   "item": 1,
+   "bucket": "other",
+   "description": "",
+   "covered": true,
+   "t_mid": 330.0,
+   "t_lo": 0.0,
+   "t_hi": 100.0
+  },
+  {
+   "game": 29,
+   "item": 2,
+   "bucket": "other",
+   "description": "",
+   "covered": true,
+   "t_mid": 7800.0,
+   "t_lo": 0.0,
+   "t_hi": 57.3
+  },
+  {
+   "game": 29,
+   "item": 3,
+   "bucket": "other",
+   "description": "",
+   "covered": true,
+   "t_mid": 180.0,
+   "t_lo": 516.03,
+   "t_hi": null
+  },
+  {
+   "game": 29,
+   "item": 4,
+   "bucket": "other",
+   "description": "",
+   "covered": true,
+   "t_mid": 60.0,
+   "t_lo": 80.23,
+   "t_hi": 85.5
+  },
+  {
+   "game": 30,
+   "item": 1,
+   "bucket": "drying/remediation",
+   "description": "Disassembly/reassembly, construction dryer for the drying period and standard pipe insulation",
+   "covered": true,
+   "t_mid": 340.0,
+   "t_lo": 432.0,
+   "t_hi": 478.96
+  },
+  {
+   "game": 30,
+   "item": 2,
+   "bucket": "ancillary/call-out",
+   "description": "Construction waste disposal",
+   "covered": true,
+   "t_mid": 70.0,
+   "t_lo": 57.3,
+   "t_hi": 72.56
+  },
+  {
+   "game": 30,
+   "item": 3,
+   "bucket": "restoration/repair",
+   "description": "Wall preparation, rough repair and mounting opening in the affected basement area",
+   "covered": true,
+   "t_mid": 180.0,
+   "t_lo": 378.0,
+   "t_hi": 404.14
+  },
+  {
+   "game": 30,
+   "item": 4,
+   "bucket": "restoration/repair",
+   "description": "Standard wall tiling incl. standard silicone sealant",
+   "covered": true,
+   "t_mid": 190.0,
+   "t_lo": 449.99,
+   "t_hi": null
+  },
+  {
+   "game": 30,
+   "item": 5,
+   "bucket": "ancillary/call-out",
+   "description": "Vehicle costs",
+   "covered": true,
+   "t_mid": 72.0,
+   "t_lo": 100.0,
+   "t_hi": null
   }
  ]
 }

@@ -1,0 +1,86 @@
+{
+ "game": 19,
+ "findings": [
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 6563.715,
+   "item": 1,
+   "detail": "b=390 under the true ceiling; t >= 715, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 75.20000000000073,
+   "item": 1,
+   "detail": "a=710 but 715 was proven fair"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 3815.0600000000004,
+   "item": 3,
+   "detail": "a=3550 paid by 2/16; a<=682 would be paid by all"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 16325.35,
+   "item": 4,
+   "detail": "b=3446 above the true ceiling (t < 1242)"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 5974.400000000001,
+   "item": 4,
+   "detail": "a=6281 paid by 2/16; a<=854 would be paid by all"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 2445.66,
+   "item": 5,
+   "detail": "a=382 paid by 1/16; a<=177 would be paid by all"
+  },
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 2742.735,
+   "item": 6,
+   "detail": "we called it not covered; t >= 247, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 2512.0,
+   "item": 6,
+   "detail": "a=90 but 247 was proven fair"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 5627.88,
+   "item": 7,
+   "detail": "b=0 under the true ceiling; t >= 472, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 5448.0,
+   "item": 7,
+   "detail": "a=132 but 472 was proven fair"
+  },
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 231.82500000000002,
+   "item": 8,
+   "detail": "we called it not covered; t >= 155, refused fair charges"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 155.13,
+   "item": 9,
+   "detail": "b=49 above the true ceiling (t < 33)"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 33.44,
+   "item": 9,
+   "detail": "a=89 paid by 4/16; a<=24 would be paid by all"
+  }
+ ],
+ "n_opponents": 16,
+ "income": 31617.92,
+ "claims_paid": 19946.37
+}

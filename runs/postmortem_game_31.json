@@ -1,0 +1,92 @@
+{
+ "game": 31,
+ "findings": [
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1746.0900000000001,
+   "item": 1,
+   "detail": "b=326 under the true ceiling; t >= 432, refused fair charges"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 1371.22,
+   "item": 3,
+   "detail": "b=744 above the true ceiling (t < 680)"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 349.98,
+   "item": 4,
+   "detail": "b=54 above the true ceiling (t < 36)"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 1434.03,
+   "item": 5,
+   "detail": "b=235 above the true ceiling (t < 148)"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1172.25,
+   "item": 6,
+   "detail": "b=54 under the true ceiling; t >= 147, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 1024.1599999999999,
+   "item": 6,
+   "detail": "a=83 but 147 was proven fair"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 2325.8,
+   "item": 7,
+   "detail": "b=292 above the true ceiling (t < 144)"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 90.69,
+   "item": 10,
+   "detail": "b=92 above the true ceiling (t < 91)"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 459.20000000000005,
+   "item": 11,
+   "detail": "b=300 above the true ceiling (t < 193)"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 86.64,
+   "item": 13,
+   "detail": "b=103 above the true ceiling (t < 87)"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 403.305,
+   "item": 14,
+   "detail": "b=54 under the true ceiling; t >= 81, refused fair charges"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1486.95,
+   "item": 16,
+   "detail": "b=93 under the true ceiling; t >= 139, refused fair charges"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 2064.645,
+   "item": 17,
+   "detail": "b=97 under the true ceiling; t >= 315, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 2678.72,
+   "item": 17,
+   "detail": "a=148 but 315 was proven fair"
+  }
+ ],
+ "n_opponents": 16,
+ "income": 0,
+ "claims_paid": 14330.73
+}
