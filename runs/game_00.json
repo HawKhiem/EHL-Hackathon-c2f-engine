@@ -1,51 +1,20 @@
 {
   "game_id": 0,
-  "started_at": 1787403837.2216508,
+  "started_at": 1787404498.191116,
   "submissions": [
     {
-      "tag": "fast",
-      "at_s": 8.1,
+      "tag": "full x1",
+      "at_s": 0.0,
       "rows": [
         {
           "index": 1,
-          "charge_price": 405.0,
-          "acceptance_limit": 420.0
+          "charge_price": 402.5,
+          "acceptance_limit": 410.55
         }
       ],
-      "response": [
-        {
-          "game_id": 0,
-          "team_id": 5,
-          "line_item_index": 1,
-          "charge_price": 405.0,
-          "acceptance_limit": 420.0,
-          "submitted_at": "2026-08-22T13:04:05.499325Z"
-        }
-      ]
-    },
-    {
-      "tag": "full",
-      "at_s": 14.0,
-      "rows": [
-        {
-          "index": 1,
-          "charge_price": 410.0,
-          "acceptance_limit": 403.09
-        }
-      ],
-      "response": [
-        {
-          "game_id": 0,
-          "team_id": 5,
-          "line_item_index": 1,
-          "charge_price": 410.0,
-          "acceptance_limit": 403.09,
-          "submitted_at": "2026-08-22T13:04:11.373903Z"
-        }
-      ]
+      "response": "skipped (--no-submit)"
     }
   ],
-  "key_obtained_at": 1787403837.323882,
   "case": {
     "game_id": 0,
     "policy": "===============================================================================\nBICYCLE THEFT INSURANCE - POLICY CONDITIONS\n===============================================================================\n\n1. PURPOSE\n\nThis policy insures the bicycle described in the schedule against theft. The\ninsurer indemnifies the policyholder for the financial loss suffered when the\ninsured bicycle is stolen.\n\n2. INSURED EVENT\n\nAn insured event is the theft of the insured bicycle, that is, its removal by a\nthird party with the intent of unlawfully keeping it.\n\n3. CONDITIONS OF COVER\n\nCover applies only where, at the time of the theft, the bicycle was secured with\na lock to a fixed object (a bike stand, railing, lamp post or comparable fixed\nstructure), or was kept in a locked room.\n\n4. AMOUNT OF INDEMNITY\n\nThe insurer reimburses the market value of the bicycle at the time of the theft,\nup to the sum insured stated in the schedule.\n\n5. EXCLUSIONS\n\nNot covered:\n  (a) theft of a bicycle that was left unlocked;\n  (b) loss of, or damage to, accessories carried loosely (lights, bags, pumps);\n  (c) theft caused intentionally by the policyholder.\n\n6. POLICYHOLDER DUTIES\n\nThe policyholder must report the theft to the police without delay and provide\nthe insurer with the crime reference and proof of the bicycle's value.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
@@ -67,67 +36,54 @@
     ],
     "n_images": 0
   },
-  "model_fast": {
+  "model_full0": {
     "meta": {
-      "provider": "openai",
-      "model": "gpt-5-mini",
-      "seconds": 8.1
+      "provider": "mock",
+      "model": "mock",
+      "seconds": 0.0
     },
     "output": {
-      "policy_summary": "The policy covers theft of the insured bicycle if it was secured to a fixed object or locked room; insurer pays market value at time of theft up to the sum insured (excludes unlocked bikes, loose accessories, intentional theft).",
+      "policy_summary": "MOCK",
       "items": [
         {
           "index": 1,
-          "description": "New Bike 1 unit",
+          "description": "New Bike",
           "covered": true,
           "related": true,
-          "clause": "2. Insured event; 3. Conditions of cover; 4. Amount of indemnity",
-          "t_low": 400,
+          "clause": "mock",
+          "t_low": 380,
           "t_mid": 420,
-          "t_high": 460,
+          "t_high": 450,
           "t_if_covered": 0,
-          "reason": "The stolen mountain bike was properly locked to a lamp post and had market value \u20ac420 at time of theft, so indemnity is payable up to market value; the proposed replacement cost is reasonable."
+          "reason": "mock answer"
         }
       ]
     }
   },
-  "priced_fast": [
-    {
-      "index": 1,
-      "charge_price": 405.0,
-      "acceptance_limit": 420.0
-    }
-  ],
-  "model_full": {
-    "meta": {
-      "provider": "openai",
-      "model": "gpt-5",
-      "seconds": 13.96
-    },
-    "output": {
-      "policy_summary": "Theft of the insured bicycle is covered if it was locked to a fixed object or in a locked room; indemnity is the bicycle\u2019s market value at theft (up to the sum insured); loose accessories excluded.",
-      "items": [
-        {
-          "index": 1,
-          "description": "New Bike 1 unit",
-          "covered": true,
-          "related": true,
-          "clause": "4. Amount of indemnity",
-          "t_low": 380,
-          "t_mid": 420,
-          "t_high": 420,
-          "t_if_covered": 0,
-          "reason": "Theft is covered and the indemnity is limited to the stolen bike\u2019s market value (\u20ac420), not the full replacement cost."
-        }
-      ]
-    }
+  "ensemble": {
+    "policy_summary": "MOCK",
+    "items": [
+      {
+        "index": 1,
+        "covered": true,
+        "related": true,
+        "clause": "mock",
+        "t_low": 380.0,
+        "t_mid": 420.0,
+        "t_high": 450.0,
+        "t_if_covered": 0.0,
+        "reason": "mock answer",
+        "votes": "1/1 covered"
+      }
+    ],
+    "n_votes": 1
   },
   "priced_full": [
     {
       "index": 1,
-      "charge_price": 410.0,
-      "acceptance_limit": 403.09
+      "charge_price": 402.5,
+      "acceptance_limit": 410.55
     }
   ],
-  "finished_at_s": 14.1
+  "finished_at_s": 0.0
 }

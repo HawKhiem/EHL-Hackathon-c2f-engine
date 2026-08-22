@@ -16,6 +16,7 @@ from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 from pathlib import Path
 
 from c2f import llm
+from c2f.ensemble import aggregate
 from c2f.extract import load_case
 from c2f.price import price_all
 from c2f.submit import ROOT, fetch_case, submit
@@ -23,6 +24,7 @@ from c2f.submit import ROOT, fetch_case, submit
 DEADLINE_S = 53.0  # clock restarts after decrypt (~1-3 s), server closes at 60 s after key release
 FULL_TIMEOUT_S = 50.0
 FAST_TIMEOUT_S = 45.0
+N_FULL = 3  # parallel full-model votes; override with C2F_N_FULL
 
 
 def log(msg: str, t0: float) -> None:
@@ -57,7 +59,8 @@ def main(argv: list[str] | None = None) -> int:
 
     t0 = time.time()
     record: dict = {"game_id": args.game_id, "started_at": t0, "submissions": []}
-    run_path = ROOT / "runs" / f"game_{args.game_id:02d}.json"
+    dry = args.no_submit or args.case_dir is not None
+    run_path = ROOT / "runs" / (f"dry_game_{args.game_id:02d}.json" if dry else f"game_{args.game_id:02d}.json")
     run_path.parent.mkdir(exist_ok=True)
 
     def save() -> None:
@@ -93,25 +96,27 @@ def main(argv: list[str] | None = None) -> int:
         save()
         log(f"submitted [{tag}]: " + ", ".join(f"#{r['index']} a={r['charge_price']} b={r['acceptance_limit']}" for r in rows), t0)
 
-    # ---- MODEL: fast + full in parallel
+    # ---- MODEL: one fast pass + N_FULL full passes in parallel (ensemble)
     full_model = os.environ.get("C2F_MODEL")
     fast_model = os.environ.get("C2F_FAST_MODEL") or (
         "claude-sonnet-5" if os.environ.get("ANTHROPIC_API_KEY") else "gpt-5-mini"
     )
+    n_full = 1 if args.mock else int(os.environ.get("C2F_N_FULL", N_FULL))
 
-    def run_model(tag: str, model: str | None, timeout: float):
-        return tag, llm.estimate(case, timeout=timeout, mock=args.mock, model=model)
+    def run_model(tag: str, model: str | None, timeout: float, strict: bool):
+        return tag, llm.estimate(case, timeout=timeout, mock=args.mock, model=model, strict=strict)
 
     futures = {}
-    ex = ThreadPoolExecutor(max_workers=2)
+    ex = ThreadPoolExecutor(max_workers=n_full + 1)
+    full_outputs: list[dict] = []
     try:
-        futures[ex.submit(run_model, "full", full_model, FULL_TIMEOUT_S)] = "full"
+        for i in range(n_full):
+            futures[ex.submit(run_model, f"full{i}", full_model, FULL_TIMEOUT_S, False)] = f"full{i}"
         if not args.no_fast and not args.mock:
-            futures[ex.submit(run_model, "fast", fast_model, FAST_TIMEOUT_S)] = "fast"
+            futures[ex.submit(run_model, "fast", fast_model, FAST_TIMEOUT_S, True)] = "fast"
 
-        done_full = False
         pending = set(futures)
-        while pending and not done_full:
+        while pending and len(full_outputs) < n_full:
             remaining = DEADLINE_S - (time.time() - t0)
             if remaining <= 0:
                 log("deadline reached, stop waiting for the model", t0)
@@ -125,15 +130,18 @@ def main(argv: list[str] | None = None) -> int:
                     record[f"model_{tag}_error"] = str(e)
                     log(f"model [{tag}] failed: {e}", t0)
                     continue
-                est = merge_estimates(case, out)
-                rows = price_all(est)
                 record[f"model_{tag}"] = {"meta": {k: v for k, v in meta.items() if k != "raw"}, "output": out}
-                record[f"priced_{tag}"] = rows
                 log(f"model [{tag}] {meta['model']} answered in {meta['seconds']}s", t0)
-                if tag == "full":
-                    do_submit(rows, "full")
-                    done_full = True
-                elif not done_full:
+                if tag.startswith("full"):
+                    full_outputs.append(out)
+                    agg = aggregate(full_outputs)
+                    record["ensemble"] = agg
+                    rows = price_all(merge_estimates(case, agg))
+                    record["priced_full"] = rows
+                    do_submit(rows, f"full x{len(full_outputs)}")
+                elif not full_outputs:
+                    rows = price_all(merge_estimates(case, out))
+                    record["priced_fast"] = rows
                     do_submit(rows, "fast")
     finally:
         ex.shutdown(wait=False, cancel_futures=True)

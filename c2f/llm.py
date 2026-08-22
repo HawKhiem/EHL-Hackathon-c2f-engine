@@ -105,7 +105,7 @@ def _mock(case: dict) -> dict:
     }
 
 
-def _call_anthropic(case: dict, model: str, timeout: float) -> str:
+def _call_anthropic(case: dict, model: str, timeout: float, system: str = SYSTEM) -> str:
     import anthropic
 
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"], timeout=timeout, max_retries=0)
@@ -123,7 +123,7 @@ def _call_anthropic(case: dict, model: str, timeout: float) -> str:
     resp = client.messages.create(
         model=model,
         max_tokens=8000,
-        system=SYSTEM,
+        system=system,
         messages=[{"role": "user", "content": content}],
         **kwargs,
     )
@@ -132,7 +132,7 @@ def _call_anthropic(case: dict, model: str, timeout: float) -> str:
     return "".join(getattr(b, "text", "") for b in resp.content)
 
 
-def _call_openai(case: dict, model: str, timeout: float) -> str:
+def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM) -> str:
     from openai import OpenAI
 
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
@@ -147,7 +147,7 @@ def _call_openai(case: dict, model: str, timeout: float) -> str:
         kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING_FAST" if default == "minimal" else "C2F_REASONING", default)
     resp = client.chat.completions.create(
         model=model,
-        messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": content}],
+        messages=[{"role": "system", "content": system}, {"role": "user", "content": content}],
         max_completion_tokens=8000,
         **kwargs,
     )
@@ -164,16 +164,20 @@ def provider() -> str:
     return "mock"
 
 
-def estimate(case: dict, *, timeout: float = 35.0, mock: bool = False, model: str | None = None) -> tuple[dict, dict]:
+STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whether an item is covered or related, answer covered=false (we can be corrected later, but a wrong acceptance pays a fraud)."
+
+
+def estimate(case: dict, *, timeout: float = 35.0, mock: bool = False, model: str | None = None, strict: bool = False) -> tuple[dict, dict]:
     """Return (model_json, meta). Raises on failure; caller decides the fallback."""
     prov = "mock" if mock else provider()
     t0 = time.time()
+    system = SYSTEM + (STRICT_SUFFIX if strict else "")
     if prov == "anthropic":
         model = model or os.environ.get("C2F_MODEL") or "claude-opus-5"
-        raw = _call_anthropic(case, model, timeout)
+        raw = _call_anthropic(case, model, timeout, system)
     elif prov == "openai":
         model = model or os.environ.get("C2F_MODEL") or "gpt-5"
-        raw = _call_openai(case, model, timeout)
+        raw = _call_openai(case, model, timeout, system)
     else:
         model = "mock"
         raw = json.dumps(_mock(case))
