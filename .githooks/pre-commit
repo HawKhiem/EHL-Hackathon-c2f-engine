@@ -20,4 +20,14 @@ done
 if ! git diff --cached --name-only | grep -q '^runs/backtest/summary.json$'; then
   echo "pre-commit: stage the backtest result too:  git add runs/backtest"; exit 1
 fi
-echo "pre-commit: backtest summary is fresh ($(python3 -c "import json;s=json.load(open('$summary'));t=s.get('totals',{});print('pess',round(t.get('pessimistic',0)),'opt',round(t.get('optimistic',0)),'wins',t.get('wins_pess'),'/',t.get('wins_opt'),'over',len(s['games']),'games')"))"
+if [[ "${ALLOW_BACKTEST_FAIL:-0}" != "1" ]]; then
+  python3 - "$summary" <<'PY' || exit 1
+import json, sys
+s = json.load(open(sys.argv[1])); t = s.get("totals", {})
+if not t.get("success"):
+    print(f"pre-commit: backtest verdict is NOT GOOD ENOUGH - expected replay wins {t.get('wins_exp')}/{t.get('n_games')} old games (need a majority).")
+    print("            improve the change, or override knowingly with:  ALLOW_BACKTEST_FAIL=1 git commit ...")
+    sys.exit(1)
+PY
+fi
+echo "pre-commit: backtest summary is fresh ($(python3 -c "import json;s=json.load(open('$summary'));t=s.get('totals',{});print('SUCCESS' if t.get('success') else 'OVERRIDDEN','- expected wins',t.get('wins_exp'),'/',t.get('n_games'),'exp net',round(t.get('expected',0)))"))"

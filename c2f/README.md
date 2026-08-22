@@ -26,7 +26,10 @@ optimistic where the data leaves an outcome open) and writes `runs/backtest/summ
     make backtest G="2 4 6"    # specific games
     make rescore               # re-score stored replays without the model (price.py-only changes)
 
-The hook refuses a commit that touches `c2f/{price,llm,ensemble,extract,run,calibrate}.py`
-unless `runs/backtest/summary.json` is newer than the changed files and staged with them.
+**Success criterion: the replayed strategy must win (rank 1 on the expected net) in more than
+half of the old games.** The hook refuses a commit that touches
+`c2f/{price,llm,ensemble,extract,run,calibrate}.py` unless `runs/backtest/summary.json` is newer
+than the changed files, staged with them, and says `success: true`. Knowing override for
+emergencies: `ALLOW_BACKTEST_FAIL=1 git commit ...` (say why in the message).
 So the workflow is: edit -> `make backtest` (or `make rescore`) -> look at the table ->
 `git add runs/backtest` -> commit.

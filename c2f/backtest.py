@@ -12,6 +12,8 @@ against the real opponents of that round, using the public leaderboard:
 Where an interval leaves the outcome open we score two scenarios: PESSIMISTIC (t = t_lo, opponents
 reject whenever they could) and OPTIMISTIC (t just under t_hi, opponents accept whenever they could).
 "Would we win?" = our rank if our replayed net replaced our actual net in that round's standings.
+EXPECTED = midpoint of the two scenarios; a change is a SUCCESS only if the expected replay wins
+(rank 1) in more than half of the replayed games. The pre-commit hook enforces that.
 
 Writes runs/backtest/game_NN.json and runs/backtest/summary.json (+ a table on stdout).
 The pre-commit hook (.githooks/pre-commit) refuses algorithm commits without a fresh summary.
@@ -153,7 +155,7 @@ def main(argv: list[str] | None = None) -> int:
     games = args.games or [g for g in gids if (ROOT / "cases" / f"case_{g:02d}" / "policy.txt").exists()]
     summary = {"team": us, "games": {}, "generated_at": time.time()}
     print(f"backtest as {us} on games {games}\n")
-    print(f"{'game':>4} {'items':>5} | {'actual net':>10} {'rank':>4} | {'replay pess':>11} {'rank':>4} | {'replay opt':>10} {'rank':>4} | best team")
+    print(f"{'game':>4} {'items':>5} | {'actual net':>10} {'rank':>4} | {'replay pess':>11} {'rank':>4} | {'replay exp':>10} {'rank':>4} | {'replay opt':>10} {'rank':>4} | best team")
     for g in games:
         if g not in gids:
             print(f"{g:>4}  not completed yet, skipped")
@@ -184,6 +186,8 @@ def main(argv: list[str] | None = None) -> int:
             "pess_rank": rank_of(sc["scenarios"]["pessimistic"]["net"], others),
             "opt_net": sc["scenarios"]["optimistic"]["net"],
             "opt_rank": rank_of(sc["scenarios"]["optimistic"]["net"], others),
+            "exp_net": round((sc["scenarios"]["pessimistic"]["net"] + sc["scenarios"]["optimistic"]["net"]) / 2, 2),
+            "exp_rank": rank_of((sc["scenarios"]["pessimistic"]["net"] + sc["scenarios"]["optimistic"]["net"]) / 2, others),
             "best_team": best[0],
             "best_net": best[1][g],
             "n_teams": len(nets),
@@ -191,15 +195,21 @@ def main(argv: list[str] | None = None) -> int:
         path.write_text(json.dumps(row, indent=1, default=str))
         summary["games"][g] = {k: v for k, v in row.items() if k not in ("replay", "score")}
         print(f"{g:>4} {len(d['items']):>5} | {actual:10.0f} {row['actual_rank']:>4} | {row['pess_net']:11.0f} {row['pess_rank']:>4} | "
-              f"{row['opt_net']:10.0f} {row['opt_rank']:>4} | {best[0]} ({best[1][g]:.0f})")
+              f"{row['exp_net']:10.0f} {row['exp_rank']:>4} | {row['opt_net']:10.0f} {row['opt_rank']:>4} | {best[0]} ({best[1][g]:.0f})")
     if summary["games"]:
         tot_a = sum(v["actual_net"] for v in summary["games"].values())
         tot_p = sum(v["pess_net"] for v in summary["games"].values())
         tot_o = sum(v["opt_net"] for v in summary["games"].values())
+        tot_e = sum(v["exp_net"] for v in summary["games"].values())
         wins_p = sum(1 for v in summary["games"].values() if v["pess_rank"] == 1)
+        wins_e = sum(1 for v in summary["games"].values() if v["exp_rank"] == 1)
         wins_o = sum(1 for v in summary["games"].values() if v["opt_rank"] == 1)
-        summary["totals"] = {"actual": tot_a, "pessimistic": tot_p, "optimistic": tot_o, "wins_pess": wins_p, "wins_opt": wins_o}
-        print(f"\ntotal: actual {tot_a:.0f} | replay pessimistic {tot_p:.0f} ({wins_p} wins) | optimistic {tot_o:.0f} ({wins_o} wins) over {len(summary['games'])} games")
+        n = len(summary["games"])
+        success = wins_e * 2 > n
+        summary["totals"] = {"actual": tot_a, "pessimistic": tot_p, "expected": tot_e, "optimistic": tot_o,
+                             "wins_pess": wins_p, "wins_exp": wins_e, "wins_opt": wins_o, "n_games": n, "success": success}
+        print(f"\ntotal: actual {tot_a:.0f} | replay pess {tot_p:.0f} ({wins_p} wins) | exp {tot_e:.0f} ({wins_e} wins) | opt {tot_o:.0f} ({wins_o} wins) over {n} games")
+        print(f"VERDICT: {'SUCCESS' if success else 'NOT GOOD ENOUGH'} - expected replay wins {wins_e}/{n} old games (need > {n // 2})")
     (OUT / "summary.json").write_text(json.dumps(summary, indent=1, default=str))
     print(f"saved {OUT.relative_to(ROOT)}/summary.json")
     return 0

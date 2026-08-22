@@ -1,0 +1,238 @@
+{
+ "actual_net": 12275.34,
+ "actual_rank": 3,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 1175.0,
+    "acceptance_limit": 1549.03
+   },
+   {
+    "index": 2,
+    "charge_price": 1175.0,
+    "acceptance_limit": 1549.03
+   },
+   {
+    "index": 3,
+    "charge_price": 387.5,
+    "acceptance_limit": 573.67
+   },
+   {
+    "index": 4,
+    "charge_price": 387.5,
+    "acceptance_limit": 573.67
+   },
+   {
+    "index": 5,
+    "charge_price": 135.0,
+    "acceptance_limit": 187.84
+   },
+   {
+    "index": 6,
+    "charge_price": 72.5,
+    "acceptance_limit": 112.39
+   }
+  ],
+  "ensemble": {
+   "policy_summary": "Building installations covered for lightning-caused overvoltage; reinstatement like-for-like; no upgrades or unrelated items; ancillary charges only for covered replacements.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 1.1 Reinstatement",
+     "t_low": 850.0,
+     "t_mid": 1350.0,
+     "t_high": 1550.0,
+     "t_if_covered": 0.0,
+     "reason": "Fixed AC unit destroyed by surge; like-for-like replacement.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 2,
+     "covered": true,
+     "related": true,
+     "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 1.1 Reinstatement",
+     "t_low": 850.0,
+     "t_mid": 1350.0,
+     "t_high": 1550.0,
+     "t_if_covered": 0.0,
+     "reason": "Kitchen fixed AC failed from same surge; replaced like-for-like.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 3,
+     "covered": true,
+     "related": true,
+     "clause": "1.1 Reinstatement; 4.2.3 Technical installations",
+     "t_low": 350.0,
+     "t_mid": 450.0,
+     "t_high": 600.0,
+     "t_if_covered": 0.0,
+     "reason": "Necessary fitting and commissioning of replacement unit.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "1.1 Reinstatement; 4.2.3 Technical installations",
+     "t_low": 350.0,
+     "t_mid": 450.0,
+     "t_high": 600.0,
+     "t_if_covered": 0.0,
+     "reason": "Installation work required to reinstate kitchen unit.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 5,
+     "covered": true,
+     "related": true,
+     "clause": "1.1 Reinstatement; 4.2.3 Technical installations",
+     "t_low": 120.0,
+     "t_mid": 150.0,
+     "t_high": 180.0,
+     "t_if_covered": 150.0,
+     "reason": "Like-for-like console needed for the living-room unit.",
+     "votes": "2/3 covered"
+    },
+    {
+     "index": 6,
+     "covered": true,
+     "related": true,
+     "clause": "1.1 Reinstatement; 3.5(e) inapplicable to covered replacements",
+     "t_low": 60.0,
+     "t_mid": 90.0,
+     "t_high": 130.0,
+     "t_if_covered": 0.0,
+     "reason": "Reasonable freight to supply covered replacement units.",
+     "votes": "3/3 covered"
+    }
+   ],
+   "n_votes": 3
+  },
+  "votes": 3,
+  "errors": [],
+  "seconds": 20.4
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 29550.0,
+    "cost": 20397.16,
+    "net": 9152.84
+   },
+   "optimistic": {
+    "income": 33477.5,
+    "cost": 20397.16,
+    "net": 13080.34
+   }
+  },
+  "open_pairings": {
+   "income": 15,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 1175.0,
+    "b": 1549.03,
+    "t_lo": 1232.54,
+    "t_hi": 1756.44,
+    "fair": true,
+    "income": {
+     "pessimistic": 18800.0,
+     "optimistic": 18800.0
+    },
+    "cost": {
+     "pessimistic": 6559.28,
+     "optimistic": 6559.28
+    }
+   },
+   "2": {
+    "a": 1175.0,
+    "b": 1549.03,
+    "t_lo": 0.0,
+    "t_hi": 80.83,
+    "fair": false,
+    "income": {
+     "pessimistic": 2350.0,
+     "optimistic": 4700.0
+    },
+    "cost": {
+     "pessimistic": 7199.68,
+     "optimistic": 7199.68
+    }
+   },
+   "3": {
+    "a": 387.5,
+    "b": 573.67,
+    "t_lo": 467.5,
+    "t_hi": 522.36,
+    "fair": true,
+    "income": {
+     "pessimistic": 6200.0,
+     "optimistic": 6200.0
+    },
+    "cost": {
+     "pessimistic": 2894.8100000000004,
+     "optimistic": 2894.8100000000004
+    }
+   },
+   "4": {
+    "a": 387.5,
+    "b": 573.67,
+    "t_lo": 0.0,
+    "t_hi": 123.63,
+    "fair": false,
+    "income": {
+     "pessimistic": 1162.5,
+     "optimistic": 2325.0
+    },
+    "cost": {
+     "pessimistic": 2362.2700000000004,
+     "optimistic": 2362.2700000000004
+    }
+   },
+   "5": {
+    "a": 135.0,
+    "b": 187.84,
+    "t_lo": 53.6,
+    "t_hi": 74.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 675.0,
+     "optimistic": 945.0
+    },
+    "cost": {
+     "pessimistic": 868.03,
+     "optimistic": 868.03
+    }
+   },
+   "6": {
+    "a": 72.5,
+    "b": 112.39,
+    "t_lo": 21.98,
+    "t_hi": 43.06,
+    "fair": false,
+    "income": {
+     "pessimistic": 362.5,
+     "optimistic": 507.5
+    },
+    "cost": {
+     "pessimistic": 513.09,
+     "optimistic": 513.09
+    }
+   }
+  }
+ },
+ "pess_net": 9152.84,
+ "pess_rank": 7,
+ "opt_net": 13080.34,
+ "opt_rank": 3,
+ "exp_net": 11116.59,
+ "exp_rank": 5,
+ "best_team": "TakeTheMoneyAndRun",
+ "best_net": 17737.835,
+ "n_teams": 17
+}

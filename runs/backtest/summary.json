@@ -1,13 +1,28 @@
 {
  "team": "AsianSuperNerds",
  "games": {
+  "1": {
+   "actual_net": -8273.7,
+   "actual_rank": 5,
+   "pess_net": 9790.46,
+   "pess_rank": 4,
+   "opt_net": 80176.71,
+   "opt_rank": 1,
+   "exp_net": 44983.59,
+   "exp_rank": 1,
+   "best_team": "error404 ai",
+   "best_net": 33436.189999999995,
+   "n_teams": 17
+  },
   "2": {
    "actual_net": 11650.74,
    "actual_rank": 1,
-   "pess_net": 10042.14,
+   "pess_net": 5739.74,
    "pess_rank": 2,
-   "opt_net": 10643.94,
+   "opt_net": 11379.74,
    "opt_rank": 1,
+   "exp_net": 8559.74,
+   "exp_rank": 2,
    "best_team": "AsianSuperNerds",
    "best_net": 11650.74,
    "n_teams": 17
@@ -17,19 +32,77 @@
    "actual_rank": 3,
    "pess_net": 0.0,
    "pess_rank": 3,
-   "opt_net": 1380.0,
+   "opt_net": 1740.0,
    "opt_rank": 1,
+   "exp_net": 870.0,
+   "exp_rank": 1,
    "best_team": "error404 ai",
    "best_net": 403.44,
    "n_teams": 17
+  },
+  "4": {
+   "actual_net": 9015.050000000001,
+   "actual_rank": 2,
+   "pess_net": -1823.26,
+   "pess_rank": 9,
+   "opt_net": 9884.49,
+   "opt_rank": 2,
+   "exp_net": 4030.61,
+   "exp_rank": 3,
+   "best_team": "error404 ai",
+   "best_net": 10127.02,
+   "n_teams": 17
+  },
+  "5": {
+   "actual_net": 1073.1100000000024,
+   "actual_rank": 6,
+   "pess_net": 2967.53,
+   "pess_rank": 5,
+   "opt_net": 10435.03,
+   "opt_rank": 3,
+   "exp_net": 6701.28,
+   "exp_rank": 4,
+   "best_team": "error404 ai",
+   "best_net": 18955.42,
+   "n_teams": 17
+  },
+  "6": {
+   "actual_net": -6378.5599999999995,
+   "actual_rank": 16,
+   "pess_net": -4903.32,
+   "pess_rank": 12,
+   "opt_net": -2603.32,
+   "opt_rank": 10,
+   "exp_net": -3753.32,
+   "exp_rank": 11,
+   "best_team": "OPUSMOPUS",
+   "best_net": 7830.3099999999995,
+   "n_teams": 17
+  },
+  "7": {
+   "actual_net": 12275.34,
+   "actual_rank": 3,
+   "pess_net": 9152.84,
+   "pess_rank": 7,
+   "opt_net": 13080.34,
+   "opt_rank": 3,
+   "exp_net": 11116.59,
+   "exp_rank": 5,
+   "best_team": "TakeTheMoneyAndRun",
+   "best_net": 17737.835,
+   "n_teams": 17
   }
  },
- "generated_at": 1787408465.025711,
+ "generated_at": 1787408794.988095,
  "totals": {
-  "actual": 11650.74,
-  "pessimistic": 10042.14,
-  "optimistic": 12023.94,
+  "actual": 19361.980000000003,
+  "pessimistic": 20923.989999999998,
+  "expected": 72508.48999999999,
+  "optimistic": 124092.99,
   "wins_pess": 0,
-  "wins_opt": 2
+  "wins_exp": 2,
+  "wins_opt": 3,
+  "n_games": 7,
+  "success": false
  }
 }

@@ -1,0 +1,110 @@
+{
+ "actual_net": -6378.5599999999995,
+ "actual_rank": 16,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 1150.0,
+    "acceptance_limit": 1620.33
+   },
+   {
+    "index": 2,
+    "charge_price": 84.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "ensemble": {
+   "policy_summary": "Buildings incl. fixed components; lightning overvoltage damages to appliances covered within appliance sub-limit; ancillary/diagnostic/installation/delivery charges excluded; indemnity limited to repair/replacement as pre-loss standard; deductibles per schedule.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "2.3.3 Overvoltage; 4.2.4 appliances; 7.1.1(b)(c); 7.1.9",
+     "t_low": 900.0,
+     "t_mid": 1350.0,
+     "t_high": 1700.0,
+     "t_if_covered": 0.0,
+     "reason": "Mid-range TV and speaker replacement under lightning surge sub-cover.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(c)(d)(e); 5.1 exhaustive heads",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 140.0,
+     "reason": "Diagnostics/call-out not a repair cost; excluded ancillary outlay.",
+     "votes": "0/3 covered"
+    }
+   ],
+   "n_votes": 3
+  },
+  "votes": 3,
+  "errors": [],
+  "seconds": 19.4
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 2804.0,
+    "cost": 7707.32,
+    "net": -4903.32
+   },
+   "optimistic": {
+    "income": 5104.0,
+    "cost": 7707.32,
+    "net": -2603.32
+   }
+  },
+  "open_pairings": {
+   "income": 2,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 1150.0,
+    "b": 1620.33,
+    "t_lo": 765.0,
+    "t_hi": 900.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 2300.0,
+     "optimistic": 4600.0
+    },
+    "cost": {
+     "pessimistic": 7707.32,
+     "optimistic": 7707.32
+    }
+   },
+   "2": {
+    "a": 84.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 45.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 504.0,
+     "optimistic": 504.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ },
+ "pess_net": -4903.32,
+ "pess_rank": 12,
+ "opt_net": -2603.32,
+ "opt_rank": 10,
+ "exp_net": -3753.32,
+ "exp_rank": 11,
+ "best_team": "OPUSMOPUS",
+ "best_net": 7830.3099999999995,
+ "n_teams": 17
+}
