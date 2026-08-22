@@ -19,8 +19,8 @@ from pathlib import Path
 
 from c2f.llm import _parse_json, provider
 
-# Fastest model per provider. Override with C2F_DIGEST_MODEL.
-FAST = {"anthropic": "claude-haiku-4-5", "openai": "gpt-5.6-luna"}
+# Fastest OpenAI model. Override with C2F_DIGEST_MODEL.
+FAST = {"openai": "gpt-5.6-luna"}
 TIMEOUT_S = 18.0  # gpt-5.6-luna needs 11-15 s on a 40-65k-char policy
 
 SYSTEM = """You are reading a German insurance policy for a claims expert who will decide,
@@ -66,24 +66,8 @@ def _min_effort(model: str) -> str:
     return "minimal" if model.startswith(("gpt-5-", "gpt-5o")) or model == "gpt-5" else "none"
 
 
-def _call(text: str, model: str, prov: str, timeout: float) -> str:
+def _call(text: str, model: str, timeout: float) -> str:
     user = f"<policy>\n{text}\n</policy>\n\nReturn the JSON now."
-    if prov == "anthropic":
-        import anthropic
-
-        client = anthropic.Anthropic(
-            api_key=os.environ["ANTHROPIC_API_KEY"], timeout=timeout, max_retries=0
-        )
-        resp = client.messages.create(
-            model=model,
-            max_tokens=4000,
-            system=SYSTEM,
-            messages=[{"role": "user", "content": user}],
-        )
-        if getattr(resp, "stop_reason", None) == "refusal":
-            raise RuntimeError("model refused")
-        return "".join(getattr(b, "text", "") for b in resp.content)
-
     from openai import OpenAI
 
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
@@ -101,7 +85,7 @@ def distill(policy_text: str, *, timeout: float = TIMEOUT_S, model: str | None =
     prov = provider()
     model = model or os.environ.get("C2F_DIGEST_MODEL") or FAST[prov]
     t0 = time.time()
-    raw = _call(policy_text, model, prov, timeout)
+    raw = _call(policy_text, model, timeout)
     out = _parse_json(raw)
     text = render(out)
     if not text:

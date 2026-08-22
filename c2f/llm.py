@@ -1,8 +1,4 @@
-"""One model call per case. Provider picked by which key is set.
-
-ANTHROPIC_API_KEY -> Claude (default model claude-opus-5, override C2F_MODEL)
-OPENAI_API_KEY    -> OpenAI (default model gpt-5.6-sol, override C2F_MODEL)
-neither          -> error
+"""One model call per case. OpenAI only (default model gpt-5.6-sol, override C2F_MODEL).
 
 The model sees policy + description + invoice verbatim and returns JSON.
 """
@@ -69,6 +65,11 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
    (cap_uncertain: true), still give your best frugal market-value estimate for the item
    itself. Never leave t_low = t_mid = t_high = 0 for an item you marked covered.
 
+   If covered=true and related=true, t_mid and t_high MUST be positive. Uncertainty, an
+   unstated cap, missing specifications, or an upgrade is not permission to return zero.
+   Estimate the cheapest reasonable like-for-like value and express uncertainty through
+   t_low/t_high and cap_uncertain.
+
 Be concrete, decisive and FAST (you have 30 seconds). Do not deliberate; answer with ONLY a JSON object of this
 exact shape and nothing else (no markdown fences):
 
@@ -133,56 +134,6 @@ def _parse_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
-def _num(v) -> float:
-    try:
-        return float(v)
-    except (TypeError, ValueError):
-        return 0.0
-
-
-def _validate_items(out: dict) -> list[str]:
-    """Flag items that break the SYSTEM contract: covered AND related but t_low = t_mid =
-    t_high = 0 - that zero convention is reserved for not-covered/not-related items (see
-    SYSTEM). c2f.price already treats a covered item with mid <= 0 the same as "not
-    covered", so this cannot silently mis-price anything further - it exists so the
-    violation is visible in the run log instead of looking like an ordinary $0 item."""
-    warnings = []
-    for it in out.get("items", []):
-        if not (it.get("covered") and it.get("related", True)):
-            continue
-        if max(_num(it.get(k)) for k in ("t_low", "t_mid", "t_high")) > 0:
-            continue
-        warnings.append(f"item {it.get('index')}: covered but t_low=t_mid=t_high=0 (t_if_covered={it.get('t_if_covered')})")
-    return warnings
-
-
-def _call_anthropic(case: dict, model: str, timeout: float, system: str = SYSTEM) -> str:
-    import anthropic
-
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"], timeout=timeout, max_retries=0)
-    content: list[dict] = [{"type": "text", "text": build_user_message(case)}]
-    for img in case.get("images", []):
-        content.append(
-            {
-                "type": "image",
-                "source": {"type": "base64", "media_type": img["media_type"], "data": img["b64"]},
-            }
-        )
-    kwargs: dict = {}
-    if model.startswith("claude-opus-5") or model.startswith("claude-fable") or model.startswith("claude-sonnet-5"):
-        kwargs["thinking"] = {"type": "adaptive"}
-    resp = client.messages.create(
-        model=model,
-        max_tokens=8000,
-        system=system,
-        messages=[{"role": "user", "content": content}],
-        **kwargs,
-    )
-    if getattr(resp, "stop_reason", None) == "refusal":
-        raise RuntimeError("model refused")
-    return "".join(getattr(b, "text", "") for b in resp.content)
-
-
 def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, fast: bool = False) -> str:
     from openai import OpenAI
 
@@ -210,13 +161,11 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, f
 
 
 def provider() -> str:
-    """Which backend to use. Raises if no key is configured."""
+    """OpenAI only. Raises if no key is configured."""
     load_dotenv()
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        return "anthropic"
     if os.environ.get("OPENAI_API_KEY"):
         return "openai"
-    raise RuntimeError("no LLM key: set ANTHROPIC_API_KEY or OPENAI_API_KEY (env or .env)")
+    raise RuntimeError("no LLM key: set OPENAI_API_KEY (env or .env)")
 
 
 STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whether an item is covered or related, answer covered=false (we can be corrected later, but a wrong acceptance pays a fraud)."
@@ -224,20 +173,18 @@ STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whet
 
 def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, strict: bool = False) -> tuple[dict, dict]:
     """Return (model_json, meta). Raises on failure; caller decides the fallback."""
+    from c2f.validate import validate_items  # local import: keeps price/validate free of llm's provider deps
+
     prov = provider()
     t0 = time.time()
     system = SYSTEM + (STRICT_SUFFIX if strict else "")
-    if prov == "anthropic":
-        model = model or os.environ.get("C2F_MODEL") or "claude-opus-5"
-        raw = _call_anthropic(case, model, timeout, system)
-    else:
-        model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
-        raw = _call_openai(case, model, timeout, system, fast=strict)
+    model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
+    raw = _call_openai(case, model, timeout, system, fast=strict)
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):
         raise ValueError("model JSON has no items list")
     meta = {"provider": prov, "model": model, "seconds": round(time.time() - t0, 2), "raw": raw}
-    warnings = _validate_items(out)
-    if warnings:
-        meta["warnings"] = warnings
+    errors = validate_items(out)
+    if errors:
+        meta["validation_errors"] = [str(e) for e in errors]
     return out, meta

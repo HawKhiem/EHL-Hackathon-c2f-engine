@@ -10,8 +10,8 @@ Pipeline: `get_case.sh` → `extract.py` (case dict) → `llm.py` (one model cal
 description verbatim) → `price.py` (a, b) → `submit.py` (PUT) + `runs/game_NN.json`.
 
 Two model passes run in parallel: a fast one is submitted as soon as it lands, the full one
-overwrites it if it arrives before ~56 s. Keys: set `ANTHROPIC_API_KEY` or `OPENAI_API_KEY`
-in `.env` (see `.env.example`). Design: `docs/superpowers/specs/2026-08-22-c2f-engine-design.md`.
+overwrites it if it arrives before ~56 s. OpenAI only: set `OPENAI_API_KEY` in `.env` (see
+`.env.example`). Design: `docs/superpowers/specs/2026-08-22-c2f-engine-design.md`.
 
 ## Backtest — required before changing the algorithm
 

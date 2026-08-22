@@ -24,8 +24,8 @@ a 60-second window.
 | Per-game logs, truth/calibration | committed JSON | `runs/` |
 | Decrypted + zipped cases | | `cases/` |
 
-This team runs on OpenAI only — `ANTHROPIC_API_KEY` stays unset in `.env` so
-`c2f/llm.py` picks OpenAI. Do not add Anthropic-only code paths without asking.
+This team runs on OpenAI only — `c2f/llm.py` and `c2f/policy.py` have no Anthropic code
+path at all, only `OPENAI_API_KEY`. Do not reintroduce Anthropic/Claude code paths.
 
 ---
 

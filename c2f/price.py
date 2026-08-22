@@ -45,6 +45,17 @@ N_GRID = 200
 DISAGREEMENT_RATIO = 1.6  # two passes this far apart on t_mid: use the lower one, don't average
 CAP_UNCERTAIN_B_SHRINK = 0.7  # extra caution on b when a referenced policy cap's value is unknown
 
+class InvalidEstimateError(ValueError):
+    """A covered+related item reached pricing with t_low=t_mid=t_high<=0 - the SYSTEM
+    contract (c2f.llm.SYSTEM) requires a positive t_mid for such items. This must be
+    repaired or replaced upstream (c2f.validate + the targeted repair pass in c2f.run),
+    never priced here as if the item were uncovered - see the Game 10 item 3 postmortem."""
+
+    def __init__(self, index: object, message: str):
+        self.index = index
+        super().__init__(message)
+
+
 BIAS_RANGE = (0.5, 1.5)
 SIGMA_RANGE = (0.15, 1.0)
 P0_RANGE = (0.02, 0.8)
@@ -160,9 +171,16 @@ def price_item(est: dict, cal: Calibration | None = None, other: dict | None = N
         guess = _num(est.get("t_if_covered")) or mid or other_mid or _num(other.get("t_if_covered"))
         return round(UNCOVERED_CHARGE * guess, 2), 0.0
 
-    if not covered or mid <= 0:
+    if not covered:
         guess = _num(est.get("t_if_covered")) or mid
         return round(UNCOVERED_CHARGE * guess, 2), 0.0
+
+    if mid <= 0:
+        raise InvalidEstimateError(
+            est.get("index"),
+            f"item {est.get('index')}: covered and related but t_low=t_mid=t_high<=0 - "
+            "invalid state, must be repaired before pricing, not priced as uncovered",
+        )
 
     est_for_belief, disagreement_sigma = est, 0.0
     if other_mid and mid > 0 and max(mid, other_mid) / min(mid, other_mid) >= DISAGREEMENT_RATIO:

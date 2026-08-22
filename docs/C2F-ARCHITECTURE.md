@@ -139,10 +139,10 @@ Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUAN
 | Var | Meaning |
 |---|---|
 | `TEAM_API_KEY` | QuantCo team key (required) |
-| `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` | whichever is set picks the provider (Anthropic first) |
-| `C2F_MODEL` | full-pass model (default `claude-opus-5` / `gpt-5.6-sol`) |
-| `C2F_FAST_MODEL` | fast-pass model (default `claude-sonnet-5` / `gpt-5.6-terra`) |
-| `C2F_DIGEST_MODEL` | policy-digest model (default `claude-haiku-4-5` / `gpt-5.6-luna`) |
+| `OPENAI_API_KEY` | required — OpenAI is the only provider `c2f/llm.py` and `c2f/policy.py` support |
+| `C2F_MODEL` | full-pass model (default `gpt-5.6-sol`) |
+| `C2F_FAST_MODEL` | fast-pass model (default `gpt-5.6-terra`) |
+| `C2F_DIGEST_MODEL` | policy-digest model (default `gpt-5.6-luna`) |
 | `C2F_REASONING` | OpenAI `reasoning_effort` for the full pass (default `low`; gpt-5.6 floor is `none`, not `minimal`) |
 
 ## Logs

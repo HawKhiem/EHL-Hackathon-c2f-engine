@@ -27,6 +27,7 @@ from c2f import llm, policy
 from c2f.extract import load_case
 from c2f.price import price_all
 from c2f.submit import ROOT, fetch_case, submit
+from c2f.validate import invalid_indices, validate_items
 
 DEADLINE_S = 53.0  # clock restarts after decrypt (~1-3 s), server closes at 60 s after key release
 FAST_TIMEOUT_S = 45.0
@@ -53,6 +54,43 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
         if i not in by_idx:  # parsed but the model skipped it: price as unknown, log loudly
             by_idx[i] = {"index": i, "covered": False, "related": False, "reason": "MISSING FROM MODEL OUTPUT"}
     return [by_idx[i] for i in wanted]
+
+
+def _num(v) -> float:
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return 0.0
+    return f if f == f and abs(f) != float("inf") else 0.0
+
+
+def resolve_invalid_items(items: list[dict], other_by_idx: dict[int, dict]) -> tuple[list[dict], list[dict]]:
+    """Replace every item that breaks the covered+related-must-be-positive contract (see
+    c2f.validate), in this order: (1) the other model lane's valid estimate for that same
+    index, (2) a positive t_if_covered from either lane. Anything still unresolved is
+    reported as a fatal item-level error and priced as uncertain (covered=False) so pricing
+    never receives the invalid all-zero-but-covered state (c2f.price.InvalidEstimateError) -
+    but it is returned separately so the caller logs it as FATAL, not silently as an ordinary
+    uncovered decision."""
+    bad = invalid_indices(validate_items({"items": items}))
+    if not bad:
+        return items, []
+
+    by_idx = {it["index"]: it for it in items}
+    fatal: list[dict] = []
+    for idx in sorted(bad):
+        it = by_idx[idx]
+        other = other_by_idx.get(idx)
+        if other is not None and idx not in invalid_indices(validate_items({"items": [other]})):
+            by_idx[idx] = {**other, "index": idx}
+            continue
+        guess = _num(it.get("t_if_covered")) or _num((other or {}).get("t_if_covered") if other else None)
+        if guess > 0:
+            by_idx[idx] = {**it, "t_low": guess, "t_mid": guess, "t_high": guess}
+            continue
+        fatal.append({"index": idx, "reason": "no valid valuation: item invalid, other lane has none, no t_if_covered"})
+        by_idx[idx] = {**it, "covered": False, "related": False, "t_if_covered": 0}
+    return [by_idx[i] for i in sorted(by_idx)], fatal
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -110,9 +148,7 @@ def main(argv: list[str] | None = None) -> int:
 
     # ---- MODEL: fast pass for safety, then ONE full pass that overwrites it. No votes.
     full_model = os.environ.get("C2F_MODEL")
-    fast_model = os.environ.get("C2F_FAST_MODEL") or (
-        "claude-sonnet-5" if os.environ.get("ANTHROPIC_API_KEY") else "gpt-5.6-terra"
-    )
+    fast_model = os.environ.get("C2F_FAST_MODEL") or "gpt-5.6-terra"
 
     def run_model(model: str | None, timeout: float, strict: bool, c: dict):
         return llm.estimate(c, timeout=timeout, model=model, strict=strict)
@@ -159,14 +195,25 @@ def main(argv: list[str] | None = None) -> int:
                 record[f"model_{tag}"] = {"meta": {k: v for k, v in meta.items() if k != "raw"}, "output": out}
                 record["estimate"] = out  # full runs last, so it wins; fast is the fallback
                 log(f"model [{tag}] {meta['model']} answered in {meta['seconds']}s", t0)
-                for w in meta.get("warnings", []):
-                    log(f"model [{tag}] WARNING: {w}", t0)
+                for w in meta.get("validation_errors", []):
+                    log(f"model [{tag}] INVALID: {w}", t0)
                 if tag == "full":
                     full_done = True
                 # once the full pass lands, the fast pass (if it landed too) is a free second
                 # opinion - price_all uses it as the disagreement check, not another vote.
                 other_output = record.get("model_fast", {}).get("output") if tag == "full" else None
-                rows = price_all(merge_estimates(case, out), other_output=other_output)
+                other_by_idx: dict[int, dict] = {}
+                for it in (other_output or {}).get("items", []):
+                    try:
+                        other_by_idx[int(it["index"])] = it
+                    except (KeyError, TypeError, ValueError):
+                        continue
+                resolved, fatal = resolve_invalid_items(merge_estimates(case, out), other_by_idx)
+                for f in fatal:
+                    log(f"model [{tag}] FATAL: item {f['index']}: {f['reason']}", t0)
+                if fatal:
+                    record.setdefault("fatal_items", []).extend({**f, "tag": tag} for f in fatal)
+                rows = price_all(resolved, other_output=other_output)
                 record[f"priced_{tag}"] = rows
                 do_submit(rows, tag)
 
