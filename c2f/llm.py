@@ -35,6 +35,25 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
               worst-case. Claims experts are frugal: when unsure, go lower. Use any
               value hints in the damage description (stated worth, age, make, size). Respect policy limits
               (sum insured, market value, caps, deductibles) - t must not exceed them.
+
+              NEVER INVENT SPECIFICS. If the invoice/description does not state a brand,
+              model, screen size, wattage, channel count or other premium feature, do not
+              assume one - price the CHEAPEST reasonable standard replacement that matches
+              only what is actually stated, not a mid-range guess dressed up with invented
+              detail. When the evidence for a number is weak (no stated size/spec/age/price),
+              make t_low strongly conservative - closer to the cheapest plausible item than
+              to t_mid - because a low t_low costs nothing (it only ever raises b) while an
+              inflated one risks accepting fraud.
+
+              Bundled diagnostic, inspection, call-out or service charges: price only the
+              ONE necessary visit/report, never the full billed quantity, unless the
+              invoice or description gives a specific reason for more than one.
+
+   If the policy text refers to a cap, sub-limit or schedule value for this item's category
+   but does not state the number (e.g. "as per Appendix B" with no figure given), set
+   "cap_uncertain": true and keep your estimate conservative - do not guess the cap's value.
+   Otherwise omit cap_uncertain or set it false.
+
    If the item is not covered OR not related, set t_low = t_mid = t_high = 0 and put
    your estimate of what the item WOULD cost if it were payable into t_if_covered.
 
@@ -53,6 +72,7 @@ exact shape and nothing else (no markdown fences):
       "t_mid": 420,
       "t_high": 450,
       "t_if_covered": 0,
+      "cap_uncertain": false,
       "reason": "max 12 words"
     }
   ]

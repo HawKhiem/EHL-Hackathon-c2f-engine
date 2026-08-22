@@ -17,6 +17,14 @@ c2f.truth recovers after each game (runs/calibration.json); defaults apply until
   accepting fraud 1x -> accept iff P(t >= a') > 2/3.
 - not covered / not related: b = 0, a = UNCOVERED_CHARGE * t_if_covered (0 if unknown):
   a rejected fraudulent charge costs the issuer nothing, so this is free upside.
+
+`other`: a second, independent estimate for the same item (the fast pass, when pricing the
+full pass). It is a cheap disagreement check, not a vote:
+- coverage split (one says covered, the other doesn't): neither call clears the confidence a
+  payout needs, so price as uncertain the same way as "not covered" - b = 0.
+- both say covered but t_mid lands far apart (>= DISAGREEMENT_RATIO): use the lower, better-
+  supported mid instead of blindly trusting the full pass, and widen the belief by the gap
+  between them - this pulls both a and b down, b faster since it already sits below the median.
 """
 
 from __future__ import annotations
@@ -33,6 +41,9 @@ RISK_AVERSION = 0.585  # charge maximises mean - RISK_AVERSION * sd of the per-o
 CAP_MULT = 4.0  # an accepted over-charge pays at most min(a, c) with c >= 4t (the rules' cap)
 MODEL_SPREAD_Z = 1.2816  # the model's t_low..t_high is read as an 80 % interval
 N_GRID = 200
+
+DISAGREEMENT_RATIO = 1.6  # two passes this far apart on t_mid: use the lower one, don't average
+CAP_UNCERTAIN_B_SHRINK = 0.7  # extra caution on b when a referenced policy cap's value is unknown
 
 BIAS_RANGE = (0.5, 1.5)
 SIGMA_RANGE = (0.15, 1.0)
@@ -130,22 +141,58 @@ def best_charge(belief: Belief, cal: Calibration, n_grid: int = N_GRID, risk_ave
     return best_a
 
 
-def price_item(est: dict, cal: Calibration | None = None) -> tuple[float, float]:
-    """Return (a, b) as gross totals, both finite and >= 0."""
+def price_item(est: dict, cal: Calibration | None = None, other: dict | None = None) -> tuple[float, float]:
+    """Return (a, b) as gross totals, both finite and >= 0.
+
+    `other`, if given, is a second independent estimate for the same item - see module
+    docstring for how a coverage split or a wide t_mid gap between the two is handled."""
     cal = cal or calibration()
     covered = bool(est.get("covered", False)) and bool(est.get("related", True))
     mid = sorted(_num(est.get(k)) for k in ("t_low", "t_mid", "t_high"))[1]
+
+    other_covered = other_mid = None
+    if other is not None:
+        other_covered = bool(other.get("covered", False)) and bool(other.get("related", True))
+        other_mid = sorted(_num(other.get(k)) for k in ("t_low", "t_mid", "t_high"))[1]
+
+    if other_covered is not None and other_covered != covered:
+        # split coverage call: not confident enough either way to pay out
+        guess = _num(est.get("t_if_covered")) or mid or other_mid or _num(other.get("t_if_covered"))
+        return round(UNCOVERED_CHARGE * guess, 2), 0.0
+
     if not covered or mid <= 0:
         guess = _num(est.get("t_if_covered")) or mid
         return round(UNCOVERED_CHARGE * guess, 2), 0.0
-    belief = Belief.from_estimate(est, cal)
-    return round(best_charge(belief, cal), 2), round(accept_limit(belief), 2)
+
+    est_for_belief, disagreement_sigma = est, 0.0
+    if other_mid and mid > 0 and max(mid, other_mid) / min(mid, other_mid) >= DISAGREEMENT_RATIO:
+        est_for_belief = {**est, "t_mid": min(mid, other_mid)}
+        disagreement_sigma = (math.log(max(mid, other_mid)) - math.log(min(mid, other_mid))) / (2 * MODEL_SPREAD_Z)
+
+    belief = Belief.from_estimate(est_for_belief, cal)
+    if disagreement_sigma:
+        belief = Belief(mu=belief.mu, sigma=_clamp(max(belief.sigma, disagreement_sigma), SIGMA_RANGE))
+
+    a = best_charge(belief, cal)
+    b = accept_limit(belief)
+    if bool(est.get("cap_uncertain")):
+        b *= CAP_UNCERTAIN_B_SHRINK
+    return round(a, 2), round(b, 2)
 
 
-def price_all(estimates: list[dict]) -> list[dict]:
+def price_all(estimates: list[dict], other_output: dict | None = None) -> list[dict]:
+    """`other_output`, if given, is a second model's raw {items: [...]} output for the same
+    case - used as the disagreement check in price_item (see module docstring)."""
     cal = calibration()
+    other_by_idx: dict[int, dict] = {}
+    for it in (other_output or {}).get("items", []):
+        try:
+            other_by_idx[int(it["index"])] = it
+        except (KeyError, TypeError, ValueError):
+            continue
     out = []
     for est in estimates:
-        a, b = price_item(est, cal)
-        out.append({"index": int(est["index"]), "charge_price": a, "acceptance_limit": b})
+        idx = int(est["index"])
+        a, b = price_item(est, cal, other=other_by_idx.get(idx))
+        out.append({"index": idx, "charge_price": a, "acceptance_limit": b})
     return out

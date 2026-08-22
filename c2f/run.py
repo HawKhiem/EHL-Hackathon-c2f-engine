@@ -5,8 +5,11 @@ IN (get_case.sh) -> EXTRACT -> DIGEST -> MODEL (fast, then full once) -> PRICE -
 Two passes, no votes. The fast pass is insurance, not a vote: its rows are submitted the
 moment they land so that a slow or failed full pass can never leave us with nothing, and
 the full pass overwrites them when it arrives (last write wins on the server). The fast
-answer is NOT aggregated into the full one - over six logged games the two agreed on 70 of
-82 coverage calls and split the other 12 evenly, so voting bought latency, not accuracy.
+estimate is NOT averaged or merged into the full one's numbers - over six logged games the
+two agreed on 70 of 82 coverage calls and split the other 12 evenly, so voting bought
+latency, not accuracy. It is used only as a cheap disagreement check: c2f.price treats a
+coverage split or a wide t_mid gap between the two passes as a reason to price the item
+conservatively (see c2f/price.py).
 """
 
 from __future__ import annotations
@@ -158,7 +161,10 @@ def main(argv: list[str] | None = None) -> int:
                 log(f"model [{tag}] {meta['model']} answered in {meta['seconds']}s", t0)
                 if tag == "full":
                     full_done = True
-                rows = price_all(merge_estimates(case, out))
+                # once the full pass lands, the fast pass (if it landed too) is a free second
+                # opinion - price_all uses it as the disagreement check, not another vote.
+                other_output = record.get("model_fast", {}).get("output") if tag == "full" else None
+                rows = price_all(merge_estimates(case, out), other_output=other_output)
                 record[f"priced_{tag}"] = rows
                 do_submit(rows, tag)
     finally:
