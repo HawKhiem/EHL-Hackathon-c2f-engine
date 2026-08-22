@@ -1,0 +1,1 @@
+Could you check see how we currently estimate t and calculate a and b, our model is doing poorly so we might want to change it. Research deeply in the math and the prompting. Check industry standard and researches
