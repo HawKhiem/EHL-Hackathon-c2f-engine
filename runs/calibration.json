@@ -1,20 +1,20 @@
 {
- "bias": 1.5,
- "sigma": 0.99,
+ "bias": 1.451,
+ "sigma": 0.98,
  "p0": 0.29,
  "k": 0.6,
  "bias_by_bucket": {
-  "diagnostic/inspect": 1.5,
-  "restoration/repair": 1.357,
-  "other": 1.5,
-  "drying/remediation": 1.177,
-  "electronics": 0.972,
-  "ancillary/call-out": 1.188,
-  "valuables": 1.097,
-  "labour": 1.5,
-  "material": 1.5
+  "diagnostic/inspect": 1.49,
+  "restoration/repair": 1.279,
+  "other": 1.424,
+  "drying/remediation": 1.076,
+  "electronics": 0.956,
+  "ancillary/call-out": 1.314,
+  "valuables": 1.079,
+  "labour": 1.485,
+  "material": 1.475
  },
- "n_labels": 155,
+ "n_labels": 169,
  "n_coverage_misses": 56,
  "n_accept_points": 127,
  "labels": [
@@ -1102,6 +1102,104 @@
    "t_lo": 100.0,
    "t_hi": null,
    "t_mid": 72.0
+  },
+  {
+   "game": 31,
+   "item": 1,
+   "t_lo": 432.0,
+   "t_hi": null,
+   "t_mid": 420.0
+  },
+  {
+   "game": 31,
+   "item": 2,
+   "t_lo": 154.68,
+   "t_hi": null,
+   "t_mid": 225.0
+  },
+  {
+   "game": 31,
+   "item": 3,
+   "t_lo": 576.0,
+   "t_hi": 680.36,
+   "t_mid": 760.0
+  },
+  {
+   "game": 31,
+   "item": 4,
+   "t_lo": 24.28,
+   "t_hi": 36.0,
+   "t_mid": 70.0
+  },
+  {
+   "game": 31,
+   "item": 5,
+   "t_lo": 115.49,
+   "t_hi": 147.83,
+   "t_mid": 240.0
+  },
+  {
+   "game": 31,
+   "item": 6,
+   "t_lo": 146.66,
+   "t_hi": null,
+   "t_mid": 70.0
+  },
+  {
+   "game": 31,
+   "item": 7,
+   "t_lo": 114.0,
+   "t_hi": 144.0,
+   "t_mid": 330.0
+  },
+  {
+   "game": 31,
+   "item": 8,
+   "t_lo": 61.74,
+   "t_hi": 144.53,
+   "t_mid": 145.0
+  },
+  {
+   "game": 31,
+   "item": 10,
+   "t_lo": 52.73,
+   "t_hi": 90.69,
+   "t_mid": 120.0
+  },
+  {
+   "game": 31,
+   "item": 11,
+   "t_lo": 49.5,
+   "t_hi": 193.35,
+   "t_mid": 390.0
+  },
+  {
+   "game": 31,
+   "item": 13,
+   "t_lo": 78.46,
+   "t_hi": 86.64,
+   "t_mid": 105.0
+  },
+  {
+   "game": 31,
+   "item": 14,
+   "t_lo": 81.0,
+   "t_hi": null,
+   "t_mid": 70.0
+  },
+  {
+   "game": 31,
+   "item": 16,
+   "t_lo": 139.1,
+   "t_hi": 158.52,
+   "t_mid": 120.0
+  },
+  {
+   "game": 31,
+   "item": 17,
+   "t_lo": 315.0,
+   "t_hi": null,
+   "t_mid": 125.0
   }
  ]
 }
