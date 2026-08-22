@@ -24,7 +24,7 @@ cases/NN.zip    extract.py         llm.py                price.py           subm
 get_case.sh     policy text        covered? related?     a = charge         runs/game_NN.json
                 description text   t_low/mid/high        b = accept limit
                 invoice rows       clause + reason
-                images (b64)
+                image names
 ```
 
 | Step | Module | Input | Output |
@@ -55,9 +55,13 @@ The model sees one object, built by `extract.py`:
   "invoice_text": "full text of invoices.pdf",
   "invoice_meta": {"trade": "Bikeshop", "vendor": "Bikey Bike Ltd", "date": "6 Jan 2026"},
   "items": [{"index": 1, "description": "New Bike", "quantity": 1, "unit": "unit"}],
-  "images": [{"name": "...", "media_type": "image/png", "b64": "..."}]
+  "images": [{"name": "...", "media_type": "image/png"}]
 }
 ```
+
+**Case photos are skipped.** `*.png/*.jpg` in the case folder are listed by name in the case
+dict but never read or attached to the model call: the coverage and pricing decisions come from
+the policy, the description and the invoice, and image upload costs time inside the 60 s window.
 
 **Policy and description are passed verbatim; the model does the reading.** The work —
 "is a new bike covered under clause 4 given clause 3 and the description says it was
@@ -96,7 +100,6 @@ Prompt layout (`llm.build_user_message`):
 <damage_description> ... </damage_description>
 <invoice trade="Bikeshop" vendor="Bikey Bike Ltd"> raw pdf text </invoice>
 <parsed_line_items> 1 | New Bike | 1 unit </parsed_line_items>
-[images attached]
 ```
 
 The system prompt (`llm.SYSTEM`) asks, per item: covered? related? fair **gross total**
@@ -147,7 +150,7 @@ Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUAN
 
 ## Logs
 
-`runs/game_NN.json`: the case dict (minus image bytes), both model outputs with timings,
+`runs/game_NN.json`: the case dict, both model outputs with timings,
 the priced rows, every submission with the server response. This is the material for the
 strategy write-up.
 

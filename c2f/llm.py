@@ -122,7 +122,6 @@ def build_user_message(case: dict) -> str:
         f"<damage_description>\n{case['description']}\n</damage_description>\n\n"
         f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n"
         f"{items_txt}"
-        + ("\nImages from the case are attached.\n" if case.get("images") else "")
         + "\nReturn the JSON now."
     )
 
@@ -139,11 +138,10 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, f
     from openai import OpenAI
 
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
+    # Text only: case photos are skipped (case["images"] is names, no bytes). They cost
+    # upload time and tokens inside a 60 s window and the pricing decision is made from the
+    # policy, the description and the invoice.
     content: list[dict] = [{"type": "text", "text": build_user_message(case)}]
-    for img in case.get("images", []):
-        content.append(
-            {"type": "image_url", "image_url": {"url": f"data:{img['media_type']};base64,{img['b64']}"}}
-        )
     kwargs: dict = {}
     if model.startswith(("gpt-5", "o")):
         # The fast pass (and any mini/nano model) runs at the effort floor: it is the safety

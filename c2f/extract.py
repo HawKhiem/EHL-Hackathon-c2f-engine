@@ -7,13 +7,12 @@
   "invoice_text": str,      # full text of invoices.pdf, for the model
   "invoice_meta": {...},    # trade / vendor / date if found
   "items": [{"index", "description", "quantity", "unit"}],  # deterministic parse, may be empty
-  "images": [{"name", "media_type", "b64"}],
+  "images": [{"name", "media_type"}],   # listed only - photos are not sent to the model
 }
 """
 
 from __future__ import annotations
 
-import base64
 import re
 from pathlib import Path
 
@@ -161,11 +160,13 @@ def load_case(case_dir: Path, game_id: int) -> dict:
     for p in sorted(case_dir.iterdir()):
         ext = p.suffix.lower()
         if ext in {".png", ".jpg", ".jpeg", ".webp", ".gif"}:
+            # Listed, not read: the photos are skipped in the pipeline (c2f.llm sends text
+            # only), so the bytes are never loaded or base64-encoded. The names stay in the
+            # case dict and the run log so we can see what the case shipped with.
             images.append(
                 {
                     "name": p.name,
                     "media_type": "image/jpeg" if ext in {".jpg", ".jpeg"} else f"image/{ext[1:]}",
-                    "b64": base64.b64encode(p.read_bytes()).decode(),
                 }
             )
     return {
