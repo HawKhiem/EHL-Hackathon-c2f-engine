@@ -1,0 +1,33 @@
+Try the solutions and see how they perform on the previous rounds
+
+---
+
+Run the new changes against old rounds, round 38 is done now
+
+---
+
+There are a few new games played now, could you check
+
+---
+
+Tweak our parameters to beat the best team in all previous rounds
+
+---
+
+Run our current system against eyay for the last 10 rounds
+
+---
+
+Yes
+
+---
+
+Yes fix it and try to beat eyay in the most recent rounds since their models must have evolved
+
+---
+
+Could we, instead of returning direct values of estimation, return a distribution instead and calculate using this distribution, with biases based on the strongest teams and
+
+---
+
+Yeah and fix game 41 gap
