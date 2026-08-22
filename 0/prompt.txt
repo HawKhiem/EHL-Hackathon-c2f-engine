@@ -211,3 +211,7 @@ how to submit using v2
 ---
 
 Commit and push
+
+---
+
+Can we auto submit using version 2 30s before a round end
