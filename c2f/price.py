@@ -89,7 +89,7 @@ class InvalidEstimateError(ValueError):
         super().__init__(message)
 
 
-BIAS_RANGE = (0.5, 1.5)
+BIAS_RANGE = (0.4, 2.5)  # expanded to allow more aggressive category-specific correction
 SIGMA_RANGE = (0.15, 1.0)
 P0_RANGE = (0.02, 0.8)
 K_RANGE = (0.0, 6.0)
