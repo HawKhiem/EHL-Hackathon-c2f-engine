@@ -45,6 +45,23 @@ def _build_game(game_id: int, truth: dict) -> list[dict]:
     return rows
 
 
+def _ensure_case(game_id: int) -> bool:
+    """Decrypt the case if it isn't on disk yet. A game that ran while nothing was listening
+    still has its zip in cases/ and its key stays fetchable after start_time, so history can
+    be filled in retroactively. False if the zip is missing or decryption fails."""
+    if (CASES_DIR / f"case_{game_id:02d}" / "invoices.pdf").exists():
+        return True
+    if not (CASES_DIR / f"case_{game_id:02d}.zip").exists():
+        return False
+    try:
+        from c2f import game
+        game.decrypt(game_id)
+        return (CASES_DIR / f"case_{game_id:02d}" / "invoices.pdf").exists()
+    except Exception as exc:  # noqa: BLE001 - one undecryptable game must not block the rest
+        print(f"history: could not decrypt case {game_id}: {exc}")
+        return False
+
+
 def build(existing: list[dict] | None = None) -> list[dict]:
     done_games = {row["game"] for row in existing} if existing else set()
     rows = list(existing) if existing else []
@@ -52,7 +69,7 @@ def build(existing: list[dict] | None = None) -> list[dict]:
         game_id = int(truth_path.stem.split("_")[-1])
         if game_id in done_games:
             continue
-        if not (CASES_DIR / f"case_{game_id:02d}" / "invoices.pdf").exists():
+        if not _ensure_case(game_id):
             continue
         truth = json.loads(truth_path.read_text(encoding="utf-8"))
         rows.extend(_build_game(game_id, truth))
@@ -65,11 +82,22 @@ def load() -> list[dict]:
     return json.loads(HISTORY_PATH.read_text(encoding="utf-8"))
 
 
-def main() -> None:
+def update() -> tuple[list[int], int]:
+    """Pull truth for any newly-closed games from the leaderboard, then extend history.json
+    with them (one cached LLM extraction per new game). Returns (new truth game ids, rows).
+    Run between rounds / after a submission - never inside the 60s window."""
+    from c2f import truth
+
+    added = truth.update()
     existing = load() if HISTORY_PATH.exists() else []
     rows = build(existing)
     HISTORY_PATH.write_text(json.dumps(rows, indent=1), encoding="utf-8")
-    print(f"wrote {len(rows)} historical items to {HISTORY_PATH}")
+    return added, len(rows)
+
+
+def main() -> None:
+    added, n = update()
+    print(f"truth: added {len(added)} game(s) {added}; history: {n} items -> {HISTORY_PATH}")
 
 
 if __name__ == "__main__":

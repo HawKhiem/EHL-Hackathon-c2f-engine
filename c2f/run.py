@@ -37,6 +37,16 @@ def main() -> None:
               f"a={row['charge_price']:>8.2f}  b={row['acceptance_limit']:>8.2f}  "
               f"{item['description']}")
 
+    # Only AFTER the submission is out: pull truth for any games that closed since the last
+    # run and extend history.json, so the next round's price call sees it. Best-effort - a
+    # leaderboard hiccup must never turn a successful submission into a failed run.
+    try:
+        from c2f import history
+        added, n = history.update()
+        log(f"history updated: +{len(added)} game(s) {added}, {n} items total")
+    except Exception as exc:  # noqa: BLE001
+        log(f"history update skipped: {exc}")
+
 
 if __name__ == "__main__":
     main()

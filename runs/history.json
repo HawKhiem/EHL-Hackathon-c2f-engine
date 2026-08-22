@@ -2497,5 +2497,579 @@
   "description": "Vehicle costs",
   "t_lo": 0.0,
   "t_hi": 20.0
+ },
+ {
+  "game": 33,
+  "index": 1,
+  "description": "Damage assessment and inspection",
+  "t_lo": 535.5,
+  "t_hi": null
+ },
+ {
+  "game": 33,
+  "index": 2,
+  "description": "Indoor leak detection incl. measurement technician and vehicle",
+  "t_lo": 836.78,
+  "t_hi": null
+ },
+ {
+  "game": 33,
+  "index": 3,
+  "description": "Floor covering removal incl. linoleum and skirting, surface preparation and construction-waste disposal",
+  "t_lo": 0.0,
+  "t_hi": 50.0
+ },
+ {
+  "game": 33,
+  "index": 4,
+  "description": "Catering for work crew",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 33,
+  "index": 5,
+  "description": "Technical drying (large-area, cavity and borehole) incl. labour, dust protection and kitchen disinfection",
+  "t_lo": 0.0,
+  "t_hi": 50.0
+ },
+ {
+  "game": 33,
+  "index": 6,
+  "description": "Electricity for drying equipment (separately metered)",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 37,
+  "index": 1,
+  "description": "Indoor leak detection",
+  "t_lo": 557.08,
+  "t_hi": null
+ },
+ {
+  "game": 37,
+  "index": 2,
+  "description": "Room drying 30 m\u00b2 (basement)",
+  "t_lo": 454.85,
+  "t_hi": 518.09
+ },
+ {
+  "game": 37,
+  "index": 3,
+  "description": "Room dryer unit",
+  "t_lo": 472.77,
+  "t_hi": null
+ },
+ {
+  "game": 37,
+  "index": 4,
+  "description": "Wet insulation wool from basement",
+  "t_lo": 201.7,
+  "t_hi": 259.45
+ },
+ {
+  "game": 37,
+  "index": 5,
+  "description": "Room drying 50 m\u00b2 in the adjoining ground-floor room above the leak",
+  "t_lo": 353.46,
+  "t_hi": 360.0
+ },
+ {
+  "game": 37,
+  "index": 6,
+  "description": "Room dryer unit",
+  "t_lo": 0.0,
+  "t_hi": 43.72
+ },
+ {
+  "game": 37,
+  "index": 7,
+  "description": "Drying fan",
+  "t_lo": 0.0,
+  "t_hi": 20.89
+ },
+ {
+  "game": 37,
+  "index": 8,
+  "description": "Room drying in a first-floor bedroom",
+  "t_lo": 0.0,
+  "t_hi": 38.96
+ },
+ {
+  "game": 37,
+  "index": 9,
+  "description": "Profipress elbow 90\u00b0 copper 28mm model 01",
+  "t_lo": 111.1,
+  "t_hi": 152.13
+ },
+ {
+  "game": 37,
+  "index": 10,
+  "description": "Profipress elbow 45\u00b0 copper 28mm model 02",
+  "t_lo": 111.1,
+  "t_hi": 131.17
+ },
+ {
+  "game": 37,
+  "index": 11,
+  "description": "Transition piece 15x19mm",
+  "t_lo": 75.0,
+  "t_hi": 156.57
+ },
+ {
+  "game": 37,
+  "index": 12,
+  "description": "Skilled worker hours",
+  "t_lo": 620.87,
+  "t_hi": 711.38
+ },
+ {
+  "game": 37,
+  "index": 13,
+  "description": "Vehicle costs",
+  "t_lo": 165.62,
+  "t_hi": null
+ },
+ {
+  "game": 37,
+  "index": 14,
+  "description": "Skilled worker hours",
+  "t_lo": 1008.79,
+  "t_hi": null
+ },
+ {
+  "game": 37,
+  "index": 15,
+  "description": "Premium large-format designer floor tiles (upgrade from the plain pre-loss basement tiles)",
+  "t_lo": 488.69,
+  "t_hi": 675.0
+ },
+ {
+  "game": 37,
+  "index": 16,
+  "description": "Standard tiling material",
+  "t_lo": 0.0,
+  "t_hi": 30.5
+ },
+ {
+  "game": 37,
+  "index": 17,
+  "description": "Vehicle costs",
+  "t_lo": 81.79,
+  "t_hi": null
+ },
+ {
+  "game": 38,
+  "index": 1,
+  "description": "Leak detection and moisture measurement for the kitchen sink supply leak, incl. technician labour and call-out",
+  "t_lo": 795.0,
+  "t_hi": null
+ },
+ {
+  "game": 38,
+  "index": 2,
+  "description": "Freeing, repair and re-insulation of the leaking kitchen sink supply pipe, incl. replacement copper section",
+  "t_lo": 521.76,
+  "t_hi": 561.78
+ },
+ {
+  "game": 38,
+  "index": 3,
+  "description": "Vehicle costs",
+  "t_lo": 71.21,
+  "t_hi": 140.18
+ },
+ {
+  "game": 38,
+  "index": 4,
+  "description": "Drying of the kitchen floor and wall base, incl. condensation dryer",
+  "t_lo": 431.94,
+  "t_hi": 491.04
+ },
+ {
+  "game": 34,
+  "index": 1,
+  "description": "Profipress elbow 90\u00b0 copper 15mm",
+  "t_lo": 38.82,
+  "t_hi": 43.48
+ },
+ {
+  "game": 34,
+  "index": 2,
+  "description": "Profipress elbow 90\u00b0 copper 28mm",
+  "t_lo": 92.04,
+  "t_hi": 138.84
+ },
+ {
+  "game": 34,
+  "index": 3,
+  "description": "Profipress elbow 45\u00b0 copper 28mm",
+  "t_lo": 21.04,
+  "t_hi": 27.77
+ },
+ {
+  "game": 34,
+  "index": 4,
+  "description": "Grub screw",
+  "t_lo": 9.0,
+  "t_hi": 18.35
+ },
+ {
+  "game": 34,
+  "index": 5,
+  "description": "Two-screw pipe clamp 10 mm",
+  "t_lo": 16.93,
+  "t_hi": 49.5
+ },
+ {
+  "game": 34,
+  "index": 6,
+  "description": "Two-screw pipe clamp 25 mm",
+  "t_lo": 18.86,
+  "t_hi": 49.5
+ },
+ {
+  "game": 34,
+  "index": 7,
+  "description": "Copper pipe 15x1",
+  "t_lo": 115.16,
+  "t_hi": null
+ },
+ {
+  "game": 34,
+  "index": 8,
+  "description": "Service technician hours",
+  "t_lo": 629.0,
+  "t_hi": null
+ },
+ {
+  "game": 34,
+  "index": 9,
+  "description": "Helper hours",
+  "t_lo": 350.69,
+  "t_hi": null
+ },
+ {
+  "game": 34,
+  "index": 10,
+  "description": "Rock wool pipe insulation",
+  "t_lo": 68.44,
+  "t_hi": 222.36
+ },
+ {
+  "game": 34,
+  "index": 11,
+  "description": "Rock wool mat",
+  "t_lo": 73.33,
+  "t_hi": 218.42
+ },
+ {
+  "game": 34,
+  "index": 12,
+  "description": "Binding wire",
+  "t_lo": 21.26,
+  "t_hi": null
+ },
+ {
+  "game": 34,
+  "index": 13,
+  "description": "Small parts and consumables",
+  "t_lo": 43.67,
+  "t_hi": 49.5
+ },
+ {
+  "game": 34,
+  "index": 14,
+  "description": "Vehicle costs",
+  "t_lo": 82.0,
+  "t_hi": 85.5
+ },
+ {
+  "game": 34,
+  "index": 15,
+  "description": "Vehicle costs \u2013 return visit",
+  "t_lo": 0.0,
+  "t_hi": 21.44
+ },
+ {
+  "game": 34,
+  "index": 16,
+  "description": "Construction waste disposal",
+  "t_lo": 54.0,
+  "t_hi": 59.08
+ },
+ {
+  "game": 34,
+  "index": 17,
+  "description": "Catering for work crew",
+  "t_lo": 0.0,
+  "t_hi": 9.77
+ },
+ {
+  "game": 34,
+  "index": 18,
+  "description": "Processing flat fee",
+  "t_lo": 0.0,
+  "t_hi": 7.94
+ },
+ {
+  "game": 34,
+  "index": 19,
+  "description": "Removal of water-damaged floor tiles around leak",
+  "t_lo": 319.12,
+  "t_hi": 476.59
+ },
+ {
+  "game": 34,
+  "index": 20,
+  "description": "Supply and lay replacement floor tiles (water-damaged area)",
+  "t_lo": 876.72,
+  "t_hi": null
+ },
+ {
+  "game": 34,
+  "index": 21,
+  "description": "Tile adhesive and grout",
+  "t_lo": 92.0,
+  "t_hi": 104.14
+ },
+ {
+  "game": 34,
+  "index": 22,
+  "description": "Installation hours \u2013 tiler",
+  "t_lo": 482.95,
+  "t_hi": null
+ },
+ {
+  "game": 34,
+  "index": 23,
+  "description": "Cleaning, disinfection and re-coating of surrounding undamaged tiles",
+  "t_lo": 0.0,
+  "t_hi": 50.0
+ },
+ {
+  "game": 34,
+  "index": 24,
+  "description": "Construction waste disposal",
+  "t_lo": 0.0,
+  "t_hi": 34.0
+ },
+ {
+  "game": 34,
+  "index": 25,
+  "description": "Vehicle costs",
+  "t_lo": 72.17,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 1,
+  "description": "Indoor leak detection",
+  "t_lo": 476.31,
+  "t_hi": 776.72
+ },
+ {
+  "game": 35,
+  "index": 2,
+  "description": "Skilled worker hours",
+  "t_lo": 705.36,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 3,
+  "description": "Leak tracing and locating the defect",
+  "t_lo": 0.0,
+  "t_hi": 38.96
+ },
+ {
+  "game": 35,
+  "index": 4,
+  "description": "Material for the work",
+  "t_lo": 116.55,
+  "t_hi": 125.69
+ },
+ {
+  "game": 35,
+  "index": 5,
+  "description": "Vehicle costs",
+  "t_lo": 81.79,
+  "t_hi": 91.7
+ },
+ {
+  "game": 35,
+  "index": 6,
+  "description": "Room drying 30 m\u00b2",
+  "t_lo": 441.34,
+  "t_hi": 560.79
+ },
+ {
+  "game": 35,
+  "index": 7,
+  "description": "Room dryer unit",
+  "t_lo": 359.19,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 8,
+  "description": "Room drying 50 m\u00b2",
+  "t_lo": 346.91,
+  "t_hi": 360.0
+ },
+ {
+  "game": 35,
+  "index": 9,
+  "description": "Room dryer unit",
+  "t_lo": 24.0,
+  "t_hi": 45.35
+ },
+ {
+  "game": 35,
+  "index": 10,
+  "description": "Drying fan",
+  "t_lo": 0.0,
+  "t_hi": 28.18
+ },
+ {
+  "game": 35,
+  "index": 11,
+  "description": "Wet insulation wool from basement",
+  "t_lo": 197.2,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 12,
+  "description": "Profipress elbow 90\u00b0 copper 28mm model 01",
+  "t_lo": 96.0,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 13,
+  "description": "Profipress elbow 45\u00b0 copper 28mm model 02",
+  "t_lo": 96.0,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 14,
+  "description": "Transition piece 15x19mm",
+  "t_lo": 68.1,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 15,
+  "description": "Skilled worker hours",
+  "t_lo": 629.41,
+  "t_hi": 709.2
+ },
+ {
+  "game": 35,
+  "index": 16,
+  "description": "Vehicle costs",
+  "t_lo": 164.52,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 17,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 41.1
+ },
+ {
+  "game": 35,
+  "index": 18,
+  "description": "Skilled worker hours",
+  "t_lo": 1099.5,
+  "t_hi": null
+ },
+ {
+  "game": 35,
+  "index": 19,
+  "description": "Material costs",
+  "t_lo": 0.0,
+  "t_hi": 33.0
+ },
+ {
+  "game": 35,
+  "index": 20,
+  "description": "Vehicle costs",
+  "t_lo": 81.79,
+  "t_hi": null
+ },
+ {
+  "game": 36,
+  "index": 1,
+  "description": "Disassembly and assembly service",
+  "t_lo": 0.0,
+  "t_hi": 87.61
+ },
+ {
+  "game": 36,
+  "index": 2,
+  "description": "Construction dryer",
+  "t_lo": 0.0,
+  "t_hi": 75.0
+ },
+ {
+  "game": 36,
+  "index": 3,
+  "description": "Rock wool pipe insulation",
+  "t_lo": 0.0,
+  "t_hi": null
+ },
+ {
+  "game": 36,
+  "index": 4,
+  "description": "Construction waste disposal",
+  "t_lo": 0.0,
+  "t_hi": 33.0
+ },
+ {
+  "game": 36,
+  "index": 5,
+  "description": "Wall tile covering",
+  "t_lo": 0.0,
+  "t_hi": 50.0
+ },
+ {
+  "game": 36,
+  "index": 6,
+  "description": "Wall levelling material",
+  "t_lo": 0.0,
+  "t_hi": 13.0
+ },
+ {
+  "game": 36,
+  "index": 7,
+  "description": "Rough renovation",
+  "t_lo": 0.0,
+  "t_hi": 50.0
+ },
+ {
+  "game": 36,
+  "index": 8,
+  "description": "Silicone joints",
+  "t_lo": 0.0,
+  "t_hi": 19.0
+ },
+ {
+  "game": 36,
+  "index": 9,
+  "description": "Vehicle costs",
+  "t_lo": 0.0,
+  "t_hi": 24.08
+ },
+ {
+  "game": 36,
+  "index": 10,
+  "description": "Skilled worker hours",
+  "t_lo": 0.0,
+  "t_hi": 404.54
  }
 ]
