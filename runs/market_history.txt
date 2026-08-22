@@ -6,20 +6,20 @@ by category:
   diagnostic/inspect   fair value sat between ~EUR 207 and ~EUR 248  (n=12 with both bounds)  (we habitually UNDER-price this category)
   labour               fair value sat between ~EUR 241 and ~EUR 262  (n=8 with both bounds)  (we habitually UNDER-price this category)
   valuables            fair value sat between ~EUR 240 and ~EUR 396  (n=5 with both bounds)  (we habitually OVER-price this category)
+  electronics          fair value sat between ~EUR 270 and ~EUR 478  (n=8 with both bounds)  (we habitually OVER-price this category)
   material             fair value sat between ~EUR 81 and ~EUR 144  (n=4 with both bounds)  (we habitually UNDER-price this category)
-  electronics          fair value sat between ~EUR 270 and ~EUR 478  (n=6 with both bounds)  (we habitually OVER-price this category)
 line items that have appeared before, verbatim:
   vehicle costs                            fair value sat between ~EUR 63 and ~EUR 86  (n=8 with both bounds)
   skilled worker hours                     paid at least ~EUR 629, never refused  (n=7)
   construction waste disposal              fair value sat between ~EUR 57 and ~EUR 80  (n=5 with both bounds)
-  final site cleaning                      fair value sat between ~EUR 91 and ~EUR 121  (n=3 with both bounds)
   shipping                                 no price signal - every observation was refused as not covered
+  final site cleaning                      fair value sat between ~EUR 91 and ~EUR 121  (n=3 with both bounds)
+  installation                             paid at least ~EUR 432, never refused  (n=1)
   vehicle costs  return visit              no price signal - every observation was refused as not covered
   indoor leak detection                    paid at least ~EUR 409, never refused  (n=4)
   removal and disposal of damaged insula   paid at least ~EUR 106, never refused  (n=4)
   service technician hours                 fair value sat between ~EUR 449 and ~EUR 471  (n=3 with both bounds)
   condensation dryer                       paid at least ~EUR 49, never refused  (n=2)
   drying fan                               paid at least ~EUR 45, never refused  (n=1)
-  installation                             paid at least ~EUR 432, never refused  (n=1)
 </market_history>
 
