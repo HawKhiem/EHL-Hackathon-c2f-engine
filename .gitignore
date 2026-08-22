@@ -38,3 +38,7 @@ Thumbs.db
 # --- agent tooling ---
 .codegraph/
 .claude/settings.local.json
+
+# --- entire ---
+.claude
+.entire
