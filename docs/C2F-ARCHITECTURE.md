@@ -37,9 +37,16 @@ get_case.sh     policy text        covered? related?     a = charge         runs
 | OUT | `c2f/submit.py` | rows | `PUT /api/games/NN/submissions`, log in `runs/` |
 
 `c2f/run.py` orchestrates. **One pass**, on one model (`gpt-5.6-terra` everywhere). Its
-timeout is whatever is left of the ~53 s clock (floor `MIN_MODEL_S`); over `CHUNK_ITEMS`
-items it is split into parallel chunks so a slow chunk costs only its own rows, and every
-submission still carries the full row set. If it fails, nothing is submitted and the exit
+timeout is whatever is left of the ~53 s clock (floor `MIN_MODEL_S`); the invoice is split into
+`ceil(n / C2F_CHUNK_ITEMS)` parallel calls (10 items → 1, 20 → 2, 32 → 4, capped at
+`C2F_MAX_CHUNKS`) so a slow chunk costs only its own rows, and every submission still carries
+the full row set. Because one model and one pass free up the call budget, the pass runs at
+`reasoning_effort` **medium**: 29 items in 12 s, a 22-item case in 29 s, both inside the clock.
+**Every chunk submits.** Last write wins and only the state at close is scored, so an
+intermediate row still at its 0/0 placeholder costs nothing once a later chunk overwrites it,
+while a board that is never empty survives a crash, a hang or a misjudged clock. 0/0 is also
+the right blind guess: `b=0` wrongly rejects fair charges at `0.5a` extra each, where `b=∞`
+would accept fraud up to the cap `c ≥ 4t`. If it fails, nothing is submitted and the exit
 code is 1 — fall back to `./submit.sh NN 1:A:B ...` by hand.
 
 The old **fast** safety pass (a second, smaller model submitted the moment it landed, never
@@ -152,7 +159,13 @@ Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUAN
 | `C2F_MODEL` | full-pass model (default `gpt-5.6-terra`) |
 | `C2F_FAST_MODEL` | fast-pass model (default `gpt-5.6-terra`) |
 | `C2F_DIGEST_MODEL` | policy-digest model (default `gpt-5.6-terra`) |
-| `C2F_REASONING` | OpenAI `reasoning_effort` for the full pass (default `low`; gpt-5.6 floor is `none`, not `minimal`) |
+| `C2F_REASONING` | OpenAI `reasoning_effort` for the pass (default `medium`; gpt-5.6 floor is `none`, not `minimal`) |
+| `C2F_REASONING_FAST` | effort for the optional `--fast` pass (default `none`) |
+| `C2F_CHUNK_ITEMS` | items per parallel call (default 10) |
+| `C2F_MAX_CHUNKS` | cap on parallel calls (default 8) |
+
+Every one of these is written out in `.env` with the code default made explicit; delete a line
+and the default in `c2f/` applies.
 
 ## Logs
 

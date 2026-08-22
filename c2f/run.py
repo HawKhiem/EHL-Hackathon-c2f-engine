@@ -23,6 +23,7 @@ from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from pathlib import Path
 
 from c2f import llm
+from c2f.env import load_dotenv  # noqa: F401 - .env must be in os.environ before the constants below
 from c2f.extract import load_case
 from c2f.price import price_all
 from c2f.submit import ROOT, fetch_case, submit
@@ -37,8 +38,10 @@ MIN_MODEL_S = 10.0  # never give the full pass less than this
 # deadline and its whole result was lost - 6 items with 46 s left, and 29 items with 28 s left.
 # Split, the round's latency is the slowest chunk instead of the whole invoice, and a chunk that
 # misses costs only its own items: the rest keep their refined prices.
-CHUNK_ITEMS = 8
-MAX_CHUNKS = 4  # more parallel calls than this starts competing for the same rate limit
+# One model, one pass (see llm.py): the call budget freed up by dropping the fast pass and the
+# sol/luna lanes is spent on thinking instead - 10 items per call at a higher reasoning effort.
+CHUNK_ITEMS = int(os.environ.get("C2F_CHUNK_ITEMS") or 10)  # n -> ceil(n/10) calls: 10 -> 1, 20 -> 2, 32 -> 4
+MAX_CHUNKS = int(os.environ.get("C2F_MAX_CHUNKS") or 8)  # backstop (80 items); past that the calls fight the rate limit
 
 
 def log(msg: str, t0: float) -> None:
@@ -293,26 +296,30 @@ def main(argv: list[str] | None = None) -> int:
                     out, record["estimate"] = merged, merged
                     other_output = fast_out
 
-                    # Every submission carries the FULL row set, so an item with no estimate
-                    # from any source would go out at 0/0 - and 0/0 on a covered line pays the
-                    # 1.5x penalty to every opponent. That is reachable now that the digest
-                    # lane is gone and chunks start immediately: a late chunk can land before
-                    # the fast pass, leaving the other items with nothing behind them. So hold
-                    # the submission until some source covers every parsed item, unless nothing
-                    # is still in flight - then partial beats silence.
+                    # SUBMIT AFTER EVERY CHUNK. Last write wins on the server and only the
+                    # state at close is scored, so an intermediate row that is still a
+                    # placeholder costs nothing as long as a later chunk overwrites it - while
+                    # a board that is never empty survives a crash, a hang, or a clock we
+                    # misjudged. We used to hold until every parsed item had an estimate; with
+                    # the fast pass gone that meant one slow chunk could ship NOTHING.
+                    #
+                    # The placeholder for an item no chunk has reached yet is 0/0, and 0/0 is
+                    # the right ignorant guess: b=0 wrongly rejects fair charges at 0.5a extra
+                    # each, while b=inf accepts fraud up to the cap c >= 4t. Rejecting is the
+                    # cheaper mistake to make blind, so an unreached line is a safe line.
                     have = set(full_items) | {
                         int(it["index"])
                         for it in (fast_out or {}).get("items", [])
                         if str(it.get("index", "")).lstrip("-").isdigit()
                     }
                     missing = [i for i in parsed_idx if i not in have]
-                    if missing and pending:
+                    if missing:
                         log(
-                            f"[{tag}] holding submission: {len(missing)} item(s) still unpriced "
-                            f"by any pass ({missing[:6]}{'...' if len(missing) > 6 else ''})",
+                            f"[{tag}] submitting with {len(missing)} item(s) still at the 0/0 "
+                            f"placeholder ({missing[:6]}{'...' if len(missing) > 6 else ''}) - "
+                            "a later chunk overwrites them",
                             t0,
                         )
-                        continue
                 else:
                     record["estimate"] = out  # fast is the fallback until a chunk lands
                     other_output = None
@@ -343,8 +350,20 @@ def main(argv: list[str] | None = None) -> int:
     finally:
         ex.shutdown(wait=False, cancel_futures=True)
 
+    # Last-ditch flush. The hold above waits for every parsed item to have an estimate before
+    # submitting, which used to be safe because the fast pass had already put rows on the board.
+    # With one pass there is nothing behind it: a deadline hit while holding would ship NOTHING.
+    # Partial rows beat silence - the items a dead chunk never covered go out at 0/0 either way.
+    if not record["submissions"] and (record.get("estimate") or {}).get("items"):
+        log("deadline hit while holding - submitting the partial estimate rather than nothing", t0)
+        try:
+            resolved, _ = resolve_invalid_items(merge_estimates(case, record["estimate"]), {})
+            do_submit(price_all(resolved, other_output=None), "partial")
+        except Exception as e:  # noqa: BLE001 - a broken partial must not mask the real failure
+            log(f"partial submission failed: {e}", t0)
+
     if not record["submissions"]:
-        log("NO SUBMISSION MADE - both model passes failed", t0)
+        log("NO SUBMISSION MADE - the model pass failed", t0)
         save()
         return 1
     record["finished_at_s"] = round(time.time() - t0, 1)

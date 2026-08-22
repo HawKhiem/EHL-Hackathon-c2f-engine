@@ -172,7 +172,9 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, f
         # submission and must land early - gpt-5.6-terra at "low" took 35 s on a 32-item case,
         # at "none" 29 s; on small cases 9 s vs 5 s. gpt-5.x rejects "minimal"; its floor is "none".
         small = fast or "mini" in model or "nano" in model
-        default = ("minimal" if model.startswith("gpt-5-") else "none") if small else "low"
+        # The full pass thinks harder now that it is the ONLY call: one model, one pass, and at
+        # most CHUNK_ITEMS items per call, so the effort is spent on a short prompt-relative job.
+        default = ("minimal" if model.startswith("gpt-5-") else "none") if small else "medium"
         kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING_FAST" if small else "C2F_REASONING", default)
     resp = client.chat.completions.create(
         model=model,
