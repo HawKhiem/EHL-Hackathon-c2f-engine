@@ -42,3 +42,6 @@ Thumbs.db
 # --- entire ---
 .claude
 .codex
+
+# --- challenge case data (local only, never commit) ---
+cases/
