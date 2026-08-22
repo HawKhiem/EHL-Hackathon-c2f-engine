@@ -214,6 +214,50 @@ def main(argv: list[str] | None = None) -> int:
         save()
         log(f"submitted [{tag}]: " + ", ".join(f"#{r['index']} a={r['charge_price']} b={r['acceptance_limit']}" for r in rows), t0)
 
+    # ---- STRATEGY v2 (C2F_STRATEGY=v2): memory-anchored single call, K parallel samples.
+    # See c2f.v2. The first sample to land is submitted at once as insurance; when all K are in,
+    # the per-item median board overwrites it (last write wins on the server).
+    if os.environ.get("C2F_STRATEGY", "").lower() == "v2":
+        from c2f import v2 as V2
+
+        k = int(os.environ.get("C2F_V2_SAMPLES") or 3)
+        memory = V2.live_memory()
+        record["strategy"] = "v2"
+        budget = max(MIN_MODEL_S, DEADLINE_S - (time.time() - t0))
+        exv = ThreadPoolExecutor(max_workers=k)
+        futs = [exv.submit(V2.call_v2, dict(case), memory, budget) for _ in range(k)]
+        outs: list[dict] = []
+        try:
+            pending = set(futs)
+            while pending:
+                remaining = DEADLINE_S - (time.time() - t0)
+                if remaining <= 0:
+                    log("deadline reached, stop waiting for v2 samples", t0)
+                    break
+                done, pending = wait(pending, timeout=remaining, return_when=FIRST_COMPLETED)
+                for f in done:
+                    try:
+                        out, secs = f.result()
+                    except Exception as e:  # noqa: BLE001
+                        log(f"v2 sample failed: {e}", t0)
+                        continue
+                    outs.append(out)
+                    log(f"v2 sample {len(outs)}/{k} answered in {secs}s", t0)
+                    combined = V2.combine_samples(outs)
+                    rows, dbg = V2.rows_v2(case, combined, memory)
+                    record["estimate_v2"] = combined
+                    record["v2_debug"] = {str(i): d for i, d in dbg.items()}
+                    do_submit(rows, f"v2[{len(outs)}/{k}]")
+        finally:
+            exv.shutdown(wait=False, cancel_futures=True)
+        if not record["submissions"]:
+            log("v2 produced nothing - falling back to the v1 pass", t0)
+        else:
+            record["finished_at_s"] = round(time.time() - t0, 1)
+            save()
+            log(f"done (v2). log: {run_path.relative_to(ROOT)}", t0)
+            return 0
+
     # ---- MODEL: ONE pass. No votes, and no fast safety pass unless --fast is given.
     full_model = os.environ.get("C2F_MODEL")
     fast_model = os.environ.get("C2F_FAST_MODEL") or "gpt-5.6-terra"
@@ -384,6 +428,24 @@ def main(argv: list[str] | None = None) -> int:
             log(f"deadline reached with {still} still in flight - abandoning, using best submission so far", t0)
     finally:
         ex.shutdown(wait=False, cancel_futures=True)
+
+    # ---- REFINE: median-of-k on whale items, when the clock allows. One sample of t_mid on
+    # a dominant line swings the round (game 41: 8,000 vs 6,000 on the same prompt = +-65k),
+    # so if the board is already safe (a submission exists) and >= 12 s remain, resample the
+    # big items and submit once more - last write wins.
+    remaining = DEADLINE_S - (time.time() - t0)
+    est_now = record.get("estimate") or {}
+    if record["submissions"] and remaining >= 12.0 and est_now.get("items"):
+        try:
+            refined = llm.resample_whales(case, est_now, timeout=remaining - 4.0, model=full_model)
+            n_resampled = sum(1 for it in refined.get("items", []) if it.get("_n_samples", 0) > 1)
+            if n_resampled:
+                record["estimate"] = refined
+                resolved, _ = resolve_invalid_items(merge_estimates(case, refined), {})
+                do_submit(price_all(resolved, other_output=None), "refine")
+                log(f"refined {n_resampled} whale item(s) with extra samples", t0)
+        except Exception as e:  # noqa: BLE001 - refinement must never cost the round
+            log(f"refine pass failed (keeping earlier submission): {e}", t0)
 
     # Last-ditch flush. The hold above waits for every parsed item to have an estimate before
     # submitting, which used to be safe because the fast pass had already put rows on the board.

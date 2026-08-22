@@ -93,6 +93,7 @@ def replay(game_id: int) -> dict:
     attach_policy_digest(case, case_dir)  # same prompt the live run would build
     t0 = time.time()
     out, _meta = llm.estimate(case, timeout=60, strict=False)
+    out = llm.resample_whales(case, out, timeout=60)  # median-of-k on the round-deciding items
     rows = price_all(merge_estimates(case, out))
     return {"rows": rows, "estimate": out, "seconds": round(time.time() - t0, 1)}
 

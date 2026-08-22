@@ -1,0 +1,613 @@
+{
+ "game": 44,
+ "estimate": {
+  "items": [
+   {
+    "index": 1,
+    "p_covered": 0.95,
+    "q10": 6219,
+    "q50": 8200,
+    "q90": 10253,
+    "reason": "Robbery confirmed; valuables limit applies, amount not supplied"
+   },
+   {
+    "index": 2,
+    "p_covered": 0.93,
+    "q10": 2500,
+    "q50": 5500,
+    "q90": 12000,
+    "reason": "Robbery confirmed; diamond ring subject to valuables sub-limit"
+   },
+   {
+    "index": 3,
+    "p_covered": 0.93,
+    "q10": 800,
+    "q50": 2200,
+    "q90": 5000,
+    "reason": "Robbery confirmed; gold necklace subject to valuables sub-limit"
+   },
+   {
+    "index": 4,
+    "p_covered": 0.97,
+    "q10": 348,
+    "q50": 460,
+    "q90": 573,
+    "reason": "Robbery-confirmed cash; nominal value subject to cash sub-limit"
+   },
+   {
+    "index": 5,
+    "p_covered": 0.97,
+    "q10": 400,
+    "q50": 750,
+    "q90": 1300,
+    "reason": "Robbery-confirmed personal mobile phone; general household effects"
+   },
+   {
+    "index": 6,
+    "p_covered": 0.01,
+    "q10": 400,
+    "q50": 1100,
+    "q90": 2400,
+    "reason": "Travel and hotel disruption expressly excluded by 3.1.7"
+   },
+   {
+    "index": 7,
+    "p_covered": 0.01,
+    "q10": 10,
+    "q50": 25,
+    "q90": 60,
+    "reason": "Shipping expressly excluded under 7.1.8(b)"
+   },
+   {
+    "index": 8,
+    "p_covered": 0.01,
+    "q10": 42,
+    "q50": 55,
+    "q90": 68,
+    "reason": "Claim-document translation expressly excluded by 3.1.6"
+   },
+   {
+    "index": 9,
+    "p_covered": 0.01,
+    "q10": 60,
+    "q50": 140,
+    "q90": 300,
+    "reason": "Claim-document certification expressly excluded by 3.1.6"
+   },
+   {
+    "index": 10,
+    "p_covered": 0.01,
+    "q10": 5,
+    "q50": 18,
+    "q90": 50,
+    "reason": "Provider working materials expressly excluded by 7.1.8(e)"
+   },
+   {
+    "index": 11,
+    "p_covered": 0.01,
+    "q10": 25,
+    "q50": 65,
+    "q90": 150,
+    "reason": "Claim-processing administration expressly excluded by 3.1.5"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "index": 1,
+   "charge_price": 8842.16,
+   "acceptance_limit": 8200.0
+  },
+  {
+   "index": 2,
+   "charge_price": 5930.72,
+   "acceptance_limit": 5500.0
+  },
+  {
+   "index": 3,
+   "charge_price": 2372.29,
+   "acceptance_limit": 2200.0
+  },
+  {
+   "index": 4,
+   "charge_price": 458.1,
+   "acceptance_limit": 316.96
+  },
+  {
+   "index": 5,
+   "charge_price": 662.14,
+   "acceptance_limit": 458.14
+  },
+  {
+   "index": 6,
+   "charge_price": 810.54,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 7,
+   "charge_price": 18.42,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 8,
+   "charge_price": 48.22,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 9,
+   "charge_price": 103.16,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 10,
+   "charge_price": 13.26,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 11,
+   "charge_price": 47.9,
+   "acceptance_limit": 0.0
+  }
+ ],
+ "debug": {
+  "1": {
+   "p_cov": 0.95,
+   "mu": 9.011889433252344,
+   "sg": 0.6,
+   "mem": true,
+   "q50": 8200,
+   "desc": "Compensation for stolen watch"
+  },
+  "2": {
+   "p_cov": 0.93,
+   "mu": 8.612503371220562,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 5500,
+   "desc": "Compensation for stolen diamond ring"
+  },
+  "3": {
+   "p_cov": 0.93,
+   "mu": 7.696212639346407,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 2200,
+   "desc": "Compensation for stolen gold necklace"
+  },
+  "4": {
+   "p_cov": 0.97,
+   "mu": 6.0516871181281555,
+   "sg": 0.6,
+   "mem": true,
+   "q50": 460,
+   "desc": "Compensation for cash taken in robbery"
+  },
+  "5": {
+   "p_cov": 0.97,
+   "mu": 6.420073206530356,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 750,
+   "desc": "Compensation for stolen mobile phone"
+  },
+  "6": {
+   "p_cov": 0.01,
+   "mu": 6.803065458786461,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 1100,
+   "desc": "Replacement travel and extra hotel night"
+  },
+  "7": {
+   "p_cov": 0.05,
+   "mu": 3.0188758248682004,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 25,
+   "desc": "Shipping"
+  },
+  "8": {
+   "p_cov": 0.01,
+   "mu": 3.981202667272922,
+   "sg": 0.23076923076923075,
+   "why": "uncovered free shot",
+   "q50": 55,
+   "desc": "Translation from Spanish to English"
+  },
+  "9": {
+   "p_cov": 0.01,
+   "mu": 4.741642422609304,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 140,
+   "desc": "Notary certification of translated docum"
+  },
+  "10": {
+   "p_cov": 0.05,
+   "mu": 2.6903717578961643,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 18,
+   "desc": "Material costs"
+  },
+  "11": {
+   "p_cov": 0.05,
+   "mu": 3.9743872698956366,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 65,
+   "desc": "Administrative and claim-processing fee"
+  }
+ },
+ "seconds": 10.5,
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 153615.16,
+    "cost": 113793.88,
+    "net": 39821.29
+   },
+   "optimistic": {
+    "income": 180775.41,
+    "cost": 113793.88,
+    "net": 66981.54
+   }
+  },
+  "open_pairings": {
+   "income": 10,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 8842.16,
+    "b": 8200.0,
+    "t_lo": 9361.36,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 141474.56000000003,
+     "optimistic": 141474.56000000003
+    },
+    "cost": {
+     "pessimistic": 65892.90999999999,
+     "optimistic": 65892.90999999999
+    }
+   },
+   "2": {
+    "a": 5930.72,
+    "b": 5500.0,
+    "t_lo": 0.0,
+    "t_hi": 883.86,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 23722.88
+    },
+    "cost": {
+     "pessimistic": 22307.99,
+     "optimistic": 22307.99
+    }
+   },
+   "3": {
+    "a": 2372.29,
+    "b": 2200.0,
+    "t_lo": 0.0,
+    "t_hi": 662.89,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 2372.29
+    },
+    "cost": {
+     "pessimistic": 16552.0,
+     "optimistic": 16552.0
+    }
+   },
+   "4": {
+    "a": 458.1,
+    "b": 316.96,
+    "t_lo": 557.12,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 7329.600000000002,
+     "optimistic": 7329.600000000002
+    },
+    "cost": {
+     "pessimistic": 7123.264999999999,
+     "optimistic": 7123.264999999999
+    }
+   },
+   "5": {
+    "a": 662.14,
+    "b": 458.14,
+    "t_lo": 442.75,
+    "t_hi": 510.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 4634.98,
+     "optimistic": 4634.98
+    },
+    "cost": {
+     "pessimistic": 1917.71,
+     "optimistic": 1917.71
+    }
+   },
+   "6": {
+    "a": 810.54,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 810.54
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "7": {
+    "a": 18.42,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 18.42,
+     "optimistic": 18.42
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "8": {
+    "a": 48.22,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 39.62,
+    "fair": false,
+    "income": {
+     "pessimistic": 96.44,
+     "optimistic": 144.66
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "9": {
+    "a": 103.16,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 37.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 206.32
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "10": {
+    "a": 13.26,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 13.26,
+     "optimistic": 13.26
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "11": {
+    "a": 47.9,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 47.9,
+     "optimistic": 47.9
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ },
+ "v1_score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 168324.88,
+    "cost": 100116.12,
+    "net": 68208.76
+   },
+   "optimistic": {
+    "income": 181116.44,
+    "cost": 100116.12,
+    "net": 81000.32
+   }
+  },
+  "open_pairings": {
+   "income": 11,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 9040.06,
+    "b": 8324.44,
+    "t_lo": 9361.36,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 144640.96,
+     "optimistic": 144640.96
+    },
+    "cost": {
+     "pessimistic": 65892.90999999999,
+     "optimistic": 65892.90999999999
+    }
+   },
+   "2": {
+    "a": 2997.64,
+    "b": 2760.35,
+    "t_lo": 0.0,
+    "t_hi": 883.86,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 11990.56
+    },
+    "cost": {
+     "pessimistic": 22307.99,
+     "optimistic": 22307.99
+    }
+   },
+   "3": {
+    "a": 1112.37,
+    "b": 760.63,
+    "t_lo": 0.0,
+    "t_hi": 662.89,
+    "fair": false,
+    "income": {
+     "pessimistic": 8898.96,
+     "optimistic": 8898.96
+    },
+    "cost": {
+     "pessimistic": 2026.8899999999999,
+     "optimistic": 2026.8899999999999
+    }
+   },
+   "4": {
+    "a": 505.9,
+    "b": 344.4,
+    "t_lo": 557.12,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 8094.399999999998,
+     "optimistic": 8094.399999999998
+    },
+    "cost": {
+     "pessimistic": 7123.264999999999,
+     "optimistic": 7123.264999999999
+    }
+   },
+   "5": {
+    "a": 393.41,
+    "b": 269.01,
+    "t_lo": 442.75,
+    "t_hi": 510.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 6294.559999999999,
+     "optimistic": 6294.559999999999
+    },
+    "cost": {
+     "pessimistic": 2765.065,
+     "optimistic": 2765.065
+    }
+   },
+   "6": {
+    "a": 585.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 585.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "7": {
+    "a": 40.5,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 40.5,
+     "optimistic": 40.5
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "8": {
+    "a": 135.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 39.62,
+    "fair": false,
+    "income": {
+     "pessimistic": 270.0,
+     "optimistic": 270.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "9": {
+    "a": 108.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 37.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 216.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "10": {
+    "a": 27.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 27.0,
+     "optimistic": 27.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "11": {
+    "a": 58.5,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 58.5,
+     "optimistic": 58.5
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ }
+}

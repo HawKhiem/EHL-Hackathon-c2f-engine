@@ -38,17 +38,21 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
                 - How many units are involved? (from the quantity field, or reason from the description)
                 - What is a plausible market unit price in Germany in 2026?
                 - Multiply to get the gross total including VAT.
-              Then give three numbers:
-                t_low  : a price almost certainly acceptable (use cheapest reasonable item/rate)
-                t_mid  : your best single estimate of the maximum acceptable price
-                t_high : a price that is probably already too expensive
+              Then give three numbers - honest quantiles of your belief about the threshold,
+              not negotiating positions:
+                t_low  : 10th percentile - only a 10% chance the true threshold is below this
+                t_mid  : your median estimate of the threshold (the maximum acceptable price)
+                t_high : 90th percentile - only a 10% chance the true threshold is above this
               Use market prices in Germany in 2026 for a standard / mid-range
               replacement or a typical tradesman rate - NOT premium brands, NOT
-              worst-case. For bundled services (inspection, diagnosis, call-out), price only the
-              QUANTITY needed to address the damage, never the full invoice quantity unless
-              explicitly justified. Claims experts are frugal: when unsure, go lower. Use any
-              value hints in the damage description (stated worth, age, make, size). Respect policy limits
-              (sum insured, market value, caps, deductibles) - t must not exceed them.
+              worst-case. The threshold applies to the line item AS INVOICED: keep the invoiced
+              quantity for materials, parts, hours and rental days - reviewers accept the full
+              line unless the quantity itself is clearly unjustified for the described damage.
+              Past rounds show reviewers accept normal German market gross rates, not
+              bargain-basement prices - aim for the realistic market price, neither padded nor
+              undercut. Use any value hints in the damage description (stated worth, age, make,
+              size). Respect policy limits (sum insured, market value, caps, deductibles) -
+              t must not exceed them.
 
               BUT the description's own characterisation of the item binds: if it
               calls something "expensive", "designer", "luxury", "premium",
@@ -59,28 +63,54 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
 
               NEVER INVENT SPECIFICS. If the invoice/description does not state a brand,
               model, screen size, wattage, channel count or other premium feature, do not
-              assume one - price the CHEAPEST reasonable standard replacement that matches
-              only what is actually stated, not a mid-range guess dressed up with invented
-              detail. When the evidence for a number is weak (no stated size/spec/age/price),
-              make t_low MUCH more conservative than t_mid - at least 2-3x lower, closer to the
-              cheapest plausible bottom-of-market item. A low t_low costs nothing (it only raises b)
-              while an inflated one risks accepting fraud. The asymmetry matters: being 2x too low on
-              t_low costs zero; being 2x too high costs real money when opponents exploit it.
+              assume one - price a standard mid-market replacement that matches only what is
+              actually stated. When the evidence for a number is weak (no stated
+              size/spec/age/price), express that as a WIDE t_low..t_high interval, not by
+              dragging t_mid down.
 
-              Bundled diagnostic, inspection, call-out or service charges: price only the
-              ONE necessary visit/report, never the full billed quantity, unless the
-              invoice or description gives a specific reason for more than one.
+              Repeated call-out, travel or inspection FEES (the same flat fee billed several
+              times): allow only the visits the described damage actually needed, unless the
+              invoice or description justifies more. This applies to duplicated service fees
+              only - never cut the quantity of materials, parts, labour hours or rental days
+              below what the invoice states.
+
+              MARKET EVIDENCE BINDS: when <market_history> lists a line item verbatim or a
+              matching category, your t_mid must not sit below its proven floor without a
+              case-specific reason (a policy cap, a stated lower value). Past reviewers
+              accepted those prices; undercutting them has cost real money every round.
+
+              DECLARED / SCHEDULED ITEMS: when the description or policy says an item is
+              individually declared on a valuables schedule, has a valuation certificate, or
+              is insured at an agreed value, the certificate/agreed value governs t - NOT a
+              generic replacement estimate. "Declared at a value well above the standard
+              per-item limit" means exactly that: take the standard sub-limit as a FLOOR,
+              set t_mid well above it (past rounds settled such items at EUR 7,000-11,000+),
+              and carry the upside in t_high. Under-pricing a scheduled valuable has been
+              one of this system's largest single-round losses, twice.
+
+              SPECIALIST-TIER SERVICES: when the case involves a high-value or specialist
+              object (fine art, a painting, antiques, jewellery, instruments), EVERY service
+              touching that object - assessment, transport, stabilisation, conservation,
+              restoration - is priced on the SPECIALIST market (accredited conservators, art
+              handlers), typically 2-4x an ordinary tradesman's rate, and it scales with the
+              object's stated value tier. A "full restoration" of a high-value painting is a
+              conservator's project (thousands of euros), not a redecorating job. Pricing
+              fine-art services like ordinary trades has been this system's largest error.
 
    COMMON FAILURE MODES TO AVOID:
    - Confusing repair/restoration cost with replacement cost: repair is always cheaper.
    - Pricing the whole project when the invoice is for one small component within it.
-   - Over-interpreting "labour" costs: a 2-hour job should be ~€50-150, not €2,000.
    - Misunderstanding quantity: if quantity=1 but description says "per hour" or "per m²",
-     check if the invoice text specifies the actual hours/area - the quantity field is often generic.
-   - Treating "diagnostic/inspection" as premium services: they are cost-effective services,
-     typically €50-300, not €5,000 unless it is a major specialist survey.
+     check if the invoice text specifies the actual hours/area - the quantity field is often
+     generic, and the fair total covers ALL invoiced units (hours x rate, m² x rate, days x
+     rate), not one unit.
+   - Under-pricing small material and consumable lines: even minor parts carry handling,
+     gross margin and VAT - a line's fair total is rarely below the trade's minimum charge.
+   - Pricing a RENTAL line ("unit rental", "hire") at the equipment's purchase price: a
+     rental is the daily/weekly rate x the billed period stated in the invoice - usually a
+     small fraction of buying the machine.
    - Assuming "expensive" items are luxury goods: the invoice context (e.g. "replaced the damaged
-     watch") means fair market replacement, not premium resale value.
+     watch") means fair market replacement of that stated tier, not premium resale value.
 
    If the policy text refers to a cap, sub-limit or schedule value for this item's category
    but does not state the number (e.g. "as per Appendix B" with no figure given), set
@@ -213,6 +243,87 @@ def provider() -> str:
 
 
 STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whether an item is covered or related, answer covered=false (we can be corrected later, but a wrong acceptance pays a fraud)."
+
+# ---- whale resampling: median-of-k on the items that decide the round -------------------
+# One sample of t_mid on a dominant item swings the round: game 41's robbery compensation
+# came out 8,000 on one run and 6,000 on the next (same prompt), a +-65k difference in net.
+# For items whose stake crosses RESAMPLE_T we ask the model again (answer narrowed via
+# `only`, whole case still in the prompt) and combine per item: majority coverage, median
+# t values, and a between-sample sigma that widens the pricing belief exactly when the
+# samples disagree.
+RESAMPLE_T = float(os.environ.get("C2F_RESAMPLE_T") or 1000.0)
+RESAMPLE_K = int(os.environ.get("C2F_RESAMPLE_K") or 2)  # extra samples (total = 1 + K)
+
+
+def _stake(it: dict) -> float:
+    for k in ("t_mid", "t_if_covered"):
+        try:
+            v = float(it.get(k) or 0)
+        except (TypeError, ValueError):
+            continue
+        if v > 0:
+            return v
+    return 0.0
+
+
+def _median(xs: list[float]) -> float:
+    xs = sorted(xs)
+    n = len(xs)
+    return xs[n // 2] if n % 2 else 0.5 * (xs[n // 2 - 1] + xs[n // 2])
+
+
+def resample_whales(case: dict, out: dict, *, k: int = RESAMPLE_K, threshold: float = RESAMPLE_T,
+                    timeout: float = 25.0, model: str | None = None) -> dict:
+    """Return `out` with every whale item replaced by the sample-combined version.
+
+    Best effort: a failed resample leaves the original single-sample item untouched."""
+    import math
+    from concurrent.futures import ThreadPoolExecutor
+
+    big = [int(it["index"]) for it in out.get("items", [])
+           if str(it.get("index", "")).lstrip("-").isdigit() and _stake(it) >= threshold]
+    if not big or k <= 0:
+        return out
+    samples: list[dict[int, dict]] = []
+    with ThreadPoolExecutor(max_workers=k) as ex:
+        futs = [ex.submit(estimate, dict(case), timeout=timeout, model=model, only=list(big)) for _ in range(k)]
+        for f in futs:
+            try:
+                extra, _meta = f.result()
+                samples.append({int(it["index"]): it for it in extra.get("items", [])
+                                if str(it.get("index", "")).lstrip("-").isdigit()})
+            except Exception:  # noqa: BLE001 - a failed resample must never sink the round
+                continue
+    if not samples:
+        return out
+    merged_items = []
+    for it in out.get("items", []):
+        try:
+            idx = int(it["index"])
+        except (KeyError, TypeError, ValueError):
+            merged_items.append(it)
+            continue
+        if idx not in big:
+            merged_items.append(it)
+            continue
+        pool = [it] + [s[idx] for s in samples if idx in s]
+        # The MAIN pass's coverage call stands - a resample exists to stabilise the NUMBERS.
+        # Letting a 2-of-3 vote flip coverage turned game 40's covered restoration (t proven
+        # in [2137, 2880)) into a b=0 refusal of every fair charge. Only samples that agree
+        # with the main coverage contribute medians; if none agree, the item stays as-is.
+        covered = bool(it.get("covered", False)) and bool(it.get("related", True))
+        agree = [p for p in pool if (bool(p.get("covered", False)) and bool(p.get("related", True))) == covered]
+        combined = dict(it)
+        for key in ("t_low", "t_mid", "t_high", "t_if_covered"):
+            vals = [float(p.get(key) or 0) for p in agree if float(p.get(key) or 0) > 0]
+            if vals:
+                combined[key] = round(_median(vals), 2)
+        mids = [float(p.get("t_mid") or 0) for p in pool if float(p.get("t_mid") or 0) > 0]
+        if len(mids) >= 2:
+            combined["_sample_sigma"] = round((math.log(max(mids)) - math.log(min(mids))) / 2, 4)
+        combined["_n_samples"] = len(pool)
+        merged_items.append(combined)
+    return {**out, "items": merged_items}
 
 
 ADDENDUM_PATH = pathlib.Path(__file__).resolve().parent.parent / "runs" / "prompt_addendum.txt"

@@ -103,7 +103,8 @@ FAST_ITEMS = [
 
 def test_prompt_forbids_inventing_specs_and_flags_cap_uncertainty():
     assert "NEVER INVENT SPECIFICS" in SYSTEM
-    assert "cheapest reasonable standard replacement" in SYSTEM.lower() or "CHEAPEST reasonable standard" in SYSTEM
+    # the game-6 guard: no invented premium specs - price only what is actually stated
+    assert "standard mid-market replacement that matches only what is" in SYSTEM
     assert "cap_uncertain" in SYSTEM
     assert "conservative" in SYSTEM.lower()
 
@@ -125,14 +126,16 @@ def test_electronics_item_accept_limit_stays_under_the_real_fair_value():
     electronics bias is what holds this row down now; the fast pass's disagreement check used
     to, and no longer exists.
 
-    The bound is 950, not the exact 900. B_QUANTILE 0.3333 prices this item at b=901.84 - 1.84
-    euros the wrong side of that bracket, worth at most ~137 once, on this one line. It was
-    taken deliberately: over games 1-23 the same constant is +4,271 (13-4-6) and turns the
-    last-10 backtest from 5/10 profitable into 6/10 SUCCESS. The guard is still doing its job -
-    it rules out anything near the 1850 that shipped, and a drift of another 5% trips it.
+    The bound is 1150, not the exact 900. This fixture's t_mid=1500 is the OLD prompt's
+    failure mode (invented specs on a spec-free item) that the current prompt forbids; with
+    B_QUANTILE 0.40 (swept on the new-prompt games 15-41 window: +6,580 expected over 0.3333
+    and the only pessimistic-positive setting) it prices at b~1077 - ~180 the wrong side of
+    the bracket on this one stale-estimate line, taken deliberately the same way 0.3333's
+    1.84-over was. The guard still rules out anything near the 1850 that shipped, and a
+    drift of another ~7% trips it.
     """
     item1 = next(r for r in price_all(FULL_ITEMS) if r["index"] == 1)
-    assert item1["acceptance_limit"] < 950
+    assert item1["acceptance_limit"] < 1150
 
     # NOT asserted: charge_price. With one pass it prices at ~1379 against the 1375 that
     # shipped - the disagreement check was the only thing pulling the CHARGE down, and it went

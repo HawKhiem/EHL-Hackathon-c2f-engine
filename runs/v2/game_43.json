@@ -1,0 +1,256 @@
+{
+ "game": 43,
+ "estimate": {
+  "items": [
+   {
+    "index": 1,
+    "p_covered": 0.99,
+    "q10": 180,
+    "q50": 320,
+    "q90": 520,
+    "reason": "Impact-cracked panel covered under 2.6.1, 2.6.3(a)."
+   },
+   {
+    "index": 2,
+    "p_covered": 0.99,
+    "q10": 90,
+    "q50": 180,
+    "q90": 320,
+    "reason": "Impact-damaged housing corner covered under 2.6.3(b)."
+   },
+   {
+    "index": 3,
+    "p_covered": 0.01,
+    "q10": 25,
+    "q50": 50,
+    "q90": 90,
+    "reason": "Pre-existing scuff polish excluded by 7.1.11."
+   },
+   {
+    "index": 4,
+    "p_covered": 0.98,
+    "q10": 35,
+    "q50": 60,
+    "q90": 100,
+    "reason": "Necessary diagnostic covered under 5.2.3 after insured event."
+   }
+  ]
+ },
+ "rows": [
+  {
+   "index": 1,
+   "charge_price": 282.51,
+   "acceptance_limit": 200.08
+  },
+  {
+   "index": 2,
+   "charge_price": 158.91,
+   "acceptance_limit": 112.55
+  },
+  {
+   "index": 3,
+   "charge_price": 36.84,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 4,
+   "charge_price": 52.97,
+   "acceptance_limit": 37.09
+  }
+ ],
+ "debug": {
+  "1": {
+   "p_cov": 0.99,
+   "mu": 5.568320995793772,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 320,
+   "desc": "Laptop screen crack repair"
+  },
+  "2": {
+   "p_cov": 0.99,
+   "mu": 4.99295685089021,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 180,
+   "desc": "Lower-right corner and housing repair"
+  },
+  "3": {
+   "p_cov": 0.01,
+   "mu": 3.712023005428146,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 50,
+   "desc": "Polish of pre-existing lid scuff (surfac"
+  },
+  "4": {
+   "p_cov": 0.98,
+   "mu": 3.8943445622221002,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 60,
+   "desc": "Diagnostic inspection"
+  }
+ },
+ "seconds": 4.6,
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 7947.08,
+    "cost": 8493.99,
+    "net": -546.9
+   },
+   "optimistic": {
+    "income": 7947.08,
+    "cost": 8493.99,
+    "net": -546.9
+   }
+  },
+  "open_pairings": {
+   "income": 3,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 282.51,
+    "b": 200.08,
+    "t_lo": 434.94,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 4520.160000000002,
+     "optimistic": 4520.160000000002
+    },
+    "cost": {
+     "pessimistic": 4866.150000000001,
+     "optimistic": 4866.150000000001
+    }
+   },
+   "2": {
+    "a": 158.91,
+    "b": 112.55,
+    "t_lo": 229.29,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 2542.56,
+     "optimistic": 2542.56
+    },
+    "cost": {
+     "pessimistic": 2376.6499999999996,
+     "optimistic": 2376.6499999999996
+    }
+   },
+   "3": {
+    "a": 36.84,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 8.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 36.84,
+     "optimistic": 36.84
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "4": {
+    "a": 52.97,
+    "b": 37.09,
+    "t_lo": 111.99,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 847.5200000000003,
+     "optimistic": 847.5200000000003
+    },
+    "cost": {
+     "pessimistic": 1251.185,
+     "optimistic": 1251.185
+    }
+   }
+  }
+ },
+ "v1_score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 7002.3,
+    "cost": 8232.59,
+    "net": -1230.29
+   },
+   "optimistic": {
+    "income": 10240.86,
+    "cost": 8232.59,
+    "net": 2008.27
+   }
+  },
+  "open_pairings": {
+   "income": 18,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 280.05,
+    "b": 191.49,
+    "t_lo": 434.94,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 4480.800000000001,
+     "optimistic": 4480.800000000001
+    },
+    "cost": {
+     "pessimistic": 4965.150000000001,
+     "optimistic": 4965.150000000001
+    }
+   },
+   "2": {
+    "a": 154.5,
+    "b": 105.65,
+    "t_lo": 229.29,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 2472.0,
+     "optimistic": 2472.0
+    },
+    "cost": {
+     "pessimistic": 2430.6499999999996,
+     "optimistic": 2430.6499999999996
+    }
+   },
+   "3": {
+    "a": 49.5,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 8.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 49.5,
+     "optimistic": 49.5
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "4": {
+    "a": 202.41,
+    "b": 138.41,
+    "t_lo": 111.99,
+    "t_hi": null,
+    "fair": null,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 3238.5599999999995
+    },
+    "cost": {
+     "pessimistic": 836.7900000000001,
+     "optimistic": 836.7900000000001
+    }
+   }
+  }
+ }
+}

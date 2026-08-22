@@ -1,0 +1,715 @@
+{
+ "game": 40,
+ "estimate": {
+  "items": [
+   {
+    "index": 1,
+    "p_covered": 0.98,
+    "q10": 79,
+    "q50": 105,
+    "q90": 130,
+    "reason": "Affected-surface cleaning is expressly covered under 7.1.7(h)."
+   },
+   {
+    "index": 2,
+    "p_covered": 0.98,
+    "q10": 113,
+    "q50": 150,
+    "q90": 186,
+    "reason": "Leak-source inspection expressly covered under 7.1.7(e)."
+   },
+   {
+    "index": 3,
+    "p_covered": 0.98,
+    "q10": 58,
+    "q50": 75,
+    "q90": 95,
+    "reason": "Removal and disposal of affected trim covered under 7.1.7(a)."
+   },
+   {
+    "index": 4,
+    "p_covered": 0.97,
+    "q10": 104,
+    "q50": 140,
+    "q90": 172,
+    "reason": "Like-for-like replacement of water-damaged skirting is covered."
+   },
+   {
+    "index": 5,
+    "p_covered": 0.98,
+    "q10": 91,
+    "q50": 120,
+    "q90": 151,
+    "reason": "Necessary moisture measurement is covered under 7.1.7(b)."
+   },
+   {
+    "index": 6,
+    "p_covered": 0.98,
+    "q10": 192,
+    "q50": 255,
+    "q90": 317,
+    "reason": "Drying affected utility room and hallway floor is covered."
+   },
+   {
+    "index": 7,
+    "p_covered": 0.97,
+    "q10": 52,
+    "q50": 70,
+    "q90": 86,
+    "reason": "Necessary drying-equipment hire is covered under 7.1.7(e)."
+   },
+   {
+    "index": 8,
+    "p_covered": 0.96,
+    "q10": 577,
+    "q50": 680,
+    "q90": 778,
+    "reason": "Four necessary skilled-worker hours at customary rates are covered."
+   },
+   {
+    "index": 9,
+    "p_covered": 0.97,
+    "q10": 119,
+    "q50": 155,
+    "q90": 196,
+    "reason": "Specialist transport of affected artwork is covered under 5.2.6."
+   },
+   {
+    "index": 10,
+    "p_covered": 0.97,
+    "q10": 344,
+    "q50": 450,
+    "q90": 568,
+    "reason": "Required specialist assessment is expressly covered under 5.2.6."
+   },
+   {
+    "index": 11,
+    "p_covered": 0.97,
+    "q10": 559,
+    "q50": 730,
+    "q90": 922,
+    "reason": "Drying and stabilisation conserves affected artwork under 5.2.6."
+   },
+   {
+    "index": 12,
+    "p_covered": 0.15,
+    "q10": 1998,
+    "q50": 2600,
+    "q90": 3294,
+    "reason": "Full restoration exceeds listed conservation measures under 5.2.6."
+   },
+   {
+    "index": 13,
+    "p_covered": 0.95,
+    "q10": 160,
+    "q50": 235,
+    "q90": 340,
+    "reason": "Return transport and refitting are expressly covered under 5.2.6."
+   }
+  ]
+ },
+ "rows": [
+  {
+   "index": 1,
+   "charge_price": 88.71,
+   "acceptance_limit": 91.39
+  },
+  {
+   "index": 2,
+   "charge_price": 126.6,
+   "acceptance_limit": 130.44
+  },
+  {
+   "index": 3,
+   "charge_price": 64.81,
+   "acceptance_limit": 66.78
+  },
+  {
+   "index": 4,
+   "charge_price": 117.28,
+   "acceptance_limit": 120.28
+  },
+  {
+   "index": 5,
+   "charge_price": 103.53,
+   "acceptance_limit": 106.67
+  },
+  {
+   "index": 6,
+   "charge_price": 216.26,
+   "acceptance_limit": 222.81
+  },
+  {
+   "index": 7,
+   "charge_price": 58.88,
+   "acceptance_limit": 60.38
+  },
+  {
+   "index": 8,
+   "charge_price": 1000.14,
+   "acceptance_limit": 1073.43
+  },
+  {
+   "index": 9,
+   "charge_price": 133.25,
+   "acceptance_limit": 136.66
+  },
+  {
+   "index": 10,
+   "charge_price": 386.12,
+   "acceptance_limit": 396.01
+  },
+  {
+   "index": 11,
+   "charge_price": 627.3,
+   "acceptance_limit": 643.36
+  },
+  {
+   "index": 12,
+   "charge_price": 2313.62,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 13,
+   "charge_price": 207.47,
+   "acceptance_limit": 140.04
+  }
+ ],
+ "debug": {
+  "1": {
+   "p_cov": 0.98,
+   "mu": 4.623279061181164,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 105,
+   "desc": "Cleaning of affected floor areas in the "
+  },
+  "2": {
+   "p_cov": 0.98,
+   "mu": 4.979010181343199,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 150,
+   "desc": "Inspection of the washing machine and su"
+  },
+  "3": {
+   "p_cov": 0.98,
+   "mu": 4.3094602891475144,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 75,
+   "desc": "Removal and disposal of water-damaged sk"
+  },
+  "4": {
+   "p_cov": 0.97,
+   "mu": 4.902512426471082,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 140,
+   "desc": "Replace skirting boards"
+  },
+  "5": {
+   "p_cov": 0.98,
+   "mu": 4.777830198723978,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 120,
+   "desc": "Moisture measurement of the utility room"
+  },
+  "6": {
+   "p_cov": 0.98,
+   "mu": 5.514427848445602,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 255,
+   "desc": "Drying of the affected floor area"
+  },
+  "7": {
+   "p_cov": 0.97,
+   "mu": 4.213364078000905,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 70,
+   "desc": "Drying unit rental"
+  },
+  "8": {
+   "p_cov": 0.96,
+   "mu": 7.052610809994816,
+   "sg": 0.1455213750217998,
+   "mem": true,
+   "q50": 680,
+   "desc": "Skilled worker hours"
+  },
+  "9": {
+   "p_cov": 0.97,
+   "mu": 5.030176086611547,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 155,
+   "desc": "Transport of the high-value painting to "
+  },
+  "10": {
+   "p_cov": 0.97,
+   "mu": 6.094095173684369,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 450,
+   "desc": "Professional assessment of the high-valu"
+  },
+  "11": {
+   "p_cov": 0.97,
+   "mu": 6.579363011699699,
+   "sg": 0.23076923076923075,
+   "mem": true,
+   "q50": 730,
+   "desc": "Conservatory drying and stabilisation of"
+  },
+  "12": {
+   "p_cov": 0.15,
+   "mu": 7.851928614153367,
+   "sg": 0.23076923076923075,
+   "why": "uncovered free shot",
+   "q50": 2600,
+   "desc": "Full restoration of the painting"
+  },
+  "13": {
+   "p_cov": 0.95,
+   "mu": 5.259585514144159,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 235,
+   "desc": "Return transport and rehanging of the re"
+  }
+ },
+ "seconds": 8.7,
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 33057.85,
+    "cost": 38039.29,
+    "net": -4981.44
+   },
+   "optimistic": {
+    "income": 77102.12,
+    "cost": 38039.29,
+    "net": 39062.82
+   }
+  },
+  "open_pairings": {
+   "income": 77,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 88.71,
+    "b": 91.39,
+    "t_lo": 98.77,
+    "t_hi": 109.56,
+    "fair": true,
+    "income": {
+     "pessimistic": 1419.3600000000004,
+     "optimistic": 1419.3600000000004
+    },
+    "cost": {
+     "pessimistic": 457.46500000000003,
+     "optimistic": 457.46500000000003
+    }
+   },
+   "2": {
+    "a": 126.6,
+    "b": 130.44,
+    "t_lo": 135.0,
+    "t_hi": 152.31,
+    "fair": true,
+    "income": {
+     "pessimistic": 2025.5999999999995,
+     "optimistic": 2025.5999999999995
+    },
+    "cost": {
+     "pessimistic": 1012.6800000000001,
+     "optimistic": 1012.6800000000001
+    }
+   },
+   "3": {
+    "a": 64.81,
+    "b": 66.78,
+    "t_lo": 67.89,
+    "t_hi": 86.74,
+    "fair": true,
+    "income": {
+     "pessimistic": 1036.9599999999996,
+     "optimistic": 1036.9599999999996
+    },
+    "cost": {
+     "pessimistic": 260.08500000000004,
+     "optimistic": 260.08500000000004
+    }
+   },
+   "4": {
+    "a": 117.28,
+    "b": 120.28,
+    "t_lo": 111.53,
+    "t_hi": 126.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 1172.8,
+     "optimistic": 1876.4799999999998
+    },
+    "cost": {
+     "pessimistic": 266.53,
+     "optimistic": 266.53
+    }
+   },
+   "5": {
+    "a": 103.53,
+    "b": 106.67,
+    "t_lo": 108.0,
+    "t_hi": 148.78,
+    "fair": true,
+    "income": {
+     "pessimistic": 1656.4799999999998,
+     "optimistic": 1656.4799999999998
+    },
+    "cost": {
+     "pessimistic": 725.83,
+     "optimistic": 725.83
+    }
+   },
+   "6": {
+    "a": 216.26,
+    "b": 222.81,
+    "t_lo": 233.13,
+    "t_hi": 248.59,
+    "fair": true,
+    "income": {
+     "pessimistic": 3460.1600000000008,
+     "optimistic": 3460.1600000000008
+    },
+    "cost": {
+     "pessimistic": 1088.195,
+     "optimistic": 1088.195
+    }
+   },
+   "7": {
+    "a": 58.88,
+    "b": 60.38,
+    "t_lo": 53.0,
+    "t_hi": 69.49,
+    "fair": null,
+    "income": {
+     "pessimistic": 588.8000000000001,
+     "optimistic": 942.08
+    },
+    "cost": {
+     "pessimistic": 122.32,
+     "optimistic": 122.32
+    }
+   },
+   "8": {
+    "a": 1000.14,
+    "b": 1073.43,
+    "t_lo": 216.0,
+    "t_hi": 226.76,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 6000.84
+    },
+    "cost": {
+     "pessimistic": 3177.92,
+     "optimistic": 3177.92
+    }
+   },
+   "9": {
+    "a": 133.25,
+    "b": 136.66,
+    "t_lo": 156.44,
+    "t_hi": 177.75,
+    "fair": true,
+    "income": {
+     "pessimistic": 2132.0,
+     "optimistic": 2132.0
+    },
+    "cost": {
+     "pessimistic": 1105.48,
+     "optimistic": 1105.48
+    }
+   },
+   "10": {
+    "a": 386.12,
+    "b": 396.01,
+    "t_lo": 455.18,
+    "t_hi": 540.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 6177.919999999999,
+     "optimistic": 6177.919999999999
+    },
+    "cost": {
+     "pessimistic": 3529.2899999999995,
+     "optimistic": 3529.2899999999995
+    }
+   },
+   "11": {
+    "a": 627.3,
+    "b": 643.36,
+    "t_lo": 900.0,
+    "t_hi": 1162.4,
+    "fair": true,
+    "income": {
+     "pessimistic": 10036.8,
+     "optimistic": 10036.8
+    },
+    "cost": {
+     "pessimistic": 9312.42,
+     "optimistic": 9312.42
+    }
+   },
+   "12": {
+    "a": 2313.62,
+    "b": 0.0,
+    "t_lo": 2136.75,
+    "t_hi": 2879.8,
+    "fair": null,
+    "income": {
+     "pessimistic": 2313.62,
+     "optimistic": 37017.91999999999
+    },
+    "cost": {
+     "pessimistic": 15313.529999999999,
+     "optimistic": 15313.529999999999
+    }
+   },
+   "13": {
+    "a": 207.47,
+    "b": 140.04,
+    "t_lo": 187.37,
+    "t_hi": 250.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 1037.35,
+     "optimistic": 3319.5199999999986
+    },
+    "cost": {
+     "pessimistic": 1667.5500000000002,
+     "optimistic": 1667.5500000000002
+    }
+   }
+  }
+ },
+ "v1_score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 28444.04,
+    "cost": 39249.24,
+    "net": -10805.2
+   },
+   "optimistic": {
+    "income": 35259.64,
+    "cost": 39249.24,
+    "net": -3989.6
+   }
+  },
+  "open_pairings": {
+   "income": 27,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 116.44,
+    "b": 79.62,
+    "t_lo": 98.77,
+    "t_hi": 109.56,
+    "fair": false,
+    "income": {
+     "pessimistic": 815.0800000000002,
+     "optimistic": 931.5200000000002
+    },
+    "cost": {
+     "pessimistic": 541.245,
+     "optimistic": 541.245
+    }
+   },
+   "2": {
+    "a": 202.41,
+    "b": 138.41,
+    "t_lo": 135.0,
+    "t_hi": 152.31,
+    "fair": false,
+    "income": {
+     "pessimistic": 404.82,
+     "optimistic": 1012.05
+    },
+    "cost": {
+     "pessimistic": 945.1800000000001,
+     "optimistic": 945.1800000000001
+    }
+   },
+   "3": {
+    "a": 113.8,
+    "b": 77.82,
+    "t_lo": 67.89,
+    "t_hi": 86.74,
+    "fair": false,
+    "income": {
+     "pessimistic": 910.3999999999999,
+     "optimistic": 1137.9999999999998
+    },
+    "cost": {
+     "pessimistic": 192.39,
+     "optimistic": 192.39
+    }
+   },
+   "4": {
+    "a": 187.07,
+    "b": 127.91,
+    "t_lo": 111.53,
+    "t_hi": 126.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 1309.4899999999998,
+     "optimistic": 1683.6299999999997
+    },
+    "cost": {
+     "pessimistic": 392.53,
+     "optimistic": 392.53
+    }
+   },
+   "5": {
+    "a": 180.0,
+    "b": 0.0,
+    "t_lo": 108.0,
+    "t_hi": 148.78,
+    "fair": false,
+    "income": {
+     "pessimistic": 1260.0,
+     "optimistic": 1260.0
+    },
+    "cost": {
+     "pessimistic": 1007.7449999999999,
+     "optimistic": 1007.7449999999999
+    }
+   },
+   "6": {
+    "a": 221.87,
+    "b": 151.71,
+    "t_lo": 233.13,
+    "t_hi": 248.59,
+    "fair": true,
+    "income": {
+     "pessimistic": 3549.9199999999987,
+     "optimistic": 3549.9199999999987
+    },
+    "cost": {
+     "pessimistic": 1288.695,
+     "optimistic": 1288.695
+    }
+   },
+   "7": {
+    "a": 283.36,
+    "b": 193.76,
+    "t_lo": 53.0,
+    "t_hi": 69.49,
+    "fair": false,
+    "income": {
+     "pessimistic": 850.08,
+     "optimistic": 1983.5200000000004
+    },
+    "cost": {
+     "pessimistic": 841.8499999999999,
+     "optimistic": 841.8499999999999
+    }
+   },
+   "8": {
+    "a": 440.59,
+    "b": 301.27,
+    "t_lo": 216.0,
+    "t_hi": 226.76,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 2643.54
+    },
+    "cost": {
+     "pessimistic": 1888.12,
+     "optimistic": 1888.12
+    }
+   },
+   "9": {
+    "a": 423.63,
+    "b": 289.67,
+    "t_lo": 156.44,
+    "t_hi": 177.75,
+    "fair": false,
+    "income": {
+     "pessimistic": 423.63,
+     "optimistic": 847.26
+    },
+    "cost": {
+     "pessimistic": 1620.2200000000003,
+     "optimistic": 1620.2200000000003
+    }
+   },
+   "10": {
+    "a": 442.28,
+    "b": 302.43,
+    "t_lo": 455.18,
+    "t_hi": 540.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 7076.479999999997,
+     "optimistic": 7076.479999999997
+    },
+    "cost": {
+     "pessimistic": 4176.295,
+     "optimistic": 4176.295
+    }
+   },
+   "11": {
+    "a": 510.07,
+    "b": 348.78,
+    "t_lo": 900.0,
+    "t_hi": 1162.4,
+    "fair": true,
+    "income": {
+     "pessimistic": 8161.119999999998,
+     "optimistic": 8161.119999999998
+    },
+    "cost": {
+     "pessimistic": 11326.2,
+     "optimistic": 11326.2
+    }
+   },
+   "12": {
+    "a": 3253.16,
+    "b": 2995.64,
+    "t_lo": 2136.75,
+    "t_hi": 2879.8,
+    "fair": false,
+    "income": {
+     "pessimistic": 3253.16,
+     "optimistic": 3253.16
+    },
+    "cost": {
+     "pessimistic": 13088.82,
+     "optimistic": 13088.82
+    }
+   },
+   "13": {
+    "a": 429.86,
+    "b": 293.93,
+    "t_lo": 187.37,
+    "t_hi": 250.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 429.86,
+     "optimistic": 1719.44
+    },
+    "cost": {
+     "pessimistic": 1939.9499999999998,
+     "optimistic": 1939.9499999999998
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,256 @@
+{
+ "game": 38,
+ "estimate": {
+  "items": [
+   {
+    "index": 1,
+    "p_covered": 0.99,
+    "q10": 577,
+    "q50": 680,
+    "q90": 779,
+    "reason": "Necessary leak investigation under 7.1.7(e); memory band applies."
+   },
+   {
+    "index": 2,
+    "p_covered": 0.99,
+    "q10": 850,
+    "q50": 1250,
+    "q90": 1850,
+    "reason": "Necessary pipe repair and re-insulation after insured escape of water."
+   },
+   {
+    "index": 3,
+    "p_covered": 0.99,
+    "q10": 71,
+    "q50": 84,
+    "q90": 96,
+    "reason": "One contractor travel charge payable under 7.1.7(f); memory applies."
+   },
+   {
+    "index": 4,
+    "p_covered": 0.98,
+    "q10": 260,
+    "q50": 440,
+    "q90": 780,
+    "reason": "Necessary drying of established affected kitchen floor and wall base."
+   }
+  ]
+ },
+ "rows": [
+  {
+   "index": 1,
+   "charge_price": 650.17,
+   "acceptance_limit": 703.85
+  },
+  {
+   "index": 2,
+   "charge_price": 1103.56,
+   "acceptance_limit": 781.57
+  },
+  {
+   "index": 3,
+   "charge_price": 150.65,
+   "acceptance_limit": 163.09
+  },
+  {
+   "index": 4,
+   "charge_price": 388.45,
+   "acceptance_limit": 271.97
+  }
+ ],
+ "debug": {
+  "1": {
+   "p_cov": 0.99,
+   "mu": 6.62194682201046,
+   "sg": 0.1455213750217998,
+   "mem": true,
+   "q50": 680,
+   "desc": "Leak detection and moisture measurement "
+  },
+  "2": {
+   "p_cov": 0.99,
+   "mu": 6.930898830296346,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 1250,
+   "desc": "Freeing, repair and re-insulation of the"
+  },
+  "3": {
+   "p_cov": 0.99,
+   "mu": 5.159696007605554,
+   "sg": 0.1455213750217998,
+   "mem": true,
+   "q50": 84,
+   "desc": "Vehicle costs"
+  },
+  "4": {
+   "p_cov": 0.98,
+   "mu": 5.886774726912306,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 440,
+   "desc": "Drying of the kitchen floor and wall bas"
+  }
+ },
+ "seconds": 6.8,
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 16617.92,
+    "cost": 15680.77,
+    "net": 937.15
+   },
+   "optimistic": {
+    "income": 18975.69,
+    "cost": 15680.77,
+    "net": 3294.92
+   }
+  },
+  "open_pairings": {
+   "income": 6,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 650.17,
+    "b": 703.85,
+    "t_lo": 795.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 10402.72,
+     "optimistic": 10402.72
+    },
+    "cost": {
+     "pessimistic": 5874.88,
+     "optimistic": 5874.88
+    }
+   },
+   "2": {
+    "a": 1103.56,
+    "b": 781.57,
+    "t_lo": 521.76,
+    "t_hi": 561.78,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 2207.12
+    },
+    "cost": {
+     "pessimistic": 6018.0599999999995,
+     "optimistic": 6018.0599999999995
+    }
+   },
+   "3": {
+    "a": 150.65,
+    "b": 163.09,
+    "t_lo": 71.21,
+    "t_hi": 140.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 150.65
+    },
+    "cost": {
+     "pessimistic": 798.25,
+     "optimistic": 798.25
+    }
+   },
+   "4": {
+    "a": 388.45,
+    "b": 271.97,
+    "t_lo": 431.94,
+    "t_hi": 491.04,
+    "fair": true,
+    "income": {
+     "pessimistic": 6215.199999999998,
+     "optimistic": 6215.199999999998
+    },
+    "cost": {
+     "pessimistic": 2989.58,
+     "optimistic": 2989.58
+    }
+   }
+  }
+ },
+ "v1_score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 17594.56,
+    "cost": 17429.35,
+    "net": 165.21
+   },
+   "optimistic": {
+    "income": 18778.88,
+    "cost": 17429.35,
+    "net": 1349.53
+   }
+  },
+  "open_pairings": {
+   "income": 22,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 388.21,
+    "b": 265.46,
+    "t_lo": 795.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 6211.36,
+     "optimistic": 6211.36
+    },
+    "cost": {
+     "pessimistic": 7680.99,
+     "optimistic": 7680.99
+    }
+   },
+   "2": {
+    "a": 425.05,
+    "b": 290.65,
+    "t_lo": 521.76,
+    "t_hi": 561.78,
+    "fair": true,
+    "income": {
+     "pessimistic": 6800.800000000002,
+     "optimistic": 6800.800000000002
+    },
+    "cost": {
+     "pessimistic": 5814.304999999999,
+     "optimistic": 5814.304999999999
+    }
+   },
+   "3": {
+    "a": 74.02,
+    "b": 50.62,
+    "t_lo": 71.21,
+    "t_hi": 140.18,
+    "fair": null,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 1184.32
+    },
+    "cost": {
+     "pessimistic": 840.4749999999999,
+     "optimistic": 840.4749999999999
+    }
+   },
+   "4": {
+    "a": 286.4,
+    "b": 195.84,
+    "t_lo": 431.94,
+    "t_hi": 491.04,
+    "fair": true,
+    "income": {
+     "pessimistic": 4582.400000000001,
+     "optimistic": 4582.400000000001
+    },
+    "cost": {
+     "pessimistic": 3093.58,
+     "optimistic": 3093.58
+    }
+   }
+  }
+ }
+}

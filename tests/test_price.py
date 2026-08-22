@@ -27,35 +27,63 @@ def test_bias_scales_the_median():
     assert abs(b.median - 400) < 1e-9
 
 
+def test_beta_pulls_small_estimates_up_and_large_ones_down():
+    sloped = Calibration(bias=1.0, sigma=0.4, beta=0.7, p0=0.35, k=2.0)
+    small = Belief.from_estimate({"t_low": 10, "t_mid": 15, "t_high": 20}, sloped)
+    large = Belief.from_estimate({"t_low": 700, "t_mid": 800, "t_high": 900}, sloped)
+    assert small.median > 15  # below the pivot: pulled up
+    assert large.median < 800  # above the pivot: pulled down
+    at_pivot = Belief.from_estimate({"t_low": price.PIVOT_T, "t_mid": price.PIVOT_T, "t_high": price.PIVOT_T}, sloped)
+    assert abs(at_pivot.median - price.PIVOT_T) < 1e-9  # bias keeps its meaning at the pivot
+
+
+def test_beta_one_reproduces_the_pure_bias_model():
+    est = {"t_low": 380, "t_mid": 500, "t_high": 600}
+    old = Belief.from_estimate(est, Calibration(bias=1.3, sigma=0.4))
+    new = Belief.from_estimate(est, Calibration(bias=1.3, sigma=0.4, beta=1.0))
+    assert abs(old.median - new.median) < 1e-9 and old.sigma == new.sigma
+
+
 def test_accept_limit_is_the_b_quantile_below_the_median():
     b = Belief(math.log(420), 0.4)
     assert abs(accept_limit(b) - b.quantile(price.B_QUANTILE)) < 1e-9
     assert accept_limit(b) < 420
 
 
-def test_best_charge_sits_below_the_median_and_above_zero():
+def test_best_charge_positive_and_capped_at_a_max_q():
+    # Step-revenue objective: R(a) = a * P(t >= a) + FRAUD_PAYOUT_FRAC * E[t; t < a]. Its
+    # optimum may legitimately sit ABOVE the median (a fair charge is paid even when refused),
+    # bounded by the A_MAX_Q plateau cap.
+    from c2f.price import A_MAX_Q
     b = Belief(math.log(1000), 0.4)
     a = best_charge(b, CAL)
-    assert 300 < a < 1000
+    assert 300 < a <= b.quantile(A_MAX_Q) + 1e-9
 
 
-def test_best_charge_drops_when_the_market_accepts_less_fraud():
+def test_best_charge_ignores_the_fitted_acceptance_curve():
+    # p0/k are OUT of the objective: the fitted p0 * r^-k curve was a censoring artifact
+    # (k < 1 claimed revenue rises with the overcharge ratio forever) - measured payout above
+    # t is a flat FRAUD_PAYOUT_FRAC * t regardless of r, so the charge must not move with p0/k.
     b = Belief(math.log(1000), 0.4)
     stingy = Calibration(bias=1.0, sigma=0.4, p0=0.05, k=2.0)
     generous = Calibration(bias=1.0, sigma=0.4, p0=0.6, k=0.5)
-    assert best_charge(b, stingy) < best_charge(b, generous)
+    assert abs(best_charge(b, stingy) - best_charge(b, generous)) < 1e-9
 
 
-def test_best_charge_drops_when_less_sure():
-    sure = Belief(math.log(1000), 0.2)
-    unsure = Belief(math.log(1000), 0.8)
-    assert best_charge(unsure, CAL) < best_charge(sure, CAL)
+def test_risk_aversion_knob_still_shades_the_charge():
+    # Production runs pure EV (RISK_AVERSION = 0, portfolio argument in price.py), but the
+    # knob must keep working for autotune sweeps: an explicit risk_aversion shades the charge.
+    b = Belief(math.log(1000), 0.6)
+    assert best_charge(b, CAL, risk_aversion=1.0) < best_charge(b, CAL, risk_aversion=0.0)
 
 
 def test_covered_item_a_below_mid_b_below_mid():
     est = {"covered": True, "related": True, "t_low": 380, "t_mid": 420, "t_high": 450}
     a, b = price_item(est, CAL)
-    assert 0 < a < 420
+    # a may sit above t_mid now (paid-even-when-refused makes that correct); it stays under
+    # the A_MAX_Q cap of the belief. b = Q(1/3) is always below the median.
+    from c2f.price import A_MAX_Q
+    assert 0 < a <= Belief.from_estimate(est, CAL).quantile(A_MAX_Q) + 1e-9
     assert 0 < b < 420
 
 
@@ -88,11 +116,15 @@ def test_calibration_is_read_from_file_clamped_or_default(tmp_path, monkeypatch)
     assert price.calibration() == price.DEFAULT_CALIBRATION
 
 
-def test_best_charge_never_exceeds_median_even_with_slow_acceptance_decay_and_wide_belief():
+def test_best_charge_never_exceeds_the_plateau_cap():
+    # The old rail was "never above the median", needed because the k < 1 acceptance fit
+    # rewarded charging the moon. The step objective has an interior optimum; the remaining
+    # guard is the A_MAX_Q cap on how hard we lean on the lenient-field plateau.
+    from c2f.price import A_MAX_Q
     b = Belief(math.log(1000), 1.0)
     cal = Calibration(bias=1.0, sigma=0.4, p0=0.35, k=0.5)
-    assert best_charge(b, cal) <= 1000 + 1e-9
-    assert best_charge(b, cal, risk_aversion=0.0) <= 1000 + 1e-9
+    assert best_charge(b, cal) <= b.quantile(A_MAX_Q) + 1e-9
+    assert best_charge(b, cal, risk_aversion=0.0) <= b.quantile(A_MAX_Q) + 1e-9
 
 
 def test_bundled_replacement_without_component_coverage_evidence_uncovered():
@@ -145,7 +177,7 @@ def test_bundled_replacement_with_explicit_component_coverage_treated_as_covered
     a, b = price_item(est, CAL)
     # Explicit component coverage should allow normal pricing
     assert b > 0, "Bundle with explicit component coverage should have b > 0"
-    assert a > 0 and a < 3500, "Covered bundle should price based on belief"
+    assert a > 0 and a < 5000, "Covered bundle should price based on belief"
 
 
 def test_bundled_with_separate_component_prices():

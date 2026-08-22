@@ -76,6 +76,6 @@ def test_reprice_uses_stored_estimate_and_current_pricing(tmp_path, monkeypatch)
     rep = bt.reprice(9, {"rows": [{"index": 1, "charge_price": 999, "acceptance_limit": 999}], "estimate": est})
     rows = {r["index"]: r for r in rep["rows"]}
     assert rep["repriced"] is True
-    assert 0 < rows[1]["charge_price"] < 100 and 0 < rows[1]["acceptance_limit"] < 100
+    assert 0 < rows[1]["charge_price"] < 150 and 0 < rows[1]["acceptance_limit"] < 100  # a may sit above t_mid under the step objective
     assert rows[2] == {"index": 2, "charge_price": 0.0, "acceptance_limit": 0.0}  # missing from the model -> unknown
     assert bt.reprice(9, {"rows": []}) == {"rows": []}  # nothing stored to re-price

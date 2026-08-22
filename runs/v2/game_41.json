@@ -1,0 +1,256 @@
+{
+ "game": 41,
+ "estimate": {
+  "items": [
+   {
+    "index": 1,
+    "p_covered": 0.01,
+    "q10": 42,
+    "q50": 55,
+    "q90": 68,
+    "reason": "Claim-document translation expressly excluded by 3.1.6 and 7.1.8(f)."
+   },
+   {
+    "index": 2,
+    "p_covered": 0.01,
+    "q10": 5,
+    "q50": 12,
+    "q90": 25,
+    "reason": "Translation working materials expressly excluded under 7.1.8(e),(f)."
+   },
+   {
+    "index": 3,
+    "p_covered": 0.96,
+    "q10": 8000,
+    "q50": 15000,
+    "q90": 30000,
+    "reason": "Weapon robbery covered; declared watch valuation governs under 4.2.2."
+   },
+   {
+    "index": 4,
+    "p_covered": 0.01,
+    "q10": 5,
+    "q50": 12,
+    "q90": 25,
+    "reason": "Shipping is expressly excluded ancillary carriage under 7.1.8(b)."
+   }
+  ]
+ },
+ "rows": [
+  {
+   "index": 1,
+   "charge_price": 48.22,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 2,
+   "charge_price": 8.84,
+   "acceptance_limit": 0.0
+  },
+  {
+   "index": 3,
+   "charge_price": 16174.68,
+   "acceptance_limit": 15000.0
+  },
+  {
+   "index": 4,
+   "charge_price": 8.84,
+   "acceptance_limit": 0.0
+  }
+ ],
+ "debug": {
+  "1": {
+   "p_cov": 0.01,
+   "mu": 3.981202667272922,
+   "sg": 0.23076923076923075,
+   "why": "uncovered free shot",
+   "q50": 55,
+   "desc": "Translation from Spanish to English"
+  },
+  "2": {
+   "p_cov": 0.05,
+   "mu": 2.284906649788,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 12,
+   "desc": "Material costs"
+  },
+  "3": {
+   "p_cov": 0.96,
+   "mu": 9.615805480084347,
+   "sg": 0.6,
+   "mem": false,
+   "q50": 15000,
+   "desc": "Compensation for robbery damage"
+  },
+  "4": {
+   "p_cov": 0.05,
+   "mu": 2.284906649788,
+   "sg": 0.6,
+   "why": "uncovered free shot",
+   "q50": 12,
+   "desc": "Shipping"
+  }
+ },
+ "seconds": 11.6,
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 65.9,
+    "cost": 53576.2,
+    "net": -53510.3
+   },
+   "optimistic": {
+    "income": 258926.68,
+    "cost": 53576.2,
+    "net": 205350.48
+   }
+  },
+  "open_pairings": {
+   "income": 19,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 48.22,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 27.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 48.22,
+     "optimistic": 96.44
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "2": {
+    "a": 8.84,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 8.84,
+     "optimistic": 17.68
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "3": {
+    "a": 16174.68,
+    "b": 15000.0,
+    "t_lo": 11130.9,
+    "t_hi": null,
+    "fair": null,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 258794.87999999992
+    },
+    "cost": {
+     "pessimistic": 53576.2,
+     "optimistic": 53576.2
+    }
+   },
+   "4": {
+    "a": 8.84,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 4.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 8.84,
+     "optimistic": 17.68
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ },
+ "v1_score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 36.0,
+    "cost": 53576.2,
+    "net": -53540.2
+   },
+   "optimistic": {
+    "income": 288426.2,
+    "cost": 53576.2,
+    "net": 234850.0
+   }
+  },
+  "open_pairings": {
+   "income": 17,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 171.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 27.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 171.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "2": {
+    "a": 13.5,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 13.5,
+     "optimistic": 13.5
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "3": {
+    "a": 18013.7,
+    "b": 16587.73,
+    "t_lo": 11130.9,
+    "t_hi": null,
+    "fair": null,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 288219.20000000007
+    },
+    "cost": {
+     "pessimistic": 53576.2,
+     "optimistic": 53576.2
+    }
+   },
+   "4": {
+    "a": 22.5,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 4.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 22.5,
+     "optimistic": 22.5
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ }
+}
