@@ -60,13 +60,7 @@ B_QUANTILE = 0.3333  # c2f.autotune over games 1-23: +4,271 vs 0.27, better in 1
 # value once that test is pointed at the one-pass path we actually run: b=902 against a real t under 900.
 # The earlier walk down from 0.27 to 0.18 (games 6-10) overshot slightly: the market's t now runs
 # ABOVE our t_mid (calibrated bias 1.19), so refused fair charges cost more than they used to.
-RISK_AVERSION = 0.40  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout.
-# Down from 0.55 (2026-08-22, before round 37): UNDERCHARGE was the #1 loss of the recent
-# rounds (13,050 in game 35 alone; a-too-low 25.5k of the 55.9k recent regret), and the
-# reconstructed g34-35 acceptance curve shows the field still lenient. Swept on games 29-36:
-# 0.40 cuts regret 63,260 -> 58,915 and also wins on all games pooled; 0.30/0.20 add nothing
-# (the median-charge rail below binds first). The 0.52 "rail" note below was the reason 0.55
-# was kept; we are deliberately trading that robustness for income while the field is soft.
+RISK_AVERSION = 0.55  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout.
 # c2f.autotune over games 1-14: +8,906 vs 0.585, better in 9 games and worse in 2. It matches the
 # post-mortem (UNDERCHARGE 78k, UNDER_ESTIMATE 97k - we were too timid on both sides) and the
 # calibrated bias of 1.19, which says the market's t sits ABOVE our t_mid.
@@ -97,10 +91,6 @@ class InvalidEstimateError(ValueError):
 
 BIAS_RANGE = (0.4, 2.5)  # expanded to allow more aggressive category-specific correction
 SIGMA_RANGE = (0.15, 1.0)
-BETA_RANGE = (0.35, 1.25)  # slope of log t in log t_mid; 1 = the old pure-multiplier model
-#: t_mid where the affine correction equals `bias` alone: t_hat = bias * mid * (mid/PIVOT)^(beta-1).
-#: Chosen near the geometric centre of the labelled t_mids so `bias` keeps its old meaning there.
-PIVOT_T = 150.0
 P0_RANGE = (0.02, 0.8)
 K_RANGE = (0.0, 6.0)
 #: description keyword -> bucket. First match wins, so order matters: the specific
@@ -137,19 +127,8 @@ _N = NormalDist()
 
 @dataclass(frozen=True)
 class Calibration:
-    bias: float = 1.0  # true t / model t_mid, median, measured at t_mid = PIVOT_T
-    sigma: float = 0.4  # log-sd of true t around the corrected median
-    #: slope of log t in log t_mid, BELOW the pivot. The labels show the error is size-shaped,
-    #: not a constant multiplier: t_mid < 100 runs ~1.5x low while t_mid >= 400 runs closer to
-    #: fair, and a pure bias cannot express that - it is why the fitted sigma railed at the 1.0
-    #: clamp. With beta < 1 small estimates are pulled up:
-    #:   median t_hat = bias * t_mid * (t_mid / PIVOT_T) ** (beta - 1)   for t_mid < PIVOT_T
-    beta: float = 1.0
-    #: slope ABOVE the pivot, fitted separately (a linear spline in log space, knot at PIVOT_T,
-    #: continuous there by construction). One global slope let the mass of small bracketed items
-    #: drag beta to 0.65 and crushed the rare big-ticket items - game 10's watch (t proven
-    #: >= 7225, model 4000) priced as if t were ~1800, refusing every fair charge at 1.5x.
-    beta_high: float = 1.0
+    bias: float = 1.0  # true t / model t_mid, median
+    sigma: float = 0.4  # log-sd of true t around bias * t_mid
     p0: float = 0.35  # fraction of reviewers accepting a charge just over t
     k: float = 2.0  # acceptance decays as (a/t)^-k beyond t
     #: bucket -> bias, where the labels support it. One global bias averages over
@@ -179,11 +158,9 @@ def calibration() -> Calibration:
     try:
         d = json.loads(CALIBRATION_PATH.read_text())
         vals = {k: float(d[k]) for k in ("bias", "sigma", "p0", "k")}
-        beta = float(d.get("beta", 1.0))  # absent in files written before the affine fit
-        beta_high = float(d.get("beta_high", 1.0))
     except (OSError, ValueError, KeyError, TypeError):
         return DEFAULT_CALIBRATION
-    if not all(math.isfinite(v) for v in vals.values()) or not math.isfinite(beta) or not math.isfinite(beta_high):
+    if not all(math.isfinite(v) for v in vals.values()):
         return DEFAULT_CALIBRATION
     raw = d.get("bias_by_bucket") or {}
     buckets = {}
@@ -198,8 +175,6 @@ def calibration() -> Calibration:
     return Calibration(
         bias=_clamp(vals["bias"], BIAS_RANGE),
         sigma=_clamp(vals["sigma"], SIGMA_RANGE),
-        beta=_clamp(beta, BETA_RANGE),
-        beta_high=_clamp(beta_high, BETA_RANGE),
         p0=_clamp(vals["p0"], P0_RANGE),
         k=_clamp(vals["k"], K_RANGE),
         bias_by_bucket=buckets,
@@ -232,12 +207,7 @@ class Belief:
     def from_estimate(cls, est: dict, cal: Calibration) -> "Belief":
         lo, mid, hi = sorted(_num(est.get(k)) for k in ("t_low", "t_mid", "t_high"))
         model_sigma = (math.log(hi) - math.log(lo)) / (2 * MODEL_SPREAD_Z) if lo > 0 and hi > lo else 0.0
-        # linear spline in log space, knot at PIVOT_T: below it beta < 1 pulls small t_mids
-        # up (the labelled errors are size-shaped - see Calibration.beta); above it beta_high
-        # applies. beta = beta_high = 1 is the old pure-bias model.
-        slope = cal.beta if mid < PIVOT_T else cal.beta_high
-        mu = math.log(mid * cal.bias_for(est.get("_description"))) + (slope - 1.0) * (math.log(mid) - math.log(PIVOT_T))
-        return cls(mu=mu, sigma=_clamp(max(cal.sigma, model_sigma), SIGMA_RANGE))
+        return cls(mu=math.log(mid * cal.bias_for(est.get("_description"))), sigma=_clamp(max(cal.sigma, model_sigma), SIGMA_RANGE))
 
 
 def accept_limit(belief: Belief) -> float:
