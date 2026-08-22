@@ -9,8 +9,12 @@
 # (set PUSH=0 to skip). A failed run still commits its log. The truth inference is then
 # attempted too and runs/truth_game_NN.json committed if it succeeded (it needs the game
 # to show as completed on the leaderboard; rerun `make truth G=N` later otherwise).
+# When a truth file exists, b_scale is recalibrated and runs/calibration.json committed
+# if it changed -- so `make learn` is only needed to redo this by hand.
 PY := pixi run python
 PUSH ?= 1
+# after a game, wait this long for it to close on the leaderboard before inferring truth
+TRUTH_WAIT ?= 60
 
 # $(call push_file,<prefix>,<game>,<msg>) commits+pushes runs/<prefix>_game_NN.json if present.
 define push_file
@@ -23,24 +27,43 @@ endef
 define push_log
 	$(call push_file,,$(1),run log)
 endef
+# $(call push_truth,<game>,<wait seconds>) waits for the game to close, then infers t bounds
+# and recalibrates b_scale from every truth file we have.
 define push_truth
+	@if [ "$(2)" -gt 0 ]; then \
+	  echo "waiting $(2)s for game $(1) to close on the leaderboard..."; sleep $(2); \
+	fi
 	-$(PY) -m c2f.truth $(1)
 	$(call push_file,truth_,$(1),truth)
+	$(call push_calibration,$(1))
+endef
+
+# $(call push_calibration,<game>) recalibrates once game <game>'s truth file exists.
+define push_calibration
+	@if [ -f runs/truth_game_$$(printf '%02d' $(1)).json ]; then \
+	  $(PY) -m c2f.calibrate || echo "warning: calibration failed"; \
+	  if [ "$(PUSH)" = "1" ] && [ -n "$$(git status --porcelain -- runs/calibration.json)" ]; then \
+	    git add runs/calibration.json \
+	    && git commit -q -m "calibration: after game $(1)" -- runs/calibration.json \
+	    && git push -q && echo "pushed runs/calibration.json" \
+	    || echo "warning: could not commit/push runs/calibration.json"; \
+	  fi; \
+	fi
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check test fb truth $(GAMES)
+.PHONY: play check test fb truth backtest rescore hooks $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
 	$(call push_log,$@)
-	$(call push_truth,$@)
+	$(call push_truth,$@,$(TRUTH_WAIT))
 
 play:
 	@test -n "$(G)" || { echo "usage: make play G=<game_id>"; exit 1; }
 	-$(PY) -m c2f.run $(G)
 	$(call push_log,$(G))
-	$(call push_truth,$(G))
+	$(call push_truth,$(G),$(TRUTH_WAIT))
 
 check:
 	$(PY) -m c2f.run 0
@@ -66,4 +89,19 @@ fb:
 
 truth:
 	@test -n "$(G)" || { echo "usage: make truth G=<game_id>"; exit 1; }
-	$(call push_truth,$(G))
+	$(call push_truth,$(G),0)
+
+# Replay the CURRENT strategy on past games against the real opponents (calls the model, ~40 s/game)
+#   make backtest            all completed games decrypted locally
+#   make backtest G="2 4 6"  specific games
+backtest:
+	$(PY) -m c2f.backtest $(G)
+
+# Re-score the stored replays without calling the model (after changing price.py only)
+rescore:
+	$(PY) -m c2f.backtest --no-llm $(G)
+
+# Install the git hook that blocks algorithm commits without a fresh backtest
+hooks:
+	git config core.hooksPath .githooks
+	@echo "hooks installed (core.hooksPath=.githooks)"

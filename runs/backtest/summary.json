@@ -1,0 +1,35 @@
+{
+ "team": "AsianSuperNerds",
+ "games": {
+  "2": {
+   "actual_net": 11650.74,
+   "actual_rank": 1,
+   "pess_net": 10042.14,
+   "pess_rank": 2,
+   "opt_net": 10643.94,
+   "opt_rank": 1,
+   "best_team": "AsianSuperNerds",
+   "best_net": 11650.74,
+   "n_teams": 17
+  },
+  "3": {
+   "actual_net": 0.0,
+   "actual_rank": 3,
+   "pess_net": 0.0,
+   "pess_rank": 3,
+   "opt_net": 1380.0,
+   "opt_rank": 1,
+   "best_team": "error404 ai",
+   "best_net": 403.44,
+   "n_teams": 17
+  }
+ },
+ "generated_at": 1787408465.025711,
+ "totals": {
+  "actual": 11650.74,
+  "pessimistic": 10042.14,
+  "optimistic": 12023.94,
+  "wins_pess": 0,
+  "wins_opt": 2
+ }
+}

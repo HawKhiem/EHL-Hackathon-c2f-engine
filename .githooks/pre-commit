@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Refuse to commit a change to the pricing algorithm unless the backtest was re-run AFTER the change.
+# Algorithm files: anything that changes what we submit. Install once with:  make hooks
+set -euo pipefail
+cd "$(git rev-parse --show-toplevel)"
+ALGO_RE='^c2f/(price|llm|ensemble|extract|run|calibrate)\.py$'
+changed=$(git diff --cached --name-only | grep -E "$ALGO_RE" || true)
+[[ -z "$changed" ]] && exit 0
+summary=runs/backtest/summary.json
+if [[ ! -f "$summary" ]]; then
+  echo "pre-commit: you changed the algorithm ($changed) but runs/backtest/summary.json does not exist."
+  echo "            run:  make backtest     (then git add runs/backtest && commit again)"; exit 1
+fi
+for f in $changed; do
+  if [[ "$f" -nt "$summary" ]]; then
+    echo "pre-commit: $f is newer than $summary - the backtest predates your change."
+    echo "            run:  make backtest     (then git add runs/backtest && commit again)"; exit 1
+  fi
+done
+if ! git diff --cached --name-only | grep -q '^runs/backtest/summary.json$'; then
+  echo "pre-commit: stage the backtest result too:  git add runs/backtest"; exit 1
+fi
+echo "pre-commit: backtest summary is fresh ($(python3 -c "import json;s=json.load(open('$summary'));t=s.get('totals',{});print('pess',round(t.get('pessimistic',0)),'opt',round(t.get('optimistic',0)),'wins',t.get('wins_pess'),'/',t.get('wins_opt'),'over',len(s['games']),'games')"))"

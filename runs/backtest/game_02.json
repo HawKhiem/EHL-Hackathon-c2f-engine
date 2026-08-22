@@ -1,0 +1,268 @@
+{
+ "actual_net": 11650.74,
+ "actual_rank": 1,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 267.5,
+    "acceptance_limit": 385.51
+   },
+   {
+    "index": 2,
+    "charge_price": 7.2,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 3,
+    "charge_price": 54.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 4,
+    "charge_price": 537.5,
+    "acceptance_limit": 730.34
+   },
+   {
+    "index": 5,
+    "charge_price": 57.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 6,
+    "charge_price": 12.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 7,
+    "charge_price": 18.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "ensemble": {
+   "policy_summary": "Buildings cover; appliances only for lightning overvoltage (2.3.3) within appliance sub\u2011limit; indemnity is repair/replacement only; ancillary delivery/installation/admin charges excluded; deductible per schedule.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "2.3.3 Overvoltage; 7.1.1(b)(c); 7.1.9",
+     "t_low": 250.0,
+     "t_mid": 300.0,
+     "t_high": 380.0,
+     "t_if_covered": 0.0,
+     "reason": "Mid\u2011range speaker replacement after lightning surge, incl. VAT.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(b) carriage/delivery excluded",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 12.0,
+     "reason": "Delivery of new goods expressly not indemnifiable.",
+     "votes": "0/3 covered"
+    },
+    {
+     "index": 3,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(c) installation/commissioning excluded",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 90.0,
+     "reason": "Installation of replacement electronics excluded from repair costs.",
+     "votes": "0/3 covered"
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "2.3.3 Overvoltage; 7.1.1(c); 7.1.9",
+     "t_low": 450.0,
+     "t_mid": 600.0,
+     "t_high": 700.0,
+     "t_if_covered": 0.0,
+     "reason": "Standard 55\" 4K TV replacement at mid\u2011range pricing.",
+     "votes": "3/3 covered"
+    },
+    {
+     "index": 5,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(e) admin/diagnostics not repair; 3.1.5",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 95.0,
+     "reason": "Generic damage/diagnosis charge; not a repair cost.",
+     "votes": "0/3 covered"
+    },
+    {
+     "index": 6,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(e) admin/handling excluded; 3.1.5",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 20.0,
+     "reason": "Service order/administration fee excluded from indemnity.",
+     "votes": "0/3 covered"
+    },
+    {
+     "index": 7,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(d) attendance/vehicle excluded when no covered work",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 30.0,
+     "reason": "Vehicle/call\u2011out not payable without indemnifiable work.",
+     "votes": "0/3 covered"
+    }
+   ],
+   "n_votes": 3
+  },
+  "votes": 3,
+  "errors": [],
+  "seconds": 18.4
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 13206.4,
+    "cost": 3164.26,
+    "net": 10042.14
+   },
+   "optimistic": {
+    "income": 13808.2,
+    "cost": 3164.26,
+    "net": 10643.94
+   }
+  },
+  "open_pairings": {
+   "income": 52,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 267.5,
+    "b": 385.51,
+    "t_lo": 310.0,
+    "t_hi": 425.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 4280.0,
+     "optimistic": 4280.0
+    },
+    "cost": {
+     "pessimistic": 995.46,
+     "optimistic": 995.46
+    }
+   },
+   "2": {
+    "a": 7.2,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 12.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 14.4,
+     "optimistic": 115.20000000000003
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "3": {
+    "a": 54.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 43.97,
+    "fair": false,
+    "income": {
+     "pessimistic": 108.0,
+     "optimistic": 162.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "4": {
+    "a": 537.5,
+    "b": 730.34,
+    "t_lo": 555.0,
+    "t_hi": 600.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 8600.0,
+     "optimistic": 8600.0
+    },
+    "cost": {
+     "pessimistic": 2168.8,
+     "optimistic": 2168.8
+    }
+   },
+   "5": {
+    "a": 57.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 43.97,
+    "fair": false,
+    "income": {
+     "pessimistic": 114.0,
+     "optimistic": 171.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "6": {
+    "a": 12.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 18.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 36.0,
+     "optimistic": 192.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "7": {
+    "a": 18.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 21.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 54.0,
+     "optimistic": 288.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ },
+ "pess_net": 10042.14,
+ "pess_rank": 2,
+ "opt_net": 10643.94,
+ "opt_rank": 1,
+ "best_team": "AsianSuperNerds",
+ "best_net": 11650.74,
+ "n_teams": 17
+}

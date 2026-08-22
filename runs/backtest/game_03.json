@@ -1,0 +1,108 @@
+{
+ "actual_net": 0.0,
+ "actual_rank": 3,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 480.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 2,
+    "charge_price": 210.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "ensemble": {
+   "policy_summary": "Residential buildings only at insured location; perils: fire, water, storm/hail; theft and movable property away from location excluded; conveyances excluded; insured costs limited.",
+   "items": [
+    {
+     "index": 1,
+     "covered": false,
+     "related": true,
+     "clause": "2.1 (no theft peril); 3.1.4 theft exclusion; 4.3(d),(f) movable property away",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 800.0,
+     "reason": "Household items stolen from car; not insured property or peril",
+     "votes": "0/3 covered"
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": true,
+     "clause": "4.3(e) conveyances excluded; 5.1 list exhaustive, no vehicle costs",
+     "t_low": 0.0,
+     "t_mid": 0.0,
+     "t_high": 0.0,
+     "t_if_covered": 350.0,
+     "reason": "Vehicle-related expenses belong to car, outside building cover",
+     "votes": "0/3 covered"
+    }
+   ],
+   "n_votes": 3
+  },
+  "votes": 3,
+  "errors": [],
+  "seconds": 16.2
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 0.0,
+    "cost": 0.0,
+    "net": 0.0
+   },
+   "optimistic": {
+    "income": 1380.0,
+    "cost": 0.0,
+    "net": 1380.0
+   }
+  },
+  "open_pairings": {
+   "income": 4,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 480.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 100.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 960.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "2": {
+    "a": 210.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 100.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 420.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  }
+ },
+ "pess_net": 0.0,
+ "pess_rank": 3,
+ "opt_net": 1380.0,
+ "opt_rank": 1,
+ "best_team": "error404 ai",
+ "best_net": 403.44,
+ "n_teams": 17
+}

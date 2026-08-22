@@ -112,6 +112,15 @@ Constants at the top of `price.py`: `K_UNCERTAINTY`, `UNCOVERED_CHARGE`, `B_QUAN
 the priced rows, every submission with the server response. This is the material for the
 strategy write-up.
 
+## Backtest (gate for algorithm changes)
+
+`c2f/backtest.py` replays the current strategy on past decrypted cases and scores it against
+the real opponents of that round using the public leaderboard (their charges, their implied
+accept limits, the inferred `t` bounds). Output: actual vs replayed net and rank per game,
+pessimistic and optimistic where outcomes are open, `runs/backtest/summary.json`.
+`make hooks` installs `.githooks/pre-commit`, which blocks commits to the algorithm files
+unless that summary is fresher than the change and staged. See `c2f/README.md`.
+
 ## Not built (deliberately)
 
 Scheduler, leaderboard feedback loop, dashboard, database. Manual `make N` per game.
