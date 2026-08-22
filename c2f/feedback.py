@@ -21,6 +21,7 @@ import requests
 from c2f.submit import ROOT
 
 B = "https://c2f.public.quantco.cloud/leaderboard/api"
+DEFAULT_TEAM = "Nullpointer Naan"  # identified from game-2 bounds; override with C2F_TEAM
 
 
 def teams() -> list[str]:
@@ -89,6 +90,7 @@ def digest(game_id: int) -> dict:
 def our_team(game_id: int, d: dict) -> str | None:
     if os.environ.get("C2F_TEAM"):
         return os.environ["C2F_TEAM"]
+    return DEFAULT_TEAM
     p = ROOT / "runs" / f"game_{game_id:02d}.json"
     if not p.exists():
         return None
