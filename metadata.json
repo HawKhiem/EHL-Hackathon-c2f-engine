@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0MPJEAEN9SPSTGY973JGPNY",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "backend/app/c2f/__init__.py",
+    "backend/app/c2f/decision/__init__.py",
+    "backend/app/c2f/decision/guardrails.py",
+    "backend/app/c2f/decision/optimizer.py",
+    "backend/app/c2f/inference/analyse.py",
+    "backend/app/c2f/inference/prompts.py",
+    "backend/app/c2f/inference/schemas.py",
+    "backend/app/c2f/models.py",
+    "backend/app/c2f/probability/__init__.py",
+    "backend/app/c2f/probability/survival.py",
+    "backend/tests/c2f/__init__.py",
+    "backend/tests/c2f/test_guardrails.py",
+    "backend/tests/c2f/test_inference.py",
+    "backend/tests/c2f/test_optimizer.py",
+    "backend/tests/c2f/test_survival.py",
+    "docs/DESIGN.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 82,
+    "cache_creation_tokens": 149895,
+    "cache_read_tokens": 5031485,
+    "output_tokens": 79287,
+    "api_call_count": 41
+  }
+}

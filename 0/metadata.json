@@ -1,0 +1,70 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0MPJEAEN9SPSTGY973JGPNY",
+  "session_id": "1e2b0e3c-1e21-4ee8-9e29-822a0c66a2a2",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-22T12:19:19.3719163Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "save_step_count": 2,
+  "files_touched": [
+    "backend/app/c2f/__init__.py",
+    "backend/app/c2f/decision/__init__.py",
+    "backend/app/c2f/decision/guardrails.py",
+    "backend/app/c2f/decision/optimizer.py",
+    "backend/app/c2f/inference/analyse.py",
+    "backend/app/c2f/inference/prompts.py",
+    "backend/app/c2f/inference/schemas.py",
+    "backend/app/c2f/models.py",
+    "backend/app/c2f/probability/__init__.py",
+    "backend/app/c2f/probability/survival.py",
+    "backend/tests/c2f/__init__.py",
+    "backend/tests/c2f/test_guardrails.py",
+    "backend/tests/c2f/test_inference.py",
+    "backend/tests/c2f/test_optimizer.py",
+    "backend/tests/c2f/test_survival.py",
+    "docs/DESIGN.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "37023dc0bb55",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 82,
+    "cache_creation_tokens": 149895,
+    "cache_read_tokens": 5031485,
+    "output_tokens": 79287,
+    "api_call_count": 41
+  },
+  "session_metrics": {
+    "turn_count": 2
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-22T12:19:19.2308549Z",
+    "agent_lines": 1833,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 567,
+    "human_removed": 0,
+    "total_committed": 2400,
+    "total_lines_changed": 2400,
+    "agent_percentage": 76.375,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 322,
+      "agent_lines_removed": 0
+    }
+  ]
+}
