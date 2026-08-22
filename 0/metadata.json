@@ -1,0 +1,109 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0MZFVJ0WAXR9YQ6DVKA04QX",
+  "session_id": "1e2b0e3c-1e21-4ee8-9e29-822a0c66a2a2",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-22T14:55:14.1882746Z",
+  "branch": "fix/accept-limit-calibration",
+  "checkpoints_count": 10,
+  "save_step_count": 5,
+  "files_touched": [
+    "c2f/truth.py",
+    "docs/RESEARCH-pricing.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "48a3af952a5b",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 522,
+    "cache_creation_tokens": 594621,
+    "cache_read_tokens": 92336478,
+    "output_tokens": 378862,
+    "api_call_count": 261
+  },
+  "session_metrics": {
+    "turn_count": 19
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-22T14:55:13.5707409Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 1637,
+    "human_modified": 279,
+    "human_removed": 0,
+    "total_committed": 1754,
+    "total_lines_changed": 1968,
+    "agent_percentage": 0,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 720,
+      "user_lines_removed": 14,
+      "agent_lines_added": 198,
+      "agent_lines_removed": 506,
+      "user_added_per_file": {
+        ".githooks/pre-commit": 33,
+        "backend/app/c2f/prompt_v2.py": 100,
+        "backend/app/c2f/replay.py": 226,
+        "c2f/truth.py": 175,
+        "runs/truth_game_01.json": 137,
+        "runs/truth_game_04.json": 14,
+        "runs/truth_game_06.json": 35
+      },
+      "user_removed_per_file": {
+        "runs/truth_game_04.json": 14
+      }
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 326,
+      "user_lines_removed": 0,
+      "agent_lines_added": 440,
+      "agent_lines_removed": 401,
+      "user_added_per_file": {
+        "backend/app/c2f/prompt_v2.py": 100,
+        "backend/app/c2f/replay.py": 226
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 328,
+      "user_lines_removed": 0,
+      "agent_lines_added": 706,
+      "agent_lines_removed": 401,
+      "user_added_per_file": {
+        "backend/app/c2f/prompt_v2.py": 100,
+        "backend/app/c2f/replay.py": 228
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 746,
+      "user_lines_removed": 13,
+      "agent_lines_added": 344,
+      "agent_lines_removed": 152,
+      "user_added_per_file": {
+        "backend/app/c2f/prompt_v2.py": 100,
+        "backend/app/c2f/replay.py": 228,
+        "c2f/calibrate.py": 156,
+        "c2f/price.py": 64,
+        "docs/RESEARCH-pricing.md": 149,
+        "tests/test_price.py": 49
+      },
+      "user_removed_per_file": {
+        "c2f/price.py": 9,
+        "tests/test_price.py": 4
+      }
+    }
+  ]
+}

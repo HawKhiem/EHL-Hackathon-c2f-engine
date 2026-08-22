@@ -1,0 +1,1270 @@
+We decided to pick quantco and here is their problem statement. Here are the researches I have made. Propose a structural, system design. We have an hour till our first round. Read the CHALLENGE.md file for more details:
+
+# Claim to Fame — Research Summary & Coding Handoff
+
+## Objective
+
+Build a system for QuantCo's *Claim to Fame* hackathon that, for every invoice line item, submits:
+
+* `a`: our charge to other insurers
+* `b`: our maximum acceptance limit when acting as insurer
+
+Each item has a hidden fair-value threshold (T).
+
+* (T=0): item is not covered or not related to the damage
+* (T>0): item is valid up to that gross total price
+* Prices above (T) are fraudulent
+* Wrongfully rejecting a fair price costs `1.5 × a`
+* Accepting an inflated price costs the accepted amount
+* Accepted fraudulent payments are capped at `c`, with (c \ge 4T)
+
+There are roughly **100 rounds**, so the system must learn online from previous rounds and opponent behavior.
+
+---
+
+# 1. Core Research Conclusion
+
+Do **not** model this as ordinary binary fraud detection.
+
+The central latent variable should be:
+
+[
+T \in [0,\infty)
+]
+
+We need to estimate the full distribution
+
+[
+P(T\mid x)
+]
+
+where (x) contains:
+
+* insurance policy
+* damage description
+* invoice line
+* quantity
+* images
+* repair context
+* available market-price evidence
+
+Then calculate `a` and `b` mathematically from that distribution.
+
+Architecture:
+
+[
+\text{Documents / images}
+\rightarrow
+\text{probabilistic estimate of }T
+\rightarrow
+\text{decision optimizer}
+\rightarrow
+(a,b)
+]
+
+---
+
+# 2. Relevant Research Findings
+
+## Insurance fraud detection
+
+Research comparing logistic regression, random forests, gradient boosting, neural networks, Isolation Forest, etc. generally shows:
+
+* Random forests / gradient boosting / neural networks outperform simple linear models when historical structured data exists.
+* Different models find different fraud patterns.
+* Supervised and unsupervised approaches can be complementary.
+* Optimizing AUC/F1 is often not equivalent to optimizing actual financial loss.
+
+Relevant literature includes:
+
+* Severino & Peng — property insurance fraud prediction
+* Debener et al. — supervised vs unsupervised insurance fraud detection
+* Schrijver et al. — systematic review of automobile fraud detection
+
+### Practical implication
+
+We have little initial labeled data, so **do not spend day one training a generic fraud classifier**.
+
+Instead use several independent reasoning signals from an LLM and combine them.
+
+---
+
+# 3. Cost-Sensitive Decision Theory
+
+Research such as Höppner et al. shows that fraud systems should optimize **financial cost directly**, because false positives and false negatives have different monetary consequences.
+
+This is extremely relevant because QuantCo provides the exact loss function.
+
+For an incoming opponent charge (a), define:
+
+[
+p(a)=P(T\geq a\mid x)
+]
+
+If we accept:
+
+[
+C_{\text{accept}}=a
+]
+
+If we reject:
+
+[
+E[C_{\text{reject}}]=1.5a,p(a)
+]
+
+Therefore accepting is optimal when:
+
+[
+a \leq 1.5ap(a)
+]
+
+so:
+
+[
+\boxed{P(T\geq a\mid x)\geq\frac{2}{3}}
+]
+
+This is our fundamental insurer decision rule.
+
+---
+
+# 4. Two-Part / Hurdle Model for Fair Value
+
+Actuarial claim-severity research often separates:
+
+1. probability that a claim is positive
+2. amount of the claim conditional on being positive
+
+Use the same idea here.
+
+Let:
+
+[
+q=P(T>0\mid x)
+]
+
+where (T>0) means:
+
+* covered by policy
+* related to reported damage
+
+Then model:
+
+[
+T=
+\begin{cases}
+0 & \text{with probability }1-q\
+T_+ & \text{with probability }q
+\end{cases}
+]
+
+For valid items, estimate price quantiles:
+
+[
+Q_{10}, Q_{25}, Q_{50}, Q_{75}, Q_{90}
+]
+
+rather than one point estimate.
+
+Example desired LLM output:
+
+```json
+{
+  "p_covered": 0.96,
+  "p_related": 0.88,
+  "p_valid": 0.85,
+  "price_if_valid": {
+    "q10": 280,
+    "q25": 340,
+    "q50": 430,
+    "q75": 540,
+    "q90": 680
+  },
+  "reasoning_summary": "..."
+}
+```
+
+Important:
+
+`p_valid` should preferably be estimated directly as:
+
+[
+P(\text{covered AND related})
+]
+
+Do not blindly compute:
+
+```text
+p_covered * p_related
+```
+
+because those events are not necessarily independent.
+
+---
+
+# 5. Computing Acceptance Limit `b`
+
+For a positive price:
+
+[
+P(T\geq a)=qP(T_+\geq a)
+]
+
+The optimal local insurer decision is:
+
+[
+P(T\geq a)\geq\frac23
+]
+
+Therefore choose:
+
+[
+\boxed{
+b=\sup{a:P(T\geq a)\geq2/3}
+}
+]
+
+Important consequence:
+
+[
+\boxed{
+q<2/3 \Rightarrow b=0
+}
+]
+
+If we are less than 66.7% confident that the item is valid at all, no positive price can satisfy the acceptance condition.
+
+If (q=1), approximately:
+
+[
+b=Q_{33}
+]
+
+of the conditional fair-price distribution.
+
+---
+
+# 6. Computing Our Charge `a`
+
+If we charge fairly, we receive the money even if the opponent incorrectly rejects us.
+
+Ignoring opponent mistakes initially:
+
+[
+E[R(a)] = aP(T\geq a)
+]
+
+Therefore:
+
+[
+\boxed{
+a^*=\arg\max_a aP(T\geq a)
+}
+]
+
+Do not simply use:
+
+```text
+a = median fair price
+```
+
+or:
+
+```text
+a = expected fair price
+```
+
+Search numerically over candidate prices.
+
+Example:
+
+```python
+candidates = np.linspace(0, upper_price, 1000)
+
+survival = probability_T_at_least(candidates)
+
+expected_revenue = candidates * survival
+
+a = candidates[np.argmax(expected_revenue)]
+```
+
+---
+
+# 7. Constructing (P(T)) From Quantiles
+
+Do not implement a complicated Bayesian neural network initially.
+
+Given:
+
+```text
+q10
+q25
+q50
+q75
+q90
+```
+
+construct an approximate CDF.
+
+Prefer interpolation in:
+
+[
+\log(\text{price})
+]
+
+rather than raw euros because repair prices are positive and often right-skewed.
+
+From the conditional distribution:
+
+[
+F_+(a)=P(T_+\leq a)
+]
+
+compute:
+
+[
+S_+(a)=1-F_+(a)
+]
+
+Then total survival probability is:
+
+[
+\boxed{
+S_T(a)=qS_+(a)
+}
+]
+
+Use this function for both `a` and `b`.
+
+---
+
+# 8. LLM Architecture
+
+Do not ask one LLM call:
+
+> "Give us a and b."
+
+Separate semantic inference from mathematical decisions.
+
+Use parallel structured calls.
+
+### Agent 1 — Policy Coverage
+
+Input:
+
+* policy
+* invoice line
+
+Output:
+
+```json
+{
+  "p_covered": 0.0,
+  "evidence": "...",
+  "exclusions": "..."
+}
+```
+
+### Agent 2 — Damage Relevance
+
+Input:
+
+* damage description
+* invoice line
+* images if relevant
+
+Output:
+
+```json
+{
+  "p_related": 0.0,
+  "evidence": "..."
+}
+```
+
+### Agent 3 — Joint Validity / Claims Expert
+
+Ask directly:
+
+```text
+What is the probability that this line item is BOTH covered by
+the policy AND reasonably necessary because of the reported event?
+```
+
+Output:
+
+```json
+{
+  "p_valid": 0.0
+}
+```
+
+### Agent 4 — Price Estimation
+
+Assume the item is covered and necessary.
+
+Estimate:
+
+```json
+{
+  "q10": 0,
+  "q25": 0,
+  "q50": 0,
+  "q75": 0,
+  "q90": 0,
+  "price_basis": "...",
+  "confidence": "..."
+}
+```
+
+Must always estimate the **gross total for the entire invoice line**:
+
+[
+\text{quantity}\times\text{unit price including applicable tax}
+]
+
+not a unit price.
+
+### Agent 5 — Skeptical Reviewer
+
+Independent review looking for:
+
+* unnecessary work
+* excessive quantities
+* replacement when repair would suffice
+* items unrelated to damage
+* mismatched product quality
+* inflated labor/material assumptions
+
+Use this as a correction or confidence signal.
+
+---
+
+# 9. 60-Second Execution Architecture
+
+Speed is critical.
+
+Pipeline:
+
+```text
+case released
+    ↓
+fetch decryption key
+    ↓
+decrypt archive
+    ↓
+parse files immediately
+    ↓
+extract invoice line items
+    ↓
+run LLM analyses concurrently
+    ↓
+construct P(T)
+    ↓
+apply online calibration
+    ↓
+calculate optimal a,b
+    ↓
+validate gross totals / formatting
+    ↓
+submit
+```
+
+Run independent LLM requests in parallel with `asyncio`.
+
+Never make sequential LLM calls unless one truly depends on another.
+
+---
+
+# 10. Online Learning Across 100 Rounds
+
+The model should become stateful.
+
+Keep the LLM mostly fixed.
+
+Learn small numerical models around it:
+
+[
+\text{LLM}
+\rightarrow
+\boxed{\text{online calibrator}}
+\rightarrow
+P(T)
+\rightarrow
+\text{optimizer}
+]
+
+and maintain separate opponent models.
+
+---
+
+# 11. Fair-Value Calibration Model
+
+The LLM's estimated quantiles will probably have systematic bias.
+
+Example:
+
+```text
+LLM predicts median = €1000
+true thresholds repeatedly behave around €800
+```
+
+We want the system to learn that bias.
+
+Create an online classifier estimating:
+
+[
+P(T\geq a)
+]
+
+Features can include:
+
+```text
+log(q50 / candidate_price)
+log(q90 / q10)
+p_valid
+p_covered
+p_related
+item category
+quantity
+LLM confidence
+```
+
+Possible initial implementation:
+
+```python
+from sklearn.linear_model import SGDClassifier
+```
+
+using logistic loss.
+
+Update after each informative observation.
+
+---
+
+# 12. Learning From Rejections
+
+Rejections are especially valuable.
+
+If an opponent charges:
+
+[
+a=500
+]
+
+and we reject it:
+
+### If we pay €750
+
+That is:
+
+[
+1.5\times500
+]
+
+so rejection was wrongful.
+
+Therefore:
+
+[
+\boxed{T\geq500}
+]
+
+Training label:
+
+```text
+price = 500
+T >= price = 1
+```
+
+### If we pay €0
+
+Fraud was correctly rejected.
+
+Therefore:
+
+[
+\boxed{T<500}
+]
+
+Training label:
+
+```text
+price = 500
+T >= price = 0
+```
+
+Thus rounds create supervised **threshold-comparison data** even without revealing exact (T).
+
+If observations imply:
+
+[
+T\ge420
+]
+
+[
+T\ge460
+]
+
+[
+T<510
+]
+
+then:
+
+[
+460\leq T<510
+]
+
+This is essentially interval-censored / threshold learning.
+
+---
+
+# 13. Opponent Modeling
+
+There are two different opponent models.
+
+## A. Opponent Issuer Model
+
+Learn how aggressively teams charge:
+
+[
+P(A_k\mid x)
+]
+
+Normalize prices by our predicted median:
+
+[
+r_A=\frac{A}{Q_{50}}
+]
+
+Maintain per-team statistics:
+
+```text
+mean charge ratio
+standard deviation
+number of observations
+recent moving average
+```
+
+Example:
+
+```text
+Team A:
+mean A/Q50 = 1.13
+std = 0.17
+
+Team B:
+mean A/Q50 = 0.91
+std = 0.08
+```
+
+This helps choose `b`.
+
+---
+
+# 14. Opponent Insurer Model
+
+Learn:
+
+[
+P(B_k\geq a)
+]
+
+If Team X accepts our charge:
+
+[
+B_X\geq a
+]
+
+If Team X rejects:
+
+[
+B_X<a
+]
+
+Again normalize:
+
+[
+r=\frac{a}{Q_{50}}
+]
+
+Simple initial implementation: Beta-Bernoulli buckets.
+
+Buckets:
+
+```text
+0.6–0.7
+0.7–0.8
+0.8–0.9
+...
+1.5–1.6
+```
+
+For every:
+
+```text
+team × ratio bucket
+```
+
+maintain:
+
+[
+\operatorname{Beta}(\alpha,\beta)
+]
+
+Initialize, for example:
+
+```python
+alpha = 2
+beta = 2
+```
+
+Accepted:
+
+```python
+alpha += 1
+```
+
+Rejected:
+
+```python
+beta += 1
+```
+
+Estimated acceptance probability:
+
+[
+P(\text{accept})=
+\frac{\alpha}{\alpha+\beta}
+]
+
+This is intentionally simple and robust.
+
+---
+
+# 15. Strategic Charge Once Opponent Data Exists
+
+Let:
+
+[
+G(a)=\frac{1}{N-1}
+\sum_kP(B_k\geq a)
+]
+
+be the probability that an average opponent accepts our price.
+
+Then approximate expected issuer revenue by:
+
+[
+\boxed{
+R(a)
+====
+
+aP(T\geq a)
++
+aP(T<a)G(a)
+}
+]
+
+for prices well below the unknown cap.
+
+Equivalent:
+
+[
+R(a)
+====
+
+a[S_T(a)+(1-S_T(a))G(a)]
+]
+
+Then:
+
+[
+\boxed{
+a^*=\arg\max_aR(a)
+}
+]
+
+Early rounds:
+
+```text
+ignore or heavily regularize G(a)
+```
+
+Later rounds:
+
+```text
+increase weight of opponent model
+```
+
+---
+
+# 16. Improved Global Optimization for `b`
+
+The earlier (2/3) rule assumes we can evaluate a particular incoming `a`.
+
+But in the challenge we submit one cutoff `b` before seeing every opponent charge.
+
+Once opponent charge distributions are learned, optimize `b` directly.
+
+Exact cost:
+
+[
+C(A,b,T)=
+\begin{cases}
+A & A\leq b,\ A\leq T\
+\min(A,c) & A\leq b,\ A>T\
+1.5A & A>b,\ A\leq T\
+0 & A>b,\ A>T
+\end{cases}
+]
+
+Then:
+
+[
+\boxed{
+b^*=\arg\min_bE[C(A,b,T)]
+}
+]
+
+Approximate expectation by Monte Carlo:
+
+```python
+for candidate_b in candidate_limits:
+    total_cost = 0
+
+    for sample in range(N):
+        t = sample_T()
+        a = sample_opponent_charge()
+
+        total_cost += insurance_cost(a, candidate_b, t)
+
+    expected_cost[candidate_b] = total_cost / N
+
+b = min(expected_cost, key=expected_cost.get)
+```
+
+Until opponent models are reliable, use:
+
+[
+b=\sup{a:P(T\geq a)\geq2/3}
+]
+
+as the safe baseline.
+
+---
+
+# 17. Exploration vs Exploitation
+
+Because there are 100 rounds, some exploration can improve later performance.
+
+However exploration has asymmetric risk.
+
+Experimenting with `b` can cause:
+
+[
+1.5a
+]
+
+wrongful rejection penalties.
+
+Experimenting with `a` generally risks losing revenue rather than paying extra penalties.
+
+Therefore:
+
+[
+\boxed{\text{Explore more with }a\text{ than with }b}
+]
+
+Initial strategy:
+
+```text
+Rounds 1–10:
+mostly baseline strategy
+collect data aggressively
+
+Rounds 10–30:
+start calibration
+start opponent models
+
+Rounds 30–70:
+strong online learning / exploitation
+
+Rounds 70–100:
+mostly exploit learned models
+```
+
+Optional future enhancement:
+
+* Thompson sampling
+* contextual bandits
+
+Do not make these day-one dependencies.
+
+---
+
+# 18. Persistent Round Database
+
+Save every prediction and result.
+
+Recommended schema:
+
+```text
+round_id
+case_id
+item_id
+item_description
+quantity
+
+p_covered
+p_related
+p_valid
+
+q10
+q25
+q50
+q75
+q90
+
+calibrated_distribution_parameters
+
+our_a
+our_b
+
+opponent_team
+opponent_a
+
+did_opponent_accept_our_a
+did_we_accept_opponent_a
+
+our_payment
+our_revenue
+net_payoff
+
+derived_T_ge_price
+derived_T_lt_price
+
+timestamp
+```
+
+SQLite is sufficient.
+
+---
+
+# 19. Modules to Implement
+
+Suggested Python structure:
+
+```text
+claim_to_fame/
+│
+├── main.py
+│
+├── config.py
+│
+├── api_client.py
+│
+├── decrypt.py
+│
+│
+├── parsing/
+│   ├── policy.py
+│   ├── description.py
+│   ├── invoice.py
+│   └── images.py
+│
+├── inference/
+│   ├── coverage.py
+│   ├── relevance.py
+│   ├── validity.py
+│   ├── pricing.py
+│   └── reviewer.py
+│
+├── probability/
+│   ├── quantiles.py
+│   ├── distribution.py
+│   └── calibration.py
+│
+├── strategy/
+│   ├── issuer.py
+│   ├── insurer.py
+│   ├── optimizer.py
+│   └── simulation.py
+│
+├── learning/
+│   ├── fair_value_calibrator.py
+│   ├── opponent_issuer.py
+│   └── opponent_insurer.py
+│
+├── storage/
+│   └── database.py
+│
+└── tests/
+```
+
+---
+
+# 20. Priority Order
+
+## P0 — Must work
+
+1. Fetch/decrypt case
+2. Parse invoice lines reliably
+3. Read policy + damage description + images
+4. Get structured LLM estimates
+5. Produce `p_valid + price quantiles`
+6. Construct (P(T))
+7. Calculate baseline `a`
+8. Calculate baseline `b`
+9. Submit correct JSON
+10. Stay safely within 60 seconds
+
+## P1 — Important
+
+11. SQLite logging
+12. Round-result ingestion
+13. Threshold labels from rejected claims
+14. Online probability calibration
+15. Per-team opponent statistics
+
+## P2 — Competitive advantage
+
+16. Bayesian opponent acceptance model
+17. Global expected-cost optimization for `b`
+18. Opponent-aware optimization for `a`
+
+## P3 — Only if everything else works
+
+19. Thompson sampling
+20. contextual bandits
+21. category-specific calibration
+22. ensemble weighting learned from outcomes
+
+---
+
+# 21. Avoid These Time Sinks
+
+Do not initially build:
+
+* custom neural networks
+* RL agents
+* PyMC/Stan models
+* fine-tuned LLMs
+* complicated Nash-equilibrium solvers
+* generic fraud classifiers without historical labels
+* exact opponent strategy reconstruction
+* complex vector databases
+
+The expected payoff optimizer itself is numerically trivial.
+
+The difficult problems are:
+
+1. extracting the case correctly
+2. producing calibrated estimates of (T)
+3. learning calibration errors over rounds
+4. learning opponent behavior
+5. finishing everything in under one minute
+
+---
+
+# 22. Main Mathematical API
+
+The core strategy code should expose something like:
+
+```python
+def estimate_distribution(
+    p_valid: float,
+    quantiles: dict[float, float],
+    calibrator=None
+) -> FairValueDistribution:
+    ...
+```
+
+```python
+def choose_baseline_a(dist) -> float:
+    """
+    argmax_a a * P(T >= a)
+    """
+```
+
+```python
+def choose_baseline_b(dist) -> float:
+    """
+    max a such that P(T >= a) >= 2/3
+    """
+```
+
+```python
+def choose_strategic_a(
+    dist,
+    opponent_acceptance_model
+) -> float:
+    """
+    argmax_a:
+        a * [
+            P(T >= a)
+            + P(T < a) * P(opponents accept a)
+        ]
+    """
+```
+
+```python
+def choose_strategic_b(
+    dist,
+    opponent_charge_model
+) -> float:
+    """
+    argmin_b expected insurance cost
+    """
+```
+
+---
+
+# 23. Guiding Principle
+
+Keep three layers separate:
+
+[
+\boxed{
+\text{Semantic reasoning}
+\neq
+\text{probability estimation}
+\neq
+\text{decision making}
+}
+]
+
+LLMs answer:
+
+> What do the documents imply?
+
+Probability layer answers:
+
+> How uncertain are we about (T)?
+
+Strategy layer answers:
+
+> Given that uncertainty and the observed opponents, what `a` and `b` maximize expected profit?
+
+That separation is the central design decision.
+
+---
+
+# 24. Final Target Architecture
+
+[
+\boxed{
+\begin{array}{c}
+\text{Policy + Damage + Invoice + Images}\
+\downarrow\
+\text{Parallel LLM analysis}\
+\downarrow\
+P(\text{valid}), Q_{10},Q_{25},Q_{50},Q_{75},Q_{90}\
+\downarrow\
+\text{Online fair-value calibration}\
+\downarrow\
+P(T\mid x)\
+\nearrow\qquad\qquad\nwarrow\
+\text{Opponent charge model}\qquad
+\text{Opponent acceptance model}\
+\searrow\qquad\qquad\swarrow\
+\text{Expected-payoff optimizer}\
+\downarrow\
+(a,b)\
+\downarrow\
+\text{Submit}\
+\downarrow\
+\text{Observe round outcome}\
+\downarrow\
+\text{Update calibrator + opponent models}
+\end{array}
+}
+]
+
+The initial system should work with **zero historical rounds**.
+
+Every completed round should then make it better.
+
+---
+
+Alright lets start implementing
+
+---
+
+I have pulled the latest changes with all the files you need and also case 0, decide on your own what would be the optimal solution for case 0 then use our approach to find and compare
+
+---
+
+What is the input of the model, how are policy and description parsed, what is the flow from extraction to model decision
+
+---
+
+What is the user message?
+
+---
+
+What does the LLM do in our pipeline
+
+---
+
+I just revert the changes we made, could you reintroduce them
+
+---
+
+Do we have access to https://c2f.public.quantco.cloud/leaderboard
+
+My team is AsianSuperNerds
+
+---
+
+Don't submit anything now, just investigate why we lost
+
+---
+
+Is the mathematical model wired now?
+
+---
+
+These are the results from game 3
+
+---
+
+Should we lower our a when t is low?
+
+---
+
+What is our mathematical models, how do we calculate a and b and estimate t
+
+---
+
+This is the 4th round, explain the math behind this intuitively for me
+
+---
+
+Can you explain to me when we gain money and when we lose money? And how much
+
+---
+
+What is H and what is I
+
+---
+
+Check the logs, see how we estimate t and whether it is too low or too high
+
+---
+
+Try tweak the model and the prompts and rerun the rounds and compare to ground truth
+
+---
+
+Why were t_hi null in the truth_game? Is it from the system?
+
+---
+
+I just pulled some stuffs, now rerun. While waiting for the result, could you do a quick research on how to improve the formulas, I think our estimation of b is not good enough, we made a lot of wrongful rejections
+
+---
+
+What could we do now to improve our estimation, research into the math literatures to see
