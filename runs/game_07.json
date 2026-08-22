@@ -1,0 +1,857 @@
+{
+  "game_id": 7,
+  "started_at": 1787408146.0618849,
+  "submissions": [
+    {
+      "tag": "fast",
+      "at_s": 15.7,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 930.0,
+          "acceptance_limit": 1315.38
+        },
+        {
+          "index": 2,
+          "charge_price": 800.0,
+          "acceptance_limit": 1122.29
+        },
+        {
+          "index": 3,
+          "charge_price": 215.0,
+          "acceptance_limit": 308.3
+        },
+        {
+          "index": 4,
+          "charge_price": 215.0,
+          "acceptance_limit": 308.3
+        },
+        {
+          "index": 5,
+          "charge_price": 112.5,
+          "acceptance_limit": 172.66
+        },
+        {
+          "index": 6,
+          "charge_price": 30.0,
+          "acceptance_limit": 55.07
+        }
+      ],
+      "response": [
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 930.0,
+          "acceptance_limit": 1315.38,
+          "submitted_at": "2026-08-22T14:16:02.000791Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 800.0,
+          "acceptance_limit": 1122.29,
+          "submitted_at": "2026-08-22T14:16:02.000791Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 215.0,
+          "acceptance_limit": 308.3,
+          "submitted_at": "2026-08-22T14:16:02.000791Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 215.0,
+          "acceptance_limit": 308.3,
+          "submitted_at": "2026-08-22T14:16:02.000791Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 112.5,
+          "acceptance_limit": 172.66,
+          "submitted_at": "2026-08-22T14:16:02.000791Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 30.0,
+          "acceptance_limit": 55.07,
+          "submitted_at": "2026-08-22T14:16:02.000791Z"
+        }
+      ]
+    },
+    {
+      "tag": "full x1",
+      "at_s": 19.4,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1412.5,
+          "acceptance_limit": 1926.97
+        },
+        {
+          "index": 2,
+          "charge_price": 1412.5,
+          "acceptance_limit": 1926.97
+        },
+        {
+          "index": 3,
+          "charge_price": 862.5,
+          "acceptance_limit": 1211.97
+        },
+        {
+          "index": 4,
+          "charge_price": 862.5,
+          "acceptance_limit": 1211.97
+        },
+        {
+          "index": 5,
+          "charge_price": 142.5,
+          "acceptance_limit": 203.39
+        },
+        {
+          "index": 6,
+          "charge_price": 100.0,
+          "acceptance_limit": 146.46
+        }
+      ],
+      "response": [
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1412.5,
+          "acceptance_limit": 1926.97,
+          "submitted_at": "2026-08-22T14:16:05.645991Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 1412.5,
+          "acceptance_limit": 1926.97,
+          "submitted_at": "2026-08-22T14:16:05.645991Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 862.5,
+          "acceptance_limit": 1211.97,
+          "submitted_at": "2026-08-22T14:16:05.645991Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 862.5,
+          "acceptance_limit": 1211.97,
+          "submitted_at": "2026-08-22T14:16:05.645991Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 142.5,
+          "acceptance_limit": 203.39,
+          "submitted_at": "2026-08-22T14:16:05.645991Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 100.0,
+          "acceptance_limit": 146.46,
+          "submitted_at": "2026-08-22T14:16:05.645991Z"
+        }
+      ]
+    },
+    {
+      "tag": "full x2",
+      "at_s": 22.1,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1241.25,
+          "acceptance_limit": 1688.27
+        },
+        {
+          "index": 2,
+          "charge_price": 1241.25,
+          "acceptance_limit": 1688.27
+        },
+        {
+          "index": 3,
+          "charge_price": 633.75,
+          "acceptance_limit": 887.84
+        },
+        {
+          "index": 4,
+          "charge_price": 633.75,
+          "acceptance_limit": 887.84
+        },
+        {
+          "index": 5,
+          "charge_price": 96.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 6,
+          "charge_price": 85.0,
+          "acceptance_limit": 130.72
+        }
+      ],
+      "response": [
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1241.25,
+          "acceptance_limit": 1688.27,
+          "submitted_at": "2026-08-22T14:16:08.314799Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 1241.25,
+          "acceptance_limit": 1688.27,
+          "submitted_at": "2026-08-22T14:16:08.314799Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 633.75,
+          "acceptance_limit": 887.84,
+          "submitted_at": "2026-08-22T14:16:08.314799Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 633.75,
+          "acceptance_limit": 887.84,
+          "submitted_at": "2026-08-22T14:16:08.314799Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 96.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T14:16:08.314799Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 85.0,
+          "acceptance_limit": 130.72,
+          "submitted_at": "2026-08-22T14:16:08.314799Z"
+        }
+      ]
+    },
+    {
+      "tag": "full x3",
+      "at_s": 25.1,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1080.0,
+          "acceptance_limit": 1469.2
+        },
+        {
+          "index": 2,
+          "charge_price": 1070.0,
+          "acceptance_limit": 1449.06
+        },
+        {
+          "index": 3,
+          "charge_price": 467.5,
+          "acceptance_limit": 669.28
+        },
+        {
+          "index": 4,
+          "charge_price": 425.0,
+          "acceptance_limit": 619.57
+        },
+        {
+          "index": 5,
+          "charge_price": 132.5,
+          "acceptance_limit": 190.39
+        },
+        {
+          "index": 6,
+          "charge_price": 70.0,
+          "acceptance_limit": 114.77
+        }
+      ],
+      "response": [
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1080.0,
+          "acceptance_limit": 1469.2,
+          "submitted_at": "2026-08-22T14:16:11.373078Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 1070.0,
+          "acceptance_limit": 1449.06,
+          "submitted_at": "2026-08-22T14:16:11.373078Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 467.5,
+          "acceptance_limit": 669.28,
+          "submitted_at": "2026-08-22T14:16:11.373078Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 425.0,
+          "acceptance_limit": 619.57,
+          "submitted_at": "2026-08-22T14:16:11.373078Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 132.5,
+          "acceptance_limit": 190.39,
+          "submitted_at": "2026-08-22T14:16:11.373078Z"
+        },
+        {
+          "game_id": 7,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 70.0,
+          "acceptance_limit": 114.77,
+          "submitted_at": "2026-08-22T14:16:11.373078Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787408146.194871,
+  "case": {
+    "game_id": 7,
+    "policy": "===============================================================================\nRESIDENTIAL DWELLING INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\nPolicy wording \"WD-2026\" - Technical Installations and Ancillary Charges Edition\nFictional mock document created for test purposes only. All wording is\ninvented. No real contract.\n===============================================================================\n\nThese conditions apply together with the General Contract Provisions and with\nthe Schedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods and percentages shown in square brackets are those stated\nin the Schedule.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nCombined residential buildings insurance protects the policyholder against the\nfinancial consequences of physical damage to their building. The perils that can\nbe insured are the ones bundled together in these conditions - fire, escape of\nwater, storm and hail, and further natural hazards among them. Which of the\ninsurable perils are actually covered is agreed between insurer and policyholder\nand recorded in the schedule.\n\nWhere an insured building, or a technical installation forming part of it, is\ndestroyed or damaged, the insurer indemnifies the cost of putting it back. The\nnormal arrangement is reinstatement in the same kind and quality, to a condition\nas new, on an index-linked reinstatement basis with an enhancement. What the\ninsurer carries is the restoration of what the insured event destroyed or\ndamaged, at the standard that was in place before it, by the ordinary means. It\nis not a contribution towards the equipment, the capacity, the appearance or the\nconvenience of the building beyond that, and it does not become one because the\nfurther work is carried out on the same occasion, in the same room or under the\nsame commission.\n\nA limited and exhaustively listed range of consequential expenses triggered by a\nloss event - debris removal and demolition among them - is also carried.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nInsured event - the event for which the insurer pays.\n\nExclusion - a peril, a type of damage or an item of property for which no cover\nexists. Exclusions delimit what has been promised and keep the cover\ncalculable. They appear in three places in these conditions: as general\nexclusions applying across the contract, within the provisions on individual\nperils and types of damage, and within the description of the insured property.\n\nAffected item - an installation, a component, a surface or a room in which\nphysical damage caused by the insured event is established by the loss\ninvestigation. Whether an item is an affected item turns on whether the event\ndamaged it. It does not turn on which room the item serves, on where in that\nroom it sits, on what it stands near, or on whether other items in the same room\nwere damaged.\n\nFirmly connected - joined to the fabric of the building in such a way that\nremoving the item requires work on that fabric. An item that can be taken from\none place to another, set down elsewhere and used there without such work is not\nfirmly connected, whatever its size, price or designation, and whether or not it\nis delivered together with fixed elements.\n\nLike-for-like replacement - an item taking the place of an affected item that\ncan no longer be repaired, corresponding to it in type, quality, grade, output,\ncapacity, function and specification.\n\nNew equipment - an appliance, a plant item, a machine or a technical\ninstallation supplied after the insured event that is not a like-for-like\nreplacement of an affected item. An item that was in the building but that the\nevent did not damage counts as new equipment for these purposes if it is\nrenewed, upgraded or supplemented.\n\nAncillary charge - a charge that exists only because of a principal item of\nsupply or work: its transport, forwarding, freight, carriage, delivery,\npackaging, handling, lifting, hoisting and storage; the labour of putting it in\nplace, connecting it and commissioning it; and the attendance of the undertaking\nat the building.\n\nIndex-linked reinstatement cover with enhancement - a basis of cover that works\nfrom the amount that would have to be spent to rebuild in the same kind and\nquality. Any additional cost caused by public-law restrictions on reinstatement\nis picked up automatically. In addition, the level of cover is tracked against\nmovements in building costs; that tracking affects both the amount payable and\nthe premium.\n\nDuties - the things the policyholder must do or refrain from doing before,\nduring and after an insured event. Observing safety requirements against fire or\nfrost is an example. Breaching a duty puts the cover at risk.\n\nSecured lenders - creditors whose claim is secured by a charge registered\nagainst the property. Their interests enjoy statutory protection: among other\nthings they must be brought into the process when insurance benefits are paid\nout and when the contract is brought to an end.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is destroyed or damaged by, or\nlost as a consequence of, the following events:\n\n  (a) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot.\n\n  (b) ESCAPE OF WATER.\n\n  (c) NATURAL HAZARDS, in two tiers:\n        (c1) storm and hail;\n        (c2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\n2.2 How the groups combine\n\nEach of the three groups (a), (b) and (c1) can be taken separately. The further\nnatural hazards under (c2) can only be taken in combination with one or more of\nthe perils in (a), (b) or (c1); they are not available on a standalone basis.\n\n2.3 The fire group defined\n\n2.3.1 Fire\nA fire is a combustion that has started without a hearth intended for it, or\nthat has escaped such a hearth, and that is capable of spreading under its own\npower. Damage caused by a fire that developed out of a controlled, purposeful\nfire is also covered.\n\n2.3.2 Lightning strike\nThe direct passage of a lightning discharge onto property.\n\n2.3.3 Overvoltage caused by lightning\nDamage arising through overvoltage, overcurrent or short circuit, brought about\nby a lightning discharge or by other atmospheric electricity, in insured\nelectrical installations and appliances.\n\nWhere such an event damages several insured installations, each of them is an\naffected item and each is indemnified on its own merits, whether they serve the\nsame room or different rooms of the building. Conversely, an installation that\nthe event did not damage is not brought within the indemnity by the fact that a\nneighbouring installation was damaged.\n\n2.3.4 Explosion and deflagration\nBoth are suddenly running force events resting on the tendency of gases or\nvapours to expand. The two differ only in the intensity of that force.\n\nAn explosion of a vessel - a boiler, a pipe run and the like - is present only\nunder a further condition: the vessel wall must be torn open to such an extent\nthat a sudden equalisation of the pressure difference between the inside and\nthe outside occurs. Where an explosion inside a vessel is brought about by a\nchemical reaction, tearing of the wall is not required.\n\n2.3.5 Implosion\nA sudden, unforeseen collapse of a hollow body under external overpressure\nresulting from an internal underpressure.\n\n2.3.6 Impact or crash of an aircraft\nThe impact or crash of an aircraft is covered, and equally the impact or crash\nof its parts or its cargo.\n\n2.3.7 Vehicle impact\nThe impact of a road, rail or water-borne vehicle against insured property is\ncovered, as is the impact of parts or cargo of such a vehicle. Consequential\ndamage to insured property arising from such an impact is covered.\n\nNot covered is damage caused by a road or water-borne vehicle whose keeper or\ndriver is the policyholder or an occupant of the building.\n\nNot covered is damage to vehicles, to their parts and cargo, and to roads,\ndrives and comparable trafficked surfaces.\n\n2.3.8 Scorching\nScorch damage arising out of one of the events in 2.3.1 to 2.3.7 is covered.\nScorch damage from any other cause is covered up to [amount].\n\n2.3.9 Smoke and soot\nSmoke and soot damage arising out of one of the events in 2.3.1 to 2.3.8 is\ncovered.\n\nBeyond that, damage is covered where smoke or soot directly damages or destroys\ninsured property, on condition that the smoke or soot escaped suddenly, and\ncontrary to intended operation, from a firing, heating, cooking or drying\ninstallation situated on the insured site. Indemnity for this extension is\ncapped at [amount].\n\nNot covered is damage arising from the gradual action of smoke or soot -\nlong-term surface soiling of the fogging type, for instance.\n\n2.3.10 Damage excluded within the fire group\nNot covered:\n  (a) damage caused by earthquake, irrespective of any contributing causes;\n  (b) damage to internal combustion engines caused by the explosions occurring\n      inside the machine's combustion chamber, and damage arising at the\n      switching elements of electrical switches through the gas pressure\n      occurring inside them. Cover does exist, however, where such damage is\n      the consequence of an insured fire event under 2.3.1.\n\n2.4 Escape of water defined\n\n2.4.1 The three headings\nThe escape of water peril covers three things: escape of water damage; fracture\ndamage to pipework inside buildings; and fracture damage to pipework outside\nbuildings.\n\n2.4.2 Escape of water damage\nEscaping water means water that has emerged contrary to its intended purpose\nfrom:\n  (a) pipes of the water supply, whether supply or drainage lines, or hoses\n      connected to them;\n  (b) other installations connected to those pipes or hoses, or the\n      water-carrying parts of such installations;\n  (c) heating or air-conditioning systems;\n  (d) water-based extinguishing or sprinkler systems;\n  (e) water beds or aquaria.\n\nOperating fluids from heating or air-conditioning systems, and steam, also\ncount as escaping water. Fluids intended for the generation of energy do not.\n\nDamage is also covered where it is caused by water that emerged, contrary to\nits intended purpose, from rainwater drainage pipes running inside the\nbuilding. For this extension the exclusion of damage caused by precipitation\n(see 3.3(c)) does not apply.\n\n2.4.3 Fracture damage to pipework inside buildings\nCovered inside buildings:\n\n  (a) frost-related and other fracture damage to pipes of\n        - the water supply, whether supply or drainage lines, and the gas\n          supply, or hoses connected to them;\n        - heating or air-conditioning systems;\n        - water-based extinguishing or sprinkler systems;\n        - rainwater drainage.\n      This presupposes that the pipes concerned are not a structural component\n      of a boiler, a water heater or a comparable installation.\n\n  (b) frost-related fracture damage to the following installations:\n        - bath and shower fittings, washbasins, lavatories, taps and valves\n          together with their connection hoses;\n        - radiators, boilers, water heaters and comparable parts of heating or\n          air-conditioning systems.\n\nThe whole structural body of the building, including the floor slab, counts as\n\"inside the building\". Pipes of a solar heating installation on the roof count\nas pipes inside the building. Unless something else has been agreed, pipes and\ninstallations beneath the floor slab are not insured, whether load-bearing or\nnot.\n\n2.4.4 Fracture damage to pipework outside buildings\nCovered outside buildings: frost-related and other fracture damage to supply\npipes of the water supply, or to pipes of heating or air-conditioning systems,\nin each case insofar as the policyholder bears the risk for those pipes and\ninsofar as they either\n  (a) serve the supply of insured buildings or installations, or\n  (b) are situated on the insured site.\n\nIndemnity for fracture damage to supply pipes that do not serve the supply of\ninsured buildings or installations is limited per insured event to the amount\nagreed for that purpose.\n\nIndemnity for fracture damage to supply pipes that are not situated on the\ninsured site is limited per insured event to the amount agreed for that\npurpose.\n\n2.5 Natural hazards defined\n\n2.5.1 Storm\nStorm means a weather-driven movement of air reaching at least the gale\nthreshold on the recognised scale of wind strength, expressed as a defined\nminimum sustained wind speed.\n\nWhere the wind strength at the loss location cannot be established, storm is\npresumed if the policyholder demonstrates either of the following:\n  (a) in the vicinity of the insured site the air movement caused damage to\n      buildings that were in sound condition, or to other property of\n      comparable resistance; or\n  (b) given the sound condition of the insured building - or of the building in\n      which the insured property was located - the damage can only have arisen\n      through storm. This applies equally to buildings structurally joined to\n      the insured building.\n\n2.5.2 Hail\nHail means solid precipitation in the form of grains of ice.\n\n2.5.3 Which storm and hail events are covered\nOnly damage arising in one of the following ways is covered:\n  (a) storm or hail acts directly on insured property, or on buildings in which\n      insured property is located; consequential damage to insured property\n      arising from this is covered;\n  (b) storm or hail acts directly on buildings structurally joined to the\n      insured building;\n  (c) storm or hail acts directly on buildings structurally joined to buildings\n      in which insured property is located;\n  (d) storm or hail throws building parts, trees or other objects onto insured\n      property, or onto buildings in which insured property is located;\n      consequential damage to insured property arising from this is covered;\n  (e) storm or hail throws building parts, trees or other objects onto\n      buildings structurally joined to the insured building;\n  (f) storm or hail throws building parts, trees or other objects onto\n      buildings structurally joined to buildings in which insured property is\n      located.\n\n2.5.4 The further natural hazards\n\nFlood\nFlood means the inundation of the ground and soil of the insured site, or of\ndirectly adjoining land, roads, footpaths or cycle paths, with substantial\nquantities of surface water. It counts only where the inundation was caused by\n  (a) the overflow of surface waters, standing or flowing,\n  (b) precipitation, or\n  (c) the emergence of groundwater at the surface as a consequence of (a) or\n      (b).\n\nBacking-up of water\nBacking-up is present where water enters the building from the building's own\ndrainage pipes or from installations connected to them. It counts only where\nthe backing-up was caused by the overflow of surface waters, standing or\nflowing, or by precipitation.\n\nEarthquake\nEarthquake means a naturally caused tremor of the ground triggered by\ngeophysical processes within the earth's interior.\n\nEarthquake is presumed if the policyholder demonstrates either of the\nfollowing:\n  (a) in the vicinity of the insured location the naturally caused ground\n      tremor caused damage to buildings that were in sound condition, or to\n      other property of comparable resistance; or\n  (b) given the sound condition of the insured property, the damage can only\n      have arisen through an earthquake.\n\nGround subsidence\nA naturally caused sinking of the ground above naturally formed cavities.\n\nLandslip\nA naturally caused sliding or falling away of masses of earth or rock.\n\nSnow load\nThe effect of the weight of masses of snow or ice. Snow or ice masses sliding\noff roofs also count as snow load.\n\nAvalanche\nMasses of snow or ice descending a mountain slope.\n\nVolcanic eruption\nA sudden release of pressure on the rupturing of the earth's crust, accompanied\nby flows of lava, eruptions of ash, or the escape of other materials and gases.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered. This applies irrespective of any contributing\ncauses.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered. This applies\nirrespective of any contributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered. This applies irrespective of any contributing causes.\n\n3.2 Exclusions within the fire group\n\nSee 2.3.10.\n\n3.3 Exclusions within the escape of water peril\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) splash water or cleaning water;\n  (b) dry rot and house-rot fungi of every kind;\n  (c) groundwater, standing or flowing surface water, flood, precipitation, or\n      a backing-up of water brought about by any of these causes;\n  (d) earthquake, snow load, avalanche, volcanic eruption;\n  (e) ground subsidence or landslip - unless escaping water within the meaning\n      of 2.4.2 caused the subsidence or the landslip;\n  (f) fire; lightning strike; overvoltage caused by lightning; explosion;\n      deflagration; implosion; impact or crash of an aircraft; vehicle impact;\n      scorching; smoke and soot damage;\n  (g) the opening of sprinklers or the operation of sprinkler nozzles on\n      account of a fire, on account of pressure testing, or on account of\n      alteration or repair work to the insured building or to the extinguishing\n      or sprinkler system;\n  (h) storm, hail.\n\nDamage to buildings or parts of buildings that are not ready for occupation is\nnot covered. The same applies to property located in such buildings or parts of\nbuildings.\n\n3.4 Exclusions within the natural hazards\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) storm surge;\n  (b) the penetration of rain, hail, snow or dirt through windows, external\n      doors or other openings that were not properly closed. This exclusion\n      does not apply where those openings were created by storm or hail and\n      constitute damage to the building;\n  (c) groundwater, except insofar as it emerged at the surface as a result of\n      precipitation or of the overflow of surface waters;\n  (d) fire; lightning strike; overvoltage caused by lightning; explosion;\n      deflagration; implosion; impact or crash of an aircraft; vehicle impact;\n      scorching; smoke and soot damage. This exclusion does not apply insofar\n      as those perils were triggered by an insured earthquake;\n  (e) drought or desiccation.\n\nDamage to buildings and parts of buildings that are not ready for occupation,\nand to property located within them, is not covered. Damage to shop windows and\ndisplay windows is likewise not covered.\n\n3.5 Items the insured event did not damage, and additions to the building\n\nNot covered, irrespective of the occasion on which the work is carried out:\n  (a) the supply and putting in place of new equipment within the meaning of\n      1.3, and every element belonging to it;\n  (b) the renewal, upgrading or supplementing of an installation that the\n      insured event did not damage;\n  (c) the extension or improvement of the technical equipment, the output, the\n      capacity or the fitting-out of the building beyond the standard in place\n      immediately before the insured event;\n  (d) work directed at the comfort, convenience or appearance of a room, as\n      distinct from making good the damage the insured event caused;\n  (e) every ancillary charge within the meaning of 1.3 attributable to an item\n      or a measure falling under (a) to (d).\n\nThis exclusion applies whether the work is carried out at the same time as\ncovered work, in the course of it, in the same room, by the same undertaking,\nunder the same commission, or on the same account; and whether or not it is\ndescribed as necessary, sensible, recommended or overdue.\n\nWhere covered and non-covered items appear on one account, the presence of the\ncovered items does not carry the others; each is assessed on its own merits\n(9.5).\n\n3.6 Work beyond the affected items, and outlay that is not a repair cost\n\nWork carried out beyond those items of the insured property that were themselves\naffected by the insured event is not covered. Outlay that does not constitute a\nrepair or replacement cost is not indemnified. The delimitation in each case is\ngoverned by 7.1.5 to 7.1.13.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises:\n  (a) the buildings identified in the schedule;\n  (b) their building components, including the technical installations forming\n      part of them;\n  (c) their building accessories;\n  (d) terraces on the insured site that directly adjoin the building;\n  (e) further site installations.\n\n4.2 The categories defined\n\n4.2.1 Building and dwelling\nBuildings are structures connected to the ground. They must be capable of\naffording protection against external influences and, for the purposes of these\nconditions, must be intended for predominantly residential use.\n\nWhere the insured property is a self-contained dwelling within such a building,\nthese conditions apply to that dwelling and to those parts of the building that\nconstitute the policyholder's separate property, together with the\npolicyholder's share in the common parts.\n\n4.2.2 Building components\nBuilding components are items incorporated into a building that have lost their\nindependence through their firm connection with it. Fitted furniture and fitted\nkitchens fall within this category where they were made individually for the\nbuilding and adapted to it with substantial installation effort. Add-on\nfurniture and add-on kitchens that are series-produced do not.\n\nAlso counting as building components are the fitting-out elements of the\ndwelling: floor coverings together with their bedding, adhesive, underlay,\ninsulating and levelling layers; wall and ceiling finishes; interior doors; and\nfixed trim, beading and comparable edging elements.\n\n4.2.3 Technical installations of the building\nThe installations serving the building - heating, ventilation, climate control,\nsanitary and electrical plant - are building components where they are firmly\nconnected with the building within the meaning of 1.3 and were in place\nimmediately before the insured event. Their fixed supports, brackets, consoles,\nframes, mountings, ducting and connection elements form part of them.\n\nThe following are not building components:\n  (a) an item that is not firmly connected - one that stands, rests, plugs in or\n      is set down and can be taken elsewhere and used there without work on the\n      fabric of the building. Its weight, its price, its designation as part of\n      a system, and its being supplied together with fixed elements or with\n      loose control devices do not alter this;\n  (b) the loose, handheld or portable accessories supplied with an installation.\n\n4.2.4 Building accessories\nBuilding accessories are movable items located inside the building or attached\nto its exterior. They must serve the upkeep of the insured building or its\npredominant intended purpose.\n\n4.2.5 Terraces\nTerraces are paved surfaces intended for occupation in the open air.\n\n4.2.6 Further site installations\nFurther site installations means the items firmly connected with the ground and\nsoil of the insured site that are specified for that purpose in the schedule.\n\n4.3 Property not insured\n\nNot insured:\n  (a) photovoltaic installations and their components - solar modules, mounting\n      frames, fastening elements, inverters, module optimisers and the cabling.\n      This extends to an electricity storage installation permanently connected\n      to the photovoltaic installation and serving the supply of the building;\n  (b) all items subsequently incorporated into the building by a tenant or by a\n      condominium owner where that person both\n        - procured or took the items over at their own expense, and\n        - bears the risk for them.\n      Where items are merely exchanged, the newly incorporated items are\n      insured. Any different arrangement as to who bears the risk must be\n      evidenced by the policyholder;\n  (c) electronically stored data and programs. Costs of restoring\n      electronically stored data and programs are covered only where this has\n      been additionally agreed in the contract;\n  (d) movable technical appliances and equipment of the household that are not\n      firmly connected with the building within the meaning of 1.3, together\n      with the elements and ancillary charges belonging to them. Such property\n      is the subject matter of a separate class of insurance;\n  (e) new equipment within the meaning of 1.3, together with the elements\n      belonging to it and the ancillary charges attributable to it.\n\n4.4 The insured location\n\nThe insured location is the insured site: the land parcel or parcels on which\nthe insured building stands. Where several buildings stand on one parcel, the\ninsured location is that part of the parcel which, by fencing or other\ndemarcation, belongs exclusively to the insured building or buildings.\n\n4.5 Condominium and part-ownership units\n\n4.5.1 Where the contract is with an association of condominium owners: if the\ninsurer is wholly or partly released from liability on account of the conduct of\nindividual condominium owners, it remains obliged to pay the remaining owners.\nThis applies to their separate property and to their shares in the common\nproperty.\n\n4.5.2 The co-ownership share of the owner against whom the insurer is wholly or\npartly released is not indemnified, or is indemnified only in part.\n\nThe remaining condominium owners may nevertheless claim indemnity for that\nco-ownership share. This presupposes that the additional indemnity is applied to\nreinstating the common property. The condominium owner against whom the insurer\nis wholly or partly released must reimburse the insurer for that additional\nindemnity.\n\n4.5.3 The two provisions above apply correspondingly to buildings insurance for\npart-ownership units.\n\n4.6 Deductibles\n\nA deductible is the share of the indemnity, or the amount, that the policyholder\nbears itself per insured event. Deductibles can be agreed individually. They may\ndiffer from one insured peril and one insured benefit to another. Each is set\nout in the schedule. Where one event damages several installations, the\ndeductible is applied once for that event. A deductible is applied only to an\nindemnity that is otherwise payable; it does not create cover for an item that is\nexcluded.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS, LOSS OF RENT AND RENTAL VALUE\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nThe insurer reimburses the following costs where they were necessary as a\nconsequence of an insured event and were actually incurred:\n  (a) debris removal and demolition costs;\n  (b) costs of moving and protecting property;\n  (c) costs of lost water, gas and heating oil, and of electricity lost from\n      storage installations;\n  (d) hotel costs.\n\nReimbursement of each of these heads is limited to the amount agreed for it. The\nlist is exhaustive. A cost that does not fall under one of these heads, and is\nnot a repair or replacement cost under Part 7, is not indemnified however it is\ndescribed or invoiced.\n\n5.2 The cost heads defined\n\n5.2.1 Debris removal and demolition\nCosts incurred in clearing away and demolishing insured property affected by the\ninsured event, and in disposing of an affected installation that a covered\nreplacement takes the place of. This includes the expense of removing rubble and\nother remains of that property, transporting them to the nearest disposal site,\ndepositing them and destroying them.\n\nIt does not extend to the removal or disposal of property that the insured event\ndid not damage and that no covered replacement takes the place of - plant,\nappliances or fittings taken out of the building on the same occasion for other\nreasons, for instance - whether or not they are collected in the same operation\nand whether or not the charge appears on the same account.\n\n5.2.2 Moving and protecting property\nCosts incurred in moving, altering or protecting other property, reimbursable\nwhere those measures serve to reinstate or replace insured property damaged by\nthe insured event.\n\n5.2.3 Lost water, gas, heating oil and stored electricity\nCosts arising because water, gas or heating oil escaped contrary to its intended\npurpose as a result of an insured event. Additional wastewater charges fall\nunder th\n[... truncated ...]",
+    "description": "Electrical surge claim on the fixed building-services cover. A surge came through the mains and knocked out two of the fixed air conditioning units in the house, one in the living room and one in the kitchen. Both are wall-fixed, permanently wired units that serve the building.\n\nNeither could be sensibly repaired, so both were replaced like-for-like. The living-room unit sits on a floor-standing console, the same kind of stand it had before. A technician shipped the replacement units in, fitted them and checked the wiring over.\n\nWorth noting where each one is. The living-room unit is well clear of any cooking appliances. The kitchen unit is mounted on the kitchen wall, a couple of metres from the hob.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0206\nDATE\n27 Mar 2026\nDUE\n10 Apr 2026\nTRADE\nBuilding Services\nFROM\nHandy Hans All-Trades Ltd\n23 Fixit Boulevard\n70173 Wrenchford\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Air conditioning unit - living room (surge damaged,\nreplaced like-for-like)\n1 pcs\n2 Air conditioning unit - kitchen (wall-mounted a couple\nof metres from the hob)\n1 pcs\n3 Installation - living-room unit 1 pcs\n4 Installation - kitchen unit 1 pcs\n5 Floor console (equivalent stand for the living-room\nunit)\n1 pcs\n6 Freight shipping 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Building Services",
+      "invoice_no": "2026-0206",
+      "date": "27 Mar 2026",
+      "vendor": "Handy Hans All-Trades Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "Air conditioning unit - living room (surge damaged, replaced like-for-like)",
+        "quantity": 1.0,
+        "unit": "pcs"
+      },
+      {
+        "index": 2,
+        "description": "Air conditioning unit - kitchen (wall-mounted a couple of metres from the hob)",
+        "quantity": 1.0,
+        "unit": "pcs"
+      },
+      {
+        "index": 3,
+        "description": "Installation - living-room unit",
+        "quantity": 1.0,
+        "unit": "pcs"
+      },
+      {
+        "index": 4,
+        "description": "Installation - kitchen unit",
+        "quantity": 1.0,
+        "unit": "pcs"
+      },
+      {
+        "index": 5,
+        "description": "Floor console (equivalent stand for the living-room unit)",
+        "quantity": 1.0,
+        "unit": "pcs"
+      },
+      {
+        "index": 6,
+        "description": "Freight shipping",
+        "quantity": 1.0,
+        "unit": "pcs"
+      }
+    ],
+    "n_images": 1
+  },
+  "model_fast": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5-mini",
+      "seconds": 15.7
+    },
+    "output": {
+      "policy_summary": "Building (fixed) technical installations insured against fire-group overvoltage (lightning/overvoltage) on reinstatement basis; new equipment and unrelated upgrades excluded; ancillary costs for replacement/installation and freight allowed; deductibles/sums per schedule apply.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage caused by lightning",
+          "t_low": 820,
+          "t_mid": 1050,
+          "t_high": 1300,
+          "t_if_covered": 0,
+          "reason": "like-for-like fixed AC unit mid-range price incl. VAT"
+        },
+        {
+          "index": 2,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage caused by lightning",
+          "t_low": 700,
+          "t_mid": 900,
+          "t_high": 1100,
+          "t_if_covered": 0,
+          "reason": "wall-mounted fixed AC unit mid-range price incl. VAT"
+        },
+        {
+          "index": 3,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Ancillary charge / 5.1 repair costs",
+          "t_low": 180,
+          "t_mid": 250,
+          "t_high": 320,
+          "t_if_covered": 0,
+          "reason": "reasonable labour for internal installation and testing"
+        },
+        {
+          "index": 4,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Ancillary charge / 5.1 repair costs",
+          "t_low": 180,
+          "t_mid": 250,
+          "t_high": 320,
+          "t_if_covered": 0,
+          "reason": "installation labour for kitchen unit and wiring check"
+        },
+        {
+          "index": 5,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Building components / ancillary charge",
+          "t_low": 90,
+          "t_mid": 140,
+          "t_high": 200,
+          "t_if_covered": 0,
+          "reason": "simple floor console/stand reasonable market price"
+        },
+        {
+          "index": 6,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Ancillary charge (freight) / 5.1",
+          "t_low": 20,
+          "t_mid": 45,
+          "t_high": 80,
+          "t_if_covered": 0,
+          "reason": "shipping cost for two units modest amount incl. VAT"
+        }
+      ]
+    }
+  },
+  "priced_fast": [
+    {
+      "index": 1,
+      "charge_price": 930.0,
+      "acceptance_limit": 1315.38
+    },
+    {
+      "index": 2,
+      "charge_price": 800.0,
+      "acceptance_limit": 1122.29
+    },
+    {
+      "index": 3,
+      "charge_price": 215.0,
+      "acceptance_limit": 308.3
+    },
+    {
+      "index": 4,
+      "charge_price": 215.0,
+      "acceptance_limit": 308.3
+    },
+    {
+      "index": 5,
+      "charge_price": 112.5,
+      "acceptance_limit": 172.66
+    },
+    {
+      "index": 6,
+      "charge_price": 30.0,
+      "acceptance_limit": 55.07
+    }
+  ],
+  "model_full1": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 19.34
+    },
+    "output": {
+      "policy_summary": "Buildings incl. fixed technical installations; surge/overvoltage covered; reinstate like-for-like; no upgrades/new equipment; specified extra cost heads only.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 7.1 Reinstatement",
+          "t_low": 1350,
+          "t_mid": 1500,
+          "t_high": 1700,
+          "t_if_covered": 0,
+          "reason": "Like-for-like AC unit, surge-damaged, fixed building installation."
+        },
+        {
+          "index": 2,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 7.1 Reinstatement",
+          "t_low": 1350,
+          "t_mid": 1500,
+          "t_high": 1700,
+          "t_if_covered": 0,
+          "reason": "Kitchen wall AC unit failed from surge; replaced same spec."
+        },
+        {
+          "index": 3,
+          "covered": true,
+          "related": true,
+          "clause": "7.1 Reinstatement of affected items; 4.2.3 Technical installations",
+          "t_low": 800,
+          "t_mid": 950,
+          "t_high": 1150,
+          "t_if_covered": 0,
+          "reason": "Necessary fitting/commissioning of living-room replacement unit."
+        },
+        {
+          "index": 4,
+          "covered": true,
+          "related": true,
+          "clause": "7.1 Reinstatement of affected items; 4.2.3 Technical installations",
+          "t_low": 800,
+          "t_mid": 950,
+          "t_high": 1150,
+          "t_if_covered": 0,
+          "reason": "Necessary fitting/commissioning of kitchen replacement unit."
+        },
+        {
+          "index": 5,
+          "covered": true,
+          "related": true,
+          "clause": "7.1 Reinstatement like-for-like; 3.5 New equipment exclusion avoided",
+          "t_low": 130,
+          "t_mid": 160,
+          "t_high": 200,
+          "t_if_covered": 0,
+          "reason": "Console stand replaced equivalently; part of original installation."
+        },
+        {
+          "index": 6,
+          "covered": true,
+          "related": true,
+          "clause": "7.1 Reinstatement costs include necessary delivery/handling",
+          "t_low": 80,
+          "t_mid": 120,
+          "t_high": 160,
+          "t_if_covered": 0,
+          "reason": "Reasonable freight to supply covered replacement units."
+        }
+      ]
+    }
+  },
+  "ensemble": {
+    "policy_summary": "Buildings incl. fixed technical installations; surge/overvoltage covered; reinstate like-for-like; no upgrades/new equipment; specified extra cost heads only.",
+    "items": [
+      {
+        "index": 1,
+        "covered": true,
+        "related": true,
+        "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 7.1 Reinstatement",
+        "t_low": 1020.0,
+        "t_mid": 1150.0,
+        "t_high": 1300.0,
+        "t_if_covered": 0.0,
+        "reason": "Like-for-like AC unit, surge-damaged, fixed building installation.",
+        "votes": "3/3 covered"
+      },
+      {
+        "index": 2,
+        "covered": true,
+        "related": true,
+        "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 7.1 Reinstatement",
+        "t_low": 980.0,
+        "t_mid": 1150.0,
+        "t_high": 1300.0,
+        "t_if_covered": 0.0,
+        "reason": "Kitchen wall AC unit failed from surge; replaced same spec.",
+        "votes": "3/3 covered"
+      },
+      {
+        "index": 3,
+        "covered": true,
+        "related": true,
+        "clause": "7.1 Reinstatement of affected items; 4.2.3 Technical installations",
+        "t_low": 440.0,
+        "t_mid": 520.0,
+        "t_high": 650.0,
+        "t_if_covered": 0.0,
+        "reason": "Necessary fitting/commissioning of living-room replacement unit.",
+        "votes": "3/3 covered"
+      },
+      {
+        "index": 4,
+        "covered": true,
+        "related": true,
+        "clause": "7.1 Reinstatement of affected items; 4.2.3 Technical installations",
+        "t_low": 400.0,
+        "t_mid": 480.0,
+        "t_high": 620.0,
+        "t_if_covered": 0.0,
+        "reason": "Necessary fitting/commissioning of kitchen replacement unit.",
+        "votes": "3/3 covered"
+      },
+      {
+        "index": 5,
+        "covered": true,
+        "related": true,
+        "clause": "7.1 Reinstatement like-for-like; 3.5 New equipment exclusion avoided",
+        "t_low": 120.0,
+        "t_mid": 150.0,
+        "t_high": 190.0,
+        "t_if_covered": 160.0,
+        "reason": "Console stand replaced equivalently; part of original installation.",
+        "votes": "2/3 covered"
+      },
+      {
+        "index": 6,
+        "covered": true,
+        "related": true,
+        "clause": "7.1 Reinstatement costs include necessary delivery/handling",
+        "t_low": 60.0,
+        "t_mid": 90.0,
+        "t_high": 140.0,
+        "t_if_covered": 0.0,
+        "reason": "Reasonable freight to supply covered replacement units.",
+        "votes": "3/3 covered"
+      }
+    ],
+    "n_votes": 3
+  },
+  "priced_full": [
+    {
+      "index": 1,
+      "charge_price": 1080.0,
+      "acceptance_limit": 1469.2
+    },
+    {
+      "index": 2,
+      "charge_price": 1070.0,
+      "acceptance_limit": 1449.06
+    },
+    {
+      "index": 3,
+      "charge_price": 467.5,
+      "acceptance_limit": 669.28
+    },
+    {
+      "index": 4,
+      "charge_price": 425.0,
+      "acceptance_limit": 619.57
+    },
+    {
+      "index": 5,
+      "charge_price": 132.5,
+      "acceptance_limit": 190.39
+    },
+    {
+      "index": 6,
+      "charge_price": 70.0,
+      "acceptance_limit": 114.77
+    }
+  ],
+  "model_full0": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 22.02
+    },
+    "output": {
+      "policy_summary": "Fixed building components incl. technical installations insured; overvoltage from lightning covered; no cover for renewing undamaged parts/new equipment; ancillary charges for covered replacements allowed; standard deductibles per schedule.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 1.1 Reinstatement",
+          "t_low": 980,
+          "t_mid": 1150,
+          "t_high": 1300,
+          "t_if_covered": 0,
+          "reason": "Like-for-like indoor unit of fixed AC, surge-damaged."
+        },
+        {
+          "index": 2,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 1.1 Reinstatement",
+          "t_low": 980,
+          "t_mid": 1150,
+          "t_high": 1300,
+          "t_if_covered": 0,
+          "reason": "Kitchen wall unit permanently wired; surge damage shown."
+        },
+        {
+          "index": 3,
+          "covered": true,
+          "related": true,
+          "clause": "1.1 Reinstatement; 4.2.3 Technical installations",
+          "t_low": 360,
+          "t_mid": 450,
+          "t_high": 540,
+          "t_if_covered": 0,
+          "reason": "Reasonable technician labour to fit and commission."
+        },
+        {
+          "index": 4,
+          "covered": true,
+          "related": true,
+          "clause": "1.1 Reinstatement; 4.2.3 Technical installations",
+          "t_low": 360,
+          "t_mid": 450,
+          "t_high": 540,
+          "t_if_covered": 0,
+          "reason": "Installation and testing of second affected unit."
+        },
+        {
+          "index": 5,
+          "covered": false,
+          "related": false,
+          "clause": "3.5(b) Renewal of undamaged parts not covered",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 160,
+          "reason": "Stand not surge-damaged; renewal is betterment."
+        },
+        {
+          "index": 6,
+          "covered": true,
+          "related": true,
+          "clause": "1.1 Reinstatement; 4.2.3 with necessary ancillaries",
+          "t_low": 60,
+          "t_mid": 90,
+          "t_high": 140,
+          "t_if_covered": 0,
+          "reason": "Necessary freight for covered replacement units."
+        }
+      ]
+    }
+  },
+  "model_full2": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 25.08
+    },
+    "output": {
+      "policy_summary": "Buildings incl. fixed technical installations; covers overvoltage by lightning; reinstatement like-for-like; ancillary charges necessary to repair; no upgrades/new equipment; VAT included; deductibles per schedule.",
+      "items": [
+        {
+          "index": 1,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 7.1 Reinstatement",
+          "t_low": 1020,
+          "t_mid": 1150,
+          "t_high": 1300,
+          "t_if_covered": 0,
+          "reason": "Fixed AC damaged by surge; like-for-like indoor unit."
+        },
+        {
+          "index": 2,
+          "covered": true,
+          "related": true,
+          "clause": "2.3.3 Overvoltage; 4.2.3 Technical installations; 7.1 Reinstatement",
+          "t_low": 880,
+          "t_mid": 980,
+          "t_high": 1150,
+          "t_if_covered": 0,
+          "reason": "Kitchen wall AC surge-damaged; replacement same type."
+        },
+        {
+          "index": 3,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Ancillary charges; 7.1 Reinstatement",
+          "t_low": 440,
+          "t_mid": 520,
+          "t_high": 650,
+          "t_if_covered": 0,
+          "reason": "Labour to fit and commission living-room unit."
+        },
+        {
+          "index": 4,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Ancillary charges; 7.1 Reinstatement",
+          "t_low": 400,
+          "t_mid": 480,
+          "t_high": 620,
+          "t_if_covered": 0,
+          "reason": "Labour to fit and commission kitchen unit."
+        },
+        {
+          "index": 5,
+          "covered": true,
+          "related": true,
+          "clause": "4.2.3 Technical installations; 1.3 Like-for-like replacement",
+          "t_low": 110,
+          "t_mid": 140,
+          "t_high": 180,
+          "t_if_covered": 0,
+          "reason": "Equivalent console stand replacing affected support."
+        },
+        {
+          "index": 6,
+          "covered": true,
+          "related": true,
+          "clause": "1.3 Ancillary charges; 7.1 Reinstatement",
+          "t_low": 60,
+          "t_mid": 80,
+          "t_high": 120,
+          "t_if_covered": 0,
+          "reason": "Necessary freight for covered replacement units."
+        }
+      ]
+    }
+  },
+  "finished_at_s": 25.2
+}
