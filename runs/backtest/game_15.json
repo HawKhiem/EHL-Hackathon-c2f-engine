@@ -5,147 +5,147 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 253.76,
-    "acceptance_limit": 138.36
+    "charge_price": 276.23,
+    "acceptance_limit": 180.67
    },
    {
     "index": 2,
-    "charge_price": 93.49,
-    "acceptance_limit": 50.97
+    "charge_price": 101.77,
+    "acceptance_limit": 66.56
    },
    {
     "index": 3,
-    "charge_price": 380.65,
-    "acceptance_limit": 207.54
+    "charge_price": 408.4,
+    "acceptance_limit": 267.12
    },
    {
     "index": 4,
-    "charge_price": 146.92,
-    "acceptance_limit": 80.1
+    "charge_price": 157.63,
+    "acceptance_limit": 103.1
    },
    {
     "index": 5,
-    "charge_price": 66.78,
-    "acceptance_limit": 36.41
+    "charge_price": 53.61,
+    "acceptance_limit": 35.07
    },
    {
     "index": 6,
-    "charge_price": 26.71,
-    "acceptance_limit": 14.56
+    "charge_price": 28.24,
+    "acceptance_limit": 18.47
    },
    {
     "index": 7,
-    "charge_price": 193.66,
-    "acceptance_limit": 105.59
+    "charge_price": 193.95,
+    "acceptance_limit": 126.86
    },
    {
     "index": 8,
-    "charge_price": 33.0,
+    "charge_price": 49.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 9,
-    "charge_price": 246.0,
+    "charge_price": 369.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 10,
-    "charge_price": 252.0,
+    "charge_price": 378.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 11,
-    "charge_price": 400.68,
-    "acceptance_limit": 218.46
+    "charge_price": 254.3,
+    "acceptance_limit": 166.33
    },
    {
     "index": 12,
-    "charge_price": 156.0,
+    "charge_price": 234.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 13,
-    "charge_price": 390.0,
+    "charge_price": 585.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 14,
-    "charge_price": 75.0,
+    "charge_price": 112.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 15,
-    "charge_price": 33.0,
+    "charge_price": 49.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 16,
-    "charge_price": 57.0,
+    "charge_price": 85.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 17,
-    "charge_price": 27.0,
+    "charge_price": 40.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 18,
-    "charge_price": 228.0,
+    "charge_price": 342.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 19,
-    "charge_price": 306.0,
+    "charge_price": 459.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 20,
-    "charge_price": 93.49,
-    "acceptance_limit": 50.97
+    "charge_price": 101.77,
+    "acceptance_limit": 66.56
    },
    {
     "index": 21,
-    "charge_price": 80.14,
-    "acceptance_limit": 43.69
+    "charge_price": 80.26,
+    "acceptance_limit": 52.49
    },
    {
     "index": 22,
-    "charge_price": 39.0,
+    "charge_price": 58.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 23,
-    "charge_price": 27.0,
+    "charge_price": 40.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 24,
-    "charge_price": 27.0,
+    "charge_price": 40.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 25,
-    "charge_price": 108.0,
+    "charge_price": 162.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 26,
-    "charge_price": 27.0,
+    "charge_price": 40.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 27,
-    "charge_price": 57.0,
+    "charge_price": 85.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 28,
-    "charge_price": 18.0,
+    "charge_price": 27.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 29,
-    "charge_price": 51.0,
+    "charge_price": 76.5,
     "acceptance_limit": 0.0
    }
   ],
@@ -162,7 +162,8 @@
      "t_high": 250,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Necessary single investigation of concealed leaking joint"
+     "reason": "Necessary single investigation of concealed leaking joint",
+     "_description": "Indoor leak detection"
     },
     {
      "index": 2,
@@ -174,7 +175,8 @@
      "t_high": 95,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Initial measurement supports documented local drying"
+     "reason": "Initial measurement supports documented local drying",
+     "_description": "Moisture measurement"
     },
     {
      "index": 3,
@@ -186,7 +188,8 @@
      "t_high": 390,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Six hours excessive; accept roughly three necessary hours"
+     "reason": "Six hours excessive; accept roughly three necessary hours",
+     "_description": "Skilled worker hours"
     },
     {
      "index": 4,
@@ -198,7 +201,8 @@
      "t_high": 170,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Limited assistance reasonable; six hours excessive"
+     "reason": "Limited assistance reasonable; six hours excessive",
+     "_description": "Helper hours"
     },
     {
      "index": 5,
@@ -210,7 +214,8 @@
      "t_high": 70,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "One local contractor journey is indemnifiable"
+     "reason": "One local contractor journey is indemnifiable",
+     "_description": "Vehicle costs"
     },
     {
      "index": 6,
@@ -222,7 +227,8 @@
      "t_high": 35,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Only minor consumables attributable to investigation accepted"
+     "reason": "Only minor consumables attributable to investigation accepted",
+     "_description": "Small parts and consumables"
     },
     {
      "index": 7,
@@ -234,7 +240,8 @@
      "t_high": 210,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Local opening necessary around concealed fitting"
+     "reason": "Local opening necessary around concealed fitting",
+     "_description": "Expose pipeline"
     },
     {
      "index": 8,
@@ -246,7 +253,8 @@
      "t_high": 0,
      "t_if_covered": 55,
      "cap_uncertain": false,
-     "reason": "Damaged pipe insulation not established in description"
+     "reason": "Damaged pipe insulation not established in description",
+     "_description": "Removal and disposal of damaged insulation"
     },
     {
      "index": 9,
@@ -258,7 +266,8 @@
      "t_high": 0,
      "t_if_covered": 410,
      "cap_uncertain": false,
-     "reason": "Duplicates item 8 and six hours are unsupported"
+     "reason": "Duplicates item 8 and six hours are unsupported",
+     "_description": "Removal and disposal of damaged insulation"
     },
     {
      "index": 10,
@@ -270,7 +279,8 @@
      "t_high": 0,
      "t_if_covered": 420,
      "cap_uncertain": false,
-     "reason": "Roof-space drying unrelated to cellar leak"
+     "reason": "Roof-space drying unrelated to cellar leak",
+     "_description": "Room drying up to 25 m\u00b2 (roof space)"
     },
     {
      "index": 11,
@@ -282,7 +292,8 @@
      "t_high": 410,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "One dryer for approximately two weeks is reasonable"
+     "reason": "One dryer for approximately two weeks is reasonable",
+     "_description": "Condensation dryer"
     },
     {
      "index": 12,
@@ -294,7 +305,8 @@
      "t_high": 0,
      "t_if_covered": 260,
      "cap_uncertain": false,
-     "reason": "Roof-space fans unrelated to basement moisture"
+     "reason": "Roof-space fans unrelated to basement moisture",
+     "_description": "Drying fan (roof space)"
     },
     {
      "index": 13,
@@ -306,7 +318,8 @@
      "t_high": 0,
      "t_if_covered": 650,
      "cap_uncertain": false,
-     "reason": "Kitchen drying contradicts reported small cellar damage"
+     "reason": "Kitchen drying contradicts reported small cellar damage",
+     "_description": "Room drying up to 50 m\u00b2 (kitchen)"
     },
     {
      "index": 14,
@@ -318,7 +331,8 @@
      "t_high": 0,
      "t_if_covered": 125,
      "cap_uncertain": false,
-     "reason": "Leak was unsealed fitting, not damaged copper pipe"
+     "reason": "Leak was unsealed fitting, not damaged copper pipe",
+     "_description": "Pipe repair, copper pipe 22\u201328 mm"
     },
     {
      "index": 15,
@@ -330,7 +344,8 @@
      "t_high": 0,
      "t_if_covered": 55,
      "cap_uncertain": false,
-     "reason": "Two transition pieces unsupported by simple fitting reseal"
+     "reason": "Two transition pieces unsupported by simple fitting reseal",
+     "_description": "Transition piece, copper 22/28 mm"
     },
     {
      "index": 16,
@@ -342,7 +357,8 @@
      "t_high": 0,
      "t_if_covered": 95,
      "cap_uncertain": false,
-     "reason": "Three metres copper pipe unrelated to faulty joint"
+     "reason": "Three metres copper pipe unrelated to faulty joint",
+     "_description": "Copper pipe 28 mm"
     },
     {
      "index": 17,
@@ -354,7 +370,8 @@
      "t_high": 0,
      "t_if_covered": 45,
      "cap_uncertain": false,
-     "reason": "Three metres insulation damage not established"
+     "reason": "Three metres insulation damage not established",
+     "_description": "Pipe insulation 28 mm"
     },
     {
      "index": 18,
@@ -366,7 +383,8 @@
      "t_high": 0,
      "t_if_covered": 380,
      "cap_uncertain": false,
-     "reason": "Technician work accompanies unsupported kitchen pipe replacement"
+     "reason": "Technician work accompanies unsupported kitchen pipe replacement",
+     "_description": "Service technician hours"
     },
     {
      "index": 19,
@@ -378,7 +396,8 @@
      "t_high": 0,
      "t_if_covered": 510,
      "cap_uncertain": false,
-     "reason": "Six-hour insulation restoration unsupported and excessive"
+     "reason": "Six-hour insulation restoration unsupported and excessive",
+     "_description": "Restore pipe insulation (installer)"
     },
     {
      "index": 20,
@@ -390,7 +409,8 @@
      "t_high": 95,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "One final measurement reasonably confirms drying completion"
+     "reason": "One final measurement reasonably confirms drying completion",
+     "_description": "Final measurement"
     },
     {
      "index": 21,
@@ -402,7 +422,8 @@
      "t_high": 90,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Modest final cleaning of local repair area"
+     "reason": "Modest final cleaning of local repair area",
+     "_description": "Final site cleaning"
     },
     {
      "index": 22,
@@ -414,7 +435,8 @@
      "t_high": 0,
      "t_if_covered": 65,
      "cap_uncertain": false,
-     "reason": "Kitchen table unrelated to cellar fitting leak"
+     "reason": "Kitchen table unrelated to cellar fitting leak",
+     "_description": "Removal of the water-damaged wooden kitchen table"
     },
     {
      "index": 23,
@@ -426,7 +448,8 @@
      "t_high": 0,
      "t_if_covered": 45,
      "cap_uncertain": false,
-     "reason": "Table transport unrelated to reported cellar damage"
+     "reason": "Table transport unrelated to reported cellar damage",
+     "_description": "Transport of the damaged table"
     },
     {
      "index": 24,
@@ -438,7 +461,8 @@
      "t_high": 0,
      "t_if_covered": 45,
      "cap_uncertain": false,
-     "reason": "Table disposal unrelated to reported cellar damage"
+     "reason": "Table disposal unrelated to reported cellar damage",
+     "_description": "Disposal of the damaged table"
     },
     {
      "index": 25,
@@ -450,7 +474,8 @@
      "t_high": 0,
      "t_if_covered": 180,
      "cap_uncertain": false,
-     "reason": "No table damage reported; age deduction also unknown"
+     "reason": "No table damage reported; age deduction also unknown",
+     "_description": "Supply of replacement kitchen table, comparable specification to the original"
     },
     {
      "index": 26,
@@ -462,7 +487,8 @@
      "t_high": 0,
      "t_if_covered": 45,
      "cap_uncertain": false,
-     "reason": "Replacement delivery follows unrelated table claim"
+     "reason": "Replacement delivery follows unrelated table claim",
+     "_description": "Delivery of the replacement table"
     },
     {
      "index": 27,
@@ -474,7 +500,8 @@
      "t_high": 0,
      "t_if_covered": 95,
      "cap_uncertain": false,
-     "reason": "Two-hour table assembly unrelated and excessive"
+     "reason": "Two-hour table assembly unrelated and excessive",
+     "_description": "Assembly of the new table"
     },
     {
      "index": 28,
@@ -486,7 +513,8 @@
      "t_high": 0,
      "t_if_covered": 30,
      "cap_uncertain": false,
-     "reason": "Installation-area cleaning follows unrelated replacement"
+     "reason": "Installation-area cleaning follows unrelated replacement",
+     "_description": "Cleaning of the installation area"
     },
     {
      "index": 29,
@@ -498,7 +526,8 @@
      "t_high": 0,
      "t_if_covered": 85,
      "cap_uncertain": false,
-     "reason": "Garden furniture outside affected cellar area"
+     "reason": "Garden furniture outside affected cellar area",
+     "_description": "Inspection of further furniture items stored in the garden for moisture"
     }
    ]
   },
@@ -508,105 +537,105 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 39272.9,
-    "cost": 41429.69,
-    "net": -2156.79
+    "income": 51363.71,
+    "cost": 40456.59,
+    "net": 10907.12
    },
    "optimistic": {
-    "income": 49485.96,
-    "cost": 41429.69,
-    "net": 8056.27
+    "income": 64187.86,
+    "cost": 40456.59,
+    "net": 23731.27
    }
   },
   "open_pairings": {
-   "income": 117,
+   "income": 66,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 253.76,
-    "b": 138.36,
+    "a": 276.23,
+    "b": 180.67,
     "t_lo": 297.73,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 4060.1600000000017,
-     "optimistic": 4060.1600000000017
+     "pessimistic": 4419.68,
+     "optimistic": 4419.68
     },
     "cost": {
-     "pessimistic": 2808.1600000000003,
-     "optimistic": 2808.1600000000003
+     "pessimistic": 2720.1600000000003,
+     "optimistic": 2720.1600000000003
     }
    },
    "2": {
-    "a": 93.49,
-    "b": 50.97,
+    "a": 101.77,
+    "b": 66.56,
     "t_lo": 218.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 1495.84,
-     "optimistic": 1495.84
+     "pessimistic": 1628.32,
+     "optimistic": 1628.32
     },
     "cost": {
-     "pessimistic": 1882.77,
-     "optimistic": 1882.77
+     "pessimistic": 1796.02,
+     "optimistic": 1796.02
     }
    },
    "3": {
-    "a": 380.65,
-    "b": 207.54,
+    "a": 408.4,
+    "b": 267.12,
     "t_lo": 506.15,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 6090.399999999999,
-     "optimistic": 6090.399999999999
+     "pessimistic": 6534.399999999999,
+     "optimistic": 6534.399999999999
     },
     "cost": {
-     "pessimistic": 6378.129999999999,
-     "optimistic": 6378.129999999999
+     "pessimistic": 6254.199999999999,
+     "optimistic": 6254.199999999999
     }
    },
    "4": {
-    "a": 146.92,
-    "b": 80.1,
+    "a": 157.63,
+    "b": 103.1,
     "t_lo": 253.53,
     "t_hi": 284.76,
     "fair": true,
     "income": {
-     "pessimistic": 2350.7200000000003,
-     "optimistic": 2350.7200000000003
+     "pessimistic": 2522.080000000001,
+     "optimistic": 2522.080000000001
     },
     "cost": {
-     "pessimistic": 2350.225,
-     "optimistic": 2350.225
+     "pessimistic": 2350.2250000000004,
+     "optimistic": 2350.2250000000004
     }
    },
    "5": {
-    "a": 66.78,
-    "b": 36.41,
+    "a": 53.61,
+    "b": 35.07,
     "t_lo": 63.05,
     "t_hi": null,
-    "fair": null,
+    "fair": true,
     "income": {
-     "pessimistic": 0.0,
-     "optimistic": 1068.4799999999998
+     "pessimistic": 857.7600000000001,
+     "optimistic": 857.7600000000001
     },
     "cost": {
-     "pessimistic": 639.9449999999999,
-     "optimistic": 639.9449999999999
+     "pessimistic": 657.9449999999999,
+     "optimistic": 657.9449999999999
     }
    },
    "6": {
-    "a": 26.71,
-    "b": 14.56,
+    "a": 28.24,
+    "b": 18.47,
     "t_lo": 176.75,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 427.3599999999999,
-     "optimistic": 427.3599999999999
+     "pessimistic": 451.8400000000001,
+     "optimistic": 451.8400000000001
     },
     "cost": {
      "pessimistic": 937.8299999999999,
@@ -614,44 +643,44 @@
     }
    },
    "7": {
-    "a": 193.66,
-    "b": 105.59,
+    "a": 193.95,
+    "b": 126.86,
     "t_lo": 176.75,
     "t_hi": 203.62,
     "fair": null,
     "income": {
-     "pessimistic": 580.98,
-     "optimistic": 3098.5599999999995
+     "pessimistic": 581.8499999999999,
+     "optimistic": 3103.1999999999994
     },
     "cost": {
-     "pessimistic": 1821.1750000000002,
-     "optimistic": 1821.1750000000002
+     "pessimistic": 1649.4450000000002,
+     "optimistic": 1649.4450000000002
     }
    },
    "8": {
-    "a": 33.0,
+    "a": 49.5,
     "b": 0.0,
     "t_lo": 65.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 528.0,
-     "optimistic": 528.0
+     "pessimistic": 792.0,
+     "optimistic": 792.0
     },
     "cost": {
-     "pessimistic": 823.2149999999999,
-     "optimistic": 823.2149999999999
+     "pessimistic": 823.215,
+     "optimistic": 823.215
     }
    },
    "9": {
-    "a": 246.0,
+    "a": 369.0,
     "b": 0.0,
     "t_lo": 497.9,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 3936.0,
-     "optimistic": 3936.0
+     "pessimistic": 5904.0,
+     "optimistic": 5904.0
     },
     "cost": {
      "pessimistic": 3698.43,
@@ -659,14 +688,14 @@
     }
    },
    "10": {
-    "a": 252.0,
+    "a": 378.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 100.0,
     "fair": false,
     "income": {
-     "pessimistic": 252.0,
-     "optimistic": 252.0
+     "pessimistic": 0.0,
+     "optimistic": 378.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -674,29 +703,29 @@
     }
    },
    "11": {
-    "a": 400.68,
-    "b": 218.46,
+    "a": 254.3,
+    "b": 166.33,
     "t_lo": 52.68,
     "t_hi": 100.0,
     "fair": false,
     "income": {
-     "pessimistic": 801.36,
-     "optimistic": 801.36
+     "pessimistic": 1525.8,
+     "optimistic": 1780.1
     },
     "cost": {
-     "pessimistic": 881.48,
-     "optimistic": 881.48
+     "pessimistic": 474.15999999999997,
+     "optimistic": 474.15999999999997
     }
    },
    "12": {
-    "a": 156.0,
+    "a": 234.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 27.0,
     "fair": false,
     "income": {
-     "pessimistic": 156.0,
-     "optimistic": 468.0
+     "pessimistic": 0.0,
+     "optimistic": 234.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -704,14 +733,14 @@
     }
    },
    "13": {
-    "a": 390.0,
+    "a": 585.0,
     "b": 0.0,
     "t_lo": 271.44,
     "t_hi": null,
     "fair": null,
     "income": {
      "pessimistic": 0.0,
-     "optimistic": 6240.0
+     "optimistic": 9360.0
     },
     "cost": {
      "pessimistic": 1632.465,
@@ -719,14 +748,14 @@
     }
    },
    "14": {
-    "a": 75.0,
+    "a": 112.5,
     "b": 0.0,
     "t_lo": 43.65,
     "t_hi": 65.0,
     "fair": false,
     "income": {
-     "pessimistic": 450.0,
-     "optimistic": 525.0
+     "pessimistic": 337.5,
+     "optimistic": 337.5
     },
     "cost": {
      "pessimistic": 81.73499999999999,
@@ -734,29 +763,29 @@
     }
    },
    "15": {
-    "a": 33.0,
+    "a": 49.5,
     "b": 0.0,
     "t_lo": 67.02,
     "t_hi": 200.0,
     "fair": true,
     "income": {
-     "pessimistic": 528.0,
-     "optimistic": 528.0
+     "pessimistic": 792.0,
+     "optimistic": 792.0
     },
     "cost": {
-     "pessimistic": 448.5900000000001,
-     "optimistic": 448.5900000000001
+     "pessimistic": 448.59000000000003,
+     "optimistic": 448.59000000000003
     }
    },
    "16": {
-    "a": 57.0,
+    "a": 85.5,
     "b": 0.0,
     "t_lo": 130.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 912.0,
-     "optimistic": 912.0
+     "pessimistic": 1368.0,
+     "optimistic": 1368.0
     },
     "cost": {
      "pessimistic": 832.065,
@@ -764,14 +793,14 @@
     }
    },
    "17": {
-    "a": 27.0,
+    "a": 40.5,
     "b": 0.0,
     "t_lo": 71.81,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 432.0,
-     "optimistic": 432.0
+     "pessimistic": 648.0,
+     "optimistic": 648.0
     },
     "cost": {
      "pessimistic": 512.955,
@@ -779,14 +808,14 @@
     }
    },
    "18": {
-    "a": 228.0,
+    "a": 342.0,
     "b": 0.0,
     "t_lo": 360.0,
     "t_hi": 400.0,
     "fair": true,
     "income": {
-     "pessimistic": 3648.0,
-     "optimistic": 3648.0
+     "pessimistic": 5472.0,
+     "optimistic": 5472.0
     },
     "cost": {
      "pessimistic": 3636.3300000000004,
@@ -794,14 +823,14 @@
     }
    },
    "19": {
-    "a": 306.0,
+    "a": 459.0,
     "b": 0.0,
     "t_lo": 497.9,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 4896.0,
-     "optimistic": 4896.0
+     "pessimistic": 7344.0,
+     "optimistic": 7344.0
     },
     "cost": {
      "pessimistic": 3703.635,
@@ -809,44 +838,44 @@
     }
    },
    "20": {
-    "a": 93.49,
-    "b": 50.97,
+    "a": 101.77,
+    "b": 66.56,
     "t_lo": 124.2,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 1495.84,
-     "optimistic": 1495.84
+     "pessimistic": 1628.32,
+     "optimistic": 1628.32
     },
     "cost": {
-     "pessimistic": 1357.26,
-     "optimistic": 1357.26
+     "pessimistic": 1268.71,
+     "optimistic": 1268.71
     }
    },
    "21": {
-    "a": 80.14,
-    "b": 43.69,
+    "a": 80.26,
+    "b": 52.49,
     "t_lo": 100.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 1282.2400000000002,
-     "optimistic": 1282.2400000000002
+     "pessimistic": 1284.16,
+     "optimistic": 1284.16
     },
     "cost": {
-     "pessimistic": 1036.2450000000001,
-     "optimistic": 1036.2450000000001
+     "pessimistic": 1011.4300000000001,
+     "optimistic": 1011.4300000000001
     }
    },
    "22": {
-    "a": 39.0,
+    "a": 58.5,
     "b": 0.0,
     "t_lo": 130.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 624.0,
-     "optimistic": 624.0
+     "pessimistic": 936.0,
+     "optimistic": 936.0
     },
     "cost": {
      "pessimistic": 1178.205,
@@ -854,14 +883,14 @@
     }
    },
    "23": {
-    "a": 27.0,
+    "a": 40.5,
     "b": 0.0,
     "t_lo": 57.3,
     "t_hi": 63.13,
     "fair": true,
     "income": {
-     "pessimistic": 432.0,
-     "optimistic": 432.0
+     "pessimistic": 648.0,
+     "optimistic": 648.0
     },
     "cost": {
      "pessimistic": 327.96000000000004,
@@ -869,14 +898,14 @@
     }
    },
    "24": {
-    "a": 27.0,
+    "a": 40.5,
     "b": 0.0,
     "t_lo": 47.0,
     "t_hi": 56.17,
     "fair": true,
     "income": {
-     "pessimistic": 432.0,
-     "optimistic": 432.0
+     "pessimistic": 648.0,
+     "optimistic": 648.0
     },
     "cost": {
      "pessimistic": 271.125,
@@ -884,14 +913,14 @@
     }
    },
    "25": {
-    "a": 108.0,
+    "a": 162.0,
     "b": 0.0,
     "t_lo": 329.56,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 1728.0,
-     "optimistic": 1728.0
+     "pessimistic": 2592.0,
+     "optimistic": 2592.0
     },
     "cost": {
      "pessimistic": 2218.665,
@@ -899,6 +928,36 @@
     }
    },
    "26": {
+    "a": 40.5,
+    "b": 0.0,
+    "t_lo": 57.3,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 648.0,
+     "optimistic": 648.0
+    },
+    "cost": {
+     "pessimistic": 391.155,
+     "optimistic": 391.155
+    }
+   },
+   "27": {
+    "a": 85.5,
+    "b": 0.0,
+    "t_lo": 135.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 1368.0,
+     "optimistic": 1368.0
+    },
+    "cost": {
+     "pessimistic": 1173.81,
+     "optimistic": 1173.81
+    }
+   },
+   "28": {
     "a": 27.0,
     "b": 0.0,
     "t_lo": 57.3,
@@ -909,49 +968,19 @@
      "optimistic": 432.0
     },
     "cost": {
-     "pessimistic": 391.155,
-     "optimistic": 391.155
-    }
-   },
-   "27": {
-    "a": 57.0,
-    "b": 0.0,
-    "t_lo": 135.0,
-    "t_hi": null,
-    "fair": true,
-    "income": {
-     "pessimistic": 912.0,
-     "optimistic": 912.0
-    },
-    "cost": {
-     "pessimistic": 1173.8100000000002,
-     "optimistic": 1173.8100000000002
-    }
-   },
-   "28": {
-    "a": 18.0,
-    "b": 0.0,
-    "t_lo": 57.3,
-    "t_hi": null,
-    "fair": true,
-    "income": {
-     "pessimistic": 288.0,
-     "optimistic": 288.0
-    },
-    "cost": {
      "pessimistic": 406.125,
      "optimistic": 406.125
     }
    },
    "29": {
-    "a": 51.0,
+    "a": 76.5,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 39.0,
     "fair": false,
     "income": {
-     "pessimistic": 102.0,
-     "optimistic": 102.0
+     "pessimistic": 0.0,
+     "optimistic": 76.5
     },
     "cost": {
      "pessimistic": 0.0,
@@ -991,12 +1020,12 @@
    "29": "truth+payout"
   }
  },
- "pess_net": -2156.79,
- "pess_rank": 7,
- "opt_net": 8056.27,
- "opt_rank": 4,
- "exp_net": 2949.74,
- "exp_rank": 5,
+ "pess_net": 10907.12,
+ "pess_rank": 4,
+ "opt_net": 23731.27,
+ "opt_rank": 1,
+ "exp_net": 17319.19,
+ "exp_rank": 1,
  "best_team": "eyay",
  "best_net": 15740.68,
  "n_teams": 17,

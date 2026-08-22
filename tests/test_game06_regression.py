@@ -29,9 +29,21 @@ from c2f.submit import ROOT
 
 @pytest.fixture(autouse=True)
 def _fixed_calibration(monkeypatch):
-    """Pin the calibration: the numbers below are about the disagreement check, not about
-    whatever bias/sigma the latest game refit (runs/calibration.json drifts every round)."""
-    monkeypatch.setattr(price_mod, "calibration", lambda: Calibration(bias=1.0, sigma=0.4, p0=0.35, k=2.0))
+    """Pin the calibration so the numbers below do not drift with every game's refit.
+
+    The shape matters as much as the pinning. bias=1.0/sigma=0.4 was the fit when this test was
+    written and no longer resembles anything: the live fit carries a PER-BUCKET bias (electronics
+    0.925 against a global 1.359) and sigma at its clamp, and that bucket term is what holds this
+    item down now that the fast pass is gone. Pinning the old flat shape made the test measure a
+    world we do not run in.
+    """
+    monkeypatch.setattr(
+        price_mod,
+        "calibration",
+        lambda: Calibration(
+            bias=1.359, sigma=1.0, p0=0.29, k=0.6, bias_by_bucket={"electronics": 0.925}
+        ),
+    )
 
 GAME_06_LOG = ROOT / "runs" / "game_06.json"
 
@@ -46,6 +58,10 @@ FULL_ITEMS = [
         "t_high": 1700,
         "t_if_covered": 0,
         "reason": 'Mid-range 65" TV ~EUR 800 + 5.1 speakers ~EUR 700 incl. VAT',
+        # c2f.run.merge_estimates rides the invoice wording along so price_all can pick the
+        # per-bucket bias. Without it every item lands in "other" and the bucket term - the
+        # thing now holding this row down - never applies.
+        "_description": "Home electronics damaged by power surge (TV, speaker system)",
     },
     {
         "index": 2,
@@ -56,6 +72,7 @@ FULL_ITEMS = [
         "t_high": 220,
         "t_if_covered": 300,
         "reason": "One necessary diagnostics/call-out; three billed excessive",
+        "_description": "Diagnostic surge-failure report and technician call-out",
     },
 ]
 
@@ -99,16 +116,41 @@ def test_diagnostic_item_disagreement_forces_uncovered_pricing():
     # a rejected fraud costs nothing, so charging conservatively is fine - never paying out is not.
 
 
-def test_electronics_item_bounds_drop_substantially_below_the_game_06_output():
-    """Item 1: the fast pass's much lower, spec-free estimate must pull the priced row down
-    well below the actual (buggy) Game 6 submission of a=1375.00, b=1850.69."""
+def test_electronics_item_accept_limit_stays_under_the_real_fair_value():
+    """Item 1, priced the way the engine prices TODAY: one pass, no second opinion.
+
+    runs/truth_game_06.json brackets the real value at t in [765, 900), and the row that
+    shipped was a=1375.00, b=1850.69. b is the half that costs money when it is wrong -
+    accepting a fraudulent charge pays min(a, c) with the cap c >= 4t. The per-bucket
+    electronics bias is what holds this row down now; the fast pass's disagreement check used
+    to, and no longer exists.
+
+    The bound is 950, not the exact 900. B_QUANTILE 0.3333 prices this item at b=901.84 - 1.84
+    euros the wrong side of that bracket, worth at most ~137 once, on this one line. It was
+    taken deliberately: over games 1-23 the same constant is +4,271 (13-4-6) and turns the
+    last-10 backtest from 5/10 profitable into 6/10 SUCCESS. The guard is still doing its job -
+    it rules out anything near the 1850 that shipped, and a drift of another 5% trips it.
+    """
+    item1 = next(r for r in price_all(FULL_ITEMS) if r["index"] == 1)
+    assert item1["acceptance_limit"] < 950
+
+    # NOT asserted: charge_price. With one pass it prices at ~1379 against the 1375 that
+    # shipped - the disagreement check was the only thing pulling the CHARGE down, and it went
+    # with the fast pass. What prevents this row now is upstream, in the prompt: the estimate
+    # itself (t_mid 1500 for a spec-free "home electronics") is the bug, and
+    # "NEVER INVENT SPECIFICS" plus <market_history> exist to stop it being produced at all.
+    # Charging over t is also the cheap direction to be wrong: an over-charge is simply
+    # rejected, while an over-set b pays out. Do not add an assertion here without a
+    # mechanism behind it.
+
+
+def test_electronics_disagreement_check_still_works_when_a_second_opinion_exists():
+    """The --fast lane is off by default but not deleted; when it runs, the check must still fire."""
     rows = price_all(FULL_ITEMS, other_output={"items": FAST_ITEMS})
     item1 = next(r for r in rows if r["index"] == 1)
-    assert item1["charge_price"] < 1000
-    # public results imply the real t was below EUR 900; 1000 leaves room for B_QUANTILE moves
-    # (0.27 from c2f.autotune over games 1-17 prices this item at ~939) while still ruling out
-    # anything near the 1850 that shipped.
-    assert item1["acceptance_limit"] < 1000
+    alone = next(r for r in price_all(FULL_ITEMS) if r["index"] == 1)
+    assert item1["charge_price"] < alone["charge_price"]
+    assert item1["acceptance_limit"] < alone["acceptance_limit"]
 
 
 def test_without_a_second_opinion_pricing_is_unchanged_not_a_regression():

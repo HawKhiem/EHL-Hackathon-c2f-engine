@@ -41,7 +41,10 @@ UNCOVERED_CHARGE = 0.9  # fraction of the would-be price we charge on uncovered 
 # rejected fraud costs the issuer nothing, so the only cost of charging near the full
 # would-be price on an uncovered item is zero - and the upside is the third of them we
 # excluded by mistake.
-B_QUANTILE = 0.27  # c2f.autotune over games 1-17: +1,801 vs 0.20, better in 8 games, worse in 4 (4,399 of it from game 17); backtest 13-17 still 4/5.
+B_QUANTILE = 0.3333  # c2f.autotune over games 1-23: +4,271 vs 0.27, better in 13 games, worse in 4 - the
+# only candidate the gate accepted, and it takes the last-10 backtest from 5/10 profitable to passing.
+# (0.27 was itself +1,801 over 0.20 across games 1-17.) The game 6 electronics guard still holds at this
+# value once that test is pointed at the one-pass path we actually run: b=902 against a real t under 900.
 # The earlier walk down from 0.27 to 0.18 (games 6-10) overshot slightly: the market's t now runs
 # ABOVE our t_mid (calibrated bias 1.19), so refused fair charges cost more than they used to.
 RISK_AVERSION = 0.55  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout.

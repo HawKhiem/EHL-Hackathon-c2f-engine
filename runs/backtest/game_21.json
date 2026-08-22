@@ -1,0 +1,115 @@
+{
+ "actual_net": 2640.0,
+ "actual_rank": 3,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 87.23,
+    "acceptance_limit": 39.94
+   },
+   {
+    "index": 2,
+    "charge_price": 142.48,
+    "acceptance_limit": 93.19
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Portable equipment accidental impact is covered; repair/diagnostic only, subject to unknown equipment and diagnostic caps.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.3 Examination and assessment of damaged portable insured equipment",
+     "t_low": 45,
+     "t_mid": 60,
+     "t_high": 80,
+     "t_if_covered": 0,
+     "cap_uncertain": true,
+     "reason": "Necessary diagnostic for established accidental laptop impact damage.",
+     "_description": "Diagnostic inspection of the cracked laptop"
+    },
+    {
+     "index": 2,
+     "covered": true,
+     "related": true,
+     "clause": "2.6.3 and 7.1.10 Repair of portable insured equipment",
+     "t_low": 125,
+     "t_mid": 155,
+     "t_high": 195,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Screen crack and dented corner arise from same impact.",
+     "_description": "Laptop screen and lower-right corner repair"
+    }
+   ]
+  },
+  "seconds": 7.4,
+  "repriced": true
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 1852.24,
+    "cost": 47.84,
+    "net": 1804.4
+   },
+   "optimistic": {
+    "income": 2628.6,
+    "cost": 47.84,
+    "net": 2580.76
+   }
+  },
+  "open_pairings": {
+   "income": 20,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 87.23,
+    "b": 39.94,
+    "t_lo": 0.0,
+    "t_hi": 10.84,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 348.92
+    },
+    "cost": {
+     "pessimistic": 47.84,
+     "optimistic": 47.84
+    }
+   },
+   "2": {
+    "a": 142.48,
+    "b": 93.19,
+    "t_lo": 0.0,
+    "t_hi": 166.43,
+    "fair": null,
+    "income": {
+     "pessimistic": 1852.24,
+     "optimistic": 2279.68
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout"
+  }
+ },
+ "pess_net": 1804.4,
+ "pess_rank": 4,
+ "opt_net": 2580.76,
+ "opt_rank": 3,
+ "exp_net": 2192.58,
+ "exp_rank": 3,
+ "best_team": "Bin busy",
+ "best_net": 3080.0,
+ "n_teams": 17,
+ "replayed_now": false
+}

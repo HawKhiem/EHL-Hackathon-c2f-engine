@@ -5,17 +5,17 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 150.0,
+    "charge_price": 225.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 2,
-    "charge_price": 36.0,
+    "charge_price": 54.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 3,
-    "charge_price": 9.0,
+    "charge_price": 13.5,
     "acceptance_limit": 0.0
    },
    {
@@ -25,7 +25,7 @@
    },
    {
     "index": 5,
-    "charge_price": 36.0,
+    "charge_price": 54.0,
     "acceptance_limit": 0.0
    },
    {
@@ -45,7 +45,7 @@
    },
    {
     "index": 9,
-    "charge_price": 27.0,
+    "charge_price": 40.5,
     "acceptance_limit": 0.0
    },
    {
@@ -55,7 +55,7 @@
    },
    {
     "index": 11,
-    "charge_price": 6.0,
+    "charge_price": 9.0,
     "acceptance_limit": 0.0
    },
    {
@@ -65,7 +65,7 @@
    },
    {
     "index": 13,
-    "charge_price": 57.0,
+    "charge_price": 85.5,
     "acceptance_limit": 0.0
    }
   ],
@@ -82,7 +82,8 @@
      "t_high": 0,
      "t_if_covered": 250,
      "cap_uncertain": false,
-     "reason": "Bicycle excluded; no event-related frame damage demonstrated"
+     "reason": "Bicycle excluded; no event-related frame damage demonstrated",
+     "_description": "Bicycle frame replacement"
     },
     {
      "index": 2,
@@ -94,7 +95,8 @@
      "t_high": 0,
      "t_if_covered": 60,
      "cap_uncertain": false,
-     "reason": "Bicycle excluded; no event-related brake damage demonstrated"
+     "reason": "Bicycle excluded; no event-related brake damage demonstrated",
+     "_description": "Bicycle brake replacement"
     },
     {
      "index": 3,
@@ -106,7 +108,8 @@
      "t_high": 0,
      "t_if_covered": 15,
      "cap_uncertain": false,
-     "reason": "Excluded shipping for undocumented bicycle repairs"
+     "reason": "Excluded shipping for undocumented bicycle repairs",
+     "_description": "Shipping"
     },
     {
      "index": 4,
@@ -118,7 +121,8 @@
      "t_high": 0,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "No quantity charged; attendance concerns excluded bicycle work"
+     "reason": "No quantity charged; attendance concerns excluded bicycle work",
+     "_description": "Vehicle costs"
     },
     {
      "index": 5,
@@ -130,7 +134,8 @@
      "t_high": 0,
      "t_if_covered": 60,
      "cap_uncertain": false,
-     "reason": "Assembly concerns undocumented repairs to excluded bicycle"
+     "reason": "Assembly concerns undocumented repairs to excluded bicycle",
+     "_description": "Assembly costs"
     },
     {
      "index": 6,
@@ -142,7 +147,8 @@
      "t_high": 0,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "No quantity or event-related sundries demonstrated"
+     "reason": "No quantity or event-related sundries demonstrated",
+     "_description": "Miscellaneous items"
     },
     {
      "index": 7,
@@ -154,7 +160,8 @@
      "t_high": 0,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "No hours billed or covered bicycle work demonstrated"
+     "reason": "No hours billed or covered bicycle work demonstrated",
+     "_description": "Apprentice hours"
     },
     {
      "index": 8,
@@ -166,7 +173,8 @@
      "t_high": 0,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "No hours billed or covered bicycle work demonstrated"
+     "reason": "No hours billed or covered bicycle work demonstrated",
+     "_description": "Skilled worker hours"
     },
     {
      "index": 9,
@@ -178,7 +186,8 @@
      "t_high": 0,
      "t_if_covered": 45,
      "cap_uncertain": false,
-     "reason": "Necessary attendance, but solely for excluded bicycle lock"
+     "reason": "Necessary attendance, but solely for excluded bicycle lock",
+     "_description": "Vehicle costs"
     },
     {
      "index": 10,
@@ -190,7 +199,8 @@
      "t_high": 0,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "No assembly occurred; lock was only cut"
+     "reason": "No assembly occurred; lock was only cut",
+     "_description": "Assembly costs"
     },
     {
      "index": 11,
@@ -202,7 +212,8 @@
      "t_high": 0,
      "t_if_covered": 10,
      "cap_uncertain": false,
-     "reason": "Cutting consumables relate, but serve excluded bicycle property"
+     "reason": "Cutting consumables relate, but serve excluded bicycle property",
+     "_description": "Miscellaneous items"
     },
     {
      "index": 12,
@@ -214,7 +225,8 @@
      "t_high": 0,
      "t_if_covered": 0,
      "cap_uncertain": false,
-     "reason": "Apprentice unnecessary alongside skilled locksmith for simple cutting"
+     "reason": "Apprentice unnecessary alongside skilled locksmith for simple cutting",
+     "_description": "Apprentice hours"
     },
     {
      "index": 13,
@@ -226,7 +238,8 @@
      "t_high": 0,
      "t_if_covered": 95,
      "cap_uncertain": false,
-     "reason": "Lock cutting relates, but work targeted excluded bicycle lock"
+     "reason": "Lock cutting relates, but work targeted excluded bicycle lock",
+     "_description": "Skilled worker hours"
     }
    ]
   },
@@ -236,29 +249,29 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 708.0,
+    "income": 490.5,
     "cost": 997.06,
-    "net": -289.06
+    "net": -506.56
    },
    "optimistic": {
-    "income": 1863.0,
+    "income": 1147.5,
     "cost": 997.06,
-    "net": 865.94
+    "net": 150.44
    }
   },
   "open_pairings": {
-   "income": 34,
+   "income": 8,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 150.0,
+    "a": 225.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 130.0,
     "fair": false,
     "income": {
-     "pessimistic": 150.0,
+     "pessimistic": 225.0,
      "optimistic": 450.0
     },
     "cost": {
@@ -267,14 +280,14 @@
     }
    },
    "2": {
-    "a": 36.0,
+    "a": 54.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 48.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 72.0,
-     "optimistic": 576.0
+     "pessimistic": 108.0,
+     "optimistic": 108.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -282,14 +295,14 @@
     }
    },
    "3": {
-    "a": 9.0,
+    "a": 13.5,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 7.12,
     "fair": false,
     "income": {
-     "pessimistic": 18.0,
-     "optimistic": 18.0
+     "pessimistic": 27.0,
+     "optimistic": 27.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -312,14 +325,14 @@
     }
    },
    "5": {
-    "a": 36.0,
+    "a": 54.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 25.0,
     "fair": false,
     "income": {
-     "pessimistic": 72.0,
-     "optimistic": 72.0
+     "pessimistic": 54.0,
+     "optimistic": 108.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -372,14 +385,14 @@
     }
    },
    "9": {
-    "a": 27.0,
+    "a": 40.5,
     "b": 0.0,
     "t_lo": 24.9,
     "t_hi": 40.0,
-    "fair": null,
+    "fair": false,
     "income": {
-     "pessimistic": 81.0,
-     "optimistic": 432.0
+     "pessimistic": 40.5,
+     "optimistic": 162.0
     },
     "cost": {
      "pessimistic": 109.77,
@@ -402,14 +415,14 @@
     }
    },
    "11": {
-    "a": 6.0,
+    "a": 9.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 6.0,
     "fair": false,
     "income": {
-     "pessimistic": 30.0,
-     "optimistic": 30.0
+     "pessimistic": 36.0,
+     "optimistic": 36.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -432,14 +445,14 @@
     }
    },
    "13": {
-    "a": 57.0,
+    "a": 85.5,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 51.0,
     "fair": false,
     "income": {
-     "pessimistic": 285.0,
-     "optimistic": 285.0
+     "pessimistic": 0.0,
+     "optimistic": 256.5
     },
     "cost": {
      "pessimistic": 0.0,
@@ -463,12 +476,12 @@
    "13": "truth+payout"
   }
  },
- "pess_net": -289.06,
- "pess_rank": 8,
- "opt_net": 865.94,
- "opt_rank": 5,
- "exp_net": 288.44,
- "exp_rank": 7,
+ "pess_net": -506.56,
+ "pess_rank": 9,
+ "opt_net": 150.44,
+ "opt_rank": 7,
+ "exp_net": -178.06,
+ "exp_rank": 8,
  "best_team": "Codacabana",
  "best_net": 1685.435,
  "n_teams": 17,

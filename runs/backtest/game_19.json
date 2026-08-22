@@ -1,0 +1,353 @@
+{
+ "actual_net": -3494.6050000000105,
+ "actual_rank": 8,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 232.62,
+    "acceptance_limit": 106.5
+   },
+   {
+    "index": 2,
+    "charge_price": 342.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 3,
+    "charge_price": 118.67,
+    "acceptance_limit": 77.62
+   },
+   {
+    "index": 4,
+    "charge_price": 175.3,
+    "acceptance_limit": 114.66
+   },
+   {
+    "index": 5,
+    "charge_price": 147.14,
+    "acceptance_limit": 96.24
+   },
+   {
+    "index": 6,
+    "charge_price": 117.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 7,
+    "charge_price": 152.66,
+    "acceptance_limit": 99.85
+   },
+   {
+    "index": 8,
+    "charge_price": 648.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 9,
+    "charge_price": 42.89,
+    "acceptance_limit": 28.05
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Escape-water damage and necessary making-good are insured; pool plant and loose furnishings require unshown extensions, upgrades only standard equivalent, duplicate ancillary costs excluded.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.2 Locating escape and extent of wetting",
+     "t_low": 130,
+     "t_mid": 160,
+     "t_high": 200,
+     "t_if_covered": 0,
+     "cap_uncertain": true,
+     "reason": "One necessary combined leak-location and moisture survey accepted.",
+     "_description": "Leak detection and moisture survey, pool room to plant room"
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": true,
+     "clause": "2.4.4; 4.3(b); 7.1.8(a)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 380,
+     "cap_uncertain": false,
+     "reason": "Pool supply repair excluded without recorded water-feature extension.",
+     "_description": "Locate and repair separated pool supply connection (pool technology)"
+    },
+    {
+     "index": 3,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(b)",
+     "t_low": 110,
+     "t_mid": 140,
+     "t_high": 170,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Necessary extraction and drying of three affected rooms.",
+     "_description": "Vacuum standing water and technical drying of pool room, conservatory and plant room"
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1(b); 7.1.7(a)-(e)",
+     "t_low": 120,
+     "t_mid": 150,
+     "t_high": 180,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Affected wall finishes and skirting require standard reinstatement.",
+     "_description": "Reinstate flooring, wall surfaces and skirting on the water's path"
+    },
+    {
+     "index": 5,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(h)",
+     "t_low": 75,
+     "t_mid": 110,
+     "t_high": 150,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Completion cleaning of covered working area is insured.",
+     "_description": "Final site cleaning"
+    },
+    {
+     "index": 6,
+     "covered": false,
+     "related": true,
+     "clause": "4.2.3; 4.4.1",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 130,
+     "cap_uncertain": false,
+     "reason": "Loose rug needs unshown schedule cover for furnishings.",
+     "_description": "Clean / dry conservatory rug"
+    },
+    {
+     "index": 7,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(g); 4.3(b)",
+     "t_low": 75,
+     "t_mid": 105,
+     "t_high": 140,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Electrical inspection payable; pool-technology portion excluded.",
+     "_description": "Inspect plant-room electrical systems and pool technology"
+    },
+    {
+     "index": 8,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(d); 7.1.8(f); 7.1.9",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 720,
+     "cap_uncertain": false,
+     "reason": "Duplicate floor charge; high-grade stone exceeds plain-tile standard.",
+     "_description": "Upgrade to high-quality natural stone floor"
+    },
+    {
+     "index": 9,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.8(g)",
+     "t_low": 30,
+     "t_mid": 40,
+     "t_high": 50,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "One attendance-related vehicle charge on indemnifiable invoice.",
+     "_description": "Vehicle costs"
+    }
+   ]
+  },
+  "seconds": 26.2,
+  "repriced": true
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 17716.47,
+    "cost": 20284.26,
+    "net": -2567.8
+   },
+   "optimistic": {
+    "income": 18364.47,
+    "cost": 20284.26,
+    "net": -1919.8
+   }
+  },
+  "open_pairings": {
+   "income": 18,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 232.62,
+    "b": 106.5,
+    "t_lo": 714.76,
+    "t_hi": 824.5,
+    "fair": true,
+    "income": {
+     "pessimistic": 3721.9199999999987,
+     "optimistic": 3721.9199999999987
+    },
+    "cost": {
+     "pessimistic": 7614.6900000000005,
+     "optimistic": 7614.6900000000005
+    }
+   },
+   "2": {
+    "a": 342.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 57.3,
+    "fair": false,
+    "income": {
+     "pessimistic": 1026.0,
+     "optimistic": 1026.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "3": {
+    "a": 118.67,
+    "b": 77.62,
+    "t_lo": 682.23,
+    "t_hi": 1373.59,
+    "fair": true,
+    "income": {
+     "pessimistic": 1898.7200000000005,
+     "optimistic": 1898.7200000000005
+    },
+    "cost": {
+     "pessimistic": 1023.345,
+     "optimistic": 1023.345
+    }
+   },
+   "4": {
+    "a": 175.3,
+    "b": 114.66,
+    "t_lo": 854.46,
+    "t_hi": 1242.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 2804.8000000000006,
+     "optimistic": 2804.8000000000006
+    },
+    "cost": {
+     "pessimistic": 1338.99,
+     "optimistic": 1338.99
+    }
+   },
+   "5": {
+    "a": 147.14,
+    "b": 96.24,
+    "t_lo": 176.75,
+    "t_hi": 219.85,
+    "fair": true,
+    "income": {
+     "pessimistic": 2354.239999999999,
+     "optimistic": 2354.239999999999
+    },
+    "cost": {
+     "pessimistic": 1680.52,
+     "optimistic": 1680.52
+    }
+   },
+   "6": {
+    "a": 117.0,
+    "b": 0.0,
+    "t_lo": 247.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 1872.0,
+     "optimistic": 1872.0
+    },
+    "cost": {
+     "pessimistic": 2742.735,
+     "optimistic": 2742.735
+    }
+   },
+   "7": {
+    "a": 152.66,
+    "b": 99.85,
+    "t_lo": 472.5,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 2442.56,
+     "optimistic": 2442.56
+    },
+    "cost": {
+     "pessimistic": 5627.879999999999,
+     "optimistic": 5627.879999999999
+    }
+   },
+   "8": {
+    "a": 648.0,
+    "b": 0.0,
+    "t_lo": 154.55,
+    "t_hi": 647.93,
+    "fair": false,
+    "income": {
+     "pessimistic": 1296.0,
+     "optimistic": 1944.0
+    },
+    "cost": {
+     "pessimistic": 231.82500000000002,
+     "optimistic": 231.82500000000002
+    }
+   },
+   "9": {
+    "a": 42.89,
+    "b": 28.05,
+    "t_lo": 24.28,
+    "t_hi": 33.46,
+    "fair": false,
+    "income": {
+     "pessimistic": 300.22999999999996,
+     "optimistic": 300.22999999999996
+    },
+    "cost": {
+     "pessimistic": 24.28,
+     "optimistic": 24.28
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout",
+   "7": "truth+payout",
+   "8": "truth+payout",
+   "9": "truth+payout"
+  }
+ },
+ "pess_net": -2567.8,
+ "pess_rank": 7,
+ "opt_net": -1919.8,
+ "opt_rank": 7,
+ "exp_net": -2243.8,
+ "exp_rank": 7,
+ "best_team": "eyay",
+ "best_net": 35875.295,
+ "n_teams": 17,
+ "replayed_now": false
+}

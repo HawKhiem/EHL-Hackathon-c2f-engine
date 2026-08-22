@@ -5,12 +5,12 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 300.0,
+    "charge_price": 450.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 2,
-    "charge_price": 270.0,
+    "charge_price": 405.0,
     "acceptance_limit": 0.0
    }
   ],
@@ -27,7 +27,8 @@
      "t_high": 0,
      "t_if_covered": 500,
      "cap_uncertain": false,
-     "reason": "Theft abroad from vehicle; clothes and jewellery expressly uninsured."
+     "reason": "Theft abroad from vehicle; clothes and jewellery expressly uninsured.",
+     "_description": "Clothing and jewellery stolen from the car"
     },
     {
      "index": 2,
@@ -39,7 +40,8 @@
      "t_high": 0,
      "t_if_covered": 450,
      "cap_uncertain": false,
-     "reason": "Vehicle damage and related costs are expressly excluded."
+     "reason": "Vehicle damage and related costs are expressly excluded.",
+     "_description": "Vehicle costs"
     }
    ]
   },
@@ -49,14 +51,14 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 570.0,
+    "income": 450.0,
     "cost": 0.0,
-    "net": 570.0
+    "net": 450.0
    },
    "optimistic": {
-    "income": 870.0,
+    "income": 855.0,
     "cost": 0.0,
-    "net": 870.0
+    "net": 855.0
    }
   },
   "open_pairings": {
@@ -65,14 +67,14 @@
   },
   "items": {
    "1": {
-    "a": 300.0,
+    "a": 450.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 130.0,
     "fair": false,
     "income": {
-     "pessimistic": 300.0,
-     "optimistic": 600.0
+     "pessimistic": 450.0,
+     "optimistic": 450.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -80,14 +82,14 @@
     }
    },
    "2": {
-    "a": 270.0,
+    "a": 405.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 24.28,
     "fair": false,
     "income": {
-     "pessimistic": 270.0,
-     "optimistic": 270.0
+     "pessimistic": 0.0,
+     "optimistic": 405.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -100,12 +102,12 @@
    "2": "truth+payout"
   }
  },
- "pess_net": 570.0,
+ "pess_net": 450.0,
  "pess_rank": 5,
- "opt_net": 870.0,
+ "opt_net": 855.0,
  "opt_rank": 2,
- "exp_net": 720.0,
- "exp_rank": 2,
+ "exp_net": 652.5,
+ "exp_rank": 3,
  "best_team": "error404 ai",
  "best_net": 1578.32,
  "n_teams": 17,

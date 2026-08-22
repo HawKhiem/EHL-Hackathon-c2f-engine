@@ -1,0 +1,81 @@
+{
+ "actual_net": 9900.0,
+ "actual_rank": 4,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 1125.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Fixed building installations damaged by lightning-caused overvoltage are covered like-for-like; upgrades, excess units and unproven perils excluded.",
+   "items": [
+    {
+     "index": 1,
+     "covered": false,
+     "related": true,
+     "clause": "2.3.3, 7.1.9 and 7.1.10",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 1250,
+     "cap_uncertain": false,
+     "reason": "No lightning or atmospheric-electricity cause evidenced; only one unit damaged.",
+     "_description": "Kitchen air conditioning unit - replacement including installation and delivery"
+    }
+   ]
+  },
+  "seconds": 8.9,
+  "repriced": true
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 9000.0,
+    "cost": 0.0,
+    "net": 9000.0
+   },
+   "optimistic": {
+    "income": 11250.0,
+    "cost": 0.0,
+    "net": 11250.0
+   }
+  },
+  "open_pairings": {
+   "income": 2,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 1125.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 245.7,
+    "fair": false,
+    "income": {
+     "pessimistic": 9000.0,
+     "optimistic": 11250.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout"
+  }
+ },
+ "pess_net": 9000.0,
+ "pess_rank": 4,
+ "opt_net": 11250.0,
+ "opt_rank": 3,
+ "exp_net": 10125.0,
+ "exp_rank": 3,
+ "best_team": "Bin busy",
+ "best_net": 14840.0,
+ "n_teams": 17,
+ "replayed_now": false
+}
