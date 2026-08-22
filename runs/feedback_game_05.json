@@ -11,8 +11,8 @@
   "Teamers",
   "TakeTheMoneyAndRun",
   "harissa eagles",
-  "Nullpointer Naan",
   "Claims Renaissance",
+  "Nullpointer Naan",
   "Trust Nobody",
   "eyay",
   "makalu",
@@ -247,10 +247,10 @@
    "16": 0.0,
    "17": 0.0
   },
-  "Nullpointer Naan": {
-   "1": 150.0,
-   "2": 70.0,
-   "3": 1000.0,
+  "Claims Renaissance": {
+   "1": 0.0,
+   "2": 0.0,
+   "3": 0.0,
    "4": 0.0,
    "5": 0.0,
    "6": 0.0,
@@ -266,10 +266,10 @@
    "16": 0.0,
    "17": 0.0
   },
-  "Claims Renaissance": {
-   "1": 0.0,
-   "2": 0.0,
-   "3": 0.0,
+  "Nullpointer Naan": {
+   "1": 150.0,
+   "2": 70.0,
+   "3": 1000.0,
    "4": 0.0,
    "5": 0.0,
    "6": 0.0,
@@ -572,10 +572,10 @@
    "16": null,
    "17": null
   },
-  "Nullpointer Naan": {
-   "1": true,
-   "2": true,
-   "3": false,
+  "Claims Renaissance": {
+   "1": null,
+   "2": null,
+   "3": null,
    "4": null,
    "5": null,
    "6": null,
@@ -591,10 +591,10 @@
    "16": null,
    "17": null
   },
-  "Claims Renaissance": {
-   "1": null,
-   "2": null,
-   "3": null,
+  "Nullpointer Naan": {
+   "1": true,
+   "2": true,
+   "3": false,
    "4": null,
    "5": null,
    "6": null,
@@ -4114,24 +4114,24 @@
     true
    ]
   },
-  "Nullpointer Naan": {
+  "Claims Renaissance": {
    "1": [
     true,
     true,
-    false,
     true,
     true,
-    false,
     true,
     true,
-    false,
     true,
-    false,
-    false,
-    false,
-    false,
     true,
-    false
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
    ],
    "2": [
     true,
@@ -4144,30 +4144,30 @@
     true,
     true,
     true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
    ],
    "3": [
-    false,
-    false,
-    false,
-    false,
     true,
-    false,
     true,
-    false,
     true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
    ],
    "4": [
     true,
@@ -4422,24 +4422,24 @@
     true
    ]
   },
-  "Claims Renaissance": {
+  "Nullpointer Naan": {
    "1": [
     true,
     true,
+    false,
     true,
     true,
+    false,
     true,
     true,
+    false,
     true,
+    false,
+    false,
+    false,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ],
    "2": [
     true,
@@ -4452,30 +4452,30 @@
     true,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
    ],
    "3": [
+    false,
+    false,
+    false,
+    false,
     true,
+    false,
     true,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
    ],
    "4": [
     true,
@@ -6244,10 +6244,10 @@
    "16": 0.0,
    "6": 0.0,
    "7": 0.0,
-   "4": 0.0,
-   "5": 0.0,
    "1": 0.0,
-   "2": 0.0
+   "2": 0.0,
+   "4": 0.0,
+   "5": 0.0
   },
   "makalu": {
    "3": 0.0,

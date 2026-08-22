@@ -69,8 +69,18 @@ def build_user_message(case: dict) -> str:
         items_txt = f"\n<parsed_line_items>\n{rows}\n</parsed_line_items>\n"
     meta = case.get("invoice_meta") or {}
     meta_txt = " ".join(f'{k}="{v}"' for k, v in meta.items())
+    # A fast model's extract of the clauses that bind (c2f.policy). Absent if that call failed:
+    # it is a reading aid in front of the verbatim policy below, never a replacement for it.
+    digest = case.get("policy_digest")
+    digest_txt = (
+        f"<policy_digest note=\"limits, deductibles and exclusions pulled out of the policy below; "
+        f"a reading aid - the full policy text is authoritative\">\n{digest}\n</policy_digest>\n\n"
+        if digest
+        else ""
+    )
     return (
-        f"<policy>\n{case['policy']}\n</policy>\n\n"
+        digest_txt
+        + f"<policy>\n{case['policy']}\n</policy>\n\n"
         f"<damage_description>\n{case['description']}\n</damage_description>\n\n"
         f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n"
         f"{items_txt}"

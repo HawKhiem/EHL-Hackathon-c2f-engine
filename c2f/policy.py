@@ -1,14 +1,14 @@
-"""Structured pre-extraction of a policy that is too long to send verbatim.
+"""Structured pre-extraction of the clauses in a policy that bind the payout decision.
 
-Only policy.txt runs long (40-65k chars in the games so far). Capping it at
-extract.MAX_CHARS drops the tail - and the tail is where the exclusions, caps and
-deductibles live, i.e. exactly what decides `covered`. So when a field was actually cut,
-we ask the FASTEST model for a structured digest of the WHOLE file and put that in front
-of the capped verbatim text. Nothing that binds gets silently dropped.
+Nothing is truncated any more - the full policy goes to the model verbatim. This digest is
+not a substitute for that text, it is a reading aid: policies run 40-65k chars and bury the
+caps, deductibles and exclusions at the end, so we ask the FASTEST model to pull them out
+and put them in FRONT of the verbatim text. The expensive pass then starts from the clauses
+that decide `covered` instead of having to find them.
 
-This runs only when extract reported a cut (`case["truncated"]`), so on a normal case it
-costs nothing - which matters, the game has a 60 s clock. It is best-effort by design:
-any failure or timeout leaves the case untouched and the run proceeds on capped text.
+Cheap enough to run every game (~3 s on gpt-5-nano), but the game has a 60 s clock, so it is
+best-effort by design: any failure or timeout means the run proceeds on the verbatim policy
+alone, which is still complete. run.py starts it in parallel and bounds the wait.
 """
 
 from __future__ import annotations
@@ -92,7 +92,7 @@ def _call(text: str, model: str, prov: str, timeout: float) -> str:
 
 
 def distill(policy_text: str, *, timeout: float = TIMEOUT_S, model: str | None = None) -> tuple[str, dict]:
-    """Full policy text -> (rendered digest, meta). Raises on failure; attach() swallows."""
+    """Full policy text -> (rendered digest, meta). Raises on failure; build() swallows."""
     prov = provider()
     model = model or os.environ.get("C2F_DIGEST_MODEL") or FAST[prov]
     t0 = time.time()
@@ -104,16 +104,26 @@ def distill(policy_text: str, *, timeout: float = TIMEOUT_S, model: str | None =
     return text, {"model": model, "seconds": round(time.time() - t0, 2), "chars": len(text)}
 
 
-def attach(case: dict, case_dir, *, timeout: float = TIMEOUT_S) -> dict | None:
-    """Set case["policy_digest"] iff the policy was cut. Never raises - returns meta or None."""
-    if "policy" not in (case.get("truncated") or []):
-        return None
+def build(case_dir, *, timeout: float = TIMEOUT_S) -> tuple[str | None, dict]:
+    """policy.txt -> (digest or None, meta). Never raises: the verbatim policy is enough.
+
+    Returns rather than mutates so the caller can assign on its own thread - run.py runs this
+    concurrently with the fast pass and must not race a model call that is already building
+    its prompt from `case`.
+    """
     src = Path(case_dir) / "policy.txt"
     if not src.exists():
-        return None
+        return None, {"skipped": "no policy.txt"}
     try:
         text, meta = distill(src.read_text(errors="replace"), timeout=timeout)
-    except Exception as e:  # noqa: BLE001 - best-effort: capped text is still a valid prompt
-        return {"error": str(e)}
-    case["policy_digest"] = text
+    except Exception as e:  # noqa: BLE001 - best-effort by design, see the module docstring
+        return None, {"error": str(e)}
+    return text, meta
+
+
+def attach(case: dict, case_dir, *, timeout: float = TIMEOUT_S) -> dict:
+    """build() + assign, for callers with no concurrency of their own (backtest, manual)."""
+    text, meta = build(case_dir, timeout=timeout)
+    if text:
+        case["policy_digest"] = text
     return meta

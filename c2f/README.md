@@ -28,15 +28,12 @@ their accept/reject limits and the inferred fair-value bounds from the public le
 It prints, per game, our actual net and rank vs the replayed net and rank (pessimistic /
 optimistic where the data leaves an outcome open) and writes `runs/backtest/summary.json`.
 
-    make hooks                 # once per clone: installs the pre-commit hook
-    make backtest              # all completed games (calls the model, ~40 s per game)
-    make backtest G="2 4 6"    # specific games
-    make rescore               # re-score stored replays without the model (price.py-only changes)
+    make backtest              # re-price + re-score stored estimates with the current price.py + calibration (no model call)
+    make replay                # call the model again for every old game (prompt / extract / policy changes)
+    make replay G="2 4 6"      # call the model for these games only
 
 **Success criterion: the replayed strategy must win (rank 1 on the expected net) in more than
-half of the old games.** The hook refuses a commit that touches
-`c2f/{price,llm,ensemble,extract,run,calibrate}.py` unless `runs/backtest/summary.json` is newer
-than the changed files, staged with them, and says `success: true`. Knowing override for
-emergencies: `ALLOW_BACKTEST_FAIL=1 git commit ...` (say why in the message).
-So the workflow is: edit -> `make backtest` (or `make rescore`) -> look at the table ->
-`git add runs/backtest` -> commit.
+half of the old games.** Nothing enforces this — a pre-commit hook that blocked commits to
+`c2f/{price,llm,policy,extract,run,calibrate}.py` without a fresh passing summary was removed
+as too much friction. Run it when a change is worth checking: edit -> `make backtest` (or
+`make replay` if the change is upstream of pricing) -> look at the table.

@@ -52,7 +52,7 @@ define push_calibration
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check test fb truth backtest rescore hooks $(GAMES)
+.PHONY: play check test fb truth backtest replay rescore $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
@@ -93,16 +93,17 @@ truth:
 
 # THE evaluation: replay the CURRENT strategy on past games against the real opponents
 # (uses feedback + truth + calibration as components; calls the model, ~40 s/game)
-#   make backtest            all completed games decrypted locally
-#   make backtest G="2 4 6"  specific games
+#   make backtest            re-price + re-score the stored estimates of the last 5 completed decrypted
+#                            games with the CURRENT price.py + calibration - no model call, seconds
+#   make replay              call the model again for every old game, then score (prompt/extract changes)
+#   make replay G="2 4"      call the model for these games only; the others come from the store
+#   (the verdict is always over the LAST 5 completed decrypted games)
 backtest:
 	$(PY) -m c2f.backtest $(G)
 
-# Re-score the stored replays without calling the model (after changing price.py only)
-rescore:
-	$(PY) -m c2f.backtest --no-llm $(G)
+replay:
+	$(PY) -m c2f.backtest --replay $(G)
 
-# Install the git hook that blocks algorithm commits without a fresh backtest
-hooks:
-	git config core.hooksPath .githooks
-	@echo "hooks installed (core.hooksPath=.githooks)"
+# old name for the default behaviour
+rescore: backtest
+

@@ -31,14 +31,17 @@ get_case.sh     policy text        covered? related?     a = charge         runs
 |---|---|---|---|
 | IN | `get_case.sh` | `cases/case_NN.zip`, `GET /api/games/NN/key` | `cases/case_NN/` |
 | EXTRACT | `c2f/extract.py` | policy.txt, description.txt, invoices.pdf, *.png | case dict (below) |
+| DIGEST | `c2f/policy.py` | policy.txt | `policy_digest`: limits / deductibles / exclusions |
 | MODEL | `c2f/llm.py` | case dict + system prompt | JSON: per item covered, related, clause, t_low/t_mid/t_high, t_if_covered, reason; policy_summary |
 | PRICE | `c2f/price.py` | model JSON | `[{index, charge_price, acceptance_limit}]` |
 | OUT | `c2f/submit.py` | rows | `PUT /api/games/NN/submissions`, log in `runs/` |
 
-`c2f/run.py` orchestrates. It runs two model passes in parallel: a **fast** one (small
-model) submitted as soon as it lands, and a **full** one that overwrites it if it arrives
-before ~53 s after decrypt. If both fail, nothing is submitted and the exit code is 1 —
-fall back to `./submit.sh NN 1:A:B ...` by hand.
+`c2f/run.py` orchestrates. A **fast** pass (small model) and the digest start together; the
+fast rows are submitted the moment they land. **One full** pass then runs with the digest
+attached and overwrites them — last write wins on the server. Its timeout is whatever is
+left of the ~53 s clock (floor `MIN_MODEL_S`). The fast answer is insurance against a slow
+or failed full pass, *not* a vote: it is never aggregated. If both fail, nothing is
+submitted and the exit code is 1 — fall back to `./submit.sh NN 1:A:B ...` by hand.
 
 ## How the input is structured
 
@@ -47,7 +50,7 @@ The model sees one object, built by `extract.py`:
 ```json
 {
   "game_id": 0,
-  "policy":      "BICYCLE THEFT INSURANCE ... (full text, capped at 30k chars)",
+  "policy":      "BICYCLE THEFT INSURANCE ... (full text, never truncated)",
   "description": "Client came back from work ... the bike was worth 420 Euros.",
   "invoice_text": "full text of invoices.pdf",
   "invoice_meta": {"trade": "Bikeshop", "vendor": "Bikey Bike Ltd", "date": "6 Jan 2026"},
@@ -56,11 +59,29 @@ The model sees one object, built by `extract.py`:
 }
 ```
 
-**Policy and description are passed verbatim; the model does the reading.** They are
-short (a policy is ~1.5 KB), and the work — "is a new bike covered under clause 4 given
-clause 3 and the description says it was locked to a lamp post?" — is cross-referencing
-natural language, which is what the model is for. The description also carries price
-signal ("worth 420 Euros") that the model must see next to the invoice.
+**Policy and description are passed verbatim; the model does the reading.** The work —
+"is a new bike covered under clause 4 given clause 3 and the description says it was
+locked to a lamp post?" — is cross-referencing natural language, which is what the model
+is for. The description also carries price signal ("worth 420 Euros") that the model must
+see next to the invoice.
+
+**Nothing is truncated.** Policies run 40–65 KB — under 20k tokens, a rounding error
+against the context window — and cutting one drops the tail, which is where the exclusions
+and caps live.
+
+They *are* long enough to bury the decisive clauses, so `c2f/policy.py` runs a
+pre-extraction pass on every game: one call to the **fastest** model (`claude-haiku-4-5` /
+`gpt-5-nano`, override `C2F_DIGEST_MODEL`, ~3 s) reads policy.txt and returns the parts that
+bind — insured event, conditions, limits, deductibles, exclusions, obligations — rendered
+into a `<policy_digest>` block placed *in front of* the verbatim text. It is a reading aid,
+never a replacement: the full policy is still in the prompt and the prompt says so.
+
+Best-effort and bounded. `run.py` starts it in parallel with the **fast** pass (which must
+never wait — it is the safety submission) and gives the **full** passes `DIGEST_WAIT_S = 10`
+to pick it up; on timeout or API failure they go with the verbatim policy alone, which is
+complete. `policy.build()` returns rather than mutates so the main thread owns the assign
+and cannot race a prompt already being built. `backtest.py` attaches it too, so a replay
+builds the same prompt as a live run.
 
 The invoice is parsed deterministically (`parse_items`: `POS | DESCRIPTION | AMOUNT | UNIT`,
 wrapped descriptions handled) *and* sent as raw text. The model's item indices are
@@ -70,6 +91,7 @@ unknown.
 Prompt layout (`llm.build_user_message`):
 
 ```
+<policy_digest> ... </policy_digest>   (limits/exclusions pulled out; omitted if that call failed)
 <policy> ... </policy>
 <damage_description> ... </damage_description>
 <invoice trade="Bikeshop" vendor="Bikey Bike Ltd"> raw pdf text </invoice>
@@ -87,14 +109,30 @@ Secret fair value `t` per item. Payoffs: charging `a ≤ t` is always paid; `a >
 only by opponents whose limit `b' ≥ a`. Accepting a fair charge costs 1×, wrongly
 rejecting costs 1.5×, accepting fraud costs 1× (capped).
 
-- **b (acceptance limit)** = 1/3-quantile of a triangular(t_low, t_mid, t_high) belief.
+Belief on `t`: lognormal with median `t_mid × bias` and log-sd `max(σ, model spread)`.
+`bias`, `σ` (and the market's acceptance of over-charges `p0`, `k`) are learned by
+`c2f.calibrate` from the `[t_lo, t_hi)` bounds `c2f.truth` recovers after every game
+(`runs/calibration.json`, read at pricing time; defaults `bias 1, σ 0.4, p0 0.35, k 2`).
+
+- **b (acceptance limit)** = 1/3-quantile of the belief.
   Accept iff `P(t ≥ a') > 2/3`, from the 1.5× vs 1× asymmetry.
-- **a (charge)** = `t_mid × (1 − 0.25 × spread)`, floored at `t_low`,
-  `spread = (t_high − t_low) / t_mid`. Sits just under the estimate; lower when unsure.
+- **a (charge)** maximises `mean − 0.75·sd` of the per-opponent payout: `a` if `a ≤ t`, else
+  `a × p0 × (a/t)^−k` (the fraction of reviewers still accepting an over-charge). A fair
+  charge is paid by all 16 opponents, a fraudulent one by ~a third → the optimum sits
+  ~0.5–0.7× the median, lower the less sure we are (the sd term; pure expectation would
+  chase the upper tail).
 - **Not covered / not related**: `b = 0`; `a = 0.6 × t_if_covered` (no downside under the
   rules: rejected fraud costs the issuer nothing).
 
-Constants at the top of `price.py`: `K_UNCERTAINTY`, `UNCOVERED_CHARGE`, `B_QUANTILE`.
+**No votes.** An earlier version ran the fast pass plus three `gpt-5` votes and aggregated
+them into an ensemble. Comparing fast against full over six logged games
+(`runs/game_{01,03,04,06,07,08}.json`, scored on the `runs/truth_game_*.json` brackets):
+the two agreed on 70 of 82 coverage calls, and of the 12 disagreements 4 favoured fast,
+4 favoured full and 4 were undecidable — a coin flip. On price the full pass *was* clearly
+better (median |log error| 0.23 vs 0.41 over the 46 items both called covered), so the full
+pass alone decides the numbers and the fast one is kept only as the fallback submission.
+
+Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUANTILE`.
 
 ## Configuration (`.env`)
 
@@ -104,6 +142,7 @@ Constants at the top of `price.py`: `K_UNCERTAINTY`, `UNCOVERED_CHARGE`, `B_QUAN
 | `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` | whichever is set picks the provider (Anthropic first) |
 | `C2F_MODEL` | full-pass model (default `claude-opus-5` / `gpt-5`) |
 | `C2F_FAST_MODEL` | fast-pass model (default `claude-sonnet-5` / `gpt-5-mini`) |
+| `C2F_DIGEST_MODEL` | policy-digest model (default `claude-haiku-4-5` / `gpt-5-nano`) |
 | `C2F_REASONING` | OpenAI `reasoning_effort` for gpt-5 models (default `low`) |
 
 ## Logs
@@ -118,8 +157,11 @@ strategy write-up.
 the real opponents of that round using the public leaderboard (their charges, their implied
 accept limits, the inferred `t` bounds). Output: actual vs replayed net and rank per game,
 pessimistic and optimistic where outcomes are open, `runs/backtest/summary.json`.
-`make hooks` installs `.githooks/pre-commit`, which blocks commits to the algorithm files
-unless that summary is fresher than the change and staged. See `c2f/README.md`.
+The verdict (expected replay wins a majority) is always over the **last 5** old games (`WINDOW`) = the 5 most recent completed
+games with a decrypted case; `make backtest G=...` replays only those games and re-scores the rest
+from their stored replays, and an old game with no stored replay counts as not won and is listed
+as `missing`. Running it is a judgement call, not a gate — a pre-commit hook used to enforce it
+and was removed as too much friction. See `c2f/README.md`.
 
 ## Not built (deliberately)
 

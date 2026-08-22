@@ -2,7 +2,7 @@
 
 {
   "game_id": int,
-  "policy": str,            # policy.txt verbatim (length-capped)
+  "policy": str,            # policy.txt verbatim, in full
   "description": str,       # description.txt verbatim
   "invoice_text": str,      # full text of invoices.pdf, for the model
   "invoice_meta": {...},    # trade / vendor / date if found
@@ -17,7 +17,9 @@ import base64
 import re
 from pathlib import Path
 
-MAX_CHARS = 30_000
+# Nothing here is length-capped: a policy is ~65k chars at worst, a rounding error against a
+# 1M-token window, and cutting it drops the tail where the exclusions and limits live.
+# c2f.policy distils the binding clauses and puts them in front of this text.
 
 # Units seen on the invoices. Multi-word units ("flat rate") and a lone dash ("–" = no quantity)
 # are allowed; pypdf sometimes glues the quantity to the description ("sink1 pcs"), so the
@@ -29,13 +31,6 @@ UNITS = (
 ITEM_RE = re.compile(r"^\s*(\d{1,3})\s+(.+?)\s*(\d+(?:[.,]\d+)?|[–-])\s+(" + UNITS + r")\s*$")
 HEADER_RE = re.compile(r"^\s*POS\.?\s+DESCRIPTION", re.I)
 STOP_RE = re.compile(r"^\s*(INVOICE|Created on|Page \d|TOTAL|Subtotal|VAT|Notes?)\b", re.I)
-
-
-def _cap(s: str) -> str:
-    s = s.strip()
-    if len(s) > MAX_CHARS:
-        return s[:MAX_CHARS] + "\n[... truncated ...]"
-    return s
 
 
 def pdf_text(path: Path) -> str:
@@ -144,9 +139,9 @@ def load_case(case_dir: Path, game_id: int) -> dict:
             )
     return {
         "game_id": game_id,
-        "policy": _cap(policy),
-        "description": _cap(desc),
-        "invoice_text": _cap(invoice_text),
+        "policy": policy.strip(),
+        "description": desc.strip(),
+        "invoice_text": invoice_text.strip(),
         "invoice_meta": parse_meta(invoice_text),
         "items": parse_items(invoice_text),
         "images": images,

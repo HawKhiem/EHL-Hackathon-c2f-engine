@@ -24,56 +24,56 @@
  ],
  "issued": {
   "error404 ai": {
-   "1": 101.32,
-   "2": 100.4
+   "1": 1320.63,
+   "2": 97.49
   },
   "Codacabana": {
-   "1": 0.0,
+   "1": 646.18,
    "2": 0.0
   },
   "Non Deterministic": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 913.0,
+   "2": 464.4
   },
   "AsianSuperNerds": {
-   "1": null,
-   "2": null
+   "1": 1375.0,
+   "2": 145.0
   },
   "Bin busy": {
-   "1": 0.0,
-   "2": 0.0
+   "1": 45.0,
+   "2": 45.0
   },
   "Alpha": {
    "1": 0.0,
-   "2": 0.0
+   "2": 300.0
   },
   "OPUSMOPUS": {
-   "1": 0.0,
+   "1": 765.0,
    "2": 0.0
   },
   "Oasis": {
-   "1": null,
+   "1": 398.51,
    "2": null
   },
   "Teamers": {
-   "1": 0.0,
-   "2": 0.0
+   "1": 153.0,
+   "2": 114.75
   },
   "TakeTheMoneyAndRun": {
-   "1": 180.0,
-   "2": 180.0
+   "1": 1212.0,
+   "2": 197.0
   },
   "harissa eagles": {
-   "1": 0.0,
-   "2": 0.0
+   "1": 675.0,
+   "2": 72.0
   },
   "Claims Renaissance": {
-   "1": 0.0,
+   "1": 679.0,
    "2": 0.0
   },
   "Nullpointer Naan": {
-   "1": 0.0,
-   "2": 0.0
+   "1": 900.0,
+   "2": 100.0
   },
   "Trust Nobody": {
    "1": 0.0,
@@ -88,7 +88,7 @@
    "2": 0.0
   },
   "TBD": {
-   "1": 0.0,
+   "1": null,
    "2": 0.0
   }
  },
@@ -98,7 +98,7 @@
    "2": false
   },
   "Codacabana": {
-   "1": null,
+   "1": true,
    "2": null
   },
   "Non Deterministic": {
@@ -106,44 +106,44 @@
    "2": false
   },
   "AsianSuperNerds": {
-   "1": null,
-   "2": null
+   "1": false,
+   "2": false
   },
   "Bin busy": {
-   "1": null,
-   "2": null
+   "1": true,
+   "2": false
   },
   "Alpha": {
    "1": null,
-   "2": null
+   "2": false
   },
   "OPUSMOPUS": {
-   "1": null,
+   "1": true,
    "2": null
   },
   "Oasis": {
-   "1": null,
+   "1": true,
    "2": null
   },
   "Teamers": {
-   "1": null,
-   "2": null
+   "1": true,
+   "2": false
   },
   "TakeTheMoneyAndRun": {
    "1": false,
    "2": false
   },
   "harissa eagles": {
-   "1": null,
-   "2": null
+   "1": true,
+   "2": false
   },
   "Claims Renaissance": {
-   "1": null,
+   "1": true,
    "2": null
   },
   "Nullpointer Naan": {
-   "1": null,
-   "2": null
+   "1": false,
+   "2": false
   },
   "Trust Nobody": {
    "1": null,
@@ -163,17 +163,19 @@
   }
  },
  "t_lo": {
-  "1": 0.0,
+  "1": 765.0,
   "2": 0.0
  },
  "t_hi": {
-  "1": 100.0,
-  "2": 100.0
+  "1": 900.0,
+  "2": 45.0
  },
  "accepted": {
   "error404 ai": {
    "1": [
     false,
+    true,
+    false,
     false,
     false,
     false,
@@ -184,19 +186,13 @@
     false,
     false,
     true,
-    false,
     true,
-    false,
     false,
     false
    ],
    "2": [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
     false,
     false,
     false,
@@ -204,29 +200,33 @@
     true,
     false,
     true,
+    true,
+    true,
     false,
     false,
+    false,
+    true,
     false
    ]
   },
   "Codacabana": {
    "1": [
     true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true,
+    false,
     true,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false
    ],
    "2": [
     true,
@@ -252,17 +252,17 @@
     false,
     false,
     false,
-    false,
-    false,
-    false,
-    false,
+    true,
     false,
     false,
     false,
     true,
     false,
-    true,
     false,
+    false,
+    true,
+    true,
+    true,
     false,
     false
    ],
@@ -279,7 +279,7 @@
     false,
     true,
     false,
-    true,
+    false,
     false,
     false,
     false
@@ -300,26 +300,26 @@
     false,
     false,
     false,
-    false,
+    true,
     false,
     false
    ],
    "2": [
     false,
     false,
+    true,
+    true,
     false,
     false,
     false,
     false,
     false,
     false,
+    true,
     false,
     false,
     false,
-    false,
-    false,
-    false,
-    false,
+    true,
     false
    ]
   },
@@ -329,36 +329,36 @@
     true,
     true,
     true,
+    false,
+    true,
+    false,
+    true,
+    false,
     true,
     true,
     true,
     true,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ],
    "2": [
+    false,
+    false,
     true,
     true,
     true,
+    false,
+    false,
+    true,
+    false,
     true,
     true,
+    false,
+    false,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ]
   },
   "Alpha": {
@@ -381,42 +381,42 @@
     true
    ],
    "2": [
+    false,
+    false,
     true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false
    ]
   },
   "OPUSMOPUS": {
    "1": [
     true,
+    false,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    true,
+    false,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false
    ],
    "2": [
     true,
@@ -439,20 +439,20 @@
   },
   "Oasis": {
    "1": [
+    true,
+    true,
+    true,
+    true,
     false,
     false,
+    true,
+    true,
     false,
+    true,
     false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
+    true,
     false,
     false
    ],
@@ -481,36 +481,36 @@
     true,
     true,
     true,
+    false,
+    false,
     true,
     true,
     true,
+    false,
+    true,
+    false,
     true,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ],
    "2": [
+    false,
+    false,
     true,
     true,
+    false,
     true,
+    false,
     true,
+    false,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false
    ]
   },
   "TakeTheMoneyAndRun": {
@@ -518,10 +518,6 @@
     false,
     false,
     false,
-    false,
-    false,
-    false,
-    false,
     true,
     false,
     false,
@@ -530,15 +526,19 @@
     false,
     false,
     false,
+    false,
+    false,
+    false,
+    true,
     false
    ],
    "2": [
     false,
     false,
+    true,
+    true,
     false,
-    false,
-    false,
-    false,
+    true,
     false,
     true,
     false,
@@ -557,36 +557,36 @@
     true,
     true,
     true,
+    false,
+    false,
+    true,
+    false,
+    false,
     true,
     true,
+    false,
+    false,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ],
    "2": [
+    false,
+    false,
     true,
     true,
+    false,
+    true,
+    false,
     true,
     true,
+    false,
+    false,
+    false,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false
    ]
   },
   "Claims Renaissance": {
@@ -595,18 +595,18 @@
     true,
     true,
     true,
+    false,
+    false,
+    true,
+    false,
+    false,
     true,
     true,
+    false,
+    false,
     true,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ],
    "2": [
     true,
@@ -629,40 +629,40 @@
   },
   "Nullpointer Naan": {
    "1": [
+    false,
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    false,
+    false,
     true,
     true,
+    false,
+    false,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false
    ],
    "2": [
+    false,
+    false,
     true,
     true,
+    false,
+    true,
+    false,
     true,
     true,
+    false,
     true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false
    ]
   },
   "Trust Nobody": {
@@ -781,22 +781,22 @@
   },
   "TBD": {
    "1": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
    ],
    "2": [
     true,
@@ -819,135 +819,139 @@
   }
  },
  "b_lo": {
-  "Oasis": {
-   "1": 180.0,
-   "2": 180.0
+  "AsianSuperNerds": {
+   "1": 1320.63,
+   "2": 197.0
   },
   "TakeTheMoneyAndRun": {
-   "1": 101.32,
-   "2": 100.4
-  },
-  "error404 ai": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "Alpha": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "AsianSuperNerds": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "Bin busy": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "Claims Renaissance": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "eyay": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "harissa eagles": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "makalu": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "Non Deterministic": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "Nullpointer Naan": {
-   "1": 0.0,
-   "2": 0.0
-  },
-  "OPUSMOPUS": {
-   "1": 0.0,
+   "1": 1320.63,
    "2": 0.0
   },
   "TBD": {
-   "1": 0.0,
+   "1": 1375.0,
    "2": 0.0
+  },
+  "Alpha": {
+   "2": 197.0,
+   "1": 0.0
+  },
+  "harissa eagles": {
+   "2": 114.75,
+   "1": 913.0
+  },
+  "Non Deterministic": {
+   "2": 300.0,
+   "1": 679.0
+  },
+  "Nullpointer Naan": {
+   "2": 97.49,
+   "1": 765.0
+  },
+  "Oasis": {
+   "2": 464.4,
+   "1": 153.0
   },
   "Teamers": {
-   "1": 0.0,
+   "2": 145.0,
+   "1": 45.0
+  },
+  "error404 ai": {
+   "1": 765.0,
    "2": 0.0
+  },
+  "Claims Renaissance": {
+   "1": 675.0,
+   "2": 0.0
+  },
+  "OPUSMOPUS": {
+   "1": 913.0,
+   "2": 0.0
+  },
+  "Bin busy": {
+   "2": 0.0,
+   "1": 0.0
+  },
+  "eyay": {
+   "2": 0.0,
+   "1": 0.0
+  },
+  "makalu": {
+   "2": 0.0,
+   "1": 0.0
   },
   "Trust Nobody": {
-   "1": 0.0,
-   "2": 0.0
+   "2": 0.0,
+   "1": 0.0
   },
   "Codacabana": {
-   "1": 0.0,
+   "1": 679.0,
    "2": 0.0
   }
  },
  "b_hi": {
   "Alpha": {
-   "1": 100.0,
-   "2": 100.0
-  },
-  "AsianSuperNerds": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 45.0,
+   "2": 464.4
   },
   "Bin busy": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 153.0,
+   "2": 72.0
   },
   "Claims Renaissance": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 765.0,
+   "2": 45.0
   },
   "Codacabana": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 765.0,
+   "2": 45.0
   },
   "eyay": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 45.0,
+   "2": 45.0
   },
   "harissa eagles": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 1212.0,
+   "2": 145.0
   },
   "makalu": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 45.0,
+   "2": 45.0
   },
   "Non Deterministic": {
-   "1": 101.32,
-   "2": 100.4
+   "1": 765.0
   },
   "Nullpointer Naan": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 913.0,
+   "2": 114.75
+  },
+  "Oasis": {
+   "1": 646.18
   },
   "OPUSMOPUS": {
-   "1": 100.0,
-   "2": 100.0
-  },
-  "TBD": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 1212.0,
+   "2": 45.0
   },
   "Teamers": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 398.51,
+   "2": 197.0
   },
   "Trust Nobody": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 45.0,
+   "2": 45.0
+  },
+  "TakeTheMoneyAndRun": {
+   "2": 45.0,
+   "1": 1375.0
+  },
+  "TBD": {
+   "2": 45.0
   },
   "error404 ai": {
-   "1": 100.0,
-   "2": 100.0
+   "1": 900.0,
+   "2": 45.0
+  },
+  "AsianSuperNerds": {
+   "2": 300.0
   }
  }
 }

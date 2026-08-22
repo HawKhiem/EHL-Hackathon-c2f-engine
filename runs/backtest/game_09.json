@@ -1,0 +1,560 @@
+{
+ "actual_net": 13606.355000000001,
+ "actual_rank": 4,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 1013.69,
+    "acceptance_limit": 768.78
+   },
+   {
+    "index": 2,
+    "charge_price": 720.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 3,
+    "charge_price": 360.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 4,
+    "charge_price": 192.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 5,
+    "charge_price": 420.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 6,
+    "charge_price": 0.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 7,
+    "charge_price": 74.08,
+    "acceptance_limit": 56.18
+   },
+   {
+    "index": 8,
+    "charge_price": 57.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 9,
+    "charge_price": 30.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 10,
+    "charge_price": 779.76,
+    "acceptance_limit": 591.37
+   },
+   {
+    "index": 11,
+    "charge_price": 701.79,
+    "acceptance_limit": 532.23
+   },
+   {
+    "index": 12,
+    "charge_price": 74.08,
+    "acceptance_limit": 56.18
+   },
+   {
+    "index": 13,
+    "charge_price": 187.14,
+    "acceptance_limit": 141.93
+   },
+   {
+    "index": 14,
+    "charge_price": 249.52,
+    "acceptance_limit": 189.24
+   },
+   {
+    "index": 15,
+    "charge_price": 1169.64,
+    "acceptance_limit": 887.05
+   },
+   {
+    "index": 16,
+    "charge_price": 72.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Storm-thrown tree damaged insured garden shed; repairs, clearance and necessary groundworks covered; outlay beyond affected parts, protective upgrades, business overheads, duplicates and combined non-indemnifiable positions excluded; one vehicle charge per invoice; VAT reimbursed if incurred; deductible per event per schedule.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1(b) repair costs; 7.1.7 preparatory/materials",
+     "t_low": 1100,
+     "t_mid": 1300,
+     "t_high": 1500,
+     "t_if_covered": 0,
+     "reason": "Roof section repair to pre-loss standard is covered."
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.5 affected parts; 7.1.8(a) upkeep/appearance",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 1200,
+     "reason": "Repaint includes undamaged walls; non-repair appearance work."
+    },
+    {
+     "index": 3,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.8(a) protective treatments excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 600,
+     "reason": "UV-protective coating is an improvement, not repair."
+    },
+    {
+     "index": 4,
+     "covered": false,
+     "related": false,
+     "clause": "7.1.10 combined positions incl. undamaged parts",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 320,
+     "reason": "Covers undamaged trim; not split; whole line declined."
+    },
+    {
+     "index": 5,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(c) duplicate charge",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 700,
+     "reason": "Labour duplicates line 1 flat-rate repair."
+    },
+    {
+     "index": 6,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(b) ordinary equipment excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 0,
+     "reason": "Hand tools/reusables are within labour rate."
+    },
+    {
+     "index": 7,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(f) one vehicle/call-out per invoice",
+     "t_low": 80,
+     "t_mid": 95,
+     "t_high": 120,
+     "t_if_covered": 0,
+     "reason": "Single call-out for carpentry invoice allowed."
+    },
+    {
+     "index": 8,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(d) more than one call-out excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 95,
+     "reason": "Return-visit vehicle charge not indemnified."
+    },
+    {
+     "index": 9,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(b) contractor provisioning excluded",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 50,
+     "reason": "Catering is contractor overhead, not repair."
+    },
+    {
+     "index": 10,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.3 emergency measures; 5.2.1 clearance",
+     "t_low": 850,
+     "t_mid": 1000,
+     "t_high": 1200,
+     "t_if_covered": 0,
+     "reason": "Cutting and removing fallen tree from shed."
+    },
+    {
+     "index": 11,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(e) necessary plant hire",
+     "t_low": 750,
+     "t_mid": 900,
+     "t_high": 1100,
+     "t_if_covered": 0,
+     "reason": "Crane/earthmover required to lift tree safely."
+    },
+    {
+     "index": 12,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(f) one vehicle/call-out per invoice",
+     "t_low": 80,
+     "t_mid": 95,
+     "t_high": 120,
+     "t_if_covered": 0,
+     "reason": "Single travel charge for tree service allowed."
+    },
+    {
+     "index": 13,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.1 clearance/disposal of material arising",
+     "t_low": 200,
+     "t_mid": 240,
+     "t_high": 300,
+     "t_if_covered": 0,
+     "reason": "Dispose damaged shed materials and broken glazing."
+    },
+    {
+     "index": 14,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.1(b) tree waste and small root mass",
+     "t_low": 280,
+     "t_mid": 320,
+     "t_high": 380,
+     "t_if_covered": 0,
+     "reason": "Disposal of green waste and sub\u20111m\u00b3 root ball."
+    },
+    {
+     "index": 15,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.2 ground works; endorsement GR-2026",
+     "t_low": 1300,
+     "t_mid": 1500,
+     "t_high": 1800,
+     "t_if_covered": 0,
+     "reason": "Make good disturbed soil and paving around shed."
+    },
+    {
+     "index": 16,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(c) duplicate haulage charge",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 120,
+     "reason": "Transport already charged by tree service."
+    }
+   ]
+  },
+  "seconds": 29.47,
+  "source": "runs/game_09.json full pass (live)",
+  "repriced": true
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 25748.58,
+    "cost": 14595.68,
+    "net": 11152.89
+   },
+   "optimistic": {
+    "income": 30596.7,
+    "cost": 14595.68,
+    "net": 16001.02
+   }
+  },
+  "open_pairings": {
+   "income": 18,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 1013.69,
+    "b": 768.78,
+    "t_lo": 0.0,
+    "t_hi": 38.3,
+    "fair": false,
+    "income": {
+     "pessimistic": 4054.76,
+     "optimistic": 6082.140000000001
+    },
+    "cost": {
+     "pessimistic": 2488.31,
+     "optimistic": 2488.31
+    }
+   },
+   "2": {
+    "a": 720.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 720.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "3": {
+    "a": 360.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 360.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "4": {
+    "a": 192.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 192.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "5": {
+    "a": 420.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 96.29,
+    "fair": false,
+    "income": {
+     "pessimistic": 2520.0,
+     "optimistic": 2520.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "6": {
+    "a": 0.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": true,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "7": {
+    "a": 74.08,
+    "b": 56.18,
+    "t_lo": 81.95,
+    "t_hi": 90.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 1185.28,
+     "optimistic": 1185.28
+    },
+    "cost": {
+     "pessimistic": 656.6700000000001,
+     "optimistic": 656.6700000000001
+    }
+   },
+   "8": {
+    "a": 57.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 114.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "9": {
+    "a": 30.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 60.0,
+     "optimistic": 60.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "10": {
+    "a": 779.76,
+    "b": 591.37,
+    "t_lo": 862.59,
+    "t_hi": 1076.07,
+    "fair": true,
+    "income": {
+     "pessimistic": 12476.160000000002,
+     "optimistic": 12476.160000000002
+    },
+    "cost": {
+     "pessimistic": 3088.9900000000002,
+     "optimistic": 3088.9900000000002
+    }
+   },
+   "11": {
+    "a": 701.79,
+    "b": 532.23,
+    "t_lo": 576.4,
+    "t_hi": 600.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 1403.58,
+     "optimistic": 1403.58
+    },
+    "cost": {
+     "pessimistic": 2695.99,
+     "optimistic": 2695.99
+    }
+   },
+   "12": {
+    "a": 74.08,
+    "b": 56.18,
+    "t_lo": 82.31,
+    "t_hi": 90.0,
+    "fair": true,
+    "income": {
+     "pessimistic": 1185.28,
+     "optimistic": 1185.28
+    },
+    "cost": {
+     "pessimistic": 528.235,
+     "optimistic": 528.235
+    }
+   },
+   "13": {
+    "a": 187.14,
+    "b": 141.93,
+    "t_lo": 87.3,
+    "t_hi": 113.4,
+    "fair": false,
+    "income": {
+     "pessimistic": 1122.84,
+     "optimistic": 1309.98
+    },
+    "cost": {
+     "pessimistic": 401.29,
+     "optimistic": 401.29
+    }
+   },
+   "14": {
+    "a": 249.52,
+    "b": 189.24,
+    "t_lo": 0.0,
+    "t_hi": 113.4,
+    "fair": false,
+    "income": {
+     "pessimistic": 499.04,
+     "optimistic": 1746.64
+    },
+    "cost": {
+     "pessimistic": 692.4000000000001,
+     "optimistic": 692.4000000000001
+    }
+   },
+   "15": {
+    "a": 1169.64,
+    "b": 887.05,
+    "t_lo": 0.0,
+    "t_hi": 113.4,
+    "fair": false,
+    "income": {
+     "pessimistic": 1169.64,
+     "optimistic": 1169.64
+    },
+    "cost": {
+     "pessimistic": 4043.7999999999997,
+     "optimistic": 4043.7999999999997
+    }
+   },
+   "16": {
+    "a": 72.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 1.18,
+    "fair": false,
+    "income": {
+     "pessimistic": 72.0,
+     "optimistic": 72.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout",
+   "7": "truth+payout",
+   "8": "truth+payout",
+   "9": "truth+payout",
+   "10": "truth+payout",
+   "11": "truth+payout",
+   "12": "truth+payout",
+   "13": "truth+payout",
+   "14": "truth+payout",
+   "15": "truth+payout",
+   "16": "truth+payout"
+  }
+ },
+ "pess_net": 11152.89,
+ "pess_rank": 5,
+ "opt_net": 16001.02,
+ "opt_rank": 3,
+ "exp_net": 13576.95,
+ "exp_rank": 4,
+ "best_team": "eyay",
+ "best_net": 25056.954999999998,
+ "n_teams": 17,
+ "replayed_now": false
+}

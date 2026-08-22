@@ -1,0 +1,54 @@
+from c2f.backtest import old_games, verdict
+
+
+def row(exp_rank: int) -> dict:
+    return {"actual_net": 0.0, "pess_net": 0.0, "exp_net": 0.0, "opt_net": 0.0,
+            "pess_rank": 9, "exp_rank": exp_rank, "opt_rank": 1}
+
+
+def test_majority_is_over_all_old_games_not_just_replayed():
+    games = {3: row(1)}  # only one game replayed and it won
+    t = verdict(games, old=[1, 2, 3, 4, 5])
+    assert t["n_games"] == 5 and t["n_scored"] == 1
+    assert t["missing"] == [1, 2, 4, 5]
+    assert t["success"] is False
+
+
+def test_success_needs_strict_majority_and_no_missing():
+    old = [1, 2, 3, 4]
+    assert verdict({g: row(1 if g <= 2 else 2) for g in old}, old)["success"] is False  # 2/4
+    assert verdict({g: row(1 if g <= 3 else 2) for g in old}, old)["success"] is True  # 3/4
+    t = verdict({g: row(1) for g in [1, 2, 3]}, old)  # 3 wins but one game missing
+    assert t["wins_exp"] == 3 and t["success"] is False and t["missing"] == [4]
+
+
+def test_empty_population_is_not_success():
+    assert verdict({}, [])["success"] is False
+
+
+def test_old_games_is_last_window_of_decrypted_completed_games(tmp_path, monkeypatch):
+    import c2f.backtest as bt
+    monkeypatch.setattr(bt, "ROOT", tmp_path)
+    for g in (1, 2, 3, 4, 6, 7, 8):  # 5 completed but not decrypted
+        (tmp_path / "cases" / f"case_{g:02d}").mkdir(parents=True)
+        (tmp_path / "cases" / f"case_{g:02d}" / "policy.txt").write_text("x")
+    assert old_games([1, 2, 3, 4, 5, 6, 7, 8]) == [3, 4, 6, 7, 8]
+    assert old_games([1, 2, 3]) == [1, 2, 3]
+
+
+def test_reprice_uses_stored_estimate_and_current_pricing(tmp_path, monkeypatch):
+    import json
+    import c2f.backtest as bt
+    monkeypatch.setattr(bt, "ROOT", tmp_path)
+    case_dir = tmp_path / "cases" / "case_09"
+    case_dir.mkdir(parents=True)
+    (case_dir / "policy.txt").write_text("p")
+    (case_dir / "description.txt").write_text("d")
+    monkeypatch.setattr(bt, "load_case", lambda d, g: {"game_id": g, "items": [{"index": 1}, {"index": 2}], "images": []})
+    est = {"items": [{"index": 1, "covered": True, "related": True, "t_low": 90, "t_mid": 100, "t_high": 110}]}
+    rep = bt.reprice(9, {"rows": [{"index": 1, "charge_price": 999, "acceptance_limit": 999}], "estimate": est})
+    rows = {r["index"]: r for r in rep["rows"]}
+    assert rep["repriced"] is True
+    assert 0 < rows[1]["charge_price"] < 100 and 0 < rows[1]["acceptance_limit"] < 100
+    assert rows[2] == {"index": 2, "charge_price": 0.0, "acceptance_limit": 0.0}  # missing from the model -> unknown
+    assert bt.reprice(9, {"rows": []}) == {"rows": []}  # nothing stored to re-price

@@ -8,6 +8,10 @@ piecewise-constant function of the t's, so we keep, per item, only the t-interva
 every pair equation. Rejections are what carry information: a rejected fair charge contributes 2.5a,
 a rejected fraud 0. Accepted charges contribute 2a either way (cap assumed not binding).
 
+Two sources, combined: (1) the payout feed directly - a rejected charge still paid is fair (t >= a),
+a rejected charge paid 0 whose size is known from an acceptance is fraud (t < a); (2) the matchup
+equations above, which can narrow further but are dropped when inconsistent (e.g. the cap binds).
+
 Output per item: t_lo (largest charge proven fair) and t_hi (smallest charge proven fraud, or inf).
 """
 
@@ -35,6 +39,32 @@ def _diff(a: float, acc: bool, t: float) -> float:
     return 2 * a if acc else 0.0
 
 
+def payout_bounds(tx_list: list[dict]) -> dict[int, tuple[float, float | None]]:
+    """Direct evidence from the payout feed, per item: (t_lo, t_hi or None).
+
+    A rejected charge that was still paid (amount > 0) is proven fair: t >= amount. A rejected
+    charge paid 0 whose size a is known from an acceptance is proven fraud: t < a.
+    """
+    acc: dict[tuple, float] = collections.defaultdict(float)
+    rej: dict[tuple, list] = collections.defaultdict(list)
+    for x in tx_list:
+        key = (x["issuer"], x["line_item_index"])
+        if x["accepted"]:
+            acc[key] = max(acc[key], float(x["amount"]))
+        else:
+            rej[key].append(float(x["amount"]))
+    items = sorted({x["line_item_index"] for x in tx_list})
+    lo = {i: 0.0 for i in items}
+    hi: dict[int, float | None] = {i: None for i in items}
+    for (iss, i), amounts in rej.items():
+        if max(amounts) > 0:
+            lo[i] = max(lo[i], max(amounts))
+        elif acc[(iss, i)] > 0:
+            a = acc[(iss, i)]
+            hi[i] = a if hi[i] is None else min(hi[i], a)
+    return {i: (lo[i], hi[i]) for i in items}
+
+
 def infer(game_id: int) -> dict[int, dict]:
     names = teams()
     tx: dict[tuple, dict] = {}
@@ -42,6 +72,7 @@ def infer(game_id: int) -> dict[int, dict]:
         for x in transactions(game_id, t):
             tx[(x["issuer"], x["reviewer"], x["line_item_index"])] = x
     tx_list = list(tx.values())
+    direct = payout_bounds(tx_list)
     games = [g["id"] for g in requests.get(f"{B}/games?completed_only=true&page_size=200", timeout=15).json()["items"]]
     gi = games.index(game_id)
     net = {}
@@ -53,6 +84,9 @@ def infer(game_id: int) -> dict[int, dict]:
     charges = {i: sorted({x["amount"] for x in tx_list if x["line_item_index"] == i and x["amount"] > 0}) for i in items}
     reps = {i: [0.0] + charges[i] for i in items}  # interval k: t in [reps[k], reps[k+1])
     feas = {i: set(range(len(reps[i]))) for i in items}
+    for i in items:  # seed with the direct payout evidence; the pair equations can only narrow further
+        d_lo, d_hi = direct[i]
+        feas[i] = {k for k in feas[i] if reps[i][k] >= d_lo and (d_hi is None or reps[i][k] < d_hi)} or feas[i]
     by = collections.defaultdict(list)
     for x in tx_list:
         by[(x["issuer"], x["reviewer"])].append(x)

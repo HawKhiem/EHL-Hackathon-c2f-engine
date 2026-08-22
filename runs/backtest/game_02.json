@@ -5,125 +5,125 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 236.13,
-    "acceptance_limit": 337.62
+    "charge_price": 194.95,
+    "acceptance_limit": 240.83
    },
    {
     "index": 2,
-    "charge_price": 9.0,
+    "charge_price": 7.2,
     "acceptance_limit": 0.0
    },
    {
     "index": 3,
-    "charge_price": 54.0,
+    "charge_price": 57.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 4,
-    "charge_price": 337.32,
-    "acceptance_limit": 482.32
+    "charge_price": 306.35,
+    "acceptance_limit": 378.45
    },
    {
     "index": 5,
-    "charge_price": 75.0,
+    "charge_price": 90.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 6,
-    "charge_price": 15.0,
+    "charge_price": 13.5,
     "acceptance_limit": 0.0
    },
    {
     "index": 7,
-    "charge_price": 27.0,
+    "charge_price": 21.0,
     "acceptance_limit": 0.0
    }
   ],
   "ensemble": {
-   "policy_summary": "Buildings policy covering fire group incl. lightning overvoltage; appliances covered under 2.3.3 within sub-limit; many ancillary/service, delivery, installation, liability/order charges excluded; VAT only if incurred.",
+   "policy_summary": "Residential building cover; overvoltage to appliances covered under 2.3.3; ancillary charges, service/maintenance and liability-handling excluded; appliance sub-limit applies; VAT reimbursed if incurred; one deductible per event.",
    "items": [
     {
      "index": 1,
      "covered": true,
      "related": true,
-     "clause": "2.3.3; 7.1.1; 7.1.9; 4.2.4",
-     "t_low": 240.0,
-     "t_mid": 420.0,
-     "t_high": 450.0,
+     "clause": "2.3.3, 4.2.4, 7.1.1(b), 7.1.9, 6.2.4",
+     "t_low": 250.0,
+     "t_mid": 350.0,
+     "t_high": 420.0,
      "t_if_covered": 0.0,
-     "reason": "Surge-damaged appliance; standard replacement under appliance cover.",
+     "reason": "Mid-range speaker set replacement after surge; within appliance sub-limit.",
      "votes": "3/3 covered"
     },
     {
      "index": 2,
      "covered": false,
-     "related": true,
+     "related": false,
      "clause": "7.1.8(b)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 15.0,
-     "reason": "Delivery/shipping excluded ancillary charge.",
+     "t_if_covered": 12.0,
+     "reason": "Shipping of goods excluded as ancillary charge.",
      "votes": "0/3 covered"
     },
     {
      "index": 3,
      "covered": false,
-     "related": true,
+     "related": false,
      "clause": "7.1.8(c)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 90.0,
-     "reason": "Installation/commissioning excluded ancillary work.",
+     "t_if_covered": 95.0,
+     "reason": "Installation/commissioning of replacement electronics excluded.",
      "votes": "0/3 covered"
     },
     {
      "index": 4,
      "covered": true,
      "related": true,
-     "clause": "2.3.3; 7.1.1; 7.1.9; 4.2.4",
+     "clause": "2.3.3, 4.2.4, 7.1.1(c), 7.1.9, 6.2.4",
      "t_low": 450.0,
-     "t_mid": 600.0,
-     "t_high": 800.0,
+     "t_mid": 550.0,
+     "t_high": 700.0,
      "t_if_covered": 0.0,
-     "reason": "TV surge damage; mid-range replacement acceptable.",
+     "reason": "Replacement mid-range TV damaged by lightning-induced surge.",
      "votes": "3/3 covered"
     },
     {
      "index": 5,
      "covered": false,
      "related": false,
-     "clause": "3.1.4; 3.1.5; 7.1.8(f)",
+     "clause": "3.1.5, 3.1.4, 7.1.10",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 125.0,
-     "reason": "Service/liability arrangement not indemnifiable.",
+     "t_if_covered": 150.0,
+     "reason": "Service/arrangement for property and liability exposures excluded.",
      "votes": "0/3 covered"
     },
     {
      "index": 6,
      "covered": false,
      "related": false,
-     "clause": "3.1.5; 7.1.8(f)",
+     "clause": "3.1.5, 7.1.8(f)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 25.0,
-     "reason": "Order processing under service plan excluded.",
+     "t_if_covered": 22.5,
+     "reason": "Order-processing under service arrangement is not indemnifiable.",
      "votes": "0/3 covered"
     },
     {
      "index": 7,
      "covered": false,
-     "related": true,
+     "related": false,
      "clause": "7.1.8(d)",
      "t_low": 0.0,
      "t_mid": 0.0,
      "t_high": 0.0,
-     "t_if_covered": 45.0,
-     "reason": "Attendance allowed only with covered work on invoice.",
+     "t_if_covered": 35.0,
+     "reason": "Attendance/vehicle charge disallowed as invoice has no covered work.",
      "votes": "0/3 covered"
     }
    ],
@@ -131,50 +131,50 @@
   },
   "votes": 3,
   "errors": [],
-  "seconds": 19.2
+  "seconds": 19.7
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 9577.2,
-    "cost": 3093.43,
-    "net": 6483.78
+    "income": 8432.7,
+    "cost": 3386.92,
+    "net": 5045.78
    },
    "optimistic": {
-    "income": 9952.2,
-    "cost": 3093.43,
-    "net": 6858.78
+    "income": 8709.0,
+    "cost": 3386.92,
+    "net": 5322.08
    }
   },
   "open_pairings": {
-   "income": 37,
+   "income": 36,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 236.13,
-    "b": 337.62,
+    "a": 194.95,
+    "b": 240.83,
     "t_lo": 310.0,
     "t_hi": 425.0,
     "fair": true,
     "income": {
-     "pessimistic": 3778.0800000000013,
-     "optimistic": 3778.0800000000013
+     "pessimistic": 3119.1999999999994,
+     "optimistic": 3119.1999999999994
     },
     "cost": {
-     "pessimistic": 995.46,
-     "optimistic": 995.46
+     "pessimistic": 1288.955,
+     "optimistic": 1288.955
     }
    },
    "2": {
-    "a": 9.0,
+    "a": 7.2,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 12.0,
     "fair": null,
     "income": {
-     "pessimistic": 18.0,
-     "optimistic": 144.0
+     "pessimistic": 14.4,
+     "optimistic": 115.20000000000003
     },
     "cost": {
      "pessimistic": 0.0,
@@ -182,14 +182,14 @@
     }
    },
    "3": {
-    "a": 54.0,
+    "a": 57.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 43.97,
     "fair": false,
     "income": {
-     "pessimistic": 108.0,
-     "optimistic": 162.0
+     "pessimistic": 114.0,
+     "optimistic": 114.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -197,14 +197,14 @@
     }
    },
    "4": {
-    "a": 337.32,
-    "b": 482.32,
+    "a": 306.35,
+    "b": 378.45,
     "t_lo": 555.0,
     "t_hi": 600.0,
     "fair": true,
     "income": {
-     "pessimistic": 5397.12,
-     "optimistic": 5397.12
+     "pessimistic": 4901.6,
+     "optimistic": 4901.6
     },
     "cost": {
      "pessimistic": 2097.965,
@@ -212,14 +212,14 @@
     }
    },
    "5": {
-    "a": 75.0,
+    "a": 90.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 43.97,
     "fair": false,
     "income": {
-     "pessimistic": 150.0,
-     "optimistic": 150.0
+     "pessimistic": 180.0,
+     "optimistic": 180.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -227,14 +227,14 @@
     }
    },
    "6": {
-    "a": 15.0,
+    "a": 13.5,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 18.0,
     "fair": null,
     "income": {
-     "pessimistic": 45.0,
-     "optimistic": 240.0
+     "pessimistic": 40.5,
+     "optimistic": 216.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -242,14 +242,14 @@
     }
    },
    "7": {
-    "a": 27.0,
+    "a": 21.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 21.0,
     "fair": false,
     "income": {
-     "pessimistic": 81.0,
-     "optimistic": 81.0
+     "pessimistic": 63.0,
+     "optimistic": 63.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -267,11 +267,11 @@
    "7": "truth+payout"
   }
  },
- "pess_net": 6483.78,
+ "pess_net": 5045.78,
  "pess_rank": 2,
- "opt_net": 6858.78,
+ "opt_net": 5322.08,
  "opt_rank": 2,
- "exp_net": 6671.28,
+ "exp_net": 5183.93,
  "exp_rank": 2,
  "best_team": "AsianSuperNerds",
  "best_net": 11650.74,

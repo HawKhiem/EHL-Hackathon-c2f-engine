@@ -1,10 +1,14 @@
 """Replay the CURRENT strategy on past games and score it against what the other teams actually did.
 
-  pixi run python -m c2f.backtest              # every completed game whose case is decrypted locally
-  pixi run python -m c2f.backtest 2 4 6        # specific games
-  pixi run python -m c2f.backtest --no-llm 2   # re-score the last replay without calling the model
+  pixi run python -m c2f.backtest              # re-price + re-score every stored replay; NO model call
+  pixi run python -m c2f.backtest --replay     # call the model again for every old game, then score
+  pixi run python -m c2f.backtest --replay 2 4 # call the model for these games only; others from store
 
-Per game:  extract -> ensemble (same code path as a live run) -> price -> simulate every pairing
+The default never calls the model: each old game's stored model estimate (runs/backtest/game_NN.json)
+is re-priced with the CURRENT price.py + calibration and re-scored, so pricing changes are evaluated
+in seconds. --replay is for changes upstream of pricing (prompt, extract, policy digest).
+
+Per game:  extract -> digest -> model (same code path as a live run) -> price -> simulate every pairing
 against the real opponents of that round, using the public leaderboard:
   - each opponent's charge a_j per item and whether it was fair (from payouts),
   - each opponent's accept limit b_j as an interval [b_lo, b_hi) (from what they accepted/rejected),
@@ -13,7 +17,10 @@ Where an interval leaves the outcome open we score two scenarios: PESSIMISTIC (t
 reject whenever they could) and OPTIMISTIC (t just under t_hi, opponents accept whenever they could).
 "Would we win?" = our rank if our replayed net replaced our actual net in that round's standings.
 EXPECTED = midpoint of the two scenarios; a change is a SUCCESS only if the expected replay wins
-(rank 1) in more than half of the replayed games. The pre-commit hook enforces that.
+(rank 1) in more than half of the old games = the LAST 5 completed games whose case is decrypted
+locally (WINDOW), not just the games replayed in this invocation: games you don't name are re-scored from their stored
+replay (no model call), games with no stored replay count as not won and are listed as missing.
+The pre-commit hook enforces the verdict and refuses a summary with missing games.
 
 This is THE evaluation entry point. It uses the other tools as components:
   feedback.digest  -> opponents' charges, accept/reject, payout-based t bounds
@@ -29,23 +36,22 @@ import argparse
 import json
 import sys
 import time
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import requests
 
 from c2f import llm
-from c2f.ensemble import aggregate
 from c2f.extract import load_case
 from c2f.feedback import B, DEFAULT_TEAM, digest
 from c2f.policy import attach as attach_policy_digest
 from c2f.price import price_all
-from c2f.run import N_FULL, merge_estimates
+from c2f.run import merge_estimates
 from c2f.submit import ROOT
 from c2f import truth as truth_mod
 
 OUT = ROOT / "runs" / "backtest"
 INF = float("inf")
+WINDOW = 5  # the verdict is over the LAST 5 completed games with a decrypted case
 
 
 # ----------------------------------------------------------------------------- evidence
@@ -76,26 +82,24 @@ def t_bounds(game_id: int, d: dict) -> dict:
 
 
 # ----------------------------------------------------------------------------- replay
-def replay(game_id: int, n_votes: int = N_FULL) -> dict:
+def replay(game_id: int) -> dict:
+    """One model call, exactly as run.py plays it."""
     case_dir = ROOT / "cases" / f"case_{game_id:02d}"
     case = load_case(case_dir, game_id)
     attach_policy_digest(case, case_dir)  # same prompt the live run would build
     t0 = time.time()
-    with ThreadPoolExecutor(max_workers=n_votes) as ex:
-        futs = [ex.submit(llm.estimate, case, timeout=60, strict=False) for _ in range(n_votes)]
-        outs, errors = [], []
-        for f in futs:
-            try:
-                out, meta = f.result()
-                outs.append(out)
-            except Exception as e:  # noqa: BLE001
-                errors.append(str(e))
-    if not outs:
-        raise RuntimeError(f"all votes failed: {errors}")
-    agg = aggregate(outs)
-    est = merge_estimates(case, agg)
-    rows = price_all(est)
-    return {"rows": rows, "ensemble": agg, "votes": len(outs), "errors": errors, "seconds": round(time.time() - t0, 1)}
+    out, _meta = llm.estimate(case, timeout=60, strict=False)
+    rows = price_all(merge_estimates(case, out))
+    return {"rows": rows, "estimate": out, "seconds": round(time.time() - t0, 1)}
+
+
+def reprice(game_id: int, rep: dict) -> dict:
+    """Price the stored model estimate with the current price.py + calibration; no model call."""
+    est = rep.get("estimate") or rep.get("ensemble")
+    if not est:
+        return rep
+    case = load_case(ROOT / "cases" / f"case_{game_id:02d}", game_id)
+    return {**rep, "rows": price_all(merge_estimates(case, est)), "repriced": True}
 
 
 # ----------------------------------------------------------------------------- scoring
@@ -176,37 +180,64 @@ def rank_of(net: float, others: list[float]) -> int:
     return 1 + sum(1 for x in others if x > net)
 
 
+def old_games(gids: list[int], window: int = WINDOW) -> list[int]:
+    """The population the verdict is over: the last `window` completed games whose case is
+    decrypted locally (older games drift - other teams change strategy between rounds)."""
+    have = sorted(g for g in gids if (ROOT / "cases" / f"case_{g:02d}" / "policy.txt").exists())
+    return have[-window:]
+
+
+def verdict(games: dict, old: list[int]) -> dict:
+    """Totals + SUCCESS flag over the full set of old games. `games` holds the per-game rows we have
+    (replayed now or re-scored from the store); old games without a row count as not won."""
+    rows = [games[g] for g in old if g in games]
+    missing = [g for g in old if g not in games]
+    n = len(old)
+    wins_p = sum(1 for v in rows if v["pess_rank"] == 1)
+    wins_e = sum(1 for v in rows if v["exp_rank"] == 1)
+    wins_o = sum(1 for v in rows if v["opt_rank"] == 1)
+    return {
+        "actual": sum(v["actual_net"] for v in rows), "pessimistic": sum(v["pess_net"] for v in rows),
+        "expected": sum(v["exp_net"] for v in rows), "optimistic": sum(v["opt_net"] for v in rows),
+        "wins_pess": wins_p, "wins_exp": wins_e, "wins_opt": wins_o,
+        "n_games": n, "n_scored": len(rows), "missing": missing,
+        "success": n > 0 and not missing and wins_e * 2 > n,
+    }
+
+
 # ----------------------------------------------------------------------------- main
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("games", nargs="*", type=int)
-    ap.add_argument("--no-llm", action="store_true", help="re-score the stored replay, don't call the model")
-    ap.add_argument("--votes", type=int, default=N_FULL)
+    ap.add_argument("--replay", action="store_true", help="call the model for the named games (default: all old games); otherwise stored estimates are re-priced")
+    ap.add_argument("--no-llm", action="store_true", help=argparse.SUPPRESS)  # old spelling of the default
     args = ap.parse_args(argv)
 
     OUT.mkdir(parents=True, exist_ok=True)
     gids, nets = actual_nets()
     us = DEFAULT_TEAM
-    games = args.games or [g for g in gids if (ROOT / "cases" / f"case_{g:02d}" / "policy.txt").exists()]
-    summary = {"team": us, "games": {}, "generated_at": time.time()}
-    print(f"backtest as {us} on games {games}\n")
-    print(f"{'game':>4} {'items':>5} | {'actual net':>10} {'rank':>4} | {'replay pess':>11} {'rank':>4} | {'replay exp':>10} {'rank':>4} | {'replay opt':>10} {'rank':>4} | best team")
-    for g in games:
+    old = old_games(gids)
+    requested = args.games or old
+    # every old game is scored: with --replay the requested ones call the model, everything else is
+    # re-priced from its stored estimate (no model call)
+    for g in requested:
         if g not in gids:
             print(f"{g:>4}  not completed yet, skipped")
-            continue
-        case_dir = ROOT / "cases" / f"case_{g:02d}"
-        if not (case_dir / "policy.txt").exists():
-            print(f"{g:>4}  case not decrypted locally ({case_dir}), skipped")
-            continue
+        elif g not in old:
+            print(f"{g:>4}  not in the last {WINDOW} decrypted games {old} (or not decrypted), skipped")
+    plan = [(g, args.replay and g in requested) for g in old]
+    summary = {"team": us, "games": {}, "old_games": old, "generated_at": time.time()}
+    print(f"backtest as {us}: {len(old)} old games {old}, replaying {[g for g, r in plan if r]}\n")
+    print(f"{'game':>4} {'items':>5} | {'actual net':>10} {'rank':>4} | {'replay pess':>11} {'rank':>4} | {'replay exp':>10} {'rank':>4} | {'replay opt':>10} {'rank':>4} | best team")
+    for g, do_replay in plan:
         path = OUT / f"game_{g:02d}.json"
-        if args.no_llm:
-            if not path.exists():
-                print(f"{g:>4}  no stored replay, run without --no-llm")
-                continue
-            rep = json.loads(path.read_text())["replay"]
+        if do_replay:
+            rep = replay(g)
+        elif path.exists():
+            rep = reprice(g, json.loads(path.read_text())["replay"])
         else:
-            rep = replay(g, args.votes)
+            print(f"{g:>4}  no stored replay - MISSING, counts as not won (run: make replay G={g})")
+            continue
         d = digest(g)
         evidence = t_bounds(g, d)
         sc = score(g, rep["rows"], d, us)
@@ -214,6 +245,7 @@ def main(argv: list[str] | None = None) -> int:
         others = [nets[t][g] for t in nets if t != us]
         best = max(nets.items(), key=lambda kv: kv[1][g])
         actual = nets.get(us, {}).get(g, float("nan"))
+        exp_net = (sc["scenarios"]["pessimistic"]["net"] + sc["scenarios"]["optimistic"]["net"]) / 2
         row = {
             "actual_net": actual,
             "actual_rank": rank_of(actual, others),
@@ -223,30 +255,26 @@ def main(argv: list[str] | None = None) -> int:
             "pess_rank": rank_of(sc["scenarios"]["pessimistic"]["net"], others),
             "opt_net": sc["scenarios"]["optimistic"]["net"],
             "opt_rank": rank_of(sc["scenarios"]["optimistic"]["net"], others),
-            "exp_net": round((sc["scenarios"]["pessimistic"]["net"] + sc["scenarios"]["optimistic"]["net"]) / 2, 2),
-            "exp_rank": rank_of((sc["scenarios"]["pessimistic"]["net"] + sc["scenarios"]["optimistic"]["net"]) / 2, others),
+            "exp_net": round(exp_net, 2),
+            "exp_rank": rank_of(exp_net, others),
             "best_team": best[0],
             "best_net": best[1][g],
             "n_teams": len(nets),
+            "replayed_now": do_replay,
         }
         path.write_text(json.dumps(row, indent=1, default=str))
         summary["games"][g] = {k: v for k, v in row.items() if k not in ("replay", "score")}
+        tag = "" if do_replay else "  (stored estimate, re-priced)"
         print(f"{g:>4} {len(d['items']):>5} | {actual:10.0f} {row['actual_rank']:>4} | {row['pess_net']:11.0f} {row['pess_rank']:>4} | "
-              f"{row['exp_net']:10.0f} {row['exp_rank']:>4} | {row['opt_net']:10.0f} {row['opt_rank']:>4} | {best[0]} ({best[1][g]:.0f})")
-    if summary["games"]:
-        tot_a = sum(v["actual_net"] for v in summary["games"].values())
-        tot_p = sum(v["pess_net"] for v in summary["games"].values())
-        tot_o = sum(v["opt_net"] for v in summary["games"].values())
-        tot_e = sum(v["exp_net"] for v in summary["games"].values())
-        wins_p = sum(1 for v in summary["games"].values() if v["pess_rank"] == 1)
-        wins_e = sum(1 for v in summary["games"].values() if v["exp_rank"] == 1)
-        wins_o = sum(1 for v in summary["games"].values() if v["opt_rank"] == 1)
-        n = len(summary["games"])
-        success = wins_e * 2 > n
-        summary["totals"] = {"actual": tot_a, "pessimistic": tot_p, "expected": tot_e, "optimistic": tot_o,
-                             "wins_pess": wins_p, "wins_exp": wins_e, "wins_opt": wins_o, "n_games": n, "success": success}
-        print(f"\ntotal: actual {tot_a:.0f} | replay pess {tot_p:.0f} ({wins_p} wins) | exp {tot_e:.0f} ({wins_e} wins) | opt {tot_o:.0f} ({wins_o} wins) over {n} games")
-        print(f"VERDICT: {'SUCCESS' if success else 'NOT GOOD ENOUGH'} - expected replay wins {wins_e}/{n} old games (need > {n // 2})")
+              f"{row['exp_net']:10.0f} {row['exp_rank']:>4} | {row['opt_net']:10.0f} {row['opt_rank']:>4} | {best[0]} ({best[1][g]:.0f}){tag}")
+    t = verdict(summary["games"], old)
+    summary["totals"] = t
+    n = t["n_games"]
+    print(f"\ntotal: actual {t['actual']:.0f} | replay pess {t['pessimistic']:.0f} ({t['wins_pess']} wins) | "
+          f"exp {t['expected']:.0f} ({t['wins_exp']} wins) | opt {t['optimistic']:.0f} ({t['wins_opt']} wins) over {t['n_scored']}/{n} old games")
+    if t["missing"]:
+        print(f"MISSING replays for old games {t['missing']} - counted as not won; run: make replay G=\"{' '.join(map(str, t['missing']))}\"")
+    print(f"VERDICT: {'SUCCESS' if t['success'] else 'NOT GOOD ENOUGH'} - expected replay wins {t['wins_exp']}/{n} old games (need > {n // 2})")
     cal = ROOT / "runs" / "calibration.json"
     if cal.exists():
         c = json.loads(cal.read_text())
