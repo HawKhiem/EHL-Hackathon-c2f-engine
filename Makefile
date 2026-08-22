@@ -3,6 +3,7 @@
 #   make play G=7      same thing  (safe to start early: KEY_WAIT_S=900 by default)
 #   make check         real model against the permanent test game 0 (needs an LLM key in .env)
 #   make test          unit tests
+#   make autoplay      play EVERY upcoming round automatically with v2 (Ctrl-C to stop)
 #   make learn G=7     after game 7 closes: infer t bounds + recalibrate bias/sigma/acceptance (commits+pushes)
 #   make truth G=7      infer fair-value bounds for finished game 7 -> runs/truth_game_07.json
 #   make history        the t ranges the market accepted, as shown to the model -> runs/market_history.txt
@@ -81,6 +82,9 @@ play:
 
 check:
 	$(PY) -m c2f.run 0
+
+autoplay:
+	$(PY) -m c2f.autoplay --strategy v2
 
 test:
 	$(PY) -m pytest -q tests

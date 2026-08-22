@@ -221,6 +221,9 @@ def main(argv: list[str] | None = None) -> int:
         from c2f import v2 as V2
 
         k = int(os.environ.get("C2F_V2_SAMPLES") or 3)
+        # v2 lands its first board at ~15-17 s; later samples only refine it. Past this cutoff
+        # we stop waiting and keep whatever is on the board - the round's last 30 s are margin.
+        v2_deadline = float(os.environ.get("C2F_V2_DEADLINE_S") or 30.0)
         memory = V2.live_memory()
         record["strategy"] = "v2"
         budget = max(MIN_MODEL_S, DEADLINE_S - (time.time() - t0))
@@ -230,9 +233,9 @@ def main(argv: list[str] | None = None) -> int:
         try:
             pending = set(futs)
             while pending:
-                remaining = DEADLINE_S - (time.time() - t0)
+                remaining = min(DEADLINE_S, v2_deadline) - (time.time() - t0)
                 if remaining <= 0:
-                    log("deadline reached, stop waiting for v2 samples", t0)
+                    log(f"v2 cutoff ({v2_deadline:.0f}s) reached with {len(pending)} sample(s) still out - keeping the board as is", t0)
                     break
                 done, pending = wait(pending, timeout=remaining, return_when=FIRST_COMPLETED)
                 for f in done:
