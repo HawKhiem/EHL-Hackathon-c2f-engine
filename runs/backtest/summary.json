@@ -1,75 +1,19 @@
 {
  "team": "AsianSuperNerds",
  "games": {
-  "17": {
-   "actual_net": -48213.215000000004,
-   "actual_rank": 14,
-   "pess_net": -46105.1,
-   "pess_rank": 14,
-   "opt_net": -21384.45,
-   "opt_rank": 12,
-   "exp_net": -33744.78,
-   "exp_rank": 13,
-   "best_team": "TBD",
-   "best_net": 40199.17499999999,
-   "n_teams": 17,
-   "replayed_now": true
-  },
-  "18": {
-   "actual_net": -1630.350000000013,
-   "actual_rank": 8,
-   "pess_net": 4950.83,
-   "pess_rank": 7,
-   "opt_net": 6714.79,
-   "opt_rank": 6,
-   "exp_net": 5832.81,
-   "exp_rank": 7,
-   "best_team": "TBD",
-   "best_net": 16314.120000000003,
-   "n_teams": 17,
-   "replayed_now": true
-  },
-  "19": {
-   "actual_net": -3494.6050000000105,
-   "actual_rank": 8,
-   "pess_net": 10649.88,
-   "pess_rank": 4,
-   "opt_net": 12991.82,
-   "opt_rank": 4,
-   "exp_net": 11820.85,
-   "exp_rank": 4,
-   "best_team": "eyay",
-   "best_net": 35875.295,
-   "n_teams": 17,
-   "replayed_now": true
-  },
-  "20": {
-   "actual_net": -12026.25,
-   "actual_rank": 11,
-   "pess_net": -20061.75,
-   "pess_rank": 12,
-   "opt_net": -18225.75,
-   "opt_rank": 12,
-   "exp_net": -19143.75,
-   "exp_rank": 12,
-   "best_team": "error404 ai",
-   "best_net": 14610.849999999999,
-   "n_teams": 17,
-   "replayed_now": true
-  },
   "21": {
    "actual_net": 2640.0,
    "actual_rank": 3,
-   "pess_net": 2618.47,
+   "pess_net": 2632.95,
    "pess_rank": 3,
-   "opt_net": 3440.14,
+   "opt_net": 3457.75,
    "opt_rank": 1,
-   "exp_net": 3029.3,
+   "exp_net": 3045.35,
    "exp_rank": 2,
    "best_team": "Bin busy",
    "best_net": 3080.0,
    "n_teams": 17,
-   "replayed_now": true
+   "replayed_now": false
   },
   "22": {
    "actual_net": 9900.0,
@@ -83,101 +27,131 @@
    "best_team": "Bin busy",
    "best_net": 14840.0,
    "n_teams": 17,
-   "replayed_now": true
+   "replayed_now": false
   },
   "23": {
    "actual_net": 542.1299999999992,
    "actual_rank": 8,
-   "pess_net": 94.51,
+   "pess_net": 95.19,
    "pess_rank": 8,
-   "opt_net": 5561.71,
+   "opt_net": 5581.11,
    "opt_rank": 1,
-   "exp_net": 2828.11,
+   "exp_net": 2838.15,
    "exp_rank": 2,
    "best_team": "Nullpointer Naan",
    "best_net": 2867.459999999999,
    "n_teams": 17,
-   "replayed_now": true
+   "replayed_now": false
   },
   "24": {
    "actual_net": 35805.814999999995,
    "actual_rank": 2,
-   "pess_net": 6680.28,
+   "pess_net": 8098.84,
    "pess_rank": 6,
-   "opt_net": 7898.68,
+   "opt_net": 9318.94,
    "opt_rank": 6,
-   "exp_net": 7289.48,
+   "exp_net": 8708.89,
    "exp_rank": 6,
    "best_team": "Codacabana",
    "best_net": 40917.41,
    "n_teams": 17,
-   "replayed_now": true
+   "replayed_now": false
   },
   "25": {
    "actual_net": -54292.72499999999,
    "actual_rank": 16,
-   "pess_net": -23158.89,
+   "pess_net": -26900.49,
    "pess_rank": 16,
-   "opt_net": 20138.25,
+   "opt_net": 21171.66,
    "opt_rank": 2,
-   "exp_net": -1510.32,
+   "exp_net": -2864.42,
    "exp_rank": 9,
    "best_team": "Teamers",
    "best_net": 22617.660000000003,
+   "n_teams": 17,
+   "replayed_now": false
+  },
+  "29": {
+   "actual_net": -9847.635,
+   "actual_rank": 14,
+   "pess_net": -27676.16,
+   "pess_rank": 16,
+   "opt_net": -17208.44,
+   "opt_rank": 15,
+   "exp_net": -22442.3,
+   "exp_rank": 16,
+   "best_team": "Bin busy",
+   "best_net": 19823.12,
+   "n_teams": 17,
+   "replayed_now": true
+  },
+  "30": {
+   "actual_net": 1513.9399999999987,
+   "actual_rank": 2,
+   "pess_net": 632.67,
+   "pess_rank": 3,
+   "opt_net": 4738.37,
+   "opt_rank": 1,
+   "exp_net": 2685.52,
+   "exp_rank": 2,
+   "best_team": "TBD",
+   "best_net": 3434.245000000001,
    "n_teams": 17,
    "replayed_now": true
   }
  },
  "old_games": [
-  17,
-  18,
-  19,
-  20,
   21,
   22,
   23,
   24,
   25,
-  26
+  26,
+  27,
+  28,
+  29,
+  30
  ],
- "generated_at": 1787422651.0557609,
+ "generated_at": 1787426068.675932,
  "totals": {
-  "actual": -70769.20000000003,
-  "pessimistic": -64331.77,
-  "expected": -22113.3,
-  "optimistic": 20105.19,
-  "profitable": 6,
-  "top_ranked": 2,
-  "good": 2,
+  "actual": -13738.474999999999,
+  "pessimistic": -43117.0,
+  "expected": -6543.8099999999995,
+  "optimistic": 30029.39,
+  "profitable": 5,
+  "top_ranked": 3,
+  "good": 3,
   "rank_target": 3,
   "wins_pess": 0,
   "wins_exp": 0,
-  "wins_opt": 2,
+  "wins_opt": 3,
   "n_games": 10,
-  "n_scored": 9,
+  "n_scored": 7,
   "missing": [
-   26
+   26,
+   27,
+   28
   ],
   "success": false
  },
  "calibration": {
-  "bias": 1.484,
-  "sigma": 1.0,
+  "bias": 1.5,
+  "sigma": 0.99,
   "p0": 0.29,
   "k": 0.6,
   "bias_by_bucket": {
-   "diagnostic/inspect": 1.496,
-   "restoration/repair": 1.191,
-   "other": 1.441,
-   "drying/remediation": 1.117,
-   "electronics": 0.967,
-   "ancillary/call-out": 1.196,
-   "valuables": 1.091,
-   "labour": 1.495,
-   "material": 1.491
+   "diagnostic/inspect": 1.5,
+   "restoration/repair": 1.357,
+   "other": 1.5,
+   "drying/remediation": 1.177,
+   "electronics": 0.972,
+   "ancillary/call-out": 1.188,
+   "valuables": 1.097,
+   "labour": 1.5,
+   "material": 1.5
   },
-  "n_labels": 148,
-  "n_coverage_misses": 53,
+  "n_labels": 155,
+  "n_coverage_misses": 56,
   "n_accept_points": 127,
   "labels": [
    {
@@ -1215,6 +1189,55 @@
     "t_lo": 980.01,
     "t_hi": null,
     "t_mid": 420.0
+   },
+   {
+    "game": 29,
+    "item": 3,
+    "t_lo": 516.03,
+    "t_hi": null,
+    "t_mid": 180.0
+   },
+   {
+    "game": 29,
+    "item": 4,
+    "t_lo": 80.23,
+    "t_hi": 85.5,
+    "t_mid": 60.0
+   },
+   {
+    "game": 30,
+    "item": 1,
+    "t_lo": 432.0,
+    "t_hi": 478.96,
+    "t_mid": 340.0
+   },
+   {
+    "game": 30,
+    "item": 2,
+    "t_lo": 57.3,
+    "t_hi": 72.56,
+    "t_mid": 70.0
+   },
+   {
+    "game": 30,
+    "item": 3,
+    "t_lo": 378.0,
+    "t_hi": 404.14,
+    "t_mid": 180.0
+   },
+   {
+    "game": 30,
+    "item": 4,
+    "t_lo": 449.99,
+    "t_hi": null,
+    "t_mid": 190.0
+   },
+   {
+    "game": 30,
+    "item": 5,
+    "t_lo": 100.0,
+    "t_hi": null,
+    "t_mid": 72.0
    }
   ]
  }

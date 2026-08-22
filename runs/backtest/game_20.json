@@ -117,7 +117,8 @@
     }
    ]
   },
-  "seconds": 13.5
+  "seconds": 13.5,
+  "repriced": true
  },
  "score": {
   "scenarios": {
@@ -246,5 +247,5 @@
  "best_team": "error404 ai",
  "best_net": 14610.849999999999,
  "n_teams": 17,
- "replayed_now": true
+ "replayed_now": false
 }

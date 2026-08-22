@@ -5,18 +5,18 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 213.94,
-    "acceptance_limit": 97.95
+    "charge_price": 212.52,
+    "acceptance_limit": 97.71
    },
    {
     "index": 2,
-    "charge_price": 168.05,
-    "acceptance_limit": 76.94
+    "charge_price": 168.98,
+    "acceptance_limit": 77.7
    },
    {
     "index": 3,
-    "charge_price": 341.7,
-    "acceptance_limit": 156.45
+    "charge_price": 342.87,
+    "acceptance_limit": 157.65
    }
   ],
   "estimate": {
@@ -63,19 +63,20 @@
     }
    ]
   },
-  "seconds": 11.7
+  "seconds": 11.7,
+  "repriced": true
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 4828.2,
+    "income": 4828.88,
     "cost": 4733.69,
-    "net": 94.51
+    "net": 95.19
    },
    "optimistic": {
-    "income": 10295.4,
+    "income": 10314.8,
     "cost": 4733.69,
-    "net": 5561.71
+    "net": 5581.11
    }
   },
   "open_pairings": {
@@ -84,14 +85,14 @@
   },
   "items": {
    "1": {
-    "a": 213.94,
-    "b": 97.95,
+    "a": 212.52,
+    "b": 97.71,
     "t_lo": 143.41,
     "t_hi": 165.38,
     "fair": false,
     "income": {
-     "pessimistic": 2139.4,
-     "optimistic": 2139.4
+     "pessimistic": 2125.2000000000003,
+     "optimistic": 2125.2000000000003
     },
     "cost": {
      "pessimistic": 205.5,
@@ -99,14 +100,14 @@
     }
    },
    "2": {
-    "a": 168.05,
-    "b": 76.94,
+    "a": 168.98,
+    "b": 77.7,
     "t_lo": 374.5,
     "t_hi": 396.0,
     "fair": true,
     "income": {
-     "pessimistic": 2688.8,
-     "optimistic": 2688.8
+     "pessimistic": 2703.68,
+     "optimistic": 2703.68
     },
     "cost": {
      "pessimistic": 3531.9900000000002,
@@ -114,14 +115,14 @@
     }
    },
    "3": {
-    "a": 341.7,
-    "b": 156.45,
+    "a": 342.87,
+    "b": 157.65,
     "t_lo": 150.0,
     "t_hi": null,
     "fair": null,
     "income": {
      "pessimistic": 0.0,
-     "optimistic": 5467.199999999998
+     "optimistic": 5485.919999999999
     },
     "cost": {
      "pessimistic": 996.2,
@@ -135,14 +136,14 @@
    "3": "truth+payout"
   }
  },
- "pess_net": 94.51,
+ "pess_net": 95.19,
  "pess_rank": 8,
- "opt_net": 5561.71,
+ "opt_net": 5581.11,
  "opt_rank": 1,
- "exp_net": 2828.11,
+ "exp_net": 2838.15,
  "exp_rank": 2,
  "best_team": "Nullpointer Naan",
  "best_net": 2867.459999999999,
  "n_teams": 17,
- "replayed_now": true
+ "replayed_now": false
 }

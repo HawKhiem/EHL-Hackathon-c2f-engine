@@ -27,7 +27,8 @@
     }
    ]
   },
-  "seconds": 17.5
+  "seconds": 17.5,
+  "repriced": true
  },
  "score": {
   "scenarios": {
@@ -76,5 +77,5 @@
  "best_team": "Bin busy",
  "best_net": 14840.0,
  "n_teams": 17,
- "replayed_now": true
+ "replayed_now": false
 }

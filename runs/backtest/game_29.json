@@ -1,0 +1,182 @@
+{
+ "actual_net": -9847.635,
+ "actual_rank": 14,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 456.19,
+    "acceptance_limit": 299.65
+   },
+   {
+    "index": 2,
+    "charge_price": 8646.19,
+    "acceptance_limit": 5679.21
+   },
+   {
+    "index": 3,
+    "charge_price": 163.98,
+    "acceptance_limit": 107.71
+   },
+   {
+    "index": 4,
+    "charge_price": 82.65,
+    "acceptance_limit": 54.29
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Established burst heating pipe escape-of-water damage; necessary reinstatement, mitigation, disposal and one journey covered; business outlay and upgrades excluded.",
+   "items": [
+    {
+     "index": 1,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.2; 7.1.7(b)",
+     "t_low": 300,
+     "t_mid": 390,
+     "t_high": 450,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Necessary single water-removal measure after covered flooding.",
+     "_description": "Water extraction from the flooded plant room"
+    },
+    {
+     "index": 2,
+     "covered": true,
+     "related": true,
+     "clause": "2.4.5; 7.1.1(c); 7.1.7(d)",
+     "t_low": 4800,
+     "t_mid": 5800,
+     "t_high": 6800,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Covered damaged heating functional unit and necessary connections.",
+     "_description": "Renew the water-damaged boiler, flue and storage tank and adjust the supply pipework"
+    },
+    {
+     "index": 3,
+     "covered": true,
+     "related": true,
+     "clause": "5.2.1; 7.1.7(a)",
+     "t_low": 70,
+     "t_mid": 110,
+     "t_high": 150,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "Necessary disposal of water-damaged replaced boiler system.",
+     "_description": "Dispose of the old boiler system"
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.7(g)",
+     "t_low": 55,
+     "t_mid": 70,
+     "t_high": 85,
+     "t_if_covered": 0,
+     "cap_uncertain": false,
+     "reason": "First and only journey charge for this event.",
+     "_description": "Vehicle costs"
+    }
+   ]
+  },
+  "seconds": 6.3
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 4861.69,
+    "cost": 32537.85,
+    "net": -27676.16
+   },
+   "optimistic": {
+    "income": 15329.41,
+    "cost": 32537.85,
+    "net": -17208.44
+   }
+  },
+  "open_pairings": {
+   "income": 21,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 456.19,
+    "b": 299.65,
+    "t_lo": 0.0,
+    "t_hi": 100.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 1824.76,
+     "optimistic": 2737.14
+    },
+    "cost": {
+     "pessimistic": 1406.02,
+     "optimistic": 1406.02
+    }
+   },
+   "2": {
+    "a": 8646.19,
+    "b": 5679.21,
+    "t_lo": 0.0,
+    "t_hi": 57.3,
+    "fair": false,
+    "income": {
+     "pessimistic": 0.0,
+     "optimistic": 8646.19
+    },
+    "cost": {
+     "pessimistic": 24157.3,
+     "optimistic": 24157.3
+    }
+   },
+   "3": {
+    "a": 163.98,
+    "b": 107.71,
+    "t_lo": 516.03,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 2623.68,
+     "optimistic": 2623.68
+    },
+    "cost": {
+     "pessimistic": 6117.5199999999995,
+     "optimistic": 6117.5199999999995
+    }
+   },
+   "4": {
+    "a": 82.65,
+    "b": 54.29,
+    "t_lo": 80.23,
+    "t_hi": 85.5,
+    "fair": null,
+    "income": {
+     "pessimistic": 413.25,
+     "optimistic": 1322.4
+    },
+    "cost": {
+     "pessimistic": 857.005,
+     "optimistic": 857.005
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout"
+  }
+ },
+ "pess_net": -27676.16,
+ "pess_rank": 16,
+ "opt_net": -17208.44,
+ "opt_rank": 15,
+ "exp_net": -22442.3,
+ "exp_rank": 16,
+ "best_team": "Bin busy",
+ "best_net": 19823.12,
+ "n_teams": 17,
+ "replayed_now": true
+}
