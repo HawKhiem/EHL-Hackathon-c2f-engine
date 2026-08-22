@@ -35,7 +35,6 @@ model's item indices are validated against the parse when it succeeded.
 - If the model fails/times out: submit heuristic a = b = 0 only for items we cannot price;
   covered-looking items never get b = 0 if any estimate exists.
 - Provider auto-selected: ANTHROPIC_API_KEY → Claude; else OPENAI_API_KEY → OpenAI;
-  `--mock` uses a canned answer for testing.
 
 ## Out of scope (for now)
 
