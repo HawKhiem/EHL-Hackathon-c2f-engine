@@ -1,0 +1,35 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0N14S8WDC85FP54XW34N6R8",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 4,
+  "files_touched": [
+    "c2f/postmortem.py",
+    "runs/postmortem_game_01.json",
+    "runs/postmortem_game_03.json",
+    "runs/postmortem_game_04.json",
+    "runs/postmortem_game_06.json",
+    "runs/postmortem_game_07.json",
+    "runs/postmortem_game_08.json",
+    "runs/postmortem_game_09.json",
+    "runs/postmortem_game_10.json",
+    "runs/postmortem_game_11.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 600,
+    "cache_creation_tokens": 681469,
+    "cache_read_tokens": 118244875,
+    "output_tokens": 435057,
+    "api_call_count": 300
+  }
+}
