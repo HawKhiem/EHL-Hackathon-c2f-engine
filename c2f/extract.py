@@ -19,7 +19,14 @@ from pathlib import Path
 
 MAX_CHARS = 30_000
 
-ITEM_RE = re.compile(r"^\s*(\d{1,3})\s+(.+?)\s+(\d+(?:[.,]\d+)?|[–-])\s+(\S+)\s*$")
+# Units seen on the invoices. Multi-word units ("flat rate") and a lone dash ("–" = no quantity)
+# are allowed; pypdf sometimes glues the quantity to the description ("sink1 pcs"), so the
+# whitespace before the quantity is optional.
+UNITS = (
+    r"pcs|pc|pieces?|units?|hrs|hours?|h|days?|nights?|weeks?|months?|flat rate|lump sum|sets?|pairs?|"
+    r"kg|g|l|m|km|m2|m²|sqm|m3|m³|lfm|rolls?|boxes|box|bags?|cans?|litres?|liters?|[–-]"
+)
+ITEM_RE = re.compile(r"^\s*(\d{1,3})\s+(.+?)\s*(\d+(?:[.,]\d+)?|[–-])\s+(" + UNITS + r")\s*$")
 HEADER_RE = re.compile(r"^\s*POS\.?\s+DESCRIPTION", re.I)
 STOP_RE = re.compile(r"^\s*(INVOICE|Created on|Page \d|TOTAL|Subtotal|VAT|Notes?)\b", re.I)
 
@@ -39,35 +46,57 @@ def pdf_text(path: Path) -> str:
 
 
 def parse_items(text: str) -> list[dict]:
-    """Best-effort parse of the ITEMS table. Returns [] if the layout is unfamiliar."""
+    """Best-effort parse of the ITEMS table(s). Returns [] if the layout is unfamiliar.
+
+    A PDF may hold several invoices; each has its own POS./DESCRIPTION header and the items are
+    numbered continuously across them. Only lines between a header and the next INVOICE/footer
+    line are considered, so header fields like "DUE\n5 Mar 2026" can never look like item 5.
+    """
     lines = text.splitlines()
-    start = next((i for i, ln in enumerate(lines) if HEADER_RE.match(ln)), None)
-    if start is None:
+    if not any(HEADER_RE.match(ln) for ln in lines):
         return []
     items: list[dict] = []
+    in_table = False
     buf: str | None = None  # a line item whose description wraps over several lines
-    for ln in lines[start + 1 :]:
-        if not ln.strip():
+
+    def flush(b: str) -> bool:
+        m = ITEM_RE.match(b)
+        if not m:
+            return False
+        idx, desc, qty, unit = m.groups()
+        items.append(
+            {
+                "index": int(idx),
+                "description": desc.strip(),
+                "quantity": float(qty.replace(",", ".")) if qty not in "–-" else 0.0,
+                "unit": unit,
+            }
+        )
+        return True
+
+    for ln in lines:
+        if HEADER_RE.match(ln):
+            in_table, buf = True, None
             continue
-        starts_next = re.match(r"^\s*(\d{1,3})\s+\S", ln)
+        if not in_table or not ln.strip():
+            continue
+        if STOP_RE.match(ln):
+            in_table, buf = False, None
+            continue
+        starts = re.match(r"^\s*(\d{1,3})\s+\S", ln)
+        nxt = len(items) + 1
         if buf is None:
-            if starts_next and int(starts_next.group(1)) == len(items) + 1:
+            if starts and int(starts.group(1)) == nxt:
                 buf = ln.strip()
-            else:
-                continue  # noise between items (e.g. footer text)
+            # else: noise between items
+        elif starts and int(starts.group(1)) == nxt + 1 and not ITEM_RE.match(buf + " " + ln.strip()):
+            # the pending item never got a parsable quantity/unit; don't swallow the next item into it
+            m = re.match(r"^\s*(\d{1,3})\s+(.+)$", buf)
+            items.append({"index": int(m.group(1)), "description": m.group(2).strip(), "quantity": 1.0, "unit": "?"})
+            buf = ln.strip()
         else:
             buf += " " + ln.strip()
-        m = ITEM_RE.match(buf)
-        if m:
-            idx, desc, qty, unit = m.groups()
-            items.append(
-                {
-                    "index": int(idx),
-                    "description": desc.strip(),
-                    "quantity": float(qty.replace(",", ".")) if qty not in "–-" else 0.0,
-                    "unit": unit,
-                }
-            )
+        if flush(buf):
             buf = None
     # indices must be 1..n and unique, else distrust the parse
     idxs = [it["index"] for it in items]
