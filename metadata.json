@@ -1,0 +1,46 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0MRVN5PGHDVM6PBCKFR0K8V",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    ".env.example",
+    "backend/app/c2f/api_client.py",
+    "backend/app/c2f/decision/payoff.py",
+    "backend/app/c2f/decrypt.py",
+    "backend/app/c2f/inference/__init__.py",
+    "backend/app/c2f/inference/analyse.py",
+    "backend/app/c2f/inference/prompts.py",
+    "backend/app/c2f/learning/__init__.py",
+    "backend/app/c2f/models.py",
+    "backend/app/c2f/parsing/__init__.py",
+    "backend/app/c2f/parsing/case.py",
+    "backend/app/c2f/parsing/invoice.py",
+    "backend/app/c2f/run.py",
+    "backend/app/c2f/store/__init__.py",
+    "backend/app/config.py",
+    "backend/pyproject.toml",
+    "backend/tests/c2f/test_api_client.py",
+    "backend/tests/c2f/test_inference.py",
+    "backend/tests/c2f/test_payoff.py",
+    "backend/uv.lock",
+    "docs/DESIGN.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 262,
+    "cache_creation_tokens": 304456,
+    "cache_read_tokens": 28568606,
+    "output_tokens": 179326,
+    "api_call_count": 131
+  }
+}
