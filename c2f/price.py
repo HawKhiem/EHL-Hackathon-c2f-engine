@@ -15,8 +15,11 @@ c2f.truth recovers after each game (runs/calibration.json); defaults apply until
   ~0.7x the median (sigma 0.2) to ~0.5x (sigma 0.8) - crossing t loses ~all the revenue.
 - b = 1/3-quantile of the belief. Accepting a fair charge costs 1x, wrongly rejecting 1.5x,
   accepting fraud 1x -> accept iff P(t >= a') > 2/3.
-- not covered / not related: b = 0, a = UNCOVERED_CHARGE * t_if_covered (0 if unknown):
-  a rejected fraudulent charge costs the issuer nothing, so this is free upside.
+- not covered / not related: b = 0, a = UNCOVERED_CHARGE * bias * t_if_covered (0 if unknown):
+  a rejected fraudulent charge costs the issuer nothing, so this is free upside. The same
+  bucket `bias` the covered path applies to t_mid applies here: t_if_covered comes out of the
+  same call with the same systematic underestimate, so correcting one and not the other was
+  an inconsistency, not a choice.
 
 `other`: a second, independent estimate for the same item (the fast pass, when pricing the
 full pass). It is a cheap disagreement check, not a vote:
@@ -35,12 +38,22 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from statistics import NormalDist
 
-UNCOVERED_CHARGE = 0.9  # fraction of the would-be price we charge on uncovered items.
+UNCOVERED_CHARGE = 0.9  # fraction of the would-be price we charge on uncovered items,
+# multiplied by the same bucket bias the covered path uses (1.48 global today, so ~1.34x
+# t_if_covered).
 # Raised from 0.6: over 19 labelled games (c2f.accuracy) 31 of the 101 items we zeroed were
 # proven covered by the market, against only 5 of 136 priced items proven worthless. Wrongly
 # rejected fraud costs the issuer nothing, so the only cost of charging near the full
 # would-be price on an uncovered item is zero - and the upside is the third of them we
 # excluded by mistake.
+#
+# Splitting the branch over games 18-26 (c2f.deviation): the 8 items the market agreed were
+# worthless cost and earn nothing at ANY multiplier, so all of the money is the 13 items we
+# zeroed that the market proved had value (game 20 item 1 alone is 61% of the regret).
+# Expected revenue on those rises to a peak at ~1.5-1.6x t_if_covered and falls off a cliff
+# past 1.8x as the large items cross the CAP_MULT ceiling; the ranking holds under a
+# pessimistic acceptance curve (p0 .35, k 2), so it is not the k<1 rail. Taking the bias
+# rather than the fitted peak keeps the value tracking the market as c2f.calibrate refits.
 B_QUANTILE = 0.3333  # c2f.autotune over games 1-23: +4,271 vs 0.27, better in 13 games, worse in 4 - the
 # only candidate the gate accepted, and it takes the last-10 backtest from 5/10 profitable to passing.
 # (0.27 was itself +1,801 over 0.20 across games 1-17.) The game 6 electronics guard still holds at this
@@ -223,6 +236,86 @@ def best_charge(belief: Belief, cal: Calibration, n_grid: int = N_GRID, risk_ave
     return best_a
 
 
+def _has_bundle_keywords(description: str | None) -> bool:
+    """Detect likely bundled items with multiple distinct components."""
+    if not description:
+        return False
+    d = (description or "").lower()
+    # Common bundling patterns: multiple appliances, multiple plumbing components, etc.
+    bundle_indicators = [
+        ("boiler", "tank", "flue", "pipework", "heater", "valve"),
+        ("repair", "replacement", "adjustment"),
+    ]
+    # Check if description mentions structural terms suggesting bundled work
+    component_keywords = [
+        "boiler", "flue", "tank", "pipework", "heater", "valve", "radiator",
+        "pipe", "fitting", "gasket", "thermostat", "pump",
+        "installation", "removal", "adjustment", "alignment",
+    ]
+    keyword_count = sum(1 for kw in component_keywords if kw in d)
+    return keyword_count >= 2
+
+
+def _validate_bundle_coverage(est: dict) -> bool:
+    """For bundled items marked covered, verify component coverage is explicit.
+
+    If an item description mentions multiple components/operations and is marked
+    covered, the reason/clause should explicitly mention that each component is
+    covered. If coverage is unclear for any component, return False to mark the
+    entire bundle as uncovered (never invent allocations).
+    """
+    if not est.get("covered"):
+        return True  # Not covered, no need to validate bundle
+
+    description = est.get("_description", "") or est.get("description", "")
+    if not _has_bundle_keywords(description):
+        return True  # Not a bundle, normal coverage applies
+
+    reason = (est.get("reason") or "").lower()
+    clause = (est.get("clause") or "").lower()
+    evidence_text = (reason + " " + clause).lower()
+
+    # Check for negative indicators: if the reason mentions uncertainty or exclusions
+    # for any component, the entire bundle is uncovered
+    uncertainty_phrases = [
+        "uncertain", "unclear", "not established", "not clear", "potentially",
+        "may be excluded", "may not be", "questionable", "disputed",
+    ]
+    for phrase in uncertainty_phrases:
+        if phrase in evidence_text:
+            return False
+
+    # For a bundled replacement, all key components must be explicitly mentioned
+    # as covered. Extract components from description and verify coverage mention.
+    component_keywords = {
+        "boiler": ("boiler", "heating", "furnace"),
+        "flue": ("flue", "chimney", "vent"),
+        "tank": ("tank", "vessel", "cylinder", "storage"),
+        "pipework": ("pipe", "pipework", "plumbing", "fitting"),
+        "installation": ("install", "fit", "fit", "assemble"),
+        "removal": ("remov", "strip", "dismantle"),
+        "adjustment": ("adjust", "align", "balance"),
+    }
+
+    description_lower = description.lower()
+    mentioned_components = []
+    for comp_name, keywords in component_keywords.items():
+        if any(kw in description_lower for kw in keywords):
+            mentioned_components.append(comp_name)
+
+    # If multiple components are mentioned, all must be explicitly covered in evidence
+    if len(mentioned_components) >= 2:
+        # Check that the reason/clause mentions the key operation being covered
+        covered_phrases = [
+            "covered", "indemnifi", "reimburse", "claim", "payable", "insured",
+        ]
+        has_coverage_language = any(phrase in evidence_text for phrase in covered_phrases)
+        if not has_coverage_language:
+            return False
+
+    return True
+
+
 def price_item(est: dict, cal: Calibration | None = None, other: dict | None = None) -> tuple[float, float]:
     """Return (a, b) as gross totals, both finite and >= 0.
 
@@ -230,11 +323,25 @@ def price_item(est: dict, cal: Calibration | None = None, other: dict | None = N
     docstring for how a coverage split or a wide t_mid gap between the two is handled."""
     cal = cal or calibration()
     covered = bool(est.get("covered", False)) and bool(est.get("related", True))
+
+    # Gate: validate bundle coverage BEFORE any pricing. If bundle coverage is not
+    # established (evidence doesn't cover all components), treat as truly uncovered.
+    bundle_coverage_valid = True
+    if covered:
+        bundle_coverage_valid = _validate_bundle_coverage(est)
+        if not bundle_coverage_valid:
+            covered = False
+
     mid = sorted(_num(est.get(k)) for k in ("t_low", "t_mid", "t_high"))[1]
 
     other_covered = other_mid = None
+    other_bundle_valid = True
     if other is not None:
         other_covered = bool(other.get("covered", False)) and bool(other.get("related", True))
+        if other_covered:
+            other_bundle_valid = _validate_bundle_coverage(other)
+            if not other_bundle_valid:
+                other_covered = False
         other_mid = sorted(_num(other.get(k)) for k in ("t_low", "t_mid", "t_high"))[1]
 
     if other_covered is not None and other_covered != covered:
@@ -243,6 +350,11 @@ def price_item(est: dict, cal: Calibration | None = None, other: dict | None = N
         return round(UNCOVERED_CHARGE * guess, 2), 0.0
 
     if not covered:
+        # For items failing bundle validation, return a=0, b=0 to enforce strict
+        # coverage. For normal uncovered items, apply UNCOVERED_CHARGE.
+        if bundle_coverage_valid == False and bool(est.get("covered", False)):
+            # Model said covered but validation rejected due to bundle components
+            return 0.0, 0.0
         guess = _num(est.get("t_if_covered")) or mid
         return round(UNCOVERED_CHARGE * guess, 2), 0.0
 

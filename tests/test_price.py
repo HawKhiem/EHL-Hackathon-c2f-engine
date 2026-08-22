@@ -93,3 +93,82 @@ def test_best_charge_never_exceeds_median_even_with_slow_acceptance_decay_and_wi
     cal = Calibration(bias=1.0, sigma=0.4, p0=0.35, k=0.5)
     assert best_charge(b, cal) <= 1000 + 1e-9
     assert best_charge(b, cal, risk_aversion=0.0) <= 1000 + 1e-9
+
+
+def test_bundled_replacement_without_component_coverage_evidence_uncovered():
+    """Bundled line with unclear component coverage must not be priced as covered.
+
+    Scenario: Flat-rate replacement of boiler, flue, storage tank and pipework
+    adjustment, where coverage is NOT established for every component.
+    Expected: Entire line treated as uncovered with a=0, b=0.
+    """
+    # Model says covered, but reason doesn't establish coverage for all components
+    est = {
+        "index": 1,
+        "covered": True,
+        "related": True,
+        "_description": "Flat-rate replacement of boiler, flue, storage tank and pipework adjustment",
+        "clause": "Section 3",
+        "reason": "Replacement of heating system",
+        "t_low": 3000,
+        "t_mid": 3500,
+        "t_high": 4000,
+        "t_if_covered": 3500,  # What it would cost if covered
+        "cap_uncertain": False,
+    }
+    a, b = price_item(est, CAL)
+    # Since bundle coverage validation fails, enforce a=0, b=0
+    assert b == 0.0, "Bundle with unclear component coverage must have b=0"
+    assert a == 0.0, "Bundle with unclear component coverage must have a=0 (strict gate)"
+
+
+def test_bundled_replacement_with_explicit_component_coverage_treated_as_covered():
+    """Bundled line where all components are explicitly covered is priced normally.
+
+    Scenario: Flat-rate functional unit replacement where evidence establishes
+    that the complete unit required replacement and every bundled operation is covered.
+    Expected: Line treated as covered, normal (a, b) pricing applies.
+    """
+    est = {
+        "index": 1,
+        "covered": True,
+        "related": True,
+        "_description": "Complete boiler replacement including flue, tank and pipework adjustment",
+        "clause": "Section 3: Amount of indemnity",
+        "reason": "Boiler, flue, tank and pipework all covered as functional heating unit",
+        "t_low": 3000,
+        "t_mid": 3500,
+        "t_high": 4000,
+        "t_if_covered": 0,
+        "cap_uncertain": False,
+    }
+    a, b = price_item(est, CAL)
+    # Explicit component coverage should allow normal pricing
+    assert b > 0, "Bundle with explicit component coverage should have b > 0"
+    assert a > 0 and a < 3500, "Covered bundle should price based on belief"
+
+
+def test_bundled_with_separate_component_prices():
+    """Bundled line with separate component prices and partial coverage.
+
+    When an invoice shows separate prices for components of a bundle,
+    but coverage is not established for all components, the bundle fails validation.
+    Expected: a=0, b=0 (strict gate on incomplete component coverage).
+    """
+    # Single bundled line with separate prices but incomplete coverage
+    est = {
+        "index": 1,
+        "covered": True,
+        "related": True,
+        "_description": "Boiler (€2000) + flue work (€500) + pipework (€600)",
+        "clause": "Section 3",
+        "reason": "Boiler and pipework covered; flue work not established",
+        "t_low": 2000,
+        "t_mid": 2500,
+        "t_high": 2800,
+        "t_if_covered": 0,
+    }
+    a, b = price_item(est, CAL)
+    # Incomplete component coverage (flue work "not established") means bundle uncovered
+    assert b == 0.0, "Bundle with partial coverage should have b=0"
+    assert a == 0.0, "Bundle with partial coverage should have a=0"
