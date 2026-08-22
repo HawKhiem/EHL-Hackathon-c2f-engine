@@ -1,21 +1,21 @@
 {
- "bias": 1.374,
+ "bias": 1.436,
  "sigma": 1.0,
  "p0": 0.29,
  "k": 0.6,
  "bias_by_bucket": {
-  "diagnostic/inspect": 1.471,
-  "restoration/repair": 1.032,
-  "other": 1.442,
-  "drying/remediation": 0.827,
-  "electronics": 0.93,
-  "ancillary/call-out": 1.082,
-  "valuables": 1.05,
-  "labour": 1.448,
-  "material": 1.43
+  "diagnostic/inspect": 1.486,
+  "restoration/repair": 1.047,
+  "other": 1.478,
+  "drying/remediation": 1.018,
+  "electronics": 0.951,
+  "ancillary/call-out": 1.097,
+  "valuables": 1.073,
+  "labour": 1.478,
+  "material": 1.464
  },
- "n_labels": 131,
- "n_coverage_misses": 45,
+ "n_labels": 139,
+ "n_coverage_misses": 52,
  "n_accept_points": 127,
  "labels": [
   {
@@ -934,6 +934,62 @@
    "t_lo": 102.79,
    "t_hi": 150.0,
    "t_mid": 60.0
+  },
+  {
+   "game": 25,
+   "item": 4,
+   "t_lo": 471.04,
+   "t_hi": null,
+   "t_mid": 210.0
+  },
+  {
+   "game": 25,
+   "item": 5,
+   "t_lo": 424.92,
+   "t_hi": 486.0,
+   "t_mid": 125.0
+  },
+  {
+   "game": 25,
+   "item": 6,
+   "t_lo": 408.17,
+   "t_hi": 524.0,
+   "t_mid": 72.0
+  },
+  {
+   "game": 25,
+   "item": 8,
+   "t_lo": 82.3,
+   "t_hi": 124.61,
+   "t_mid": 74.0
+  },
+  {
+   "game": 25,
+   "item": 9,
+   "t_lo": 65.0,
+   "t_hi": 124.2,
+   "t_mid": 22.0
+  },
+  {
+   "game": 25,
+   "item": 10,
+   "t_lo": 229.17,
+   "t_hi": 238.43,
+   "t_mid": 220.0
+  },
+  {
+   "game": 25,
+   "item": 11,
+   "t_lo": 448.94,
+   "t_hi": 470.6,
+   "t_mid": 350.0
+  },
+  {
+   "game": 25,
+   "item": 13,
+   "t_lo": 1097.15,
+   "t_hi": null,
+   "t_mid": 770.0
   }
  ]
 }
