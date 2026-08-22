@@ -1,0 +1,46 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0NHJE99GKJ3B6H90ZQ2RY57",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "c2f/submit.py",
+    "get_case.sh",
+    "runs/dry_game_08.json",
+    "runs/feed/g34_Alpha.json",
+    "runs/feed/g34_AsianSuperNerds.json",
+    "runs/feed/g34_Bin busy.json",
+    "runs/feed/g34_Claims Renaissance.json",
+    "runs/feed/g34_Codacabana.json",
+    "runs/feed/g34_Non Deterministic.json",
+    "runs/feed/g34_Nullpointer Naan.json",
+    "runs/feed/g34_OPUSMOPUS.json",
+    "runs/feed/g34_Oasis.json",
+    "runs/feed/g34_TBD.json",
+    "runs/feed/g34_TakeTheMoneyAndRun.json",
+    "runs/feed/g34_Teamers.json",
+    "runs/feed/g34_Trust Nobody.json",
+    "runs/feed/g34_error404 ai.json",
+    "runs/feed/g34_eyay.json",
+    "runs/feed/g34_harissa eagles.json",
+    "runs/feed/g34_makalu.json",
+    "runs/game_00.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 286,
+    "cache_creation_tokens": 428210,
+    "cache_read_tokens": 24879160,
+    "output_tokens": 124021,
+    "api_call_count": 144
+  }
+}

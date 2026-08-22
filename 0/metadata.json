@@ -1,0 +1,75 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0NHJE99GKJ3B6H90ZQ2RY57",
+  "session_id": "a21b820b-bc59-4f2d-9fba-04083e32149d",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-22T20:11:10.98997Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "save_step_count": 3,
+  "files_touched": [
+    "c2f/submit.py",
+    "get_case.sh",
+    "runs/dry_game_08.json",
+    "runs/feed/g34_Alpha.json",
+    "runs/feed/g34_AsianSuperNerds.json",
+    "runs/feed/g34_Bin busy.json",
+    "runs/feed/g34_Claims Renaissance.json",
+    "runs/feed/g34_Codacabana.json",
+    "runs/feed/g34_Non Deterministic.json",
+    "runs/feed/g34_Nullpointer Naan.json",
+    "runs/feed/g34_OPUSMOPUS.json",
+    "runs/feed/g34_Oasis.json",
+    "runs/feed/g34_TBD.json",
+    "runs/feed/g34_TakeTheMoneyAndRun.json",
+    "runs/feed/g34_Teamers.json",
+    "runs/feed/g34_Trust Nobody.json",
+    "runs/feed/g34_error404 ai.json",
+    "runs/feed/g34_eyay.json",
+    "runs/feed/g34_harissa eagles.json",
+    "runs/feed/g34_makalu.json",
+    "runs/game_00.json"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "aee9fef475ed",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 286,
+    "cache_creation_tokens": 428210,
+    "cache_read_tokens": 24879160,
+    "output_tokens": 124021,
+    "api_call_count": 144
+  },
+  "session_metrics": {
+    "turn_count": 4
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-22T20:11:10.8215367Z",
+    "agent_lines": 30,
+    "agent_removed": 44,
+    "human_added": 0,
+    "human_modified": 1715,
+    "human_removed": 0,
+    "total_committed": 1745,
+    "total_lines_changed": 1789,
+    "agent_percentage": 4.136389044158748,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 1745,
+      "agent_lines_removed": 196
+    }
+  ]
+}
