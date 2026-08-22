@@ -38,13 +38,12 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
             by_idx[it["index"]] = it
         except (KeyError, TypeError, ValueError):
             continue
-    if case.get("items"):
-        wanted = [it["index"] for it in case["items"]]
-        missing = [i for i in wanted if i not in by_idx]
-        for i in missing:  # should not happen; log it loudly, price as unknown
+    # union of parsed indices and model indices: never drop a line the model saw in the raw text
+    wanted = sorted(set(it["index"] for it in case.get("items", [])) | set(by_idx))
+    for i in wanted:
+        if i not in by_idx:  # parsed but the model skipped it: price as unknown, log loudly
             by_idx[i] = {"index": i, "covered": False, "related": False, "reason": "MISSING FROM MODEL OUTPUT"}
-        return [by_idx[i] for i in wanted]
-    return [by_idx[i] for i in sorted(by_idx)]
+    return [by_idx[i] for i in wanted]
 
 
 def main(argv: list[str] | None = None) -> int:

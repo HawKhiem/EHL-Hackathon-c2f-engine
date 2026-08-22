@@ -19,7 +19,7 @@ from pathlib import Path
 
 MAX_CHARS = 30_000
 
-ITEM_RE = re.compile(r"^\s*(\d{1,3})\s+(.+?)\s+(\d+(?:[.,]\d+)?)\s+(\S+)\s*$")
+ITEM_RE = re.compile(r"^\s*(\d{1,3})\s+(.+?)\s+(\d+(?:[.,]\d+)?|[–-])\s+(\S+)\s*$")
 HEADER_RE = re.compile(r"^\s*POS\.?\s+DESCRIPTION", re.I)
 STOP_RE = re.compile(r"^\s*(INVOICE|Created on|Page \d|TOTAL|Subtotal|VAT|Notes?)\b", re.I)
 
@@ -49,8 +49,6 @@ def parse_items(text: str) -> list[dict]:
     for ln in lines[start + 1 :]:
         if not ln.strip():
             continue
-        if buf is None and STOP_RE.match(ln) and items:
-            break
         starts_next = re.match(r"^\s*(\d{1,3})\s+\S", ln)
         if buf is None:
             if starts_next and int(starts_next.group(1)) == len(items) + 1:
@@ -66,7 +64,7 @@ def parse_items(text: str) -> list[dict]:
                 {
                     "index": int(idx),
                     "description": desc.strip(),
-                    "quantity": float(qty.replace(",", ".")),
+                    "quantity": float(qty.replace(",", ".")) if qty not in "–-" else 0.0,
                     "unit": unit,
                 }
             )
