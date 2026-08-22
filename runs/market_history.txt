@@ -1,25 +1,25 @@
 <market_history note="what the market ACTUALLY accepted for comparable line items in past rounds of THIS game, recovered from the opponents' charges. Evidence, not a rule: this case's policy and quantities still decide. Use it to sanity-check the ORDER OF MAGNITUDE of your t_mid, and be reluctant to land far outside a range with many observations behind it.">
 by category:
-  ancillary/call-out   n=42  paid up to ~EUR 65; refused above ~EUR 44
-  drying/remediation   n=29  paid up to ~EUR 408; refused above ~EUR 162  (we habitually OVER-price this category)
-  restoration/repair   n=26  paid up to ~EUR 247; refused above ~EUR 130
-  diagnostic/inspect   n=26  paid up to ~EUR 230; refused above ~EUR 154  (we habitually UNDER-price this category)
-  labour               n=20  paid up to ~EUR 380; refused above ~EUR 201  (we habitually UNDER-price this category)
-  valuables            n=17  paid up to ~EUR 374; refused above ~EUR 130  (we habitually OVER-price this category)
-  electronics          n=10  paid up to ~EUR 310; refused above ~EUR 335  (we habitually OVER-price this category)
-  material             n=9   paid up to ~EUR 150; refused above ~EUR 139  (we habitually UNDER-price this category)
+  ancillary/call-out   fair value sat between ~EUR 57 and ~EUR 70  (n=14 with both bounds)
+  drying/remediation   fair value sat between ~EUR 282 and ~EUR 378  (n=15 with both bounds)  (we habitually OVER-price this category)
+  restoration/repair   fair value sat between ~EUR 150 and ~EUR 183  (n=12 with both bounds)
+  diagnostic/inspect   fair value sat between ~EUR 184 and ~EUR 222  (n=11 with both bounds)  (we habitually UNDER-price this category)
+  labour               fair value sat between ~EUR 229 and ~EUR 238  (n=7 with both bounds)  (we habitually UNDER-price this category)
+  valuables            fair value sat between ~EUR 240 and ~EUR 396  (n=5 with both bounds)  (we habitually OVER-price this category)
+  electronics          fair value sat between ~EUR 270 and ~EUR 478  (n=6 with both bounds)  (we habitually OVER-price this category)
+  material             fair value sat between ~EUR 81 and ~EUR 144  (n=4 with both bounds)  (we habitually UNDER-price this category)
 line items that have appeared before, verbatim:
-  vehicle costs                            n=16  paid up to ~EUR 80; refused above ~EUR 33
-  skilled worker hours                     n=9   paid up to ~EUR 629; refused above ~EUR 51
-  final site cleaning                      n=5   paid up to ~EUR 100; refused above ~EUR 121
-  construction waste disposal              n=4   paid up to ~EUR 57; refused above ~EUR 88
-  indoor leak detection                    n=4   paid up to ~EUR 460; refused above ~EUR 663
-  condensation dryer                       n=3   paid up to ~EUR 53; refused above ~EUR 150
-  drying fan                               n=3   paid up to ~EUR 45; refused above ~EUR 105
-  shipping                                 n=3   refused above ~EUR 9
-  room dryer unit                          n=3   paid up to ~EUR 408; refused above ~EUR 100
-  removal and disposal of damaged insula   n=3   paid up to ~EUR 65; refused above ~EUR 26
-  service technician hours                 n=3   paid up to ~EUR 449; refused above ~EUR 471
-  helper hours                             n=3   paid up to ~EUR 254; refused above ~EUR 285
+  vehicle costs                            fair value sat between ~EUR 53 and ~EUR 65  (n=4 with both bounds)
+  skilled worker hours                     paid at least ~EUR 629, never refused  (n=7)
+  final site cleaning                      fair value sat between ~EUR 91 and ~EUR 121  (n=3 with both bounds)
+  construction waste disposal              fair value sat between ~EUR 57 and ~EUR 80  (n=3 with both bounds)
+  indoor leak detection                    paid at least ~EUR 409, never refused  (n=4)
+  condensation dryer                       paid at least ~EUR 49, never refused  (n=2)
+  drying fan                               paid at least ~EUR 45, never refused  (n=1)
+  shipping                                 no price signal - every observation was refused as not covered
+  room dryer unit                          paid at least ~EUR 408, never refused  (n=1)
+  removal and disposal of damaged insula   paid at least ~EUR 65, never refused  (n=3)
+  service technician hours                 paid at least ~EUR 449, never refused  (n=3)
+  helper hours                             paid at least ~EUR 254, never refused  (n=3)
 </market_history>
 
