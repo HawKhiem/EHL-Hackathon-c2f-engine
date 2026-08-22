@@ -1,11 +1,11 @@
 {
  "bias": 1.191,
  "sigma": 0.92,
- "p0": 0.3,
+ "p0": 0.29,
  "k": 0.6,
  "n_labels": 75,
- "n_coverage_misses": 18,
- "n_accept_points": 116,
+ "n_coverage_misses": 21,
+ "n_accept_points": 127,
  "labels": [
   {
    "game": 1,
