@@ -26,10 +26,6 @@ Makefile        text eol=lf
 *.json          text eol=lf
 *.md            text eol=lf
 
-# Generated - keep diffs out of review, but still track them.
-frontend/package-lock.json  -diff linguist-generated
-backend/uv.lock             -diff linguist-generated
-
 # Binary: never touch.
 *.png binary
 *.jpg binary

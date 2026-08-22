@@ -1,124 +1,61 @@
-# Hackathon Scaffold
+# Claim to Fame
 
-Vite + React + TypeScript + Tailwind + shadcn/ui · FastAPI · Supabase · provider-agnostic LLM.
+QuantCo's *Claim to Fame* hackathon challenge: price and accept insurance claims against
+other teams under a 60-second-per-game clock. The brief is in
+[GAME_DESCRIPTION.md](GAME_DESCRIPTION.md), the API in [API_HANDBOOK.md](API_HANDBOOK.md).
+The solution lives in `c2f/`; its architecture, pipeline and pricing rule are in
+[docs/C2F-ARCHITECTURE.md](docs/C2F-ARCHITECTURE.md) — read that before changing `c2f/`,
+`tests/`, or the `Makefile`.
 
-Everything below the product layer is done and verified. You should be writing feature code
-within ten minutes of cloning.
-
-## 60-second quickstart
-
-```bash
-git clone <your-repo-url> && cd <repo>
-./setup.sh
-```
-
-That installs frontend + backend deps, boots local Supabase, applies migrations and seed
-data, writes the Supabase keys into `.env` for you, and starts both dev servers.
-
-| URL | What |
-|---|---|
-| http://localhost:5173 | The app |
-| http://127.0.0.1:8000/docs | API docs (OpenAPI, interactive) |
-| http://127.0.0.1:54323 | Supabase Studio |
-
-**One manual step:** paste your `ANTHROPIC_API_KEY` into `.env`. Everything else is
-filled in automatically. The four pills at the top of the app go green when the stack
-is fully wired.
-
-### Prerequisites
-
-Node ≥ 20 · [uv](https://docs.astral.sh/uv/getting-started/installation/) · Docker (running) · [Supabase CLI](https://supabase.com/docs/guides/cli)
+## Setup
 
 ```bash
-# uv — macOS / Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
-# uv — Windows (PowerShell)
-irm https://astral.sh/uv/install.ps1 | iex
+curl -fsSL https://pixi.sh/install.sh | sh   # pixi manages Python + deps, no separate install
+pixi install
+cp .env.example .env                         # fill in TEAM_API_KEY and ANTHROPIC_API_KEY/OPENAI_API_KEY
 ```
 
-**You do not need to install Python.** uv provisions the right CPython itself, creates
-`backend/.venv`, and installs from the committed lockfile.
+## Playing a game
 
-`setup.sh` checks every prerequisite and prints an install hint for anything missing.
-No Docker? Run `./setup.sh --no-db` to work without the database.
+```bash
+make 7            # play game 7: wait for key -> decrypt -> extract -> model -> price -> submit
+make check         # real model against the permanent test game 0
+make test          # unit tests
+```
 
-## Common commands
+Start `make N` a few seconds before the game opens — `get_case.sh` polls the key endpoint
+every 0.3s and the 60-second clock starts when the key appears. `make N` also commits and
+pushes the run log (`runs/game_NN.json`) and, once the game closes, infers fair-value
+bounds and refits the calibration (see the Makefile header for the full list of targets:
+`play`, `learn`, `fb`, `truth`, `backtest`, `replay`).
 
-| Command | What |
-|---|---|
-| `./setup.sh` | Install + boot everything |
-| `./setup.sh --install-only` | Install, don't boot |
-| `./setup.sh --reset-db` | Wipe + re-migrate + re-seed local Postgres |
-| `./setup.sh --no-db` | Skip Supabase entirely |
-| `cd frontend && npm run dev` | Frontend only |
-| `cd frontend && npm run build` | Typecheck + production build |
-| `cd backend && uv run uvicorn app.main:app --reload` | Backend only |
-| `cd backend && uv add <pkg>` | Add a Python dependency |
-| `supabase db reset` | Reapply migrations + seed |
-| `supabase status` | Local stack URLs and keys |
-| `npx shadcn@latest add dialog` | Add a shadcn component |
-| `just check` | Everything CI runs (lint, format, types, tests, build) |
-| `just fix` | Auto-fix lint + formatting on both sides |
-| `just test` | Tests only |
+## Evaluating a strategy change
 
-A `Justfile` wraps these if you have [`just`](https://github.com/casey/just) installed;
-`just` on its own lists every target.
+```bash
+make backtest      # re-score the last 5 completed games with the current price.py + calibration
+make replay         # call the model again for every old game (prompt/extract changes)
+```
 
-## Quality gates
-
-| | |
-|---|---|
-| Backend | `ruff` (lint + format), `pytest` — 21 tests |
-| Frontend | `eslint`, `prettier`, `tsc`, `vitest` — 9 tests |
-| CI | `.github/workflows/ci.yml` — runs all of the above on every push and PR |
-
-`just check` runs exactly what CI runs, so a green local check means a green pipeline.
-Tests never touch a real LLM or a real network: the backend swaps in a `FakeProvider`,
-the frontend stubs `fetch`.
-
-CI is **verification only** — it does not deploy. Roughly two minutes, with dependency
-caching and superseded runs cancelled automatically.
+`make backtest` is the single evaluation entry point — see
+[docs/C2F-ARCHITECTURE.md](docs/C2F-ARCHITECTURE.md#backtest-gate-for-algorithm-changes) and
+`c2f/README.md`.
 
 ## Layout
 
 ```
-frontend/          Vite + React + TS + Tailwind v4 + shadcn/ui
-  src/lib/api.ts   typed client for the backend  <- add endpoints here
-  src/index.css    every design token            <- restyle from here
-backend/           FastAPI (Python + deps managed by uv)
-  pyproject.toml   Python dependencies      <- `uv add <pkg>`
-  uv.lock          committed, exact pins
-  app/routers/     one file per feature area, auto-registered
-  app/llm/         provider-agnostic LLM wrapper
-supabase/          migrations + seed
-setup.sh           install + run everything
+c2f/               the engine — extract, digest, LLM call, pricing, submit, backtest
+tests/             pytest
+cases/             decrypted + zipped per-game cases
+runs/              per-game logs, truth/calibration files (committed after each game)
+docs/              architecture, design notes
+get_case.sh        fetch a game's decryption key + unzip its case
+submit.sh          manual submission helper
 AGENTS.md          instructions for coding agents  <- read this
-CHALLENGE.md       paste the real brief here at kick-off
-.github/workflows  CI: lint, typecheck, test, build
 ```
 
 ## Working with coding agents
 
-This repo is set up to be built with Claude Code / Codex:
-
 - **`AGENTS.md`** — architecture, conventions, and the traps worth knowing. Both Claude Code
-  and Codex read it. Keep it current; it is the highest-leverage file here.
-- **`.mcp.json`** — wires two MCP servers:
-  - **Supabase**, at the local stack's own endpoint (`http://localhost:54321/mcp`), so an
-    agent can inspect your schema and run queries while it builds. No token needed — it
-    comes up with `supabase start`.
-  - **Lovable**, at `https://mcp.lovable.dev`. First use opens a browser to sign in.
-    Delete the entry if your team is not using Lovable.
-- **`docs/AGENT-TOOLING.md`** — MCP details plus two optional third-party skills (UI/UX
-  design intelligence and a codebase graph), with vetting notes and one-line installs.
-
-## Notes
-
-- `.env` is gitignored. Document new keys in `.env.example`.
-- Anything prefixed `VITE_` is compiled into the browser bundle — public by definition.
-- Supabase keys: `sb_publishable_...` is browser-safe (RLS applies), `sb_secret_...` is
-  backend-only (bypasses RLS). These replace the legacy anon/service_role JWTs.
-- **Every new table needs `grant` statements as well as RLS policies** — see `AGENTS.md`.
-  Without the grants you get `42501 permission denied` no matter what your policies say.
-- The `notes` table and the `StatusBar` / `ChatPanel` components are scaffolding. Delete
-  them once your real feature exists.
+  and Codex read it. Keep it current.
+- **`docs/AGENT-TOOLING.md`** — optional third-party skills, with vetting notes and one-line
+  installs.

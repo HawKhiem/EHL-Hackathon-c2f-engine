@@ -1,8 +1,8 @@
 from c2f.backtest import old_games, verdict
 
 
-def row(exp_rank: int) -> dict:
-    return {"actual_net": 0.0, "pess_net": 0.0, "exp_net": 0.0, "opt_net": 0.0,
+def row(exp_rank: int, exp_net: float = 100.0) -> dict:
+    return {"actual_net": 0.0, "pess_net": 0.0, "exp_net": exp_net, "opt_net": 0.0,
             "pess_rank": 9, "exp_rank": exp_rank, "opt_rank": 1}
 
 
@@ -14,12 +14,29 @@ def test_majority_is_over_all_old_games_not_just_replayed():
     assert t["success"] is False
 
 
+def test_top_three_counts_but_a_loss_does_not():
+    old = [1, 2, 3, 4, 5]
+    # 3rd place with money in the bank is a good game; 1st place while losing money is not
+    assert verdict({g: row(3) for g in old}, old)["success"] is True
+    assert verdict({g: row(1, exp_net=-1.0) for g in old}, old)["success"] is False
+    assert verdict({g: row(4) for g in old}, old)["success"] is False  # profitable but 4th
+
+
+def test_a_big_win_does_not_excuse_losing_rounds():
+    old = [1, 2, 3, 4, 5]
+    games = {1: row(1, exp_net=10_000.0)}
+    games.update({g: row(1, exp_net=-100.0) for g in old[1:]})
+    t = verdict(games, old)
+    assert t["expected"] > 0  # total is healthy...
+    assert t["good"] == 1 and t["success"] is False  # ...but only 1 of 5 rounds actually paid
+
+
 def test_success_needs_strict_majority_and_no_missing():
     old = [1, 2, 3, 4]
-    assert verdict({g: row(1 if g <= 2 else 2) for g in old}, old)["success"] is False  # 2/4
-    assert verdict({g: row(1 if g <= 3 else 2) for g in old}, old)["success"] is True  # 3/4
-    t = verdict({g: row(1) for g in [1, 2, 3]}, old)  # 3 wins but one game missing
-    assert t["wins_exp"] == 3 and t["success"] is False and t["missing"] == [4]
+    assert verdict({g: row(1 if g <= 2 else 9) for g in old}, old)["success"] is False  # 2/4
+    assert verdict({g: row(1 if g <= 3 else 9) for g in old}, old)["success"] is True  # 3/4
+    t = verdict({g: row(1) for g in [1, 2, 3]}, old)  # 3 good games but one missing
+    assert t["good"] == 3 and t["success"] is False and t["missing"] == [4]
 
 
 def test_empty_population_is_not_success():

@@ -1,7 +1,7 @@
 name: CI
 
 # Verification only - no deployment. Runs on every push and PR so a broken
-# main is visible in ~2 minutes instead of at demo time.
+# main is visible before game time instead of at it.
 on:
   push:
   pull_request:
@@ -13,80 +13,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  frontend:
-    name: frontend (lint, types, test, build)
+  test:
+    name: c2f (unit tests)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
     steps:
       - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: prefix-dev/setup-pixi@v0.9.1
         with:
-          node-version-file: .nvmrc
-          cache: npm
-          cache-dependency-path: frontend/package-lock.json
-
-      # `npm ci` installs exactly what package-lock.json pins and fails if the
-      # lockfile is out of sync with package.json.
-      - run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Check formatting
-        run: npm run format:check
-
-      - name: Typecheck + build
-        run: npm run build
+          cache: true
 
       - name: Test
-        run: npm run test
-
-  backend:
-    name: backend (lint, format, test)
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
-    steps:
-      - uses: actions/checkout@v5
-
-      - name: Install uv
-        # setup-uv does not publish a floating `v10` tag (its floating
-        # majors stop at v7), so this is pinned to an exact release.
-        uses: astral-sh/setup-uv@v10.0.1
-        with:
-          enable-cache: true
-          cache-dependency-glob: backend/uv.lock
-
-      # --frozen fails if pyproject.toml and uv.lock have drifted apart,
-      # which is exactly the mistake we want CI to catch.
-      - name: Install dependencies
-        run: uv sync --frozen
-
-      - name: Lint
-        run: uv run ruff check .
-
-      - name: Check formatting
-        run: uv run ruff format --check .
-
-      - name: Test
-        run: uv run pytest -q
-
-  # Guard the one thing that silently breaks non-Windows teammates.
-  line-endings:
-    name: line endings
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - name: setup.sh must be LF, not CRLF
-        run: |
-          if grep -qU $'\r' setup.sh; then
-            echo "::error file=setup.sh::setup.sh contains CRLF line endings and will fail on macOS/Linux with 'bad interpreter: ...^M'"
-            exit 1
-          fi
-          echo "setup.sh is LF - ok"
-      - name: setup.sh must be valid bash
-        run: bash -n setup.sh
+        run: pixi run python -m pytest -q tests

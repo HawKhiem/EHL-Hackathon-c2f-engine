@@ -15,19 +15,22 @@ against the real opponents of that round, using the public leaderboard:
   - the fair value t as an interval [t_lo, t_hi) (largest charge proven fair, smallest proven fraud).
 Where an interval leaves the outcome open we score two scenarios: PESSIMISTIC (t = t_lo, opponents
 reject whenever they could) and OPTIMISTIC (t just under t_hi, opponents accept whenever they could).
-"Would we win?" = our rank if our replayed net replaced our actual net in that round's standings.
-EXPECTED = midpoint of the two scenarios; a change is a SUCCESS only if the expected replay wins
-(rank 1) in more than half of the old games = the LAST 5 completed games whose case is decrypted
-locally (WINDOW), not just the games replayed in this invocation: games you don't name are re-scored from their stored
-replay (no model call), games with no stored replay count as not won and are listed as missing.
-The pre-commit hook enforces the verdict and refuses a summary with missing games.
+Our rank = where our replayed net would have put us in that round's standings.
+
+THE BAR IS MONEY, NOT THE TROPHY. EXPECTED = midpoint of the two scenarios; a change is a SUCCESS
+when the expected replay is PROFITABLE (net > 0) and lands in the TOP RANK_TARGET in more than half
+of the old games, and the total expected net is positive. Coming first is not the goal - consistent
+profit near the top is, so a steady 3rd place every round beats winning twice and bleeding thrice.
+The population is the LAST 5 completed games whose case is decrypted locally (WINDOW), not just the
+games replayed in this invocation: games you don't name are re-scored from their stored replay (no
+model call), games with no stored replay count as a failure and are listed as missing.
 
 This is THE evaluation entry point. It uses the other tools as components:
   feedback.digest  -> opponents' charges, accept/reject, payout-based t bounds
   truth.infer      -> tighter t bounds from the matchup cells (cached in runs/truth_game_NN.json)
   calibration.json -> reported alongside, so a result is tied to the calibration it ran with
-Writes runs/backtest/game_NN.json and runs/backtest/summary.json (+ a table on stdout).
-The pre-commit hook (.githooks/pre-commit) refuses algorithm commits without a fresh summary.
+Writes runs/backtest/game_NN.json and runs/backtest/summary.json (+ a table on stdout). Nothing
+enforces the verdict - run this when a change is worth checking and read the table.
 """
 
 from __future__ import annotations
@@ -52,6 +55,7 @@ from c2f import truth as truth_mod
 OUT = ROOT / "runs" / "backtest"
 INF = float("inf")
 WINDOW = 5  # the verdict is over the LAST 5 completed games with a decrypted case
+RANK_TARGET = 3  # top-3 is good enough: we optimise for money made, not for coming first
 
 
 # ----------------------------------------------------------------------------- evidence
@@ -189,19 +193,27 @@ def old_games(gids: list[int], window: int = WINDOW) -> list[int]:
 
 def verdict(games: dict, old: list[int]) -> dict:
     """Totals + SUCCESS flag over the full set of old games. `games` holds the per-game rows we have
-    (replayed now or re-scored from the store); old games without a row count as not won."""
+    (replayed now or re-scored from the store); old games without a row count as a failure.
+
+    The bar is MONEY, not the trophy: a game counts when the expected replay net is positive and
+    we land in the top RANK_TARGET. Coming first is not the goal - being reliably profitable and
+    near the top is, so a steady 3rd place beats winning two games and losing three.
+    """
     rows = [games[g] for g in old if g in games]
     missing = [g for g in old if g not in games]
     n = len(old)
-    wins_p = sum(1 for v in rows if v["pess_rank"] == 1)
-    wins_e = sum(1 for v in rows if v["exp_rank"] == 1)
-    wins_o = sum(1 for v in rows if v["opt_rank"] == 1)
+    paid = sum(1 for v in rows if v["exp_net"] > 0)
+    top = sum(1 for v in rows if v["exp_rank"] <= RANK_TARGET)
+    good = sum(1 for v in rows if v["exp_net"] > 0 and v["exp_rank"] <= RANK_TARGET)
     return {
         "actual": sum(v["actual_net"] for v in rows), "pessimistic": sum(v["pess_net"] for v in rows),
         "expected": sum(v["exp_net"] for v in rows), "optimistic": sum(v["opt_net"] for v in rows),
-        "wins_pess": wins_p, "wins_exp": wins_e, "wins_opt": wins_o,
+        "profitable": paid, "top_ranked": top, "good": good, "rank_target": RANK_TARGET,
+        "wins_pess": sum(1 for v in rows if v["pess_rank"] == 1),
+        "wins_exp": sum(1 for v in rows if v["exp_rank"] == 1),
+        "wins_opt": sum(1 for v in rows if v["opt_rank"] == 1),
         "n_games": n, "n_scored": len(rows), "missing": missing,
-        "success": n > 0 and not missing and wins_e * 2 > n,
+        "success": n > 0 and not missing and good * 2 > n and sum(v["exp_net"] for v in rows) > 0,
     }
 
 
@@ -270,11 +282,13 @@ def main(argv: list[str] | None = None) -> int:
     t = verdict(summary["games"], old)
     summary["totals"] = t
     n = t["n_games"]
-    print(f"\ntotal: actual {t['actual']:.0f} | replay pess {t['pessimistic']:.0f} ({t['wins_pess']} wins) | "
-          f"exp {t['expected']:.0f} ({t['wins_exp']} wins) | opt {t['optimistic']:.0f} ({t['wins_opt']} wins) over {t['n_scored']}/{n} old games")
+    print(f"\ntotal: actual {t['actual']:.0f} | replay pess {t['pessimistic']:.0f} | "
+          f"exp {t['expected']:.0f} | opt {t['optimistic']:.0f} over {t['n_scored']}/{n} old games")
     if t["missing"]:
-        print(f"MISSING replays for old games {t['missing']} - counted as not won; run: make replay G=\"{' '.join(map(str, t['missing']))}\"")
-    print(f"VERDICT: {'SUCCESS' if t['success'] else 'NOT GOOD ENOUGH'} - expected replay wins {t['wins_exp']}/{n} old games (need > {n // 2})")
+        print(f"MISSING replays for old games {t['missing']} - counted as a failure; run: make replay G=\"{' '.join(map(str, t['missing']))}\"")
+    print(f"VERDICT: {'SUCCESS' if t['success'] else 'NOT GOOD ENOUGH'} - profitable AND top-{RANK_TARGET} in "
+          f"{t['good']}/{n} old games (need > {n // 2}), expected net {t['expected']:.0f} "
+          f"[profitable {t['profitable']}/{n}, top-{RANK_TARGET} {t['top_ranked']}/{n}, outright wins {t['wins_exp']}]")
     cal = ROOT / "runs" / "calibration.json"
     if cal.exists():
         c = json.loads(cal.read_text())
