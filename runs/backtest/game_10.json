@@ -5,7 +5,7 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 84.0,
+    "charge_price": 108.0,
     "acceptance_limit": 0.0
    },
    {
@@ -15,27 +15,27 @@
    },
    {
     "index": 3,
-    "charge_price": 748.83,
-    "acceptance_limit": 378.03
+    "charge_price": 3714.37,
+    "acceptance_limit": 1389.34
    },
    {
     "index": 4,
-    "charge_price": 166.41,
-    "acceptance_limit": 84.01
+    "charge_price": 139.29,
+    "acceptance_limit": 52.1
    },
    {
     "index": 5,
-    "charge_price": 54.0,
+    "charge_price": 150.0,
     "acceptance_limit": 0.0
    },
    {
     "index": 6,
-    "charge_price": 3.6,
+    "charge_price": 4.8,
     "acceptance_limit": 0.0
    }
   ],
   "estimate": {
-   "policy_summary": "Household effects incl. valuables covered for insured perils; strict exclusions for admin/translation/shipping; sub-limits (valuables, cash, away-from-home) and deductible per schedule.",
+   "policy_summary": "Robbery abroad covers immediately carried property, subject to unstated outside-property, valuables and cash sub-limits; upgrades, mislaid items, translation and shipping excluded.",
    "items": [
     {
      "index": 1,
@@ -45,57 +45,57 @@
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 140,
+     "t_if_covered": 180,
      "cap_uncertain": false,
-     "reason": "Translation for claim substantiation expressly excluded."
+     "reason": "Claim-document translation expressly excluded"
     },
     {
      "index": 2,
      "covered": false,
      "related": true,
-     "clause": "7.1.8(e)",
+     "clause": "7.1.8(e); 7.1.8(f)",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
      "t_if_covered": 12,
      "cap_uncertain": false,
-     "reason": "Provider materials/handling surcharge not indemnifiable."
+     "reason": "Translation materials and provider consumables excluded"
     },
     {
      "index": 3,
      "covered": true,
      "related": true,
-     "clause": "7.1.1; 7.1.9; 4.2.2; 4.2.4; 6.3",
-     "t_low": 500,
-     "t_mid": 900,
-     "t_high": 1200,
+     "clause": "4.2.2; 4.2.4; 7.1.9",
+     "t_low": 2500,
+     "t_mid": 4000,
+     "t_high": 5500,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "Watch taken by force; pay like-for-like within sub-limits."
+     "reason": "Expensive watch covered only at pre-loss specification"
     },
     {
      "index": 4,
      "covered": true,
      "related": true,
-     "clause": "2.3.1; 4.2.3; 6.3",
-     "t_low": 100,
-     "t_mid": 200,
+     "clause": "4.2.3; 4.2.4; 7.1.1(c)",
+     "t_low": 50,
+     "t_mid": 150,
      "t_high": 300,
      "t_if_covered": 0,
      "cap_uncertain": true,
-     "reason": "Cash taken; indemnify within means-of-payment sub-limit."
+     "reason": "Taken cash covered at nominal value; amount undocumented"
     },
     {
      "index": 5,
      "covered": false,
      "related": false,
-     "clause": "2.3.4(a); 7.1.5",
+     "clause": "2.3.4(a); 11.1",
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 90,
+     "t_if_covered": 250,
      "cap_uncertain": false,
-     "reason": "Sunglasses mislaid later; not an insured event."
+     "reason": "Designer sunglasses were separately mislaid, not robbed"
     },
     {
      "index": 6,
@@ -105,41 +105,41 @@
      "t_low": 0,
      "t_mid": 0,
      "t_high": 0,
-     "t_if_covered": 6,
+     "t_if_covered": 8,
      "cap_uncertain": false,
-     "reason": "Shipping/forwarding charges are expressly excluded."
+     "reason": "Shipping charges expressly excluded"
     }
    ]
   },
-  "seconds": 25.3
+  "seconds": 8.9
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 14887.44,
-    "cost": 65664.32,
-    "net": -50776.88
+    "income": 62048.56,
+    "cost": 64434.03,
+    "net": -2385.47
    },
    "optimistic": {
-    "income": 14991.84,
-    "cost": 65664.32,
-    "net": -50672.49
+    "income": 62115.76,
+    "cost": 64434.03,
+    "net": -2318.27
    }
   },
   "open_pairings": {
-   "income": 21,
+   "income": 18,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 84.0,
+    "a": 108.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 72.0,
     "fair": false,
     "income": {
-     "pessimistic": 168.0,
-     "optimistic": 168.0
+     "pessimistic": 216.0,
+     "optimistic": 216.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -162,44 +162,44 @@
     }
    },
    "3": {
-    "a": 748.83,
-    "b": 378.03,
+    "a": 3714.37,
+    "b": 1389.34,
     "t_lo": 7225.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 11981.28,
-     "optimistic": 11981.28
+     "pessimistic": 59429.92000000001,
+     "optimistic": 59429.92000000001
     },
     "cost": {
-     "pessimistic": 61169.5,
-     "optimistic": 61169.5
+     "pessimistic": 59939.204999999994,
+     "optimistic": 59939.204999999994
     }
    },
    "4": {
-    "a": 166.41,
-    "b": 84.01,
+    "a": 139.29,
+    "b": 52.1,
     "t_lo": 404.11,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 2662.56,
-     "optimistic": 2662.56
+     "pessimistic": 2228.64,
+     "optimistic": 2228.64
     },
     "cost": {
-     "pessimistic": 4494.825,
-     "optimistic": 4494.825
+     "pessimistic": 4494.825000000001,
+     "optimistic": 4494.825000000001
     }
    },
    "5": {
-    "a": 54.0,
+    "a": 150.0,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 38.3,
     "fair": false,
     "income": {
-     "pessimistic": 54.0,
-     "optimistic": 108.0
+     "pessimistic": 150.0,
+     "optimistic": 150.0
     },
     "cost": {
      "pessimistic": 0.0,
@@ -207,14 +207,14 @@
     }
    },
    "6": {
-    "a": 3.6,
+    "a": 4.8,
     "b": 0.0,
     "t_lo": 0.0,
     "t_hi": 9.0,
     "fair": null,
     "income": {
-     "pessimistic": 7.2,
-     "optimistic": 57.600000000000016
+     "pessimistic": 9.6,
+     "optimistic": 76.79999999999998
     },
     "cost": {
      "pessimistic": 0.0,
@@ -231,12 +231,12 @@
    "6": "truth+payout"
   }
  },
- "pess_net": -50776.88,
- "pess_rank": 11,
- "opt_net": -50672.49,
- "opt_rank": 11,
- "exp_net": -50724.68,
- "exp_rank": 11,
+ "pess_net": -2385.47,
+ "pess_rank": 8,
+ "opt_net": -2318.27,
+ "opt_rank": 8,
+ "exp_net": -2351.87,
+ "exp_rank": 8,
  "best_team": "OPUSMOPUS",
  "best_net": 82604.095,
  "n_teams": 17,

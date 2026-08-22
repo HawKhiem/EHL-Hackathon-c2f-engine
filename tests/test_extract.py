@@ -197,3 +197,32 @@ def test_parse_items_game4_dash_dash_and_flat_rate():
     assert by[7]["quantity"] == 1.0 and by[7]["unit"] == "pcs"
     assert by[12]["description"] == "Vehicle costs – return visit"
     assert by[14]["unit"] == "flat rate"
+
+
+def test_parse_items_keeps_every_line_across_any_gap_in_the_numbering():
+    """Game 11: 1..11 then 13..23, no item 12. Gaps are the invoice's business - and the jump
+    is not capped: whatever the numbering does, every item line ends up in the list."""
+    rows = [f"{i} Item {i} 1 pcs" for i in list(range(1, 12)) + list(range(13, 24)) + [80, 200]]
+    text = "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n" + "\n".join(rows) + "\nINVOICE\n"
+    items = parse_items(text)
+    assert [i["index"] for i in items] == list(range(1, 12)) + list(range(13, 24)) + [80, 200]
+
+
+def test_parse_items_wrapped_quantity_line_is_not_a_new_item():
+    """No gap limit means "10 pcs" under item 2 could look like item 10; the glued-line test
+    must keep it as item 2's quantity."""
+    text = "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Sink 1 pcs\n2 Very long description of the tap\n10 pcs\n3 Hose 3 m\nINVOICE\n"
+    items = parse_items(text)
+    assert [i["index"] for i in items] == [1, 2, 3]
+    assert items[1]["quantity"] == 10.0 and items[1]["unit"] == "pcs"
+
+
+def test_parse_items_drops_a_truncated_parse_rather_than_pricing_half_an_invoice():
+    """We never skip items: an item line the walker missed invalidates the whole parse, so
+    run.py falls back to the model reading the raw invoice text."""
+    text = (
+        "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Sink 1 pcs\n5 Tap 1 pcs\n"
+        "3 Bathtub 1 pcs\n"  # numbering goes backwards: unreachable, and unmistakably an item
+        "INVOICE\n"
+    )
+    assert parse_items(text) == []

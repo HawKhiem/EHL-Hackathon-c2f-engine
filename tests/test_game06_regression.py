@@ -19,9 +19,19 @@ coverage split forces a conservative price without needing another model call.
 
 import json
 
+import pytest
+
+from c2f import price as price_mod
 from c2f.llm import SYSTEM
-from c2f.price import price_all
+from c2f.price import Calibration, price_all
 from c2f.submit import ROOT
+
+
+@pytest.fixture(autouse=True)
+def _fixed_calibration(monkeypatch):
+    """Pin the calibration: the numbers below are about the disagreement check, not about
+    whatever bias/sigma the latest game refit (runs/calibration.json drifts every round)."""
+    monkeypatch.setattr(price_mod, "calibration", lambda: Calibration(bias=1.0, sigma=0.4, p0=0.35, k=2.0))
 
 GAME_06_LOG = ROOT / "runs" / "game_06.json"
 

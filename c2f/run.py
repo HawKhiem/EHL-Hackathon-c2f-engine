@@ -31,7 +31,7 @@ from c2f.submit import ROOT, fetch_case, submit
 DEADLINE_S = 53.0  # clock restarts after decrypt (~1-3 s), server closes at 60 s after key release
 FAST_TIMEOUT_S = 45.0
 MIN_MODEL_S = 10.0  # never give the full pass less than this, however long the digest took
-DIGEST_WAIT_S = 10.0  # how long the full pass waits for c2f.policy (~3 s typical) before going without
+DIGEST_WAIT_S = 17.0  # how long the full pass waits for c2f.policy (11-15 s on gpt-5.6-luna) before going without
 
 
 def log(msg: str, t0: float) -> None:

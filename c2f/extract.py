@@ -79,12 +79,20 @@ def parse_items(text: str) -> list[dict]:
             in_table, buf = False, None
             continue
         starts = re.match(r"^\s*(\d{1,3})\s+\S", ln)
-        nxt = len(items) + 1
+        # Numbering runs upward across the invoices but is NOT always gap-free: game 11 went
+        # 1..11, 13..23 (no item 12), and a parser that demanded exactly the next index dropped
+        # twelve items - the model followed the parsed list and half the invoice went unpriced.
+        # A new item is ANY index above the last one, however big the jump: we never skip items,
+        # and an invoice may number them as it likes. A wrapped quantity line ("10 pcs" under
+        # item 2) is caught by the ITEM_RE test below, which glues it onto the pending item
+        # instead of opening item 10.
+        last = items[-1]["index"] if items else 0
+        pending = int(re.match(r"^\s*(\d{1,3})", buf).group(1)) if buf is not None else last
         if buf is None:
-            if starts and int(starts.group(1)) == nxt:
+            if starts and int(starts.group(1)) > last:
                 buf = ln.strip()
             # else: noise between items
-        elif starts and int(starts.group(1)) == nxt + 1 and not ITEM_RE.match(buf + " " + ln.strip()):
+        elif starts and int(starts.group(1)) > pending and not ITEM_RE.match(buf + " " + ln.strip()):
             # the pending item never got a parsable quantity/unit; don't swallow the next item into it
             m = re.match(r"^\s*(\d{1,3})\s+(.+)$", buf)
             items.append({"index": int(m.group(1)), "description": m.group(2).strip(), "quantity": 1.0, "unit": "?"})
@@ -93,11 +101,34 @@ def parse_items(text: str) -> list[dict]:
             buf += " " + ln.strip()
         if buf is not None and flush(buf):
             buf = None
-    # indices must be 1..n and unique, else distrust the parse
+    # indices must start at 1 and strictly increase; gaps are the invoice's business, not ours
     idxs = [it["index"] for it in items]
-    if not idxs or sorted(idxs) != list(range(1, len(idxs) + 1)):
+    if not idxs or idxs[0] != 1 or any(b <= a for a, b in zip(idxs, idxs[1:])):
+        return []
+    # WE NEVER SKIP ITEMS. A partial parse is worse than none: run.py treats the parsed list as
+    # the whole invoice, so a table line that plainly IS an item but never made it into the list
+    # means the layout beat us - drop the parse and let the model read the raw text instead.
+    if _unparsed_item_lines(lines, set(idxs)):
         return []
     return items
+
+
+def _unparsed_item_lines(lines: list[str], parsed: set[int]) -> list[str]:
+    """Lines inside a table region that look like a complete item but are not in the parse."""
+    missed, in_table = [], False
+    for ln in lines:
+        if HEADER_RE.match(ln):
+            in_table = True
+            continue
+        if not in_table or not ln.strip():
+            continue
+        if STOP_RE.match(ln):
+            in_table = False
+            continue
+        m = ITEM_RE.match(ln)
+        if m and int(m.group(1)) not in parsed:
+            missed.append(ln.strip())
+    return missed
 
 
 def parse_meta(text: str) -> dict:

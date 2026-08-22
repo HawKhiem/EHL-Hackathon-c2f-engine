@@ -1,90 +1,90 @@
 {
  "team": "AsianSuperNerds",
  "games": {
-  "6": {
-   "actual_net": -6378.5599999999995,
-   "actual_rank": 16,
-   "pess_net": -1383.35,
-   "pess_rank": 9,
-   "opt_net": -1258.54,
-   "opt_rank": 9,
-   "exp_net": -1320.94,
-   "exp_rank": 9,
-   "best_team": "OPUSMOPUS",
-   "best_net": 7830.3099999999995,
-   "n_teams": 17,
-   "replayed_now": false
-  },
   "7": {
    "actual_net": 12275.34,
    "actual_rank": 3,
-   "pess_net": -11105.33,
-   "pess_rank": 10,
-   "opt_net": 11301.31,
-   "opt_rank": 5,
-   "exp_net": 97.99,
+   "pess_net": 4237.04,
+   "pess_rank": 8,
+   "opt_net": 5329.04,
+   "opt_rank": 8,
+   "exp_net": 4783.04,
    "exp_rank": 8,
    "best_team": "TakeTheMoneyAndRun",
    "best_net": 17737.835,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "8": {
    "actual_net": 12291.879999999997,
    "actual_rank": 5,
-   "pess_net": 10426.03,
+   "pess_net": 12998.09,
    "pess_rank": 5,
-   "opt_net": 23441.5,
+   "opt_net": 24979.04,
    "opt_rank": 4,
-   "exp_net": 16933.76,
+   "exp_net": 18988.57,
    "exp_rank": 4,
    "best_team": "error404 ai",
    "best_net": 34305.715000000004,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "9": {
    "actual_net": 13606.355000000001,
    "actual_rank": 4,
-   "pess_net": 11608.99,
-   "pess_rank": 5,
-   "opt_net": 15424.51,
-   "opt_rank": 3,
-   "exp_net": 13516.75,
-   "exp_rank": 4,
+   "pess_net": -24919.62,
+   "pess_rank": 16,
+   "opt_net": 10341.6,
+   "opt_rank": 5,
+   "exp_net": -7289.01,
+   "exp_rank": 9,
    "best_team": "eyay",
    "best_net": 25056.954999999998,
    "n_teams": 17,
-   "replayed_now": false
+   "replayed_now": true
   },
   "10": {
    "actual_net": -63286.91,
    "actual_rank": 14,
-   "pess_net": -50776.88,
-   "pess_rank": 11,
-   "opt_net": -50672.49,
-   "opt_rank": 11,
-   "exp_net": -50724.68,
-   "exp_rank": 11,
+   "pess_net": -2385.47,
+   "pess_rank": 8,
+   "opt_net": -2318.27,
+   "opt_rank": 8,
+   "exp_net": -2351.87,
+   "exp_rank": 8,
    "best_team": "OPUSMOPUS",
    "best_net": 82604.095,
+   "n_teams": 17,
+   "replayed_now": true
+  },
+  "11": {
+   "actual_net": -21352.615,
+   "actual_rank": 13,
+   "pess_net": -119.99,
+   "pess_rank": 7,
+   "opt_net": 129.01,
+   "opt_rank": 7,
+   "exp_net": 4.51,
+   "exp_rank": 7,
+   "best_team": "TakeTheMoneyAndRun",
+   "best_net": 23176.850000000002,
    "n_teams": 17,
    "replayed_now": true
   }
  },
  "old_games": [
-  6,
   7,
   8,
   9,
-  10
+  10,
+  11
  ],
- "generated_at": 1787410767.657823,
+ "generated_at": 1787411462.752584,
  "totals": {
-  "actual": -31491.895000000004,
-  "pessimistic": -41230.53999999999,
-  "expected": -21497.120000000003,
-  "optimistic": -1763.7099999999982,
+  "actual": -46465.950000000004,
+  "pessimistic": -10189.949999999999,
+  "expected": 14135.24,
+  "optimistic": 38460.42,
   "profitable": 3,
   "top_ranked": 0,
   "good": 0,
@@ -95,15 +95,15 @@
   "n_games": 5,
   "n_scored": 5,
   "missing": [],
-  "success": false
+  "success": true
  },
  "calibration": {
-  "bias": 0.956,
-  "sigma": 0.76,
+  "bias": 1.032,
+  "sigma": 0.8,
   "p0": 0.31,
   "k": 0.5,
-  "n_labels": 46,
-  "n_coverage_misses": 12,
+  "n_labels": 50,
+  "n_coverage_misses": 18,
   "n_accept_points": 85,
   "labels": [
    {
@@ -427,6 +427,34 @@
     "t_lo": 404.11,
     "t_hi": null,
     "t_mid": 200.0
+   },
+   {
+    "game": 11,
+    "item": 1,
+    "t_lo": 357.38,
+    "t_hi": null,
+    "t_mid": 220.0
+   },
+   {
+    "game": 11,
+    "item": 2,
+    "t_lo": 754.28,
+    "t_hi": null,
+    "t_mid": 650.0
+   },
+   {
+    "game": 11,
+    "item": 3,
+    "t_lo": 44.08,
+    "t_hi": 61.5,
+    "t_mid": 60.0
+   },
+   {
+    "game": 11,
+    "item": 4,
+    "t_lo": 80.24,
+    "t_hi": null,
+    "t_mid": 30.0
    }
   ]
  }

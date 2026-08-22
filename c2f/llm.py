@@ -38,7 +38,7 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
 
               BUT the description's own characterisation of the item binds: if it
               calls something "expensive", "designer", "luxury", "premium",
-              "high-end", "professional" or names a premium brand, the fair value is
+              "high-end" or names a premium brand, the fair value is
               that tier's like-for-like replacement (an "expensive watch" is a
               several-thousand-euro watch, not a standard one). Frugal means no
               invented upgrades, not ignoring stated value.
@@ -98,7 +98,11 @@ def build_user_message(case: dict) -> str:
         rows = "\n".join(
             f"  {it['index']} | {it['description']} | {it['quantity']:g} {it['unit']}" for it in case["items"]
         )
-        items_txt = f"\n<parsed_line_items>\n{rows}\n</parsed_line_items>\n"
+        items_txt = (
+            "\n<parsed_line_items note=\"a mechanical parse of the invoice above, as a reading aid; it can be "
+            "INCOMPLETE - every POS. number that appears in the invoice text must be priced, whether or not it is "
+            "listed here\">\n" + rows + "\n</parsed_line_items>\n"
+        )
     meta = case.get("invoice_meta") or {}
     meta_txt = " ".join(f'{k}="{v}"' for k, v in meta.items())
     # A fast model's extract of the clauses that bind (c2f.policy). Absent if that call failed:
@@ -179,7 +183,7 @@ def _call_anthropic(case: dict, model: str, timeout: float, system: str = SYSTEM
     return "".join(getattr(b, "text", "") for b in resp.content)
 
 
-def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM) -> str:
+def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, fast: bool = False) -> str:
     from openai import OpenAI
 
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
@@ -190,8 +194,10 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM) -
         )
     kwargs: dict = {}
     if model.startswith(("gpt-5", "o")):
-        small = "mini" in model or "nano" in model
-        # gpt-5.x rejects "minimal"; its floor is "none"
+        # The fast pass (and any mini/nano model) runs at the effort floor: it is the safety
+        # submission and must land early - gpt-5.6-terra at "low" took 35 s on a 32-item case,
+        # at "none" 29 s; on small cases 9 s vs 5 s. gpt-5.x rejects "minimal"; its floor is "none".
+        small = fast or "mini" in model or "nano" in model
         default = ("minimal" if model.startswith("gpt-5-") else "none") if small else "low"
         kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING_FAST" if small else "C2F_REASONING", default)
     resp = client.chat.completions.create(
@@ -226,7 +232,7 @@ def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, str
         raw = _call_anthropic(case, model, timeout, system)
     else:
         model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
-        raw = _call_openai(case, model, timeout, system)
+        raw = _call_openai(case, model, timeout, system, fast=strict)
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):
         raise ValueError("model JSON has no items list")
