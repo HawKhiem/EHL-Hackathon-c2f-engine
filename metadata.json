@@ -1,0 +1,37 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0NV189CWW52R7HXA8PVKTAW",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "c2f/backtest.py",
+    "c2f/calibrate.py",
+    "c2f/llm.py",
+    "c2f/price.py",
+    "c2f/run.py",
+    "c2f/v2.py",
+    "runs/v2/game_38.json",
+    "runs/v2/game_39.json",
+    "runs/v2/game_40.json",
+    "tests/test_backtest.py",
+    "tests/test_game06_regression.py",
+    "tests/test_price.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 6244,
+    "cache_creation_tokens": 1872824,
+    "cache_read_tokens": 67607283,
+    "output_tokens": 294058,
+    "api_call_count": 277
+  }
+}
