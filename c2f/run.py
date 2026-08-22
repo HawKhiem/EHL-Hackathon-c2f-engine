@@ -1,6 +1,6 @@
 """Play one game:  pixi run python -m c2f.run GAME_ID [--no-submit] [--case-dir DIR]
 
-IN (get_case.sh) -> EXTRACT -> DIGEST -> MODEL (fast, then full once) -> PRICE -> OUT.
+IN (get_case.sh) -> EXTRACT -> MODEL (fast, then full once) -> PRICE -> OUT.
 
 Two passes, no votes. The fast pass is insurance, not a vote: its rows are submitted the
 moment they land so that a slow or failed full pass can never leave us with nothing, and
@@ -20,10 +20,9 @@ import os
 import sys
 import time
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
-from concurrent.futures import TimeoutError as FuturesTimeout
 from pathlib import Path
 
-from c2f import llm, policy
+from c2f import llm
 from c2f.extract import load_case
 from c2f.price import price_all
 from c2f.submit import ROOT, fetch_case, submit
@@ -31,8 +30,7 @@ from c2f.validate import invalid_indices, validate_items
 
 DEADLINE_S = 53.0  # clock restarts after decrypt (~1-3 s), server closes at 60 s after key release
 FAST_TIMEOUT_S = 45.0
-MIN_MODEL_S = 10.0  # never give the full pass less than this, however long the digest took
-DIGEST_WAIT_S = 17.0  # how long the full pass waits for c2f.policy (11-15 s on gpt-5.6-luna) before going without
+MIN_MODEL_S = 10.0  # never give the full pass less than this
 
 
 def log(msg: str, t0: float) -> None:
@@ -99,7 +97,6 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--no-submit", action="store_true")
     ap.add_argument("--case-dir", type=Path, help="skip get_case.sh and use this folder")
     ap.add_argument("--no-fast", action="store_true", help="skip the fast first pass")
-    ap.add_argument("--no-digest", action="store_true", help="skip the policy digest pass")
     args = ap.parse_args(argv)
     try:
         llm.provider()  # fail before we touch the game if no LLM key is configured
@@ -154,27 +151,15 @@ def main(argv: list[str] | None = None) -> int:
         return llm.estimate(c, timeout=timeout, model=model, strict=strict)
 
     tags: dict = {}
-    ex = ThreadPoolExecutor(max_workers=3)
+    ex = ThreadPoolExecutor(max_workers=2)
     try:
-        # Digest and fast pass start together; the fast pass is the safety net and must not wait
-        # for the digest. dict(case) so attaching the digest cannot mutate a prompt already built.
-        dig = None if args.no_digest else ex.submit(policy.build, case_dir)
+        # Fast pass and full pass start together; the fast pass is the safety net and must
+        # not wait for anything. dict(case) so the two passes never share a mutable dict.
         if not args.no_fast:
             tags[ex.submit(run_model, fast_model, FAST_TIMEOUT_S, True, dict(case))] = "fast"
 
-        if dig is not None:
-            try:
-                digest_txt, record["digest"] = dig.result(timeout=DIGEST_WAIT_S)
-            except FuturesTimeout:
-                digest_txt, record["digest"] = None, {"error": f"not ready within {DIGEST_WAIT_S}s"}
-            if digest_txt:
-                case["policy_digest"] = digest_txt
-                record["case"]["policy_digest"] = digest_txt
-            log(f"policy digest: {record['digest']}", t0)
-            save()
-
         budget = max(MIN_MODEL_S, DEADLINE_S - (time.time() - t0))
-        tags[ex.submit(run_model, full_model, budget, False, case)] = "full"
+        tags[ex.submit(run_model, full_model, budget, False, dict(case))] = "full"
 
         pending, full_done = set(tags), False
         while pending and not full_done:

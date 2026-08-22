@@ -61,7 +61,12 @@ def test_old_games_is_last_window_of_decrypted_completed_games(tmp_path, monkeyp
 def test_reprice_uses_stored_estimate_and_current_pricing(tmp_path, monkeypatch):
     import json
     import c2f.backtest as bt
+    import c2f.price as price
     monkeypatch.setattr(bt, "ROOT", tmp_path)
+    # price_all reads the live, ever-changing runs/calibration.json (learned after every game);
+    # pin it to the untrained default so this test's expected numbers don't drift as new games
+    # get scored (see c2f.calibrate - bias alone has moved from 1.0 to 1.389 since this was written).
+    monkeypatch.setattr(price, "calibration", lambda: price.Calibration())
     case_dir = tmp_path / "cases" / "case_09"
     case_dir.mkdir(parents=True)
     (case_dir / "policy.txt").write_text("p")
