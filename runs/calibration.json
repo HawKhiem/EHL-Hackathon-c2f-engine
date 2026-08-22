@@ -1,7 +1,7 @@
 {
  "bias": 1.329,
  "sigma": 1.0,
- "p0": 0.3,
+ "p0": 0.29,
  "k": 0.6,
  "bias_by_bucket": {
   "diagnostic/inspect": 1.455,
@@ -15,8 +15,8 @@
   "material": 1.404
  },
  "n_labels": 119,
- "n_coverage_misses": 38,
- "n_accept_points": 116,
+ "n_coverage_misses": 41,
+ "n_accept_points": 127,
  "labels": [
   {
    "game": 1,
