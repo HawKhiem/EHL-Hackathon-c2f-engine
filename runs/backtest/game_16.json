@@ -1,0 +1,113 @@
+{
+ "actual_net": 690.0,
+ "actual_rank": 2,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 300.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 2,
+    "charge_price": 270.0,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Only scheduled building perils at the insured location; theft, movables, vehicles and off-site property excluded.",
+   "items": [
+    {
+     "index": 1,
+     "covered": false,
+     "related": true,
+     "clause": "2.1; 3.1.4; 4.3(d),(f)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 500,
+     "cap_uncertain": false,
+     "reason": "Theft abroad from vehicle; clothes and jewellery expressly uninsured."
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": true,
+     "clause": "2.3.7; 4.3(e),(f); 5.2.5",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 450,
+     "cap_uncertain": false,
+     "reason": "Vehicle damage and related costs are expressly excluded."
+    }
+   ]
+  },
+  "seconds": 4.4,
+  "repriced": true
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 570.0,
+    "cost": 0.0,
+    "net": 570.0
+   },
+   "optimistic": {
+    "income": 870.0,
+    "cost": 0.0,
+    "net": 870.0
+   }
+  },
+  "open_pairings": {
+   "income": 1,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 300.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 130.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 300.0,
+     "optimistic": 600.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "2": {
+    "a": 270.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 24.28,
+    "fair": false,
+    "income": {
+     "pessimistic": 270.0,
+     "optimistic": 270.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout"
+  }
+ },
+ "pess_net": 570.0,
+ "pess_rank": 5,
+ "opt_net": 870.0,
+ "opt_rank": 2,
+ "exp_net": 720.0,
+ "exp_rank": 2,
+ "best_team": "error404 ai",
+ "best_net": 1578.32,
+ "n_teams": 17,
+ "replayed_now": false
+}
