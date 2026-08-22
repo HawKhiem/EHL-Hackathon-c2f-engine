@@ -1,11 +1,11 @@
 <market_history note="what the market ACTUALLY accepted for comparable line items in past rounds of THIS game, recovered from the opponents' charges. Evidence, not a rule: this case's policy and quantities still decide. Use it to sanity-check the ORDER OF MAGNITUDE of your t_mid, and be reluctant to land far outside a range with many observations behind it.">
 by category:
-  ancillary/call-out   n=38  paid up to ~EUR 63; refused above ~EUR 43
+  ancillary/call-out   n=39  paid up to ~EUR 64; refused above ~EUR 44
   restoration/repair   n=25  paid up to ~EUR 155; refused above ~EUR 130
   drying/remediation   n=25  paid up to ~EUR 271; refused above ~EUR 144  (we habitually OVER-price this category)
   diagnostic/inspect   n=22  paid up to ~EUR 228; refused above ~EUR 154  (we habitually UNDER-price this category)
-  labour               n=15  paid up to ~EUR 380; refused above ~EUR 96  (we habitually UNDER-price this category)
-  valuables            n=15  paid up to ~EUR 854; refused above ~EUR 124  (we habitually OVER-price this category)
+  labour               n=16  paid up to ~EUR 360; refused above ~EUR 96  (we habitually UNDER-price this category)
+  valuables            n=16  paid up to ~EUR 854; refused above ~EUR 130  (we habitually OVER-price this category)
   electronics          n=10  paid up to ~EUR 310; refused above ~EUR 335  (we habitually OVER-price this category)
   material             n=7   paid up to ~EUR 150; refused above ~EUR 150  (we habitually UNDER-price this category)
 line items that have appeared before, verbatim:
