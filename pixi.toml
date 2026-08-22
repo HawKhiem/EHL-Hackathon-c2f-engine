@@ -6,6 +6,9 @@ platforms = ["osx-arm64", "osx-64", "linux-64", "linux-aarch64", "win-64"]
 python = ">=3.9"
 requests = "*"
 openai = "*"
+pypdf = ">=6.16.1,<7"
+anthropic = ">=1.0.0,<2"
+pytest = ">=9.1.1,<10"
 
 # p7zip provides the `7z` command on Unix; Windows uses the `7zip` package instead.
 [target.unix.dependencies]
