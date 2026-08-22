@@ -15,10 +15,10 @@ from __future__ import annotations
 
 import math
 
-A_MULTIPLIER = 0.6
+A_MULTIPLIER = 0.7      # was 0.6 - slightly greedier
 B_DECAY_SCALE = 50.0
 B_MULTIPLIER_FLOOR = 1.1
-B_MULTIPLIER_CEILING = 4.0
+B_MULTIPLIER_CEILING = 3.0  # was 4.0 - slightly tighter on cheap items
 
 
 def t_estimate(item: dict) -> float:
