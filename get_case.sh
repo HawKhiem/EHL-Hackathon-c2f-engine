@@ -14,9 +14,19 @@ if [[ -z "${TEAM_API_KEY:-}" && -f .env ]]; then
 fi
 [[ -n "${TEAM_API_KEY:-}" ]] || { echo "TEAM_API_KEY not set (env or .env)"; exit 1; }
 
-# Locate 7z: PATH first, then pixi env
-SEVENZ="$(command -v 7z || command -v 7zz || true)"
-[[ -n "$SEVENZ" ]] || SEVENZ="$(ls .pixi/envs/default/bin/7z 2>/dev/null || true)"
+# Locate 7z. c2f.submit resolves one in python and passes it in SEVENZ, because shell
+# discovery here is not reliable on Windows: `pixi run` puts a 7z.exe on PATH that MSYS bash
+# sometimes refuses ("cannot execute binary file"), and `command -v` sees a different PATH
+# depending on whether bash was spawned by pixi or by python.exe. Round 34 was lost to that.
+# The fallback below still works for a human running ./get_case.sh by hand.
+if [[ -n "${SEVENZ:-}" ]]; then
+  :
+else
+  SEVENZ="$(command -v 7z || command -v 7zz || command -v 7za || true)"
+  for _c in .pixi/envs/default/bin/7z.exe .pixi/envs/default/bin/7z             .pixi/envs/default/Library/bin/7z.exe; do
+    [[ -n "$SEVENZ" ]] || { [[ -f "$_c" ]] && SEVENZ="$_c"; } || true
+  done
+fi
 [[ -n "$SEVENZ" ]] || { echo "7z not found. Run: pixi install   (or brew install p7zip)"; exit 1; }
 
 CASE="$(printf 'case_%02d' "$GAME_ID")"
