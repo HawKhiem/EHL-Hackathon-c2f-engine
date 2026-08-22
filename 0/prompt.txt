@@ -215,3 +215,7 @@ Commit and push
 ---
 
 Can we auto submit using version 2 30s before a round end
+
+---
+
+I want to ask how long it would wait for the key and when we start autoplaying? How do we measure the time start of a round?
