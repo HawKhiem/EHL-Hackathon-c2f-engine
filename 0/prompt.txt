@@ -1,0 +1,1 @@
+You are an expert statistic mathematician, based on the problems 1 to 45. Tell me what you would decide for the pricing and compare to what the model in this repo is currently doing to analyze any pitfalls, traps or mistakes. Rerun the model against the rounds to get the latest results to actually identify
