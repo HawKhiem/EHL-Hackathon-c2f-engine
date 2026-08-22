@@ -1,0 +1,361 @@
+{
+  "game_id": 3,
+  "started_at": 1787405109.144655,
+  "submissions": [
+    {
+      "tag": "fast",
+      "at_s": 4.9,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 270.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 2,
+          "charge_price": 72.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 270.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:20.814949Z"
+        },
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 72.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:20.814949Z"
+        }
+      ]
+    },
+    {
+      "tag": "full x1",
+      "at_s": 14.2,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 390.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 2,
+          "charge_price": 240.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 390.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:29.962854Z"
+        },
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 240.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:29.962854Z"
+        }
+      ]
+    },
+    {
+      "tag": "full x2",
+      "at_s": 14.8,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 465.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 2,
+          "charge_price": 246.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 465.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:30.524385Z"
+        },
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 246.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:30.524385Z"
+        }
+      ]
+    },
+    {
+      "tag": "full x3",
+      "at_s": 15.7,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 480.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 2,
+          "charge_price": 252.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 480.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:31.333657Z"
+        },
+        {
+          "game_id": 3,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 252.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-22T13:25:31.333657Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787405115.571579,
+  "case": {
+    "game_id": 3,
+    "policy": "===============================================================================\nRESIDENTIAL DWELLING INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\nPolicy wording \"WD-2026\" - Buildings and Insured Location Edition\nFictional mock document created for test purposes only. All wording is\ninvented. No real contract.\n===============================================================================\n\nThese conditions apply together with the General Contract Provisions and with\nthe Schedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods and percentages shown in square brackets are those stated\nin the Schedule.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nCombined residential buildings insurance protects the policyholder against the\nfinancial consequences of physical damage to their building. The perils that\ncan be insured are the ones bundled together in these conditions - fire, escape\nof water, storm and hail, and further natural hazards among them. Which of the\ninsurable perils are actually covered is agreed between insurer and\npolicyholder and recorded in the schedule.\n\nThis is an insurance of immovable property at a defined location. It indemnifies\nthe building and what belongs to it. It is not an insurance of the movable\nbelongings of the persons who live there, and it is not an insurance of any form\nof transport used by them.\n\nWhere an insured building is destroyed or damaged, the insurer indemnifies the\ncost of putting it back. The normal arrangement is reinstatement in the same\nkind and quality, to a condition as new, on an index-linked reinstatement basis\nwith an enhancement. The enhancement refers to two elements folded into the\ncover: additional costs arising from public-law requirements, and price\nincreases occurring between the loss and the reinstatement. A limited and\nexhaustively listed range of consequential expenses triggered by a loss event -\ndebris removal and demolition among them - is also carried.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nInsured event - the event for which the insurer pays. An event is an insured\nevent only where it is one of the perils listed in Part 2, where it acts on\nproperty that is insured under Part 4, and where that property was at the\ninsured location at the time.\n\nExclusion - a peril, a type of damage or an item of property for which no cover\nexists. Exclusions delimit what has been promised and keep the cover\ncalculable. They appear in three places in these conditions: as general\nexclusions applying across the contract, within the provisions on individual\nperils and types of damage, and within the description of the insured property.\n\nInsured location - the ground and soil on which the insured building stands, as\nfurther defined in 4.5. Property is insured only while it is at the insured\nlocation and in the state described in Part 4.\n\nConveyance - any means of transport, whether road-going, rail-borne,\nwater-borne or airborne, together with its parts, fittings, accessories and\nwhatever is carried in or on it. A conveyance is a mobile object; it is not part\nof the insured immovable property, and it does not become insured property by\nbeing parked, stored or kept at the insured location.\n\nIndex-linked reinstatement cover with enhancement - a basis of cover that works\nfrom the amount that would have to be spent to rebuild in the same kind and\nquality. Any additional cost caused by public-law restrictions on reinstatement\nis picked up automatically. In addition, the level of cover is tracked against\nmovements in building costs; that tracking affects both the amount payable and\nthe premium.\n\nDuties - the things the policyholder must do or refrain from doing before,\nduring and after an insured event. Observing safety requirements against fire\nor frost is an example. Breaching a duty puts the cover at risk.\n\nSecured lenders - creditors whose claim is secured by a charge registered\nagainst the property. Their interests enjoy statutory protection: among other\nthings they must be brought into the process when insurance benefits are paid\nout and when the contract is brought to an end.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is destroyed or damaged by, or\nlost as a consequence of, the following events:\n\n  (a) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot.\n\n  (b) ESCAPE OF WATER.\n\n  (c) NATURAL HAZARDS, in two tiers:\n        (c1) storm and hail;\n        (c2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\nThe list in 2.1 is exhaustive. An event that is not named there is not an\ninsured peril, however serious its financial consequences for the policyholder\nmay be. In particular, the taking away of property by a third party, whether or\nnot force, entry or threat is involved, is not among the perils that can be\ncovered under these conditions.\n\n2.2 How the groups combine\n\nEach of the three groups (a), (b) and (c1) can be taken separately. The further\nnatural hazards under (c2) can only be taken in combination with one or more of\nthe perils in (a), (b) or (c1); they are not available on a standalone basis.\n\n2.3 The fire group defined\n\n2.3.1 Fire\nA fire is a combustion that has started without a hearth intended for it, or\nthat has escaped such a hearth, and that is capable of spreading under its own\npower. Damage caused by a fire that developed out of a controlled, purposeful\nfire is also covered.\n\n2.3.2 Lightning strike\nThe direct passage of a lightning discharge onto property.\n\n2.3.3 Overvoltage caused by lightning\nDamage arising through overvoltage, overcurrent or short circuit, brought about\nby a lightning discharge or by other atmospheric electricity, in insured\nelectrical installations and appliances.\n\n2.3.4 Explosion and deflagration\nBoth are suddenly running force events resting on the tendency of gases or\nvapours to expand. The two differ only in the intensity of that force.\n\nAn explosion of a vessel - a boiler, a pipe run and the like - is present only\nunder a further condition: the vessel wall must be torn open to such an extent\nthat a sudden equalisation of the pressure difference between the inside and\nthe outside occurs. Where an explosion inside a vessel is brought about by a\nchemical reaction, tearing of the wall is not required.\n\n2.3.5 Implosion\nA sudden, unforeseen collapse of a hollow body under external overpressure\nresulting from an internal underpressure.\n\n2.3.6 Impact or crash of an aircraft\nThe impact or crash of an aircraft is covered, and equally the impact or crash\nof its parts or its cargo.\n\n2.3.7 Vehicle impact\nThe impact of a road, rail or water-borne vehicle against insured property is\ncovered, as is the impact of parts or cargo of such a vehicle. Consequential\ndamage to insured property arising from such an impact is covered.\n\nThis peril describes damage done by a conveyance to the insured building. It\ndoes not extend cover to the conveyance itself, to anything belonging to it or\ncarried in it, or to any expenditure connected with it.\n\nNot covered is damage caused by a road or water-borne vehicle whose keeper or\ndriver is the policyholder or an occupant of the building.\n\nNot covered is damage to conveyances of any kind, to their parts, fittings and\ncargo, and to roads, drives, hardstandings and comparable trafficked surfaces.\n\n2.3.8 Scorching\nScorch damage arising out of one of the events in 2.3.1 to 2.3.7 is covered.\nScorch damage from any other cause is covered up to [amount].\n\n2.3.9 Smoke and soot\nSmoke and soot damage arising out of one of the events in 2.3.1 to 2.3.8 is\ncovered.\n\nBeyond that, damage is covered where smoke or soot directly damages or destroys\ninsured property, on condition that the smoke or soot escaped suddenly, and\ncontrary to intended operation, from a firing, heating, cooking or drying\ninstallation situated on the insured site. Indemnity for this extension is\ncapped at [amount].\n\nNot covered is damage arising from the gradual action of smoke or soot -\nlong-term surface soiling of the fogging type, for instance.\n\n2.3.10 Damage excluded within the fire group\nNot covered:\n  (a) damage caused by earthquake, irrespective of any contributing causes;\n  (b) damage to internal combustion engines caused by the explosions occurring\n      inside the machine's combustion chamber, and damage arising at the\n      switching elements of electrical switches through the gas pressure\n      occurring inside them. Cover does exist, however, where such damage is\n      the consequence of an insured fire event under 2.3.1.\n\n2.4 Escape of water defined\n\n2.4.1 The three headings\nThe escape of water peril covers three things: escape of water damage; fracture\ndamage to pipework inside buildings; and fracture damage to pipework outside\nbuildings.\n\n2.4.2 Escape of water damage\nEscaping water means water that has emerged contrary to its intended purpose\nfrom:\n  (a) pipes of the water supply, whether supply or drainage lines, or hoses\n      connected to them;\n  (b) other installations connected to those pipes or hoses, or the\n      water-carrying parts of such installations;\n  (c) heating or air-conditioning systems;\n  (d) water-based extinguishing or sprinkler systems;\n  (e) water beds or aquaria.\n\nOperating fluids from heating or air-conditioning systems, and steam, also\ncount as escaping water. Fluids intended for the generation of energy do not.\n\nDamage is also covered where it is caused by water that emerged, contrary to\nits intended purpose, from rainwater drainage pipes running inside the\nbuilding. For this extension the exclusion of damage caused by precipitation\n(see 3.3(c)) does not apply.\n\n2.4.3 Fracture damage to pipework inside buildings\nCovered inside buildings:\n\n  (a) frost-related and other fracture damage to pipes of\n        - the water supply, whether supply or drainage lines, and the gas\n          supply, or hoses connected to them;\n        - heating or air-conditioning systems;\n        - water-based extinguishing or sprinkler systems;\n        - rainwater drainage.\n      This presupposes that the pipes concerned are not a structural component\n      of a boiler, a water heater or a comparable installation.\n\n  (b) frost-related fracture damage to the following installations:\n        - bath and shower fittings, washbasins, lavatories, taps and valves\n          together with their connection hoses;\n        - radiators, boilers, water heaters and comparable parts of heating or\n          air-conditioning systems.\n\nThe whole structural body of the building, including the floor slab, counts as\n\"inside the building\". Pipes of a solar heating installation on the roof count\nas pipes inside the building. Unless something else has been agreed, pipes and\ninstallations beneath the floor slab are not insured, whether load-bearing or\nnot.\n\n2.4.4 Fracture damage to pipework outside buildings\nCovered outside buildings: frost-related and other fracture damage to supply\npipes of the water supply, or to pipes of heating or air-conditioning systems,\nin each case insofar as the policyholder bears the risk for those pipes and\ninsofar as they either\n  (a) serve the supply of insured buildings or installations, or\n  (b) are situated on the insured site.\n\nIndemnity for fracture damage to supply pipes that do not serve the supply of\ninsured buildings or installations is limited per insured event to the amount\nagreed for that purpose.\n\nIndemnity for fracture damage to supply pipes that are not situated on the\ninsured site is limited per insured event to the amount agreed for that\npurpose.\n\n2.5 Natural hazards defined\n\n2.5.1 Storm\nStorm means a weather-driven movement of air reaching at least the gale\nthreshold on the recognised scale of wind strength, expressed as a defined\nminimum sustained wind speed.\n\nWhere the wind strength at the loss location cannot be established, storm is\npresumed if the policyholder demonstrates either of the following:\n  (a) in the vicinity of the insured site the air movement caused damage to\n      buildings that were in sound condition, or to other property of\n      comparable resistance; or\n  (b) given the sound condition of the insured building - or of the building in\n      which the insured property was located - the damage can only have arisen\n      through storm. This applies equally to buildings structurally joined to\n      the insured building.\n\n2.5.2 Hail\nHail means solid precipitation in the form of grains of ice.\n\n2.5.3 Which storm and hail events are covered\nOnly damage arising in one of the following ways is covered:\n  (a) storm or hail acts directly on insured property, or on buildings in which\n      insured property is located; consequential damage to insured property\n      arising from this is covered;\n  (b) storm or hail acts directly on buildings structurally joined to the\n      insured building;\n  (c) storm or hail acts directly on buildings structurally joined to buildings\n      in which insured property is located;\n  (d) storm or hail throws building parts, trees or other objects onto insured\n      property, or onto buildings in which insured property is located;\n      consequential damage to insured property arising from this is covered;\n  (e) storm or hail throws building parts, trees or other objects onto\n      buildings structurally joined to the insured building;\n  (f) storm or hail throws building parts, trees or other objects onto\n      buildings structurally joined to buildings in which insured property is\n      located.\n\n2.5.4 The further natural hazards\n\nFlood\nFlood means the inundation of the ground and soil of the insured site, or of\ndirectly adjoining land, roads, footpaths or cycle paths, with substantial\nquantities of surface water. It counts only where the inundation was caused by\n  (a) the overflow of surface waters, standing or flowing,\n  (b) precipitation, or\n  (c) the emergence of groundwater at the surface as a consequence of (a) or\n      (b).\n\nBacking-up of water\nBacking-up is present where water enters the building from the building's own\ndrainage pipes or from installations connected to them. It counts only where\nthe backing-up was caused by the overflow of surface waters, standing or\nflowing, or by precipitation.\n\nEarthquake\nEarthquake means a naturally caused tremor of the ground triggered by\ngeophysical processes within the earth's interior.\n\nEarthquake is presumed if the policyholder demonstrates either of the\nfollowing:\n  (a) in the vicinity of the insured location the naturally caused ground\n      tremor caused damage to buildings that were in sound condition, or to\n      other property of comparable resistance; or\n  (b) given the sound condition of the insured property, the damage can only\n      have arisen through an earthquake.\n\nGround subsidence\nA naturally caused sinking of the ground above naturally formed cavities.\n\nLandslip\nA naturally caused sliding or falling away of masses of earth or rock.\n\nSnow load\nThe effect of the weight of masses of snow or ice. Snow or ice masses sliding\noff roofs also count as snow load.\n\nAvalanche\nMasses of snow or ice descending a mountain slope.\n\nVolcanic eruption\nA sudden release of pressure on the rupturing of the earth's crust, accompanied\nby flows of lava, eruptions of ash, or the escape of other materials and gases.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered. This applies irrespective of any contributing\ncauses.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered. This applies\nirrespective of any contributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered. This applies irrespective of any contributing causes.\n\n3.1.4 Removal of property by third parties\nLoss of, or damage to, property brought about by its being taken away,\nmisappropriated or made off with by a third party is not covered. This applies\nirrespective of the means used, of whether force or entry was involved, of\nwhere the property was at the time, and of any contributing causes. Damage to\nthe fabric of the insured building caused by such an attempt is likewise not\ncovered under these conditions.\n\n3.1.5 Property that is not insured property\nNo indemnity is payable in respect of an object that is not insured property\nunder Part 4, or that was not at the insured location and in the condition\ndescribed in Part 4 at the time of the event. This applies however the loss is\ndescribed, however it is invoiced, and however closely it may be connected in\ntime or circumstance with an insured event.\n\n3.2 Exclusions within the fire group\n\nSee 2.3.10.\n\n3.3 Exclusions within the escape of water peril\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) splash water or cleaning water;\n  (b) dry rot and house-rot fungi of every kind;\n  (c) groundwater, standing or flowing surface water, flood, precipitation, or\n      a backing-up of water brought about by any of these causes;\n  (d) earthquake, snow load, avalanche, volcanic eruption;\n  (e) ground subsidence or landslip - unless escaping water within the meaning\n      of 2.4.2 caused the subsidence or the landslip;\n  (f) fire; lightning strike; overvoltage caused by lightning; explosion;\n      deflagration; implosion; impact or crash of an aircraft; vehicle impact;\n      scorching; smoke and soot damage;\n  (g) the opening of sprinklers or the operation of sprinkler nozzles on\n      account of a fire, on account of pressure testing, or on account of\n      alteration or repair work to the insured building or to the extinguishing\n      or sprinkler system;\n  (h) storm, hail.\n\nDamage to buildings or parts of buildings that are not ready for occupation is\nnot covered. The same applies to property located in such buildings or parts of\nbuildings.\n\n3.4 Exclusions within the natural hazards\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) storm surge;\n  (b) the penetration of rain, hail, snow or dirt through windows, external\n      doors or other openings that were not properly closed. This exclusion\n      does not apply where those openings were created by storm or hail and\n      constitute damage to the building;\n  (c) groundwater, except insofar as it emerged at the surface as a result of\n      precipitation or of the overflow of surface waters;\n  (d) fire; lightning strike; overvoltage caused by lightning; explosion;\n      deflagration; implosion; impact or crash of an aircraft; vehicle impact;\n      scorching; smoke and soot damage. This exclusion does not apply insofar\n      as those perils were triggered by an insured earthquake;\n  (e) drought or desiccation.\n\nDamage to buildings and parts of buildings that are not ready for occupation,\nand to property located within them, is not covered. Damage to shop windows and\ndisplay windows is likewise not covered.\n\n3.5 Work beyond the affected parts, and outlay that is not a repair cost\n\nWork carried out beyond those parts of the insured property that were themselves\naffected by the insured event is not covered. Outlay that does not constitute a\nrepair cost is not indemnified. The delimitation in each case is governed by\n7.1.5 to 7.1.10.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises:\n  (a) the buildings identified in the schedule;\n  (b) their building components;\n  (c) their building accessories;\n  (d) terraces on the insured site that directly adjoin the building;\n  (e) further site installations.\n\nThe list is exhaustive. Property of any other description is not insured\nproperty, whether or not it is present at the insured location.\n\n4.2 The categories defined\n\n4.2.1 Building and dwelling\nBuildings are structures connected to the ground. They must be capable of\naffording protection against external influences and, for the purposes of these\nconditions, must be intended for predominantly residential use.\n\nWhere the insured property is a self-contained dwelling within such a building,\nthese conditions apply to that dwelling and to those parts of the building that\nconstitute the policyholder's separate property, together with the\npolicyholder's share in the common parts.\n\n4.2.2 Building components\nBuilding components are items incorporated into a building that have lost their\nindependence through their firm connection with it. Fitted furniture and fitted\nkitchens fall within this category where they were made individually for the\nbuilding and adapted to it with substantial installation effort. Add-on\nfurniture and add-on kitchens that are series-produced do not.\n\nAlso counting as building components are the fitting-out elements of the\ndwelling: floor coverings together with their bedding, adhesive, underlay,\ninsulating and levelling layers; wall and ceiling finishes; interior doors; and\nfixed trim, beading and comparable edging elements.\n\n4.2.3 Building accessories\nBuilding accessories are movable items located inside the building or attached\nto its exterior. They must serve the upkeep of the insured building or its\npredominant intended purpose.\n\nAn item does not become a building accessory merely because it belongs to the\npolicyholder or to an occupant. Items serving the personal needs, personal use,\npersonal appearance or personal enjoyment of a person - as distinct from the\nupkeep or the residential purpose of the building itself - are not building\naccessories, whatever their value and wherever they are kept.\n\n4.2.4 Terraces\nTerraces are paved surfaces intended for occupation in the open air.\n\n4.2.5 Further site installations\nFurther site installations means the items firmly connected with the ground and\nsoil of the insured site that are specified for that purpose in the schedule.\nAn object that merely rests on, stands on or is parked on the insured site is\nnot firmly connected with it and is not a further site installation.\n\n4.3 Property not insured\n\nNot insured:\n  (a) photovoltaic installations and their components - solar modules, mounting\n      frames, fastening elements, inverters, module optimisers and the cabling.\n      This extends to an electricity storage installation permanently connected\n      to the photovoltaic installation and serving the supply of the building;\n  (b) all items subsequently incorporated into the building by a tenant or by a\n      condominium owner where that person both\n        - procured or took the items over at their own expense, and\n        - bears the risk for them.\n      Where items are merely exchanged, the newly incorporated items are\n      insured. Any different arrangement as to who bears the risk must be\n      evidenced by the policyholder;\n  (c) electronically stored data and programs. Costs of restoring\n      electronically stored data and programs are covered only where this has\n      been additionally agreed in the contract;\n  (d) movable property of the household kept for the private use of the\n      policyholder or of the occupants, and personal articles of every kind,\n      including articles of dress and articles of personal adornment or personal\n      value. Such property is the subject matter of a separate class of\n      insurance and is not insured under these conditions;\n  (e) conveyances of every kind within the meaning of 1.3, together with their\n      parts, fittings, accessories, contents and cargo. This applies whether the\n      conveyance is in use, at rest, stored or kept at the insured location, and\n      whether or not it belongs to the policyholder;\n  (f) property of any description while it is situated away from the insured\n      location, and property while it is contained in, on or attached to a\n      conveyance, wherever that conveyance may be. Such property is outside the\n      scope of the insured location under 4.5 and is not insured even if it\n      would otherwise fall within 4.1.\n\n4.4 Optionally insurable\n\nBy way of departure from 4.3(b), items subsequently incorporated by a tenant or\ncondominium owner can be co-insured even where that person procured or took\nthem over at their own expense and bears the risk for them.\n\nNo extension of cover is available under these conditions in respect of the\nproperty described in 4.3(d), (e) and (f).\n\n4.5 The insured location\n\nThe insured location is the insured site: the land parcel or parcels on which\nthe insured building stands. Where several buildings stand on one parcel, the\ninsured location is that part of the parcel which, by fencing or other\ndemarcation, belongs exclusively to the insured building or buildings.\n\nCover attaches to the insured location. It does not travel with the\npolicyholder, with the occupants, or with any object that leaves the insured\nlocation, and it does not extend to any place at which the policyholder or an\noccupant may happen to be.\n\n4.6 Condominium and part-ownership units\n\n4.6.1 Where the contract is with an association of condominium owners: if the\ninsurer is wholly or partly released from liability on account of the conduct of\nindividual condominium owners, it remains obliged to pay the remaining owners.\nThis applies to their separate property and to their shares in the common\nproperty.\n\n4.6.2 The co-ownership share of the owner against whom the insurer is wholly or\npartly released is not indemnified, or is indemnified only in part.\n\nThe remaining condominium owners may nevertheless claim indemnity for that\nco-ownership share. This presupposes that the additional indemnity is applied to\nreinstating the common property. The condominium owner against whom the insurer\nis wholly or partly released must reimburse the insurer for that additional\nindemnity.\n\n4.6.3 The two provisions above apply correspondingly to buildings insurance for\npart-ownership units.\n\n4.7 Deductibles\n\nA deductible is the share of the indemnity, or the amount, that the policyholder\nbears itself per insured event. Deductibles can be agreed individually. They may\ndiffer from one insured peril and one insured benefit to another. Each is set\nout in the schedule. A deductible is applied only to an indemnity that is\notherwise payable; it does not create cover for an item that is excluded.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS, LOSS OF RENT AND RENTAL VALUE\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nThe insurer reimburses the following costs where they were necessary as a\nconsequence of an insured event and were actually incurred:\n  (a) debris removal and demolition costs;\n  (b) costs of moving and protecting property;\n  (c) costs of lost water, gas and heating oil, and of electricity lost from\n      storage installations;\n  (d) hotel costs.\n\nReimbursement of each of these heads is limited to the amount agreed for it.\n\nThe list in 5.1 is exhaustive. A cost that does not fall under one of the heads\nlisted there is not an insured cost, however it is described or invoiced.\n\n5.2 The cost heads defined\n\n5.2.1 Debris removal and demolition\nCosts incurred in clearing away and demolishing insured property. This includes\nthe expense of removing rubble and other remains of that property, transporting\nthem to the nearest disposal site, depositing them and destroying them.\n\n5.2.2 Moving and protecting property\nCosts incurred in moving, altering or protecting other property, reimbursable\nwhere those measures serve to reinstate or replace insured property. The\nmeasures must be carried out at the insured location and must relate to the\nproperty affected by the insured event.\n\n5.2.3 Lost water, gas, heating oil and stored electricity\nCosts arising because water, gas or heating oil escaped contrary to its intended\npurpose as a result of an insured event. Additional wastewater charges fall\nunder this head. Costs of electricity lost from storage installations are also\nreimbursed. Indemnity is capped at [amount] per insured event.\n\n5.2.4 Hotel costs\nCosts of accommodation in a hotel or similar, excluding incidentals such as\nbreakfast. The precondition is that the dwelling permanently occupied by the\npolicyholder has become uninhabitable and that confining themselves to a\nhabitable part of it cannot reasonably be expected of them.\n\nAccommodation costs are reimbursed only where indemnity cannot be claimed under\nanother insurance contract.\n\nHotel or similar accommodation costs are reimbursed only to the extent that they\nexceed the indemnity payable for rental value under 7.5.\n\nCosts are reimbursed up to the point at which the dwelling is habitable again,\nfor a maximum of [num\n[... truncated ...]",
+    "description": "Theft claim from a trip abroad. While the policyholder was on vacation in France, the parked private car was broken into and a suitcase was taken from inside it. The suitcase had clothes and some jewellery in it.\n\nThe break-in was reported to the local police afterwards and there is a report reference. The claim came in through a settlement agent, covering the stolen clothing and jewellery along with some vehicle-related costs from the trip.\n\nNothing was taken from the policyholder's home, which was locked up and untouched the whole time.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0229\nDATE\n12 Apr 2026\nDUE\n26 Apr 2026\nTRADE\nCompensation\nPayment\nFROM\nGolden Handshake Payouts Ltd\n88 Cheque Chase Road\n20095 Refundton\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Clothing and jewellery stolen from the car 1 pcs\n2 Vehicle costs 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Compensation",
+      "invoice_no": "2026-0229",
+      "date": "12 Apr 2026",
+      "vendor": "Golden Handshake Payouts Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "Clothing and jewellery stolen from the car",
+        "quantity": 1.0,
+        "unit": "pcs"
+      },
+      {
+        "index": 2,
+        "description": "Vehicle costs",
+        "quantity": 1.0,
+        "unit": "pcs"
+      }
+    ],
+    "n_images": 1
+  },
+  "model_fast": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5-mini",
+      "seconds": 4.89
+    },
+    "output": {
+      "policy_summary": "Buildings insurance only \u2014 covers physical damage to insured building/site and listed consequential costs; does NOT insure movable personal belongings, cars or items stolen from a vehicle; named perils required.",
+      "items": [
+        {
+          "index": 1,
+          "covered": false,
+          "related": true,
+          "clause": "4.3(d) property not insured",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 450,
+          "reason": "personal effects not insured under buildings cover"
+        },
+        {
+          "index": 2,
+          "covered": false,
+          "related": true,
+          "clause": "4.3(e) conveyances not insured",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 120,
+          "reason": "vehicle-related trip costs not payable by this policy"
+        }
+      ]
+    }
+  },
+  "priced_fast": [
+    {
+      "index": 1,
+      "charge_price": 270.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 2,
+      "charge_price": 72.0,
+      "acceptance_limit": 0.0
+    }
+  ],
+  "model_full1": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 14.16
+    },
+    "output": {
+      "policy_summary": "Buildings insurance only; no theft peril; movable property, conveyances and off-site losses excluded; insured location limited to the home site; standard costs only per Part 5.",
+      "items": [
+        {
+          "index": 1,
+          "covered": false,
+          "related": true,
+          "clause": "3.1.4 Removal of property by third parties",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 650,
+          "reason": "Theft not insured; off-site personal belongings not insured property."
+        },
+        {
+          "index": 2,
+          "covered": false,
+          "related": true,
+          "clause": "4.3(e) Conveyances excluded",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 400,
+          "reason": "Vehicle repairs/costs are conveyances excluded from insured property."
+        }
+      ]
+    }
+  },
+  "ensemble": {
+    "policy_summary": "Buildings insurance only; no theft peril; movable property, conveyances and off-site losses excluded; insured location limited to the home site; standard costs only per Part 5.",
+    "items": [
+      {
+        "index": 1,
+        "covered": false,
+        "related": true,
+        "clause": "3.1.4 Removal of property by third parties",
+        "t_low": 0.0,
+        "t_mid": 0.0,
+        "t_high": 0.0,
+        "t_if_covered": 800.0,
+        "reason": "Theft not insured; off-site personal belongings not insured property.",
+        "votes": "0/3 covered"
+      },
+      {
+        "index": 2,
+        "covered": false,
+        "related": true,
+        "clause": "4.3(e) Conveyances excluded",
+        "t_low": 0.0,
+        "t_mid": 0.0,
+        "t_high": 0.0,
+        "t_if_covered": 420.0,
+        "reason": "Vehicle repairs/costs are conveyances excluded from insured property.",
+        "votes": "0/3 covered"
+      }
+    ],
+    "n_votes": 3
+  },
+  "priced_full": [
+    {
+      "index": 1,
+      "charge_price": 480.0,
+      "acceptance_limit": 0.0
+    },
+    {
+      "index": 2,
+      "charge_price": 252.0,
+      "acceptance_limit": 0.0
+    }
+  ],
+  "model_full2": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 14.73
+    },
+    "output": {
+      "policy_summary": "Buildings-only cover at insured site for fire/water/storm hazards; no theft, no movables or vehicles; insured costs limited; deductibles per schedule.",
+      "items": [
+        {
+          "index": 1,
+          "covered": false,
+          "related": true,
+          "clause": "3.1.4 Removal by third parties; 4.3(d),(f); 4.5; 3.1.5",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 900,
+          "reason": "Theft of offsite household items excluded; not insured property/location."
+        },
+        {
+          "index": 2,
+          "covered": false,
+          "related": true,
+          "clause": "4.3(e) conveyances excluded; 2.1 peril list excludes theft; 3.1.5",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 420,
+          "reason": "Vehicle-related costs excluded; not building or insured peril."
+        }
+      ]
+    }
+  },
+  "model_full0": {
+    "meta": {
+      "provider": "openai",
+      "model": "gpt-5",
+      "seconds": 15.67
+    },
+    "output": {
+      "policy_summary": "Buildings-only cover for fire, escape of water, and natural hazards at the insured location; theft and movable property, conveyances, and off-location losses excluded; insured costs limited to listed heads.",
+      "items": [
+        {
+          "index": 1,
+          "covered": false,
+          "related": true,
+          "clause": "2.1 perils exhaustive; 3.1.4 theft exclusion; 4.3(d),(f) movables/off-location",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 800,
+          "reason": "Theft of movables from car; peril excluded; not insured property/location."
+        },
+        {
+          "index": 2,
+          "covered": false,
+          "related": true,
+          "clause": "4.3(e) conveyances not insured; 2.1 perils exhaustive; 3.1.5",
+          "t_low": 0,
+          "t_mid": 0,
+          "t_high": 0,
+          "t_if_covered": 450,
+          "reason": "Vehicle expenses not insured building property; motor losses excluded here."
+        }
+      ]
+    }
+  },
+  "finished_at_s": 15.8
+}
