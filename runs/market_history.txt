@@ -1,25 +1,25 @@
 <market_history note="what the market ACTUALLY accepted for comparable line items in past rounds of THIS game, recovered from the opponents' charges. Evidence, not a rule: this case's policy and quantities still decide. Use it to sanity-check the ORDER OF MAGNITUDE of your t_mid, and be reluctant to land far outside a range with many observations behind it.">
 by category:
-  ancillary/call-out   fair value sat between ~EUR 58 and ~EUR 83  (n=24 with both bounds)
-  drying/remediation   fair value sat between ~EUR 250 and ~EUR 336  (n=27 with both bounds)
-  diagnostic/inspect   fair value sat between ~EUR 201 and ~EUR 246  (n=16 with both bounds)  (we habitually UNDER-price this category)
-  restoration/repair   fair value sat between ~EUR 155 and ~EUR 207  (n=21 with both bounds)
-  labour               fair value sat between ~EUR 306 and ~EUR 334  (n=12 with both bounds)
-  valuables            fair value sat between ~EUR 374 and ~EUR 675  (n=7 with both bounds)
+  ancillary/call-out   fair value sat between ~EUR 57 and ~EUR 80  (n=25 with both bounds)
+  drying/remediation   fair value sat between ~EUR 241 and ~EUR 335  (n=30 with both bounds)  (we habitually OVER-price this category)
+  diagnostic/inspect   fair value sat between ~EUR 184 and ~EUR 222  (n=21 with both bounds)
+  restoration/repair   fair value sat between ~EUR 168 and ~EUR 272  (n=24 with both bounds)
+  labour               fair value sat between ~EUR 254 and ~EUR 285  (n=13 with both bounds)
+  valuables            fair value sat between ~EUR 307 and ~EUR 536  (n=8 with both bounds)
+  material             fair value sat between ~EUR 112 and ~EUR 144  (n=6 with both bounds)  (we habitually UNDER-price this category)
   art/specialist       fair value sat between ~EUR 621 and ~EUR 923  (n=7 with both bounds)  (we habitually UNDER-price this category)
-  material             fair value sat between ~EUR 117 and ~EUR 139  (n=5 with both bounds)  (we habitually UNDER-price this category)
   electronics          fair value sat between ~EUR 270 and ~EUR 478  (n=8 with both bounds)  (we habitually OVER-price this category)
 line items that have appeared before, verbatim:
-  vehicle costs                            fair value sat between ~EUR 63 and ~EUR 86  (n=10 with both bounds)
-  skilled worker hours                     fair value sat between ~EUR 358 and ~EUR 382  (n=5 with both bounds)
+  vehicle costs                            fair value sat between ~EUR 58 and ~EUR 86  (n=11 with both bounds)
+  skilled worker hours                     fair value sat between ~EUR 286 and ~EUR 310  (n=6 with both bounds)
   construction waste disposal              fair value sat between ~EUR 57 and ~EUR 80  (n=5 with both bounds)
+  final site cleaning                      fair value sat between ~EUR 90 and ~EUR 108  (n=4 with both bounds)
+  drying fan                               fair value sat between ~EUR 55 and ~EUR 78  (n=3 with both bounds)
   shipping                                 no price signal - every observation was refused as not covered
   room dryer unit                          paid at least ~EUR 384, never refused  (n=4)
-  final site cleaning                      fair value sat between ~EUR 91 and ~EUR 121  (n=3 with both bounds)
-  drying fan                               paid at least ~EUR 50, never refused  (n=2)
   indoor leak detection                    paid at least ~EUR 466, never refused  (n=6)
+  condensation dryer                       fair value sat between ~EUR 68 and ~EUR 144  (n=4 with both bounds)
   material costs                           no price signal - every observation was refused as not covered
-  condensation dryer                       fair value sat between ~EUR 53 and ~EUR 149  (n=3 with both bounds)
   installation                             paid at least ~EUR 432, never refused  (n=1)
   vehicle costs  return visit              no price signal - every observation was refused as not covered
 </market_history>
