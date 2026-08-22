@@ -15,13 +15,13 @@
    },
    {
     "index": 3,
-    "charge_price": 3714.37,
-    "acceptance_limit": 1389.34
+    "charge_price": 4628.61,
+    "acceptance_limit": 1537.44
    },
    {
     "index": 4,
-    "charge_price": 139.29,
-    "acceptance_limit": 52.1
+    "charge_price": 173.57,
+    "acceptance_limit": 57.65
    },
    {
     "index": 5,
@@ -111,23 +111,24 @@
     }
    ]
   },
-  "seconds": 8.9
+  "seconds": 8.9,
+  "repriced": true
  },
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 62048.56,
+    "income": 77224.88,
     "cost": 64434.03,
-    "net": -2385.47
+    "net": 12790.85
    },
    "optimistic": {
-    "income": 62115.76,
+    "income": 77292.08,
     "cost": 64434.03,
-    "net": -2318.27
+    "net": 12858.05
    }
   },
   "open_pairings": {
-   "income": 18,
+   "income": 19,
    "cost": 0
   },
   "items": {
@@ -162,14 +163,14 @@
     }
    },
    "3": {
-    "a": 3714.37,
-    "b": 1389.34,
+    "a": 4628.61,
+    "b": 1537.44,
     "t_lo": 7225.0,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 59429.92000000001,
-     "optimistic": 59429.92000000001
+     "pessimistic": 74057.76,
+     "optimistic": 74057.76
     },
     "cost": {
      "pessimistic": 59939.204999999994,
@@ -177,14 +178,14 @@
     }
    },
    "4": {
-    "a": 139.29,
-    "b": 52.1,
+    "a": 173.57,
+    "b": 57.65,
     "t_lo": 404.11,
     "t_hi": null,
     "fair": true,
     "income": {
-     "pessimistic": 2228.64,
-     "optimistic": 2228.64
+     "pessimistic": 2777.1200000000003,
+     "optimistic": 2777.1200000000003
     },
     "cost": {
      "pessimistic": 4494.825000000001,
@@ -231,14 +232,14 @@
    "6": "truth+payout"
   }
  },
- "pess_net": -2385.47,
- "pess_rank": 8,
- "opt_net": -2318.27,
- "opt_rank": 8,
- "exp_net": -2351.87,
- "exp_rank": 8,
+ "pess_net": 12790.85,
+ "pess_rank": 7,
+ "opt_net": 12858.05,
+ "opt_rank": 7,
+ "exp_net": 12824.45,
+ "exp_rank": 7,
  "best_team": "OPUSMOPUS",
  "best_net": 82604.095,
  "n_teams": 17,
- "replayed_now": true
+ "replayed_now": false
 }

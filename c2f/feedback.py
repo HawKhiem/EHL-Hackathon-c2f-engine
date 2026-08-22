@@ -11,6 +11,7 @@ accept/reject decisions. Market median of a across teams is a cheap second opini
 from __future__ import annotations
 
 import collections
+import functools
 import json
 import os
 import sys
@@ -24,14 +25,51 @@ B = "https://c2f.public.quantco.cloud/leaderboard/api"
 DEFAULT_TEAM = "AsianSuperNerds" 
 
 
+FEED_CACHE = ROOT / "runs" / "feed"
+
+
+@functools.lru_cache(maxsize=1)
 def teams() -> list[str]:
     return [t["team_name"] for t in requests.get(f"{B}/matrix?page=1&game_limit=1", timeout=15).json()["items"]]
 
 
+@functools.lru_cache(maxsize=1)
+def completed() -> frozenset[int]:
+    """Games the leaderboard reports as finished. Their feed can never change again."""
+    try:
+        r = requests.get(f"{B}/games", params={"completed_only": True, "page_size": 1000}, timeout=15)
+        r.raise_for_status()
+        return frozenset(int(g["id"]) for g in r.json()["items"])
+    except Exception:  # noqa: BLE001 - no cache is a slowdown, not a failure
+        return frozenset()
+
+
 def transactions(game_id: int, team: str) -> list[dict]:
+    """Transactions involving `team` in `game_id`, cached on disk once the game is closed.
+
+    A closed game's feed is immutable, and the callers hammer it: `digest` pulls
+    every team, and the tuner calls `digest` once per candidate per game. Without
+    this, one `c2f.autotune` run was ~1,800 identical HTTP requests and took
+    minutes; with it, everything after the first pass is local.
+    """
+    cacheable = game_id in completed()
+    path = FEED_CACHE / f"g{game_id:02d}_{team.replace('/', '_')}.json"
+    if cacheable and path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            pass  # corrupt cache entry: fall through and refetch
+
     r = requests.get(f"{B}/transactions", params={"game_id": game_id, "team": team, "page_size": 1000}, timeout=15)
     r.raise_for_status()
-    return r.json()["items"]
+    items = r.json()["items"]
+    if cacheable:
+        try:
+            FEED_CACHE.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(items), encoding="utf-8")
+        except OSError:
+            pass  # cache is an optimisation; never fail the caller over it
+    return items
 
 
 def digest(game_id: int) -> dict:

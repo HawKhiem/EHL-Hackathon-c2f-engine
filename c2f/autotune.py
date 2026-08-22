@@ -48,12 +48,21 @@ from c2f import backtest, postmortem
 from c2f import price as P
 from c2f.submit import ROOT
 
+_DIGEST: dict[int, dict] = {}
+
+
+def digest_once(game_id: int) -> dict:
+    """backtest.digest is pure once the feed is cached, but it is not free - the
+    candidate loop would otherwise rebuild the same digest for every trial."""
+    if game_id not in _DIGEST:
+        _DIGEST[game_id] = backtest.digest(game_id)
+    return _DIGEST[game_id]
+
 TUNING_PATH = ROOT / "runs" / "tuning.json"
 
 #: constant -> (candidate values, human note). Deliberately a short hand-authored
 #: list rather than a search: a fine grid over six constants finds noise.
 CANDIDATES: dict[str, tuple[tuple[float, ...], str]] = {
-    "K_UNCERTAINTY": ((0.10, 0.25, 0.40), "how much of the spread is shaved off the charge"),
     "RISK_AVERSION": ((0.30, 0.585, 0.85), "penalty on the sd of the per-opponent payout"),
     "B_QUANTILE": ((0.20, 0.27, 0.3333), "accept limit as a quantile of the belief"),
     "UNCOVERED_CHARGE": ((0.40, 0.60, 0.90), "free shot on an item judged worthless"),
@@ -61,8 +70,8 @@ CANDIDATES: dict[str, tuple[tuple[float, ...], str]] = {
 
 #: cause -> the constants that could plausibly move it, and in which direction.
 CAUSE_LEVERS: dict[str, list[str]] = {
-    "UNDERCHARGE": ["RISK_AVERSION", "K_UNCERTAINTY"],
-    "OVERCHARGE": ["RISK_AVERSION", "K_UNCERTAINTY"],
+    "UNDERCHARGE": ["RISK_AVERSION"],
+    "OVERCHARGE": ["RISK_AVERSION"],
     "UNDER_ESTIMATE": ["B_QUANTILE"],
     "OVER_ESTIMATE": ["B_QUANTILE"],
 }
@@ -86,41 +95,63 @@ def scored_games() -> list[int]:
     )
 
 
-def evaluate(games: list[int], us: str) -> dict[int, float]:
-    """Expected net per game under the price module's CURRENT constants."""
-    out: dict[int, float] = {}
+def evaluate(games: list[int], us: str, nets: dict) -> dict[int, dict]:
+    """Per-game rows in the shape `backtest.verdict` consumes, under the price
+    module's CURRENT constants. No model call - stored estimates are re-priced."""
+    out: dict[int, dict] = {}
     for g in games:
         stored = json.loads((backtest.OUT / f"game_{g:02d}.json").read_text(encoding="utf-8"))
         rep = backtest.reprice(g, stored["replay"])
-        d = backtest.digest(g)
-        sc = backtest.score(g, rep["rows"], d, us)
-        out[g] = (sc["scenarios"]["pessimistic"]["net"] + sc["scenarios"]["optimistic"]["net"]) / 2
+        sc = backtest.score(g, rep["rows"], digest_once(g), us)
+        pess = sc["scenarios"]["pessimistic"]["net"]
+        opt = sc["scenarios"]["optimistic"]["net"]
+        exp = (pess + opt) / 2
+        others = [nets[t][g] for t in nets if t != us and g in nets[t]]
+        out[g] = {
+            "actual_net": nets.get(us, {}).get(g, 0.0),
+            "pess_net": pess, "pess_rank": backtest.rank_of(pess, others),
+            "exp_net": exp, "exp_rank": backtest.rank_of(exp, others),
+            "opt_net": opt, "opt_rank": backtest.rank_of(opt, others),
+        }
     return out
 
 
-def trial(name: str, value: float, games: list[int], us: str) -> dict[int, float]:
+def trial(name: str, value: float, games: list[int], us: str, nets: dict) -> dict[int, dict]:
     """Re-score every game with one constant temporarily changed."""
     before = getattr(P, name)
     try:
         setattr(P, name, value)
-        return evaluate(games, us)
+        return evaluate(games, us, nets)
     finally:
         setattr(P, name, before)
 
 
-def gate(base: dict[int, float], cand: dict[int, float]) -> dict:
-    """Total must improve AND a strict majority of games must improve."""
-    deltas = {g: cand[g] - base[g] for g in base}
+def gate(base: dict[int, dict], cand: dict[int, dict], old: list[int]) -> dict:
+    """Three conditions, all required.
+
+    1. the total expected net improves;
+    2. a strict majority of individual games improve - the sign test that stops
+       one outlier round from moving a constant;
+    3. `backtest.verdict` still reports SUCCESS over the last WINDOW games. A
+       change that improves the total while dropping the strategy out of a
+       passing state is not an improvement worth shipping.
+    """
+    deltas = {g: cand[g]["exp_net"] - base[g]["exp_net"] for g in base}
     wins = sum(1 for d in deltas.values() if d > 1)
     losses = sum(1 for d in deltas.values() if d < -1)
     total = sum(deltas.values())
+    v = backtest.verdict(cand, old)
+    base_v = backtest.verdict(base, old)
     return {
         "total_delta": total,
         "wins": wins,
         "losses": losses,
         "ties": len(deltas) - wins - losses,
         "per_game": {str(g): round(d, 2) for g, d in deltas.items()},
-        "accept": total > 0 and wins > losses,
+        "backtest_success": bool(v["success"]),
+        "backtest_profitable": f"{v['profitable']}/{v['n_games']}",
+        "baseline_success": bool(base_v["success"]),
+        "accept": total > 0 and wins > losses and bool(v["success"]),
     }
 
 
@@ -164,22 +195,36 @@ def main(argv: list[str] | None = None) -> int:
     print(f"\ntunable causes point at: {levers}")
 
     # ---- 2. baseline, then every candidate through the gate ----
-    base = evaluate(games, args.team)
-    print(f"\nbaseline expected net over {len(games)} games: {sum(base.values()):,.0f}")
+    gids, nets = backtest.actual_nets()
+    old = backtest.old_games(gids)
+    base = evaluate(games, args.team, nets)
+    base_v = backtest.verdict(base, old)
+    print(f"\nbaseline expected net over {len(games)} games: "
+          f"{sum(r['exp_net'] for r in base.values()):,.0f}")
+    print(f"baseline backtest verdict over the last {len(old)} {old}: "
+          f"{'SUCCESS' if base_v['success'] else 'FAIL'}"
+          f" (profitable {base_v['profitable']}/{base_v['n_games']})")
     print(f"\n{'constant':<18}{'value':>8}{'total delta':>13}{'W-L-T':>10}  verdict")
     accepted: dict[str, float] = {}
     audit: list[dict] = []
     for name in levers:
         values, note = CANDIDATES[name]
+        if not hasattr(P, name):
+            # price.py gets refactored; a lever can vanish (K_UNCERTAINTY did when the
+            # charge moved to best_charge). Skip it loudly rather than crash the loop.
+            print(f"{name:<18}{'-':>8}{'-':>13}{'-':>10}  skipped: no longer in price.py")
+            continue
         current = getattr(P, name)
         best: tuple[float, dict] | None = None
         for v in values:
             if abs(v - current) < 1e-9:
                 continue
-            g = gate(base, trial(name, v, games, args.team))
+            g = gate(base, trial(name, v, games, args.team, nets), old)
             audit.append({"constant": name, "value": v, "current": current, **g})
             if g["accept"]:
                 flag = "ACCEPT"
+            elif not g["backtest_success"]:
+                flag = f"rejected: backtest FAILS ({g['backtest_profitable']} profitable)"
             elif g["total_delta"] > 0:
                 flag = f"rejected: total up but only {g['wins']}/{g['wins'] + g['losses']} games"
             else:

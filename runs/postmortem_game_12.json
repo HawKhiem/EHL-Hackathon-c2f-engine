@@ -1,0 +1,98 @@
+{
+ "game": 12,
+ "findings": [
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1324.5900000000001,
+   "item": 2,
+   "detail": "b=64 under the true ceiling; t >= 136, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 239.03999999999996,
+   "item": 2,
+   "detail": "a=121 but 136 was proven fair"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 845.06,
+   "item": 3,
+   "detail": "b=174 above the true ceiling (t < 80)"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 2078.74,
+   "item": 4,
+   "detail": "b=323 above the true ceiling (t < 150)"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 463.275,
+   "item": 5,
+   "detail": "b=89 under the true ceiling; t >= 113, refused fair charges"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 1474.5,
+   "item": 5,
+   "detail": "a=167 paid by 2/16; a<=113 would be paid by all"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 961.935,
+   "item": 6,
+   "detail": "b=124 under the true ceiling; t >= 232, refused fair charges"
+  },
+  {
+   "cause": "OVER_ESTIMATE",
+   "euros": 442.06,
+   "item": 7,
+   "detail": "b=159 above the true ceiling (t < 92)"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 872.625,
+   "item": 8,
+   "detail": "b=177 under the true ceiling; t >= 200, refused fair charges"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 1014.795,
+   "item": 9,
+   "detail": "b=63 under the true ceiling; t >= 146, refused fair charges"
+  },
+  {
+   "cause": "OVERCHARGE",
+   "euros": 1492.25,
+   "item": 9,
+   "detail": "a=167 paid by 5/16; a<=146 would be paid by all"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 3849.21,
+   "item": 10,
+   "detail": "b=111 under the true ceiling; t >= 400, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 1645.6000000000004,
+   "item": 10,
+   "detail": "a=297 but 400 was proven fair"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 6877.4400000000005,
+   "item": 11,
+   "detail": "b=243 under the true ceiling; t >= 650, refused fair charges"
+  },
+  {
+   "cause": "UNDER_ESTIMATE",
+   "euros": 12754.815,
+   "item": 12,
+   "detail": "b=868 under the true ceiling; t >= 2321, refused fair charges"
+  }
+ ],
+ "n_opponents": 16,
+ "income": 59114.21,
+ "claims_paid": 9919.15
+}

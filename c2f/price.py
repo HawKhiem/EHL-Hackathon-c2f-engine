@@ -36,8 +36,20 @@ from pathlib import Path
 from statistics import NormalDist
 
 UNCOVERED_CHARGE = 0.6  # fraction of the would-be price we charge on uncovered items
-B_QUANTILE = 0.18  # backtest (games 6-10): every step down from 0.27 to 0.15 paid - fraud accepted costs more than penalties saved
-RISK_AVERSION = 0.585  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout
+B_QUANTILE = 0.20  # c2f.autotune over games 1-14: +732 vs 0.18, better in 7 games, worse in 1.
+# The earlier walk down from 0.27 to 0.18 (games 6-10) overshot slightly: the market's t now runs
+# ABOVE our t_mid (calibrated bias 1.19), so refused fair charges cost more than they used to.
+RISK_AVERSION = 0.55  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout.
+# c2f.autotune over games 1-14: +8,906 vs 0.585, better in 9 games and worse in 2. It matches the
+# post-mortem (UNDERCHARGE 78k, UNDER_ESTIMATE 97k - we were too timid on both sides) and the
+# calibrated bias of 1.19, which says the market's t sits ABOVE our t_mid.
+#
+# 0.30-0.50 scored better still (+10,415) and the backtest passed, but all three break the rail
+# this term exists for: below ~0.52 the charge stops FALLING as the belief widens, because a
+# slowly-decaying acceptance curve (fitted k = 0.6) makes overcharging look profitable right up to
+# the CAP_MULT ceiling. That is true of today's lenient field and false the moment it tightens, and
+# crossing t costs ~all the revenue on that line. 0.55 buys 86% of the gain and keeps the rail.
+# 0.85 was rejected by the backtest gate rather than the total: only 2/5 recent games profitable.
 CAP_MULT = 4.0  # an accepted over-charge pays at most min(a, c) with c >= 4t (the rules' cap)
 MODEL_SPREAD_Z = 1.2816  # the model's t_low..t_high is read as an 80 % interval
 N_GRID = 200

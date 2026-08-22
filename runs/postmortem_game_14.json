@@ -1,0 +1,44 @@
+{
+ "game": 14,
+ "findings": [
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 109.77,
+   "item": 9,
+   "detail": "we called it not covered; t >= 25, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 62.39999999999998,
+   "item": 9,
+   "detail": "a=21 but 25 was proven fair"
+  },
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 703.26,
+   "item": 10,
+   "detail": "we called it not covered; t >= 130, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 1648.0,
+   "item": 10,
+   "detail": "a=27 but 130 was proven fair"
+  },
+  {
+   "cause": "COVERAGE_MISS",
+   "euros": 184.035,
+   "item": 12,
+   "detail": "we called it not covered; t >= 36, refused fair charges"
+  },
+  {
+   "cause": "UNDERCHARGE",
+   "euros": 136.15999999999997,
+   "item": 12,
+   "detail": "a=27 but 36 was proven fair"
+  }
+ ],
+ "n_opponents": 16,
+ "income": 1599.0,
+ "claims_paid": 0
+}

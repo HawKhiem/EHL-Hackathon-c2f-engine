@@ -5,6 +5,10 @@
 #   make test          unit tests
 #   make learn G=7     after game 7 closes: infer t bounds + recalibrate bias/sigma/acceptance (commits+pushes)
 #   make truth G=7      infer fair-value bounds for finished game 7 -> runs/truth_game_07.json
+#   make postmortem     attribute past rounds' losses to named causes, ranked by euros
+#   make autotune       propose constant changes from that, gated on the backtest (no writes)
+#   make propose        ask a model for a PROMPT rule from the same evidence (no writes)
+#   make stage          stage that rule, then `make replay` scores it before anyone edits SYSTEM
 # After make N / make play, the run log runs/game_NN.json is committed and pushed
 # (set PUSH=0 to skip). A failed run still commits its log. The truth inference is then
 # attempted too and runs/truth_game_NN.json committed if it succeeded (it needs the game
@@ -52,7 +56,7 @@ define push_calibration
 endef
 
 GAMES := $(shell seq 0 100)
-.PHONY: play check test fb truth backtest replay rescore $(GAMES)
+.PHONY: play check test fb truth backtest replay rescore postmortem autotune tune propose stage unstage $(GAMES)
 
 $(GAMES):
 	-$(PY) -m c2f.run $@
@@ -106,4 +110,36 @@ replay:
 
 # old name for the default behaviour
 rescore: backtest
+
+# Attribute a finished round's money to named causes, with the action for each.
+#   make postmortem G=10     one game
+#   make postmortem          every game with a run log + truth file
+postmortem:
+	$(PY) -m c2f.postmortem $(if $(G),$(G),--all)
+
+# Propose constant changes from the post-mortem, and accept one only if it passes all
+# three gates: total improves, a majority of individual games improve, and
+# `c2f.backtest` still reports SUCCESS. Proposal only by default.
+#   make autotune            report what would change and why, touch nothing
+#   make tune                same, then write runs/tuning.json for whatever passed
+autotune:
+	$(PY) -m c2f.autotune
+
+tune:
+	$(PY) -m c2f.autotune --apply
+
+# The other half of the loop: the causes no constant can reach (coverage, abstention).
+# Asks a model for a prompt rule from the post-mortem's own evidence, shows it the
+# CURRENT prompt so it cannot restate what is already there, and writes nothing.
+#   make propose      print the evidence and the proposed rules
+#   make stage        stage the top rule in runs/prompt_addendum.txt, then: make replay
+#   make unstage      drop the staged rule
+propose:
+	$(PY) -m c2f.propose
+
+stage:
+	$(PY) -m c2f.propose --write
+
+unstage:
+	$(PY) -m c2f.propose --clear
 

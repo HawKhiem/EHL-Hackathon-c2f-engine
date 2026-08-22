@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import os
+import pathlib
 import re
 import time
 
@@ -171,13 +172,29 @@ def provider() -> str:
 STRICT_SUFFIX = "\n\nIMPORTANT: you are the quick first pass. When in doubt whether an item is covered or related, answer covered=false (we can be corrected later, but a wrong acceptance pays a fraud)."
 
 
+ADDENDUM_PATH = pathlib.Path(__file__).resolve().parent.parent / "runs" / "prompt_addendum.txt"
+
+
+def addendum() -> str:
+    """Extra prompt rules under test, appended to SYSTEM when the file exists.
+
+    `c2f.propose` writes a candidate rule here so `make replay` can score it
+    against past rounds before anyone edits SYSTEM. Delete the file to revert.
+    """
+    try:
+        text = ADDENDUM_PATH.read_text(encoding="utf-8").strip()
+    except OSError:
+        return ""
+    return f"\n\n{text}" if text else ""
+
+
 def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, strict: bool = False) -> tuple[dict, dict]:
     """Return (model_json, meta). Raises on failure; caller decides the fallback."""
     from c2f.validate import validate_items  # local import: keeps price/validate free of llm's provider deps
 
     prov = provider()
     t0 = time.time()
-    system = SYSTEM + (STRICT_SUFFIX if strict else "")
+    system = SYSTEM + (STRICT_SUFFIX if strict else "") + addendum()
     model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
     raw = _call_openai(case, model, timeout, system, fast=strict)
     out = _parse_json(raw)

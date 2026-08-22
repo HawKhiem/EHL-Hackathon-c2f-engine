@@ -1,110 +1,110 @@
 {
  "team": "AsianSuperNerds",
  "games": {
-  "7": {
-   "actual_net": 12275.34,
-   "actual_rank": 3,
-   "pess_net": 4237.04,
-   "pess_rank": 8,
-   "opt_net": 5329.04,
-   "opt_rank": 8,
-   "exp_net": 4783.04,
-   "exp_rank": 8,
-   "best_team": "TakeTheMoneyAndRun",
-   "best_net": 17737.835,
-   "n_teams": 17,
-   "replayed_now": true
-  },
-  "8": {
-   "actual_net": 12291.879999999997,
-   "actual_rank": 5,
-   "pess_net": 12998.09,
-   "pess_rank": 5,
-   "opt_net": 24979.04,
-   "opt_rank": 4,
-   "exp_net": 18988.57,
-   "exp_rank": 4,
-   "best_team": "error404 ai",
-   "best_net": 34305.715000000004,
-   "n_teams": 17,
-   "replayed_now": true
-  },
-  "9": {
-   "actual_net": 13606.355000000001,
-   "actual_rank": 4,
-   "pess_net": -24919.62,
-   "pess_rank": 16,
-   "opt_net": 10341.6,
-   "opt_rank": 5,
-   "exp_net": -7289.01,
-   "exp_rank": 9,
-   "best_team": "eyay",
-   "best_net": 25056.954999999998,
-   "n_teams": 17,
-   "replayed_now": true
-  },
   "10": {
    "actual_net": -63286.91,
    "actual_rank": 14,
-   "pess_net": -2385.47,
-   "pess_rank": 8,
-   "opt_net": -2318.27,
-   "opt_rank": 8,
-   "exp_net": -2351.87,
-   "exp_rank": 8,
+   "pess_net": 12790.85,
+   "pess_rank": 7,
+   "opt_net": 12858.05,
+   "opt_rank": 7,
+   "exp_net": 12824.45,
+   "exp_rank": 7,
    "best_team": "OPUSMOPUS",
    "best_net": 82604.095,
    "n_teams": 17,
-   "replayed_now": true
+   "replayed_now": false
   },
   "11": {
    "actual_net": -21352.615,
    "actual_rank": 13,
-   "pess_net": -119.99,
+   "pess_net": 1908.19,
    "pess_rank": 7,
-   "opt_net": 129.01,
+   "opt_net": 3697.86,
    "opt_rank": 7,
-   "exp_net": 4.51,
+   "exp_net": 2803.03,
    "exp_rank": 7,
    "best_team": "TakeTheMoneyAndRun",
    "best_net": 23176.850000000002,
    "n_teams": 17,
-   "replayed_now": true
+   "replayed_now": false
+  },
+  "12": {
+   "actual_net": 21076.375,
+   "actual_rank": 2,
+   "pess_net": -29786.44,
+   "pess_rank": 13,
+   "opt_net": 34794.3,
+   "opt_rank": 1,
+   "exp_net": 2503.93,
+   "exp_rank": 5,
+   "best_team": "eyay",
+   "best_net": 25778.319999999992,
+   "n_teams": 17,
+   "replayed_now": false
+  },
+  "13": {
+   "actual_net": -9362.599999999999,
+   "actual_rank": 15,
+   "pess_net": -7536.12,
+   "pess_rank": 14,
+   "opt_net": -1842.1,
+   "opt_rank": 8,
+   "exp_net": -4689.11,
+   "exp_rank": 11,
+   "best_team": "Codacabana",
+   "best_net": 6206.045000000002,
+   "n_teams": 17,
+   "replayed_now": false
+  },
+  "14": {
+   "actual_net": 601.9350000000001,
+   "actual_rank": 5,
+   "pess_net": -289.06,
+   "pess_rank": 8,
+   "opt_net": 865.94,
+   "opt_rank": 5,
+   "exp_net": 288.44,
+   "exp_rank": 7,
+   "best_team": "Codacabana",
+   "best_net": 1685.435,
+   "n_teams": 17,
+   "replayed_now": false
   }
  },
  "old_games": [
-  7,
-  8,
-  9,
   10,
-  11
+  11,
+  12,
+  13,
+  14
  ],
- "generated_at": 1787411462.752584,
+ "generated_at": 1787414255.3853405,
  "totals": {
-  "actual": -46465.950000000004,
-  "pessimistic": -10189.949999999999,
-  "expected": 14135.24,
-  "optimistic": 38460.42,
-  "profitable": 3,
+  "actual": -72323.815,
+  "pessimistic": -22912.579999999998,
+  "expected": 13730.740000000002,
+  "optimistic": 50374.05,
+  "profitable": 4,
   "top_ranked": 0,
   "good": 0,
   "rank_target": 3,
   "wins_pess": 0,
   "wins_exp": 0,
-  "wins_opt": 0,
+  "wins_opt": 1,
   "n_games": 5,
   "n_scored": 5,
   "missing": [],
   "success": true
  },
  "calibration": {
-  "bias": 1.032,
-  "sigma": 0.8,
-  "p0": 0.31,
-  "k": 0.5,
-  "n_labels": 50,
-  "n_coverage_misses": 18,
-  "n_accept_points": 85,
+  "bias": 1.191,
+  "sigma": 0.92,
+  "p0": 0.29,
+  "k": 0.6,
+  "n_labels": 75,
+  "n_coverage_misses": 21,
+  "n_accept_points": 127,
   "labels": [
    {
     "game": 1,
@@ -454,6 +454,181 @@
     "item": 4,
     "t_lo": 80.24,
     "t_hi": null,
+    "t_mid": 30.0
+   },
+   {
+    "game": 12,
+    "item": 1,
+    "t_lo": 93.45,
+    "t_hi": 109.78,
+    "t_mid": 220.0
+   },
+   {
+    "game": 12,
+    "item": 2,
+    "t_lo": 135.66,
+    "t_hi": 153.99,
+    "t_mid": 130.0
+   },
+   {
+    "game": 12,
+    "item": 3,
+    "t_lo": 69.0,
+    "t_hi": 80.0,
+    "t_mid": 350.0
+   },
+   {
+    "game": 12,
+    "item": 4,
+    "t_lo": 119.2,
+    "t_hi": 150.0,
+    "t_mid": 650.0
+   },
+   {
+    "game": 12,
+    "item": 5,
+    "t_lo": 113.05,
+    "t_hi": 121.8,
+    "t_mid": 180.0
+   },
+   {
+    "game": 12,
+    "item": 6,
+    "t_lo": 232.15,
+    "t_hi": 263.0,
+    "t_mid": 250.0
+   },
+   {
+    "game": 12,
+    "item": 7,
+    "t_lo": 48.96,
+    "t_hi": 92.16,
+    "t_mid": 320.0
+   },
+   {
+    "game": 12,
+    "item": 8,
+    "t_lo": 200.0,
+    "t_hi": 238.3,
+    "t_mid": 357.0
+   },
+   {
+    "game": 12,
+    "item": 9,
+    "t_lo": 145.5,
+    "t_hi": 160.0,
+    "t_mid": 180.0
+   },
+   {
+    "game": 12,
+    "item": 10,
+    "t_lo": 400.0,
+    "t_hi": null,
+    "t_mid": 320.0
+   },
+   {
+    "game": 12,
+    "item": 11,
+    "t_lo": 650.01,
+    "t_hi": null,
+    "t_mid": 700.0
+   },
+   {
+    "game": 12,
+    "item": 12,
+    "t_lo": 2321.48,
+    "t_hi": null,
+    "t_mid": 2500.0
+   },
+   {
+    "game": 13,
+    "item": 1,
+    "t_lo": 38.4,
+    "t_hi": 88.19,
+    "t_mid": 25.0
+   },
+   {
+    "game": 13,
+    "item": 2,
+    "t_lo": 96.0,
+    "t_hi": 184.44,
+    "t_mid": 65.0
+   },
+   {
+    "game": 13,
+    "item": 3,
+    "t_lo": 18.0,
+    "t_hi": 38.28,
+    "t_mid": 13.0
+   },
+   {
+    "game": 13,
+    "item": 4,
+    "t_lo": 8.0,
+    "t_hi": 12.0,
+    "t_mid": 5.0
+   },
+   {
+    "game": 13,
+    "item": 5,
+    "t_lo": 20.0,
+    "t_hi": 600.0,
+    "t_mid": 16.0
+   },
+   {
+    "game": 13,
+    "item": 6,
+    "t_lo": 90.44,
+    "t_hi": null,
+    "t_mid": 45.0
+   },
+   {
+    "game": 13,
+    "item": 7,
+    "t_lo": 593.37,
+    "t_hi": null,
+    "t_mid": 390.0
+   },
+   {
+    "game": 13,
+    "item": 8,
+    "t_lo": 386.54,
+    "t_hi": null,
+    "t_mid": 165.0
+   },
+   {
+    "game": 13,
+    "item": 9,
+    "t_lo": 50.75,
+    "t_hi": null,
+    "t_mid": 55.0
+   },
+   {
+    "game": 13,
+    "item": 10,
+    "t_lo": 18.0,
+    "t_hi": null,
+    "t_mid": 5.0
+   },
+   {
+    "game": 13,
+    "item": 11,
+    "t_lo": 27.08,
+    "t_hi": 150.0,
+    "t_mid": 15.0
+   },
+   {
+    "game": 13,
+    "item": 12,
+    "t_lo": 64.46,
+    "t_hi": null,
+    "t_mid": 45.0
+   },
+   {
+    "game": 13,
+    "item": 13,
+    "t_lo": 56.44,
+    "t_hi": 80.0,
     "t_mid": 30.0
    }
   ]
