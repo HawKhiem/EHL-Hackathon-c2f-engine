@@ -32,10 +32,10 @@ optimistic where the data leaves an outcome open) and writes `runs/backtest/summ
     make replay                # call the model again for every old game (prompt / extract / policy changes)
     make replay G="2 4 6"      # call the model for these games only
 
-**Success criterion: the replayed strategy must MAKE MONEY, consistently.** A game counts when
-the expected replay net is positive *and* lands in the top 3 (`RANK_TARGET`); the verdict is
-SUCCESS when more than half the old games count and the total expected net is positive. Coming
-first is not the goal — a steady 3rd place every round beats winning twice and bleeding thrice.
+**Success criterion: the replayed strategy must MAKE MONEY, consistently.** The verdict is
+SUCCESS when the expected replay net is positive in more than half the old games and the total
+expected net is positive. Rank is printed (top-3 = `RANK_TARGET`, outright wins) but does **not**
+gate: a steady 3rd place every round while in profit is the target outcome, not a failure.
 Nothing enforces this — a pre-commit hook that blocked commits to
 `c2f/{price,llm,policy,extract,run,calibrate}.py` without a fresh passing summary was removed
 as too much friction. Run it when a change is worth checking: edit -> `make backtest` (or

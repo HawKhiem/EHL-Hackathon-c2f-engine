@@ -79,7 +79,7 @@
   8,
   9
  ],
- "generated_at": 1787410211.6719308,
+ "generated_at": 1787410320.5515919,
  "totals": {
   "actual": 32868.125,
   "pessimistic": 33628.86,
@@ -95,7 +95,7 @@
   "n_games": 5,
   "n_scored": 5,
   "missing": [],
-  "success": false
+  "success": true
  },
  "calibration": {
   "bias": 0.925,

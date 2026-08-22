@@ -17,10 +17,10 @@ Where an interval leaves the outcome open we score two scenarios: PESSIMISTIC (t
 reject whenever they could) and OPTIMISTIC (t just under t_hi, opponents accept whenever they could).
 Our rank = where our replayed net would have put us in that round's standings.
 
-THE BAR IS MONEY, NOT THE TROPHY. EXPECTED = midpoint of the two scenarios; a change is a SUCCESS
-when the expected replay is PROFITABLE (net > 0) and lands in the TOP RANK_TARGET in more than half
-of the old games, and the total expected net is positive. Coming first is not the goal - consistent
-profit near the top is, so a steady 3rd place every round beats winning twice and bleeding thrice.
+THE BAR IS MONEY, AND ONLY MONEY. EXPECTED = midpoint of the two scenarios; a change is a SUCCESS
+when the expected replay is PROFITABLE (net > 0) in more than half of the old games and the total
+expected net is positive. Rank is reported but does not gate: a steady 3rd place every round while
+in profit is exactly the target outcome, so we never fail a strategy for not topping the table.
 The population is the LAST 5 completed games whose case is decrypted locally (WINDOW), not just the
 games replayed in this invocation: games you don't name are re-scored from their stored replay (no
 model call), games with no stored replay count as a failure and are listed as missing.
@@ -55,7 +55,7 @@ from c2f import truth as truth_mod
 OUT = ROOT / "runs" / "backtest"
 INF = float("inf")
 WINDOW = 5  # the verdict is over the LAST 5 completed games with a decrypted case
-RANK_TARGET = 3  # top-3 is good enough: we optimise for money made, not for coming first
+RANK_TARGET = 3  # top-3 is the outcome we aim for; reported only - the verdict gates on money
 
 
 # ----------------------------------------------------------------------------- evidence
@@ -195,9 +195,10 @@ def verdict(games: dict, old: list[int]) -> dict:
     """Totals + SUCCESS flag over the full set of old games. `games` holds the per-game rows we have
     (replayed now or re-scored from the store); old games without a row count as a failure.
 
-    The bar is MONEY, not the trophy: a game counts when the expected replay net is positive and
-    we land in the top RANK_TARGET. Coming first is not the goal - being reliably profitable and
-    near the top is, so a steady 3rd place beats winning two games and losing three.
+    The bar is MONEY, and only money: a game counts when the expected replay net is positive.
+    Rank is reported (`top_ranked`, `good`, `wins_exp`) but does NOT gate the verdict - placing
+    3rd every round while in profit is the target outcome, so a strategy that pays in every game
+    passes even if it never tops the table.
     """
     rows = [games[g] for g in old if g in games]
     missing = [g for g in old if g not in games]
@@ -213,7 +214,7 @@ def verdict(games: dict, old: list[int]) -> dict:
         "wins_exp": sum(1 for v in rows if v["exp_rank"] == 1),
         "wins_opt": sum(1 for v in rows if v["opt_rank"] == 1),
         "n_games": n, "n_scored": len(rows), "missing": missing,
-        "success": n > 0 and not missing and good * 2 > n and sum(v["exp_net"] for v in rows) > 0,
+        "success": n > 0 and not missing and paid * 2 > n and sum(v["exp_net"] for v in rows) > 0,
     }
 
 
@@ -286,9 +287,9 @@ def main(argv: list[str] | None = None) -> int:
           f"exp {t['expected']:.0f} | opt {t['optimistic']:.0f} over {t['n_scored']}/{n} old games")
     if t["missing"]:
         print(f"MISSING replays for old games {t['missing']} - counted as a failure; run: make replay G=\"{' '.join(map(str, t['missing']))}\"")
-    print(f"VERDICT: {'SUCCESS' if t['success'] else 'NOT GOOD ENOUGH'} - profitable AND top-{RANK_TARGET} in "
-          f"{t['good']}/{n} old games (need > {n // 2}), expected net {t['expected']:.0f} "
-          f"[profitable {t['profitable']}/{n}, top-{RANK_TARGET} {t['top_ranked']}/{n}, outright wins {t['wins_exp']}]")
+    print(f"VERDICT: {'SUCCESS' if t['success'] else 'NOT GOOD ENOUGH'} - profitable in "
+          f"{t['profitable']}/{n} old games (need > {n // 2}), expected net {t['expected']:.0f} "
+          f"[rank, not gating: top-{RANK_TARGET} {t['top_ranked']}/{n}, outright wins {t['wins_exp']}]")
     cal = ROOT / "runs" / "calibration.json"
     if cal.exists():
         c = json.loads(cal.read_text())

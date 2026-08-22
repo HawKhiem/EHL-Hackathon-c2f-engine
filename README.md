@@ -12,7 +12,7 @@ The solution lives in `c2f/`; its architecture, pipeline and pricing rule are in
 ```bash
 curl -fsSL https://pixi.sh/install.sh | sh   # pixi manages Python + deps, no separate install
 pixi install
-cp .env.example .env                         # fill in TEAM_API_KEY and ANTHROPIC_API_KEY/OPENAI_API_KEY
+cp .env.example .env                         # fill in TEAM_API_KEY and OPENAI_API_KEY
 ```
 
 ## Playing a game

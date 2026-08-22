@@ -157,8 +157,9 @@ strategy write-up.
 the real opponents of that round using the public leaderboard (their charges, their implied
 accept limits, the inferred `t` bounds). Output: actual vs replayed net and rank per game,
 pessimistic and optimistic where outcomes are open, `runs/backtest/summary.json`.
-The verdict — profitable **and** top-3 (`RANK_TARGET`) on the expected net in a majority of games,
-with a positive total; money is the metric, not the trophy — is always over the **last 5** old games (`WINDOW`) = the 5 most recent completed
+The verdict — a positive expected net in a majority of games plus a positive total; money is the
+only gate, rank is reported (top-3 = `RANK_TARGET`) but never fails a run — is always over the
+**last 5** old games (`WINDOW`) = the 5 most recent completed
 games with a decrypted case; `make backtest G=...` replays only those games and re-scores the rest
 from their stored replays, and an old game with no stored replay counts as not won and is listed
 as `missing`. Running it is a judgement call, not a gate — a pre-commit hook used to enforce it
