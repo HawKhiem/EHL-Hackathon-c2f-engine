@@ -24,6 +24,7 @@ import json
 import statistics
 import sys
 
+from c2f.extract import case_labels
 from c2f.price import BUCKETS, bucket_of  # noqa: F401 - BUCKETS re-exported for callers
 from c2f.submit import ROOT
 
@@ -41,9 +42,12 @@ def estimates(game_id: int) -> dict[int, dict]:
             or {}
         )
         items = {int(i["index"]): i for i in src.get("items", []) if "index" in i}
-        descs = {int(i["index"]): i.get("description", "") for i in rec.get("case", {}).get("items", [])}
+        descs = case_labels(rec.get("case", {}))
+        # NOT setdefault: runs from games 27-29 have "_description": "" already serialised into
+        # the stored estimate, so setdefault kept the blank and the recovered label never landed.
         for i, it in items.items():
-            it.setdefault("_description", descs.get(i, ""))
+            if not it.get("_description"):
+                it["_description"] = descs.get(i, "")
         return items
     return {}
 

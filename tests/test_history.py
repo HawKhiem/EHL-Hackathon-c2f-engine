@@ -76,3 +76,23 @@ class TestRenderedBlock:
             lo, hi, n = H._band(o)
             if hi is not None:
                 assert lo <= hi, f"{b}: {lo} .. {hi}"
+
+
+class TestEveryFinishedRoundReachesTheHistory:
+    """The failure this guards against was silent: nothing errored, the block just stopped moving.
+
+    load_case stopped parsing the invoice, so every item's _description came back "", every row
+    bucketed as "other", and build() - which requires a non-blank description - dropped games 27
+    and 28 entirely. The same blank also sent c2f.price to the flat global bias instead of the
+    item's category. A game that contributes no label at all is the signature; assert on it.
+    """
+
+    def test_no_game_contributes_only_blank_labels(self):
+        from c2f.accuracy import rows
+
+        R = rows()
+        if not R:
+            return  # no truth files in this checkout
+        labelled = {r["game"] for r in R if r["description"].strip()}
+        blank = sorted({r["game"] for r in R} - labelled)
+        assert not blank, f"games whose items carry no line label: {blank}"

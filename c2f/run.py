@@ -24,7 +24,7 @@ from pathlib import Path
 
 from c2f import llm
 from c2f.env import load_dotenv  # noqa: F401 - .env must be in os.environ before the constants below
-from c2f.extract import load_case
+from c2f.extract import case_labels, load_case
 from c2f.price import price_all
 from c2f.submit import ROOT, fetch_case, submit
 from c2f.validate import invalid_indices, validate_items
@@ -71,9 +71,15 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
     # The invoice wording rides along so c2f.price can pick a per-category bias. The model's
     # own output has no description field, and the category is where the estimate's bias
     # actually lives - one global multiplier is right for material and wrong for drying.
-    descs = {int(it["index"]): it.get("description", "") for it in case.get("items", [])}
+    # This must NOT read case["items"]: that list is empty since the invoice stopped being
+    # line-parsed, and a blank description sends price.bias_for straight to the global bias.
+    # Games 27 and 28 priced every line that way. case_labels reads the labels instead.
+    descs = case_labels(case)
+    # NOT setdefault: make backtest reprices STORED estimates, and the logs from games 27-29
+    # carry "_description": "" already, which setdefault would keep.
     for i in wanted:
-        by_idx[i].setdefault("_description", descs.get(i, ""))
+        if not by_idx[i].get("_description"):
+            by_idx[i]["_description"] = descs.get(i, "")
     return [by_idx[i] for i in wanted]
 
 

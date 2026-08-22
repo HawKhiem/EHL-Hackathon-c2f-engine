@@ -26,3 +26,21 @@ def test_merge_placeholder_is_a_valid_uncovered_item():
 def test_merge_without_parse_trusts_model_order():
     out = {"items": [{"index": 2}, {"index": 1}]}
     assert [e["index"] for e in merge_estimates({"items": []}, out)] == [1, 2]
+
+
+def test_merge_labels_items_from_the_case_so_pricing_gets_a_category():
+    """price.bias_for falls back to the flat global bias on a blank description."""
+    case = {"items": [], "item_labels": {"1": "Skilled worker hours"}}
+    est = merge_estimates(case, {"items": [{"index": 1, "covered": True}]})
+    assert est[0]["_description"] == "Skilled worker hours"
+
+
+def test_merge_refreshes_a_blank_label_on_a_stored_estimate():
+    """make backtest reprices logs from games 27-29, which stored "_description": "" verbatim.
+
+    setdefault kept that blank, so a repriced round stayed on the global bias no matter what
+    the case could tell it.
+    """
+    case = {"items": [], "item_labels": {"1": "Skilled worker hours"}}
+    stored = {"items": [{"index": 1, "covered": True, "_description": ""}]}
+    assert merge_estimates(case, stored)[0]["_description"] == "Skilled worker hours"

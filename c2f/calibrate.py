@@ -19,6 +19,7 @@ import statistics
 import sys
 from statistics import NormalDist
 
+from c2f.extract import case_labels
 from c2f.price import bucket_of, BIAS_RANGE, CALIBRATION_PATH, DEFAULT_CALIBRATION, K_RANGE, P0_RANGE, SIGMA_RANGE
 from c2f.submit import ROOT
 
@@ -42,9 +43,12 @@ def estimates(game_id: int) -> dict[int, dict]:
         )
         if out:
             items = {int(it["index"]): it for it in out["items"]}
-            descs = {int(i["index"]): i.get("description", "") for i in rec.get("case", {}).get("items", [])}
+            descs = case_labels(rec.get("case", {}))
+            # NOT setdefault: runs from games 27-29 have "_description": "" already serialised into
+            # the stored estimate, so setdefault kept the blank and the recovered label never landed.
             for i, it in items.items():
-                it.setdefault("_description", descs.get(i, ""))
+                if not it.get("_description"):
+                    it["_description"] = descs.get(i, "")
             return items
     return {}
 
