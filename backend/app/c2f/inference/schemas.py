@@ -26,44 +26,64 @@ FALLBACK_MEDIAN: float = 200.0
 FALLBACK_SIGMA_LOG: float = 1.2
 
 
-def extract_json(text: str) -> Any | None:
-    """First complete JSON object or array in `text`, or None.
+def _scan_balanced(text: str, start: int, opener: str, closer: str) -> Any | None:
+    """Parse the balanced `opener`..`closer` span beginning at `start`.
 
-    Handles ```json fences, leading commentary, and trailing prose. Brace
-    counting is string-aware so a `{` inside an evidence string cannot throw off
-    the balance.
+    String-aware, so a brace inside an evidence string cannot throw off the
+    depth count.
+    """
+    depth = 0
+    in_string = False
+    escaped = False
+    for index in range(start, len(text)):
+        char = text[index]
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == '"':
+                in_string = False
+            continue
+        if char == '"':
+            in_string = True
+        elif char == opener:
+            depth += 1
+        elif char == closer:
+            depth -= 1
+            if depth == 0:
+                try:
+                    return json.loads(text[start : index + 1])
+                except json.JSONDecodeError:
+                    return None
+    return None
+
+
+def extract_json(text: str) -> Any | None:
+    """First complete JSON value in `text`, or None.
+
+    Handles ```json fences, leading commentary, and trailing prose.
+
+    Scans for whichever of `[` or `{` appears **first**, which is the whole
+    point: our prompts ask for an array of per-item objects, and an earlier
+    version tried `{` before `[`. On `[{...}, {...}]` that returned only the
+    first object, so every line item but the first silently fell back to the
+    heuristic - on a real 18-item case, 17 wrong prices and no error anywhere.
     """
     if not text:
         return None
 
-    for opener, closer in (("{", "}"), ("[", "]")):
-        start = text.find(opener)
-        while start != -1:
-            depth = 0
-            in_string = False
-            escaped = False
-            for index in range(start, len(text)):
-                char = text[index]
-                if in_string:
-                    if escaped:
-                        escaped = False
-                    elif char == "\\":
-                        escaped = True
-                    elif char == '"':
-                        in_string = False
-                    continue
-                if char == '"':
-                    in_string = True
-                elif char == opener:
-                    depth += 1
-                elif char == closer:
-                    depth -= 1
-                    if depth == 0:
-                        try:
-                            return json.loads(text[start : index + 1])
-                        except json.JSONDecodeError:
-                            break
-            start = text.find(opener, start + 1)
+    cursor = 0
+    while cursor < len(text):
+        candidates = [(text.find(c, cursor), c) for c in "[{"]
+        candidates = [(pos, c) for pos, c in candidates if pos != -1]
+        if not candidates:
+            return None
+        start, opener = min(candidates)
+        parsed = _scan_balanced(text, start, opener, "]" if opener == "[" else "}")
+        if parsed is not None:
+            return parsed
+        cursor = start + 1
     return None
 
 

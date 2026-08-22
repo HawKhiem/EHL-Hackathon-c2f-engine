@@ -297,3 +297,39 @@ async def test_the_pricing_call_receives_the_policy():
 
     assert "INSURANCE POLICY" in seen["pricing"]
     assert "Comprehensive glass cover" in seen["pricing"]
+
+
+def test_extract_json_keeps_every_element_of_an_array():
+    """The regression that mattered: an 18-item case silently priced 17 items wrong.
+
+    An earlier scan tried `{` before `[`, so a JSON array returned only its first
+    object and every later line item fell back to the heuristic with no error
+    logged anywhere. Assert on the LAST element, not the first.
+    """
+    text = '[{"item_id": "1", "p_valid": 0.9}, {"item_id": "2", "p_valid": 0.8}, {"item_id": "3", "p_valid": 0.7}]'
+    payload = extract_json(text)
+    assert isinstance(payload, list) and len(payload) == 3
+    rows = index_by_item(payload)
+    assert set(rows) == {"1", "2", "3"}
+    assert rows["3"]["p_valid"] == 0.7
+
+
+def test_every_item_of_a_multi_item_reply_gets_real_inference():
+    """End-to-end version of the same bug: no item may be silently degraded."""
+    merged = merge_inferences(
+        ITEMS,
+        index_by_item(extract_json(json.dumps(validity_payload()))),
+        index_by_item(extract_json(json.dumps(pricing_payload()))),
+    )
+    assert [i.item_id for i in merged] == ["1", "2"]
+    assert not any(i.degraded for i in merged), "an item fell back to the heuristic"
+    assert merged[1].p_valid == 0.9
+    assert merged[1].unit_quantiles.q50 == 85.0
+
+
+def test_a_prose_wrapped_array_still_yields_every_item():
+    text = (
+        "Here is the analysis:\n```json\n" + json.dumps(pricing_payload()) + "\n```\nLet me know."
+    )
+    rows = index_by_item(extract_json(text))
+    assert set(rows) == {"1", "2"}
