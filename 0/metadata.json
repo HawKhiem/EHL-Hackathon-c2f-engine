@@ -1,0 +1,37 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0MKR1ME0YM95585ZCND7JEW",
+  "session_id": "27ddb723-39e9-4a64-b715-b2958bb3e7bb",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-22T11:29:57.3196136Z",
+  "branch": "test/entire-pipeline-check",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "docs/AGENT-TOOLING.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "5d71f86c60e5",
+  "checkpoint_transcript_start": 81,
+  "transcript_lines_at_start": 81,
+  "compact_transcript_start": 15,
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 706,
+    "cache_read_tokens": 59553,
+    "output_tokens": 699,
+    "api_call_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-22T11:29:57.2958836Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 0,
+    "total_lines_changed": 0,
+    "agent_percentage": 0,
+    "metric_version": 2
+  }
+}
