@@ -3071,5 +3071,117 @@
   "description": "Skilled worker hours",
   "t_lo": 0.0,
   "t_hi": 404.54
+ },
+ {
+  "game": 39,
+  "index": 1,
+  "description": "Floor cleaning, washing machine connection check, and removal and replacement of water-damaged skirting boards in the utility room and hallway",
+  "t_lo": 423.0,
+  "t_hi": 454.24
+ },
+ {
+  "game": 39,
+  "index": 2,
+  "description": "Moisture measurement and drying of the utility room and hallway floor, incl. drying unit and skilled labour",
+  "t_lo": 554.82,
+  "t_hi": 709.72
+ },
+ {
+  "game": 39,
+  "index": 3,
+  "description": "Assessment and drying of a small framed decorative print from the hallway",
+  "t_lo": 300.0,
+  "t_hi": null
+ },
+ {
+  "game": 40,
+  "index": 1,
+  "description": "Cleaning of affected floor areas in the utility room and adjoining hallway",
+  "t_lo": 98.77,
+  "t_hi": 109.56
+ },
+ {
+  "game": 40,
+  "index": 2,
+  "description": "Inspection of the washing machine and supply/drain connection to confirm no further leakage",
+  "t_lo": 135.0,
+  "t_hi": 152.31
+ },
+ {
+  "game": 40,
+  "index": 3,
+  "description": "Removal and disposal of water-damaged skirting boards",
+  "t_lo": 67.89,
+  "t_hi": 86.74
+ },
+ {
+  "game": 40,
+  "index": 4,
+  "description": "Replace skirting boards",
+  "t_lo": 111.53,
+  "t_hi": 126.0
+ },
+ {
+  "game": 40,
+  "index": 5,
+  "description": "Moisture measurement of the utility room and hallway floor",
+  "t_lo": 108.0,
+  "t_hi": 148.78
+ },
+ {
+  "game": 40,
+  "index": 6,
+  "description": "Drying of the affected floor area",
+  "t_lo": 233.13,
+  "t_hi": 248.59
+ },
+ {
+  "game": 40,
+  "index": 7,
+  "description": "Drying unit rental",
+  "t_lo": 53.0,
+  "t_hi": 69.49
+ },
+ {
+  "game": 40,
+  "index": 8,
+  "description": "Skilled worker hours",
+  "t_lo": 216.0,
+  "t_hi": 226.76
+ },
+ {
+  "game": 40,
+  "index": 9,
+  "description": "Transport of the high-value painting to the specialist restorer",
+  "t_lo": 156.44,
+  "t_hi": 177.75
+ },
+ {
+  "game": 40,
+  "index": 10,
+  "description": "Professional assessment of the high-value painting",
+  "t_lo": 455.18,
+  "t_hi": 540.0
+ },
+ {
+  "game": 40,
+  "index": 11,
+  "description": "Conservatory drying and stabilisation of the painting",
+  "t_lo": 900.0,
+  "t_hi": 1162.4
+ },
+ {
+  "game": 40,
+  "index": 12,
+  "description": "Full restoration of the painting",
+  "t_lo": 2136.75,
+  "t_hi": 2879.8
+ },
+ {
+  "game": 40,
+  "index": 13,
+  "description": "Return transport and rehanging of the restored painting",
+  "t_lo": 187.37,
+  "t_hi": 250.0
  }
 ]
