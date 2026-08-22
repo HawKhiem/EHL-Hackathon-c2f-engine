@@ -94,7 +94,7 @@ exact shape and nothing else (no markdown fences):
 Every line item index that appears on the invoice MUST appear exactly once."""
 
 
-def build_user_message(case: dict) -> str:
+def build_user_message(case: dict, only: list[int] | None = None, sweep: bool = False) -> str:
     items_txt = ""
     if case.get("items"):
         rows = "\n".join(
@@ -123,6 +123,26 @@ def build_user_message(case: dict) -> str:
         f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n"
         f"{items_txt}"
         + ("\nImages from the case are attached.\n" if case.get("images") else "")
+        # Chunking keeps the WHOLE policy and invoice in front of the model and narrows only
+        # the answer. Splitting the context instead would cost the cross-item signal - a
+        # duplicated line, or labour inconsistent with the parts fitted - which is exactly
+        # what a single whole-invoice call was for.
+        + (
+            "\nPRICE ONLY THESE POS NUMBERS: "
+            + ", ".join(str(i) for i in only)
+            + f". Return exactly {len(only)} objects, one per listed POS number"
+            + (
+                # One chunk keeps the job of catching what the parser missed. Game 11 had 22
+                # line items across several invoices, the parser found 11, and the 11 it never
+                # saw went out at 0/0 - two thirds of that round's loss.
+                ", PLUS one object for every POS number that appears in the invoice text above"
+                " but is missing from the parsed list. Do not lose those.\n"
+                if sweep
+                else ", and no others. The rest of the invoice is context only.\n"
+            )
+            if only
+            else ""
+        )
         + "\nReturn the JSON now."
     )
 
@@ -135,12 +155,14 @@ def _parse_json(text: str) -> dict:
     return json.loads(m.group(0))
 
 
-def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, fast: bool = False) -> str:
+def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM, fast: bool = False, only: list[int] | None = None, sweep: bool = False) -> str:
     from openai import OpenAI
 
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
-    content: list[dict] = [{"type": "text", "text": build_user_message(case)}]
-    for img in case.get("images", []):
+    content: list[dict] = [{"type": "text", "text": build_user_message(case, only, sweep)}]
+    # Only the sweep chunk (or an unchunked call) carries the images. Every chunk sees the
+    # same case, so re-uploading them per chunk multiplies the cost that misses deadlines.
+    for img in (case.get("images", []) if (only is None or sweep) else []):
         content.append(
             {"type": "image_url", "image_url": {"url": f"data:{img['media_type']};base64,{img['b64']}"}}
         )
@@ -188,15 +210,20 @@ def addendum() -> str:
     return f"\n\n{text}" if text else ""
 
 
-def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, strict: bool = False) -> tuple[dict, dict]:
-    """Return (model_json, meta). Raises on failure; caller decides the fallback."""
+def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, strict: bool = False,
+             only: list[int] | None = None, sweep: bool = False) -> tuple[dict, dict]:
+    """Return (model_json, meta). Raises on failure; caller decides the fallback.
+
+    `only` restricts the ANSWER to those POS numbers while leaving the whole case in
+    the prompt. c2f.run uses it to split a large invoice into short parallel calls so a
+    slow one costs its own items rather than the entire round."""
     from c2f.validate import validate_items  # local import: keeps price/validate free of llm's provider deps
 
     prov = provider()
     t0 = time.time()
     system = SYSTEM + (STRICT_SUFFIX if strict else "") + addendum()
     model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
-    raw = _call_openai(case, model, timeout, system, fast=strict)
+    raw = _call_openai(case, model, timeout, system, fast=strict, only=only, sweep=sweep)
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):
         raise ValueError("model JSON has no items list")

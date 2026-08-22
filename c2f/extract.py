@@ -29,6 +29,10 @@ UNITS = (
     r"kg|g|l|m|km|m2|m²|sqm|m3|m³|lfm|rolls?|boxes|box|bags?|cans?|litres?|liters?|[–-]"
 )
 ITEM_RE = re.compile(r"^\s*(\d{1,3})\s+(.+?)\s*(\d+(?:[.,]\d+)?|[–-])\s+(" + UNITS + r")\s*$")
+#: Total raw bytes of case images we are willing to upload. The 53 s window is spent on
+#: upload as much as on inference - case 15 carried 21.5 MB of PNGs (28.7 MB base64) and
+#: its full pass never came back. See load_case.
+IMAGE_BUDGET_BYTES = 4_000_000
 HEADER_RE = re.compile(r"^\s*POS\.?\s+DESCRIPTION", re.I)
 STOP_RE = re.compile(r"^\s*(INVOICE|Created on|Page \d|TOTAL|Subtotal|VAT|Notes?)\b", re.I)
 
@@ -157,17 +161,32 @@ def load_case(case_dir: Path, game_id: int) -> dict:
     )
     pdfs = sorted(case_dir.glob("*.pdf"))
     invoice_text = "\n\n".join(pdf_text(p) for p in pdfs)
-    images = []
-    for p in sorted(case_dir.iterdir()):
+    # Images are budgeted, smallest first. Case 15 shipped photo1.png at 10.5 MB and
+    # photo2.png at 10.9 MB - 28.7 MB once base64'd - and its full pass never returned
+    # inside the 53 s window. Upload time is the binding cost here, and a 10 MB photo
+    # carries no more signal for this task than a 1 MB one. We keep the smallest image
+    # unconditionally so a case is never left blind, then add more while under budget.
+    candidates = sorted(
+        (p for p in case_dir.iterdir() if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif"}),
+        key=lambda p: p.stat().st_size,
+    )
+    images, spent, skipped = [], 0, []
+    for n, p in enumerate(candidates):
+        size = p.stat().st_size
+        if n and spent + size > IMAGE_BUDGET_BYTES:
+            skipped.append(f"{p.name} ({size // 1024} KiB)")
+            continue
         ext = p.suffix.lower()
-        if ext in {".png", ".jpg", ".jpeg", ".webp", ".gif"}:
-            images.append(
-                {
-                    "name": p.name,
-                    "media_type": "image/jpeg" if ext in {".jpg", ".jpeg"} else f"image/{ext[1:]}",
-                    "b64": base64.b64encode(p.read_bytes()).decode(),
-                }
-            )
+        images.append(
+            {
+                "name": p.name,
+                "media_type": "image/jpeg" if ext in {".jpg", ".jpeg"} else f"image/{ext[1:]}",
+                "b64": base64.b64encode(p.read_bytes()).decode(),
+            }
+        )
+        spent += size
+    if skipped:
+        print(f"  image budget {IMAGE_BUDGET_BYTES // 1024} KiB reached; skipped {', '.join(skipped)}")
     return {
         "game_id": game_id,
         "policy": policy.strip(),

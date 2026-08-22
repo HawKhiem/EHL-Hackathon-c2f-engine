@@ -34,6 +34,14 @@ FAST_TIMEOUT_S = 45.0
 MIN_MODEL_S = 10.0  # never give the full pass less than this, however long the digest took
 DIGEST_WAIT_S = 17.0  # how long the full pass waits for c2f.policy (11-15 s on gpt-5.6-luna) before going without
 
+# Above this many line items the full pass is split into parallel calls of at most this size.
+# Games 10 and 15 both shipped a fast-pass-only answer because ONE long full call missed the
+# deadline and its whole result was lost - 6 items with 46 s left, and 29 items with 28 s left.
+# Split, the round's latency is the slowest chunk instead of the whole invoice, and a chunk that
+# misses costs only its own items: the rest keep their refined prices.
+CHUNK_ITEMS = 8
+MAX_CHUNKS = 4  # more parallel calls than this starts competing for the same rate limit
+
 
 def log(msg: str, t0: float) -> None:
     print(f"[{time.time() - t0:5.1f}s] {msg}", flush=True)
@@ -54,6 +62,42 @@ def merge_estimates(case: dict, out: dict) -> list[dict]:
         if i not in by_idx:  # parsed but the model skipped it: price as unknown, log loudly
             by_idx[i] = {"index": i, "covered": False, "related": False, "reason": "MISSING FROM MODEL OUTPUT"}
     return [by_idx[i] for i in wanted]
+
+
+def value_of(est: dict) -> float:
+    """A rough per-item stake, used only to decide what gets priced first."""
+    for key in ("t_mid", "t_high", "t_if_covered", "t_low"):
+        try:
+            v = float(est.get(key) or 0)
+        except (TypeError, ValueError):
+            continue
+        if v > 0:
+            return v
+    return 0.0
+
+
+def plan_chunks(indices: list[int], fast_out: dict | None) -> list[list[int]]:
+    """Split the invoice into chunks, biggest-stake items first.
+
+    Order matters as much as the split. Game 10's entire 63k loss was ONE line - a
+    stolen watch worth 7,225 - so if only one chunk had come back it needed to be the
+    one holding that item. When the fast pass has already landed we use its numbers to
+    rank; otherwise invoice order is all we have.
+    """
+    if len(indices) <= CHUNK_ITEMS:
+        return [list(indices)]
+    ranked = list(indices)
+    if fast_out:
+        by_idx: dict[int, float] = {}
+        for it in fast_out.get("items", []):
+            try:
+                by_idx[int(it["index"])] = value_of(it)
+            except (KeyError, TypeError, ValueError):
+                continue
+        ranked.sort(key=lambda i: -by_idx.get(i, 0.0))
+    n = min(MAX_CHUNKS, -(-len(ranked) // CHUNK_ITEMS))
+    size = -(-len(ranked) // n)
+    return [ranked[k : k + size] for k in range(0, len(ranked), size)]
 
 
 def _num(v) -> float:
@@ -153,8 +197,14 @@ def main(argv: list[str] | None = None) -> int:
     def run_model(model: str | None, timeout: float, strict: bool, c: dict):
         return llm.estimate(c, timeout=timeout, model=model, strict=strict)
 
+    def run_model_only(model: str | None, timeout: float, c: dict, only: list[int] | None, sweep: bool):
+        """One full-pass chunk: whole case in the prompt, answer narrowed to `only`."""
+        return llm.estimate(c, timeout=timeout, model=model, strict=False, only=only, sweep=sweep)
+
     tags: dict = {}
-    ex = ThreadPoolExecutor(max_workers=3)
+    # digest + fast + up to MAX_CHUNKS full chunks all need to run at once; a pool of 3 would
+    # serialise the chunks and defeat the split.
+    ex = ThreadPoolExecutor(max_workers=2 + MAX_CHUNKS)
     try:
         # Digest and fast pass start together; the fast pass is the safety net and must not wait
         # for the digest. dict(case) so attaching the digest cannot mutate a prompt already built.
@@ -174,34 +224,81 @@ def main(argv: list[str] | None = None) -> int:
             save()
 
         budget = max(MIN_MODEL_S, DEADLINE_S - (time.time() - t0))
-        tags[ex.submit(run_model, full_model, budget, False, case)] = "full"
 
-        pending, full_done = set(tags), False
-        while pending and not full_done:
+        # Split the full pass. One long call is all-or-nothing: games 10 and 15 both lost the
+        # entire full result to the deadline and shipped fast-pass prices. Chunked, the round's
+        # latency is the slowest chunk and a chunk that misses costs only its own items.
+        fast_landed = next((f for f in tags if tags[f] == "fast" and f.done()), None)
+        fast_peek = None
+        if fast_landed is not None:
+            try:
+                fast_peek = fast_landed.result(timeout=0)[0]
+            except Exception:  # noqa: BLE001 - only used to order the chunks
+                fast_peek = None
+        parsed_idx = sorted({int(it["index"]) for it in case.get("items", [])})
+        chunks = plan_chunks(parsed_idx, fast_peek) if parsed_idx else [None]
+        for n, chunk in enumerate(chunks):
+            tag = "full" if len(chunks) == 1 else f"full[{n + 1}/{len(chunks)}]"
+            # chunk 0 also sweeps for POS numbers the parser missed
+            tags[ex.submit(run_model_only, full_model, budget, case, chunk, n == 0)] = tag
+        if len(chunks) > 1:
+            log(f"full pass split into {len(chunks)} chunks: {chunks}", t0)
+
+        full_tags = {t for t in tags.values() if t.startswith("full")}
+        full_items: dict[int, dict] = {}  # accumulates across chunks
+        pending, full_seen = set(tags), set()
+        while pending and full_seen != full_tags:
             remaining = DEADLINE_S - (time.time() - t0)
             if remaining <= 0:
                 log("deadline reached, stop waiting for the model", t0)
                 break
             done, pending = wait(pending, timeout=remaining, return_when=FIRST_COMPLETED)
             # if both landed in the same batch, submit fast first so full is the last write
-            for f in sorted(done, key=lambda f: tags[f] == "full"):
+            for f in sorted(done, key=lambda f: tags[f].startswith("full")):
                 tag = tags[f]
+                is_full = tag.startswith("full")
                 try:
                     out, meta = f.result()
                 except Exception as e:  # noqa: BLE001
                     record[f"model_{tag}_error"] = str(e)
                     log(f"model [{tag}] failed: {e}", t0)
+                    if is_full:
+                        full_seen.add(tag)  # a dead chunk must not stall the others
                     continue
                 record[f"model_{tag}"] = {"meta": {k: v for k, v in meta.items() if k != "raw"}, "output": out}
-                record["estimate"] = out  # full runs last, so it wins; fast is the fallback
                 log(f"model [{tag}] {meta['model']} answered in {meta['seconds']}s", t0)
                 for w in meta.get("validation_errors", []):
                     log(f"model [{tag}] INVALID: {w}", t0)
-                if tag == "full":
-                    full_done = True
-                # once the full pass lands, the fast pass (if it landed too) is a free second
-                # opinion - price_all uses it as the disagreement check, not another vote.
-                other_output = record.get("model_fast", {}).get("output") if tag == "full" else None
+
+                if is_full:
+                    full_seen.add(tag)
+                    # Accumulate: each chunk refines its own items, and the accumulated set is
+                    # re-priced and submitted in FULL every time. Submitting only the chunk's
+                    # rows would rely on the server keeping omitted lines, and the handbook is
+                    # ambiguous there ("upsert" vs "omitted line items use the game defaults").
+                    # A wrong guess resets everything to 0/0, so we never test it under a clock.
+                    for it in out.get("items", []):
+                        try:
+                            full_items[int(it["index"])] = it
+                        except (KeyError, TypeError, ValueError):
+                            continue
+                    merged = {"items": list(full_items.values())}
+                    fast_out = record.get("model_fast", {}).get("output")
+                    # unrefined items fall back to the fast pass rather than to nothing
+                    if fast_out:
+                        for it in fast_out.get("items", []):
+                            try:
+                                i = int(it["index"])
+                            except (KeyError, TypeError, ValueError):
+                                continue
+                            if i not in full_items:
+                                merged["items"].append(it)
+                    out, record["estimate"] = merged, merged
+                    other_output = fast_out
+                else:
+                    record["estimate"] = out  # fast is the fallback until a chunk lands
+                    other_output = None
+
                 other_by_idx: dict[int, dict] = {}
                 for it in (other_output or {}).get("items", []):
                     try:
@@ -209,10 +306,10 @@ def main(argv: list[str] | None = None) -> int:
                     except (KeyError, TypeError, ValueError):
                         continue
                 resolved, fatal = resolve_invalid_items(merge_estimates(case, out), other_by_idx)
-                for f in fatal:
-                    log(f"model [{tag}] FATAL: item {f['index']}: {f['reason']}", t0)
+                for bad in fatal:
+                    log(f"model [{tag}] FATAL: item {bad['index']}: {bad['reason']}", t0)
                 if fatal:
-                    record.setdefault("fatal_items", []).extend({**f, "tag": tag} for f in fatal)
+                    record.setdefault("fatal_items", []).extend({**b, "tag": tag} for b in fatal)
                 rows = price_all(resolved, other_output=other_output)
                 record[f"priced_{tag}"] = rows
                 do_submit(rows, tag)
