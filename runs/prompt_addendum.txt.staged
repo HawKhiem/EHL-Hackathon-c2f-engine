@@ -1,0 +1,5 @@
+For a named valuable item (jewellery, watch, art, collectible) where the policy references a sub-limit or schedule cap for that category but does not state the figure, cap_uncertain does not license a zero estimate: still price the item at the tier implied by the description's own characterisation (e.g. "premium replacement watch" -> a frugal several-thousand-euro estimate, not the base model), the same way a stated brand or "luxury" wording is already priced. t_mid = 0 is only for not-covered/not-related items; an unknown cap is not that.
+
+For separately invoiced skilled-worker, helper or service-technician hours, calculate the total using the full stated hour quantity at a conservative customary rate; do not substitute a guessed smaller number of hours merely because the repair is described as minor or straightforward, unless evidence specifically identifies hours as unrelated or excessive.
+
+For specialist conservation, stabilisation or full restoration of a damaged painting, set t_low at no less than 95% of t_mid unless the file identifies a concrete scope uncertainty or disputed treatment.

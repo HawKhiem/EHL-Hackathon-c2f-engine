@@ -54,8 +54,8 @@ def test_old_games_is_last_window_of_decrypted_completed_games(tmp_path, monkeyp
     for g in (1, 2, 3, 4, 6, 7, 8):  # 5 completed but not decrypted
         (tmp_path / "cases" / f"case_{g:02d}").mkdir(parents=True)
         (tmp_path / "cases" / f"case_{g:02d}" / "policy.txt").write_text("x")
-    assert old_games([1, 2, 3, 4, 5, 6, 7, 8]) == [3, 4, 6, 7, 8]
-    assert old_games([1, 2, 3]) == [1, 2, 3]
+    assert old_games([1, 2, 3, 4, 5, 6, 7, 8], window=5) == [3, 4, 6, 7, 8]
+    assert old_games([1, 2, 3], window=5) == [1, 2, 3]
 
 
 def test_reprice_uses_stored_estimate_and_current_pricing(tmp_path, monkeypatch):

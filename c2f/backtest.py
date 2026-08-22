@@ -21,7 +21,7 @@ THE BAR IS MONEY, AND ONLY MONEY. EXPECTED = midpoint of the two scenarios; a ch
 when the expected replay is PROFITABLE (net > 0) in more than half of the old games and the total
 expected net is positive. Rank is reported but does not gate: a steady 3rd place every round while
 in profit is exactly the target outcome, so we never fail a strategy for not topping the table.
-The population is the LAST 5 completed games whose case is decrypted locally (WINDOW), not just the
+The population is the LAST 10 completed games whose case is decrypted locally (WINDOW), not just the
 games replayed in this invocation: games you don't name are re-scored from their stored replay (no
 model call), games with no stored replay count as a failure and are listed as missing.
 
@@ -54,7 +54,7 @@ from c2f import truth as truth_mod
 
 OUT = ROOT / "runs" / "backtest"
 INF = float("inf")
-WINDOW = 5  # the verdict is over the LAST 5 completed games with a decrypted case
+WINDOW = 10  # the verdict is over the LAST 10 completed games with a decrypted case
 RANK_TARGET = 3  # top-3 is the outcome we aim for; reported only - the verdict gates on money
 
 
