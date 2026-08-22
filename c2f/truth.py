@@ -24,7 +24,6 @@ from c2f.feedback import B, teams, transactions
 from c2f.submit import ROOT
 
 TOL = 0.06
-MAX_COMBOS = 300_000
 
 
 def _diff(a: float, acc: bool, t: float) -> float:
@@ -76,17 +75,30 @@ def infer(game_id: int) -> dict[int, dict]:
     while changed and rounds < 30:
         changed, rounds = False, rounds + 1
         for X, Y, v, inv in eqs:
-            prod = 1
-            for i in inv:
-                prod *= len(feas[i])
-            if prod > MAX_COMBOS:
-                continue
             tabs = [{k: contrib(X, Y, i, k) for k in feas[i]} for i in inv]
+            # exact, via subset-sum DP in cents over the distinct contribution values per item
+            vals = [sorted({round(c * 100) for c in t.values()}) for t in tabs]
+            n = len(inv)
+            pre = [set() for _ in range(n + 1)]
+            pre[0].add(0)
+            for j in range(n):
+                pre[j + 1] = {p + c for p in pre[j] for c in vals[j]}
+            suf = [set() for _ in range(n + 1)]
+            suf[n].add(0)
+            for j in range(n - 1, -1, -1):
+                suf[j] = {q + c for q in suf[j + 1] for c in vals[j]}
+            target = round(v * 100)
+            tol = int(TOL * 100) + 1
             ok = {i: set() for i in inv}
-            for combo in itertools.product(*[sorted(feas[i]) for i in inv]):
-                if abs(sum(tabs[j][k] for j, k in enumerate(combo)) - v) <= TOL:
-                    for j, k in enumerate(combo):
-                        ok[inv[j]].add(k)
+            for j, i in enumerate(inv):
+                good_vals = set()
+                for c in vals[j]:
+                    rest = target - c
+                    if any((rest - p - d) in suf[j + 1] for p in pre[j] for d in range(-tol, tol + 1)):
+                        good_vals.add(c)
+                for k, c in tabs[j].items():
+                    if round(c * 100) in good_vals:
+                        ok[i].add(k)
             if all(not ok[i] for i in inv):
                 continue  # inconsistent (cap?) -> ignore this equation
             for i in inv:
