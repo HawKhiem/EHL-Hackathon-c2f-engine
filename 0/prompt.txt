@@ -27,3 +27,7 @@ Yes fix it and try to beat eyay in the most recent rounds since their models mus
 ---
 
 Could we, instead of returning direct values of estimation, return a distribution instead and calculate using this distribution, with biases based on the strongest teams and
+
+---
+
+Yeah and fix game 41 gap
