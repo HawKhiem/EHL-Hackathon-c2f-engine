@@ -1,17 +1,20 @@
-PYTHON := python3
+PYTHON := pixi run python
 GAME ?= 0
 
 .PHONY: setup history estimate submit
 
 setup:
-	$(PYTHON) -m pip install --quiet requests openai pypdf
-	@command -v 7z >/dev/null 2>&1 || brew install p7zip
+	pixi install
 
+# Rebuild runs/history.json from new truth files. Run this BETWEEN rounds, never inside the
+# 60s submission window - it is deliberately not a prerequisite of estimate/submit.
 history:
 	$(PYTHON) -m c2f.history
 
-estimate: history
+estimate:
 	$(PYTHON) -m c2f.run --game $(GAME) --no-submit
 
-submit: history
+# Start this BEFORE the round begins: it polls for the key, then decrypts, estimates and
+# submits the moment the game opens.
+submit:
 	$(PYTHON) -m c2f.run --game $(GAME)
