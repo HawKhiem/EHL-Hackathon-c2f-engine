@@ -63,7 +63,9 @@ def main(argv: list[str] | None = None) -> int:
             print(f"ERROR: {e}", file=sys.stderr)
             return 2
         if prov == "mock":
-            print("WARNING: C2F_MOCK is set - playing with the canned answer", file=sys.stderr)
+            print("ERROR: C2F_MOCK is set in your environment - refusing to play a real game on the canned "
+                  "answer. Run `unset C2F_MOCK`, or pass --mock if you really mean it.", file=sys.stderr)
+            return 2
 
     t0 = time.time()
     record: dict = {"game_id": args.game_id, "started_at": t0, "submissions": []}
