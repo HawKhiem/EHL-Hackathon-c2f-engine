@@ -36,7 +36,7 @@ from pathlib import Path
 from statistics import NormalDist
 
 UNCOVERED_CHARGE = 0.6  # fraction of the would-be price we charge on uncovered items
-B_QUANTILE = 0.27
+B_QUANTILE = 0.18  # backtest (games 6-10): every step down from 0.27 to 0.15 paid - fraud accepted costs more than penalties saved
 RISK_AVERSION = 0.585  # charge maximises mean - RISK_AVERSION * sd of the per-opponent payout
 CAP_MULT = 4.0  # an accepted over-charge pays at most min(a, c) with c >= 4t (the rules' cap)
 MODEL_SPREAD_Z = 1.2816  # the model's t_low..t_high is read as an 80 % interval

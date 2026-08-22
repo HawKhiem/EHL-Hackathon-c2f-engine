@@ -111,7 +111,7 @@ def main(argv: list[str] | None = None) -> int:
     # ---- MODEL: fast pass for safety, then ONE full pass that overwrites it. No votes.
     full_model = os.environ.get("C2F_MODEL")
     fast_model = os.environ.get("C2F_FAST_MODEL") or (
-        "claude-sonnet-5" if os.environ.get("ANTHROPIC_API_KEY") else "gpt-5-mini"
+        "claude-sonnet-5" if os.environ.get("ANTHROPIC_API_KEY") else "gpt-5.6-terra"
     )
 
     def run_model(model: str | None, timeout: float, strict: bool, c: dict):

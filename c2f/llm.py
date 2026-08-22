@@ -1,7 +1,7 @@
 """One model call per case. Provider picked by which key is set.
 
 ANTHROPIC_API_KEY -> Claude (default model claude-opus-5, override C2F_MODEL)
-OPENAI_API_KEY    -> OpenAI (default model gpt-5, override C2F_MODEL)
+OPENAI_API_KEY    -> OpenAI (default model gpt-5.6-sol, override C2F_MODEL)
 neither          -> error
 
 The model sees policy + description + invoice verbatim and returns JSON.
@@ -35,6 +35,13 @@ submitted after an insured event. For EVERY line item on the invoice you decide:
               worst-case. Claims experts are frugal: when unsure, go lower. Use any
               value hints in the damage description (stated worth, age, make, size). Respect policy limits
               (sum insured, market value, caps, deductibles) - t must not exceed them.
+
+              BUT the description's own characterisation of the item binds: if it
+              calls something "expensive", "designer", "luxury", "premium",
+              "high-end", "professional" or names a premium brand, the fair value is
+              that tier's like-for-like replacement (an "expensive watch" is a
+              several-thousand-euro watch, not a standard one). Frugal means no
+              invented upgrades, not ignoring stated value.
 
               NEVER INVENT SPECIFICS. If the invoice/description does not state a brand,
               model, screen size, wattage, channel count or other premium feature, do not
@@ -183,8 +190,10 @@ def _call_openai(case: dict, model: str, timeout: float, system: str = SYSTEM) -
         )
     kwargs: dict = {}
     if model.startswith(("gpt-5", "o")):
-        default = "minimal" if "mini" in model or "nano" in model else "low"
-        kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING_FAST" if default == "minimal" else "C2F_REASONING", default)
+        small = "mini" in model or "nano" in model
+        # gpt-5.x rejects "minimal"; its floor is "none"
+        default = ("minimal" if model.startswith("gpt-5-") else "none") if small else "low"
+        kwargs["reasoning_effort"] = os.environ.get("C2F_REASONING_FAST" if small else "C2F_REASONING", default)
     resp = client.chat.completions.create(
         model=model,
         messages=[{"role": "system", "content": system}, {"role": "user", "content": content}],
@@ -216,7 +225,7 @@ def estimate(case: dict, *, timeout: float = 35.0, model: str | None = None, str
         model = model or os.environ.get("C2F_MODEL") or "claude-opus-5"
         raw = _call_anthropic(case, model, timeout, system)
     else:
-        model = model or os.environ.get("C2F_MODEL") or "gpt-5"
+        model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-sol"
         raw = _call_openai(case, model, timeout, system)
     out = _parse_json(raw)
     if "items" not in out or not isinstance(out["items"], list):

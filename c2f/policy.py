@@ -6,7 +6,7 @@ caps, deductibles and exclusions at the end, so we ask the FASTEST model to pull
 and put them in FRONT of the verbatim text. The expensive pass then starts from the clauses
 that decide `covered` instead of having to find them.
 
-Cheap enough to run every game (~3 s on gpt-5-nano), but the game has a 60 s clock, so it is
+Cheap enough to run every game (~3 s), but the game has a 60 s clock, so it is
 best-effort by design: any failure or timeout means the run proceeds on the verbatim policy
 alone, which is still complete. run.py starts it in parallel and bounds the wait.
 """
@@ -20,7 +20,7 @@ from pathlib import Path
 from c2f.llm import _parse_json, provider
 
 # Fastest model per provider. Override with C2F_DIGEST_MODEL.
-FAST = {"anthropic": "claude-haiku-4-5", "openai": "gpt-5-nano"}
+FAST = {"anthropic": "claude-haiku-4-5", "openai": "gpt-5.6-luna"}
 TIMEOUT_S = 12.0
 
 SYSTEM = """You are reading a German insurance policy for a claims expert who will decide,
@@ -61,6 +61,11 @@ def render(d: dict) -> str:
     return "\n\n".join(parts)
 
 
+def _min_effort(model: str) -> str:
+    """Lowest reasoning setting the model accepts: gpt-5.x calls it "none", gpt-5 "minimal"."""
+    return "minimal" if model.startswith(("gpt-5-", "gpt-5o")) or model == "gpt-5" else "none"
+
+
 def _call(text: str, model: str, prov: str, timeout: float) -> str:
     user = f"<policy>\n{text}\n</policy>\n\nReturn the JSON now."
     if prov == "anthropic":
@@ -86,7 +91,7 @@ def _call(text: str, model: str, prov: str, timeout: float) -> str:
         model=model,
         messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
         max_completion_tokens=4000,
-        reasoning_effort=os.environ.get("C2F_REASONING_FAST", "minimal"),
+        reasoning_effort=os.environ.get("C2F_REASONING_FAST", _min_effort(model)),
     )
     return resp.choices[0].message.content or ""
 

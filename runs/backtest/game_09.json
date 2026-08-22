@@ -5,8 +5,8 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 1013.69,
-    "acceptance_limit": 768.78
+    "charge_price": 1081.64,
+    "acceptance_limit": 780.07
    },
    {
     "index": 2,
@@ -35,8 +35,8 @@
    },
    {
     "index": 7,
-    "charge_price": 74.08,
-    "acceptance_limit": 56.18
+    "charge_price": 79.04,
+    "acceptance_limit": 57.01
    },
    {
     "index": 8,
@@ -50,33 +50,33 @@
    },
    {
     "index": 10,
-    "charge_price": 779.76,
-    "acceptance_limit": 591.37
+    "charge_price": 832.03,
+    "acceptance_limit": 600.05
    },
    {
     "index": 11,
-    "charge_price": 701.79,
-    "acceptance_limit": 532.23
+    "charge_price": 748.83,
+    "acceptance_limit": 540.05
    },
    {
     "index": 12,
-    "charge_price": 74.08,
-    "acceptance_limit": 56.18
+    "charge_price": 79.04,
+    "acceptance_limit": 57.01
    },
    {
     "index": 13,
-    "charge_price": 187.14,
-    "acceptance_limit": 141.93
+    "charge_price": 199.69,
+    "acceptance_limit": 144.01
    },
    {
     "index": 14,
-    "charge_price": 249.52,
-    "acceptance_limit": 189.24
+    "charge_price": 266.25,
+    "acceptance_limit": 192.02
    },
    {
     "index": 15,
-    "charge_price": 1169.64,
-    "acceptance_limit": 887.05
+    "charge_price": 1248.05,
+    "acceptance_limit": 900.08
    },
    {
     "index": 16,
@@ -272,30 +272,30 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 25748.58,
-    "cost": 14595.68,
-    "net": 11152.89
+    "income": 27296.67,
+    "cost": 15687.69,
+    "net": 11608.99
    },
    "optimistic": {
-    "income": 30596.7,
-    "cost": 14595.68,
-    "net": 16001.02
+    "income": 31112.2,
+    "cost": 15687.69,
+    "net": 15424.51
    }
   },
   "open_pairings": {
-   "income": 18,
+   "income": 13,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 1013.69,
-    "b": 768.78,
+    "a": 1081.64,
+    "b": 780.07,
     "t_lo": 0.0,
     "t_hi": 38.3,
     "fair": false,
     "income": {
-     "pessimistic": 4054.76,
-     "optimistic": 6082.140000000001
+     "pessimistic": 4326.56,
+     "optimistic": 6489.840000000001
     },
     "cost": {
      "pessimistic": 2488.31,
@@ -378,14 +378,14 @@
     }
    },
    "7": {
-    "a": 74.08,
-    "b": 56.18,
+    "a": 79.04,
+    "b": 57.01,
     "t_lo": 81.95,
     "t_hi": 90.0,
     "fair": true,
     "income": {
-     "pessimistic": 1185.28,
-     "optimistic": 1185.28
+     "pessimistic": 1264.6399999999999,
+     "optimistic": 1264.6399999999999
     },
     "cost": {
      "pessimistic": 656.6700000000001,
@@ -423,14 +423,14 @@
     }
    },
    "10": {
-    "a": 779.76,
-    "b": 591.37,
+    "a": 832.03,
+    "b": 600.05,
     "t_lo": 862.59,
     "t_hi": 1076.07,
     "fair": true,
     "income": {
-     "pessimistic": 12476.160000000002,
-     "optimistic": 12476.160000000002
+     "pessimistic": 13312.480000000003,
+     "optimistic": 13312.480000000003
     },
     "cost": {
      "pessimistic": 3088.9900000000002,
@@ -438,14 +438,14 @@
     }
    },
    "11": {
-    "a": 701.79,
-    "b": 532.23,
+    "a": 748.83,
+    "b": 540.05,
     "t_lo": 576.4,
     "t_hi": 600.0,
     "fair": false,
     "income": {
-     "pessimistic": 1403.58,
-     "optimistic": 1403.58
+     "pessimistic": 1497.66,
+     "optimistic": 1497.66
     },
     "cost": {
      "pessimistic": 2695.99,
@@ -453,14 +453,14 @@
     }
    },
    "12": {
-    "a": 74.08,
-    "b": 56.18,
+    "a": 79.04,
+    "b": 57.01,
     "t_lo": 82.31,
     "t_hi": 90.0,
     "fair": true,
     "income": {
-     "pessimistic": 1185.28,
-     "optimistic": 1185.28
+     "pessimistic": 1264.6399999999999,
+     "optimistic": 1264.6399999999999
     },
     "cost": {
      "pessimistic": 528.235,
@@ -468,14 +468,14 @@
     }
    },
    "13": {
-    "a": 187.14,
-    "b": 141.93,
+    "a": 199.69,
+    "b": 144.01,
     "t_lo": 87.3,
     "t_hi": 113.4,
     "fair": false,
     "income": {
-     "pessimistic": 1122.84,
-     "optimistic": 1309.98
+     "pessimistic": 1198.14,
+     "optimistic": 1198.14
     },
     "cost": {
      "pessimistic": 401.29,
@@ -483,33 +483,33 @@
     }
    },
    "14": {
-    "a": 249.52,
-    "b": 189.24,
+    "a": 266.25,
+    "b": 192.02,
     "t_lo": 0.0,
     "t_hi": 113.4,
     "fair": false,
     "income": {
-     "pessimistic": 499.04,
-     "optimistic": 1746.64
+     "pessimistic": 532.5,
+     "optimistic": 798.75
     },
     "cost": {
-     "pessimistic": 692.4000000000001,
-     "optimistic": 692.4000000000001
+     "pessimistic": 884.4000000000001,
+     "optimistic": 884.4000000000001
     }
    },
    "15": {
-    "a": 1169.64,
-    "b": 887.05,
+    "a": 1248.05,
+    "b": 900.08,
     "t_lo": 0.0,
     "t_hi": 113.4,
     "fair": false,
     "income": {
-     "pessimistic": 1169.64,
-     "optimistic": 1169.64
+     "pessimistic": 1248.05,
+     "optimistic": 1248.05
     },
     "cost": {
-     "pessimistic": 4043.7999999999997,
-     "optimistic": 4043.7999999999997
+     "pessimistic": 4943.8,
+     "optimistic": 4943.8
     }
    },
    "16": {
@@ -547,11 +547,11 @@
    "16": "truth+payout"
   }
  },
- "pess_net": 11152.89,
+ "pess_net": 11608.99,
  "pess_rank": 5,
- "opt_net": 16001.02,
+ "opt_net": 15424.51,
  "opt_rank": 3,
- "exp_net": 13576.95,
+ "exp_net": 13516.75,
  "exp_rank": 4,
  "best_team": "eyay",
  "best_net": 25056.954999999998,

@@ -91,7 +91,7 @@ def parse_items(text: str) -> list[dict]:
             buf = ln.strip()
         else:
             buf += " " + ln.strip()
-        if flush(buf):
+        if buf is not None and flush(buf):
             buf = None
     # indices must be 1..n and unique, else distrust the parse
     idxs = [it["index"] for it in items]

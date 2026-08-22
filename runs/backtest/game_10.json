@@ -1,0 +1,244 @@
+{
+ "actual_net": -63286.91,
+ "actual_rank": 14,
+ "replay": {
+  "rows": [
+   {
+    "index": 1,
+    "charge_price": 84.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 2,
+    "charge_price": 7.2,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 3,
+    "charge_price": 748.83,
+    "acceptance_limit": 378.03
+   },
+   {
+    "index": 4,
+    "charge_price": 166.41,
+    "acceptance_limit": 84.01
+   },
+   {
+    "index": 5,
+    "charge_price": 54.0,
+    "acceptance_limit": 0.0
+   },
+   {
+    "index": 6,
+    "charge_price": 3.6,
+    "acceptance_limit": 0.0
+   }
+  ],
+  "estimate": {
+   "policy_summary": "Household effects incl. valuables covered for insured perils; strict exclusions for admin/translation/shipping; sub-limits (valuables, cash, away-from-home) and deductible per schedule.",
+   "items": [
+    {
+     "index": 1,
+     "covered": false,
+     "related": true,
+     "clause": "3.1.6; 7.1.8(f)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 140,
+     "cap_uncertain": false,
+     "reason": "Translation for claim substantiation expressly excluded."
+    },
+    {
+     "index": 2,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(e)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 12,
+     "cap_uncertain": false,
+     "reason": "Provider materials/handling surcharge not indemnifiable."
+    },
+    {
+     "index": 3,
+     "covered": true,
+     "related": true,
+     "clause": "7.1.1; 7.1.9; 4.2.2; 4.2.4; 6.3",
+     "t_low": 500,
+     "t_mid": 900,
+     "t_high": 1200,
+     "t_if_covered": 0,
+     "cap_uncertain": true,
+     "reason": "Watch taken by force; pay like-for-like within sub-limits."
+    },
+    {
+     "index": 4,
+     "covered": true,
+     "related": true,
+     "clause": "2.3.1; 4.2.3; 6.3",
+     "t_low": 100,
+     "t_mid": 200,
+     "t_high": 300,
+     "t_if_covered": 0,
+     "cap_uncertain": true,
+     "reason": "Cash taken; indemnify within means-of-payment sub-limit."
+    },
+    {
+     "index": 5,
+     "covered": false,
+     "related": false,
+     "clause": "2.3.4(a); 7.1.5",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 90,
+     "cap_uncertain": false,
+     "reason": "Sunglasses mislaid later; not an insured event."
+    },
+    {
+     "index": 6,
+     "covered": false,
+     "related": true,
+     "clause": "7.1.8(b)",
+     "t_low": 0,
+     "t_mid": 0,
+     "t_high": 0,
+     "t_if_covered": 6,
+     "cap_uncertain": false,
+     "reason": "Shipping/forwarding charges are expressly excluded."
+    }
+   ]
+  },
+  "seconds": 25.3
+ },
+ "score": {
+  "scenarios": {
+   "pessimistic": {
+    "income": 14887.44,
+    "cost": 65664.32,
+    "net": -50776.88
+   },
+   "optimistic": {
+    "income": 14991.84,
+    "cost": 65664.32,
+    "net": -50672.49
+   }
+  },
+  "open_pairings": {
+   "income": 21,
+   "cost": 0
+  },
+  "items": {
+   "1": {
+    "a": 84.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 72.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 168.0,
+     "optimistic": 168.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "2": {
+    "a": 7.2,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 3.0,
+    "fair": false,
+    "income": {
+     "pessimistic": 14.4,
+     "optimistic": 14.4
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "3": {
+    "a": 748.83,
+    "b": 378.03,
+    "t_lo": 7225.0,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 11981.28,
+     "optimistic": 11981.28
+    },
+    "cost": {
+     "pessimistic": 61169.5,
+     "optimistic": 61169.5
+    }
+   },
+   "4": {
+    "a": 166.41,
+    "b": 84.01,
+    "t_lo": 404.11,
+    "t_hi": null,
+    "fair": true,
+    "income": {
+     "pessimistic": 2662.56,
+     "optimistic": 2662.56
+    },
+    "cost": {
+     "pessimistic": 4494.825,
+     "optimistic": 4494.825
+    }
+   },
+   "5": {
+    "a": 54.0,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 38.3,
+    "fair": false,
+    "income": {
+     "pessimistic": 54.0,
+     "optimistic": 108.0
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   },
+   "6": {
+    "a": 3.6,
+    "b": 0.0,
+    "t_lo": 0.0,
+    "t_hi": 9.0,
+    "fair": null,
+    "income": {
+     "pessimistic": 7.2,
+     "optimistic": 57.600000000000016
+    },
+    "cost": {
+     "pessimistic": 0.0,
+     "optimistic": 0.0
+    }
+   }
+  },
+  "evidence": {
+   "1": "truth+payout",
+   "2": "truth+payout",
+   "3": "truth+payout",
+   "4": "truth+payout",
+   "5": "truth+payout",
+   "6": "truth+payout"
+  }
+ },
+ "pess_net": -50776.88,
+ "pess_rank": 11,
+ "opt_net": -50672.49,
+ "opt_rank": 11,
+ "exp_net": -50724.68,
+ "exp_rank": 11,
+ "best_team": "OPUSMOPUS",
+ "best_net": 82604.095,
+ "n_teams": 17,
+ "replayed_now": true
+}

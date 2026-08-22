@@ -71,7 +71,7 @@ and caps live.
 
 They *are* long enough to bury the decisive clauses, so `c2f/policy.py` runs a
 pre-extraction pass on every game: one call to the **fastest** model (`claude-haiku-4-5` /
-`gpt-5-nano`, override `C2F_DIGEST_MODEL`, ~3 s) reads policy.txt and returns the parts that
+`gpt-5.6-luna`, override `C2F_DIGEST_MODEL`, ~3 s) reads policy.txt and returns the parts that
 bind — insured event, conditions, limits, deductibles, exclusions, obligations — rendered
 into a `<policy_digest>` block placed *in front of* the verbatim text. It is a reading aid,
 never a replacement: the full policy is still in the prompt and the prompt says so.
@@ -124,7 +124,7 @@ Belief on `t`: lognormal with median `t_mid × bias` and log-sd `max(σ, model s
 - **Not covered / not related**: `b = 0`; `a = 0.6 × t_if_covered` (no downside under the
   rules: rejected fraud costs the issuer nothing).
 
-**No votes.** An earlier version ran the fast pass plus three `gpt-5` votes and aggregated
+**No votes.** An earlier version ran the fast pass plus three full-model votes and aggregated
 them into an ensemble. Comparing fast against full over six logged games
 (`runs/game_{01,03,04,06,07,08}.json`, scored on the `runs/truth_game_*.json` brackets):
 the two agreed on 70 of 82 coverage calls, and of the 12 disagreements 4 favoured fast,
@@ -140,10 +140,10 @@ Constants at the top of `price.py`: `RISK_AVERSION`, `UNCOVERED_CHARGE`, `B_QUAN
 |---|---|
 | `TEAM_API_KEY` | QuantCo team key (required) |
 | `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` | whichever is set picks the provider (Anthropic first) |
-| `C2F_MODEL` | full-pass model (default `claude-opus-5` / `gpt-5`) |
-| `C2F_FAST_MODEL` | fast-pass model (default `claude-sonnet-5` / `gpt-5-mini`) |
-| `C2F_DIGEST_MODEL` | policy-digest model (default `claude-haiku-4-5` / `gpt-5-nano`) |
-| `C2F_REASONING` | OpenAI `reasoning_effort` for gpt-5 models (default `low`) |
+| `C2F_MODEL` | full-pass model (default `claude-opus-5` / `gpt-5.6-sol`) |
+| `C2F_FAST_MODEL` | fast-pass model (default `claude-sonnet-5` / `gpt-5.6-terra`) |
+| `C2F_DIGEST_MODEL` | policy-digest model (default `claude-haiku-4-5` / `gpt-5.6-luna`) |
+| `C2F_REASONING` | OpenAI `reasoning_effort` for the full pass (default `low`; gpt-5.6 floor is `none`, not `minimal`) |
 
 ## Logs
 

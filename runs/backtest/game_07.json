@@ -5,33 +5,33 @@
   "rows": [
    {
     "index": 1,
-    "charge_price": 1169.64,
-    "acceptance_limit": 887.05
+    "charge_price": 1248.05,
+    "acceptance_limit": 900.08
    },
    {
     "index": 2,
-    "charge_price": 1169.64,
-    "acceptance_limit": 887.05
+    "charge_price": 1248.05,
+    "acceptance_limit": 900.08
    },
    {
     "index": 3,
-    "charge_price": 740.77,
-    "acceptance_limit": 561.8
+    "charge_price": 790.43,
+    "acceptance_limit": 570.05
    },
    {
     "index": 4,
-    "charge_price": 740.77,
-    "acceptance_limit": 561.8
+    "charge_price": 790.43,
+    "acceptance_limit": 570.05
    },
    {
     "index": 5,
-    "charge_price": 116.96,
-    "acceptance_limit": 88.71
+    "charge_price": 124.81,
+    "acceptance_limit": 90.01
    },
    {
     "index": 6,
-    "charge_price": 62.38,
-    "acceptance_limit": 47.31
+    "charge_price": 66.56,
+    "acceptance_limit": 48.0
    }
   ],
   "estimate": {
@@ -111,45 +111,45 @@
  "score": {
   "scenarios": {
    "pessimistic": {
-    "income": 23049.67,
+    "income": 6331.79,
     "cost": 17437.12,
-    "net": 5612.54
+    "net": -11105.33
    },
    "optimistic": {
-    "income": 27673.64,
+    "income": 28738.44,
     "cost": 17437.12,
-    "net": 10236.52
+    "net": 11301.31
    }
   },
   "open_pairings": {
-   "income": 9,
+   "income": 22,
    "cost": 0
   },
   "items": {
    "1": {
-    "a": 1169.64,
-    "b": 887.05,
+    "a": 1248.05,
+    "b": 900.08,
     "t_lo": 1232.54,
     "t_hi": 1756.44,
-    "fair": true,
+    "fair": null,
     "income": {
-     "pessimistic": 18714.239999999998,
-     "optimistic": 18714.239999999998
+     "pessimistic": 2496.1,
+     "optimistic": 19968.799999999996
     },
     "cost": {
-     "pessimistic": 9315.205,
-     "optimistic": 9315.205
+     "pessimistic": 9315.204999999998,
+     "optimistic": 9315.204999999998
     }
    },
    "2": {
-    "a": 1169.64,
-    "b": 887.05,
+    "a": 1248.05,
+    "b": 900.08,
     "t_lo": 0.0,
     "t_hi": 80.83,
     "fair": false,
     "income": {
-     "pessimistic": 2339.28,
-     "optimistic": 4678.56
+     "pessimistic": 2496.1,
+     "optimistic": 4992.2
     },
     "cost": {
      "pessimistic": 2625.2200000000003,
@@ -157,29 +157,29 @@
     }
    },
    "3": {
-    "a": 740.77,
-    "b": 561.8,
+    "a": 790.43,
+    "b": 570.05,
     "t_lo": 467.5,
     "t_hi": 522.36,
     "fair": false,
     "income": {
      "pessimistic": 0.0,
-     "optimistic": 1481.54
+     "optimistic": 1580.86
     },
     "cost": {
-     "pessimistic": 2894.8100000000004,
-     "optimistic": 2894.8100000000004
+     "pessimistic": 2894.81,
+     "optimistic": 2894.81
     }
    },
    "4": {
-    "a": 740.77,
-    "b": 561.8,
+    "a": 790.43,
+    "b": 570.05,
     "t_lo": 0.0,
     "t_hi": 123.63,
     "fair": false,
     "income": {
-     "pessimistic": 740.77,
-     "optimistic": 1481.54
+     "pessimistic": 0.0,
+     "optimistic": 790.43
     },
     "cost": {
      "pessimistic": 2362.27,
@@ -187,14 +187,14 @@
     }
    },
    "5": {
-    "a": 116.96,
-    "b": 88.71,
+    "a": 124.81,
+    "b": 90.01,
     "t_lo": 53.6,
     "t_hi": 74.18,
     "fair": false,
     "income": {
-     "pessimistic": 818.72,
-     "optimistic": 818.72
+     "pessimistic": 873.6699999999998,
+     "optimistic": 873.6699999999998
     },
     "cost": {
      "pessimistic": 127.78,
@@ -202,14 +202,14 @@
     }
    },
    "6": {
-    "a": 62.38,
-    "b": 47.31,
+    "a": 66.56,
+    "b": 48.0,
     "t_lo": 21.98,
     "t_hi": 43.06,
     "fair": false,
     "income": {
-     "pessimistic": 436.66,
-     "optimistic": 499.04
+     "pessimistic": 465.92,
+     "optimistic": 532.48
     },
     "cost": {
      "pessimistic": 111.84,
@@ -226,12 +226,12 @@
    "6": "truth+payout"
   }
  },
- "pess_net": 5612.54,
- "pess_rank": 8,
- "opt_net": 10236.52,
+ "pess_net": -11105.33,
+ "pess_rank": 10,
+ "opt_net": 11301.31,
  "opt_rank": 5,
- "exp_net": 7924.53,
- "exp_rank": 7,
+ "exp_net": 97.99,
+ "exp_rank": 8,
  "best_team": "TakeTheMoneyAndRun",
  "best_net": 17737.835,
  "n_teams": 17,
