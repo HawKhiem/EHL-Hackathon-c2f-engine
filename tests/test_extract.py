@@ -40,8 +40,10 @@ def test_load_case_0():
     c = load_case(CASE0, 0)
     assert "BICYCLE THEFT" in c["policy"]
     assert "420" in c["description"]
-    # The invoice is never line-parsed: the model reads c["invoice_text"] itself.
-    assert c["items"] == []
+    # The model is still never handed a parsed table - it reads c["invoice_text"] itself.
+    # c["items"] mirrors the recovered POS numbers, and exists only so c2f.run can chunk.
+    assert [it["index"] for it in c["items"]] == [1]
+    assert c["items"][0]["description"] == "New Bike"
     assert "New Bike" in c["invoice_text"]
     assert c["invoice_meta"]["trade"] == "Bikeshop"
     assert c["images"] == []
@@ -254,10 +256,12 @@ def test_load_case_0_recovers_labels():
 
         pytest.skip("case_00 not extracted")
     c = load_case(CASE0, 0)
-    # items stays empty: the model is still not handed a parsed list, and run.py must not
-    # start chunking or inventing MISSING items off the back of a best-effort recovery.
-    assert c["items"] == []
+    # items and item_labels are the same recovery, in the two shapes their readers want:
+    # c2f.run iterates items to plan chunks, c2f.price/history key on the labels.
     assert "New Bike" in c["item_labels"].values()
+    assert {it["index"]: it["description"] for it in c["items"]} == {
+        int(k): v for k, v in c["item_labels"].items()
+    }
 
 
 def test_item_labels_strips_quantity_with_thousands_separator():
@@ -290,3 +294,23 @@ def test_case_labels_falls_back_to_a_stored_items_parse():
 
 def test_case_labels_of_a_case_with_nothing_to_read():
     assert case_labels({}) == {}
+
+
+def test_load_case_items_drive_chunking():
+    """c2f.run plans its chunks off case["items"]; an empty list silently disables chunking.
+
+    Games 29-33 hid this: 4-7 item invoices answer in one call in under 10 s either way. It
+    surfaced on the big ones - game 31 (18 items) took 32.8 s and its submission came back
+    403 GAME ALREADY ENDED, game 35 (20 items) took 37.9 s and only just landed.
+    """
+    from c2f.run import plan_chunks
+
+    text = "ITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n" + "".join(
+        f"{i} Item number {i} 1 pcs\n" for i in range(1, 21)
+    )
+    labels = item_labels(text)
+    assert len(labels) == 20
+    items = [{"index": i, "description": d} for i, d in sorted(labels.items())]
+    chunks = plan_chunks([it["index"] for it in items], None)
+    assert len(chunks) == 2, "20 items must split; one call is what lost game 31"
+    assert sorted(i for c in chunks for i in c) == list(range(1, 21)), "no item may be dropped"

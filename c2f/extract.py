@@ -176,6 +176,7 @@ def load_case(case_dir: Path, game_id: int) -> dict:
     )
     pdfs = sorted(case_dir.glob("*.pdf"))
     invoice_text = "\n\n".join(pdf_text(p) for p in pdfs)
+    labels = item_labels(invoice_text)
     images = []
     for p in sorted(case_dir.iterdir()):
         ext = p.suffix.lower()
@@ -195,13 +196,25 @@ def load_case(case_dir: Path, game_id: int) -> dict:
         "description": desc.strip(),
         "invoice_text": invoice_text.strip(),
         "invoice_meta": parse_meta(invoice_text),
-        # No deterministic parse: the model reads the full invoice text above. The key stays
-        # so callers that iterate it (run.py, price.py) need no special case. It also stays
-        # EMPTY on purpose - run.py derives its chunking plan and its "MISSING FROM MODEL
-        # OUTPUT" placeholders from this list, and neither should be driven by a best-effort
-        # label recovery. item_labels below is read only for the category of an item we
-        # already have.
-        "items": [],
-        "item_labels": item_labels(invoice_text),
+        # The POS numbers item_labels recovered. NOT a reading aid for the model - the model
+        # still reads the full invoice_text above and the prompt carries no parsed table.
+        # This list exists so c2f.run can split a long invoice into parallel calls.
+        #
+        # It used to be left empty on the grounds that a chunk plan should not ride on a
+        # best-effort recovery. The measurements since say otherwise, on both halves:
+        #  - The recovery is not in fact best-effort in practice: it reproduces the POS list
+        #    exactly on all 37 stored invoices, including the two that broke the old parser
+        #    (game 11's 1..11,13..23 and game 27's "68 lines").
+        #  - Leaving it empty is not the safe side. One un-chunked call is all-or-nothing and
+        #    its cost scales with the invoice: games 29/30/32/33 (4-7 items) answered in
+        #    6.5-9.2 s, but game 31 (18 items) took 32.8 s and its submission came back 403
+        #    GAME ALREADY ENDED, and game 35 (20 items) took 37.9 s and only just landed.
+        #    Chunked, the round's latency is the slowest chunk (case 35 measured 33.9 s -> 26.8 s)
+        #    and - the part that actually matters - c2f.run submits after EVERY chunk, so a
+        #    slow chunk costs its own items instead of shipping an empty board.
+        # A wrong or short list still cannot lose a line: chunk 0 sweeps for POS numbers
+        # missing from its list, and merge_estimates unions the model's indices with these.
+        "items": [{"index": i, "description": d} for i, d in sorted(labels.items())],
+        "item_labels": labels,
         "images": images,
     }
