@@ -3,8 +3,10 @@
   "checkpoint_id": "01M0NKD8JAKD12Z1WR5Q8KT262",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 1,
-  "files_touched": null,
+  "checkpoints_count": 2,
+  "files_touched": [
+    "c2f/price.py"
+  ],
   "sessions": [
     {
       "metadata": "/0/metadata.json",
@@ -12,13 +14,20 @@
       "compact_transcript": "/0/transcript.jsonl",
       "content_hash": "/0/content_hash.txt",
       "prompt": "/0/prompt.txt"
+    },
+    {
+      "metadata": "/1/metadata.json",
+      "transcript": "/1/full.jsonl",
+      "compact_transcript": "/1/transcript.jsonl",
+      "content_hash": "/1/content_hash.txt",
+      "prompt": "/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 114,
-    "cache_creation_tokens": 170751,
-    "cache_read_tokens": 8361432,
-    "output_tokens": 64809,
-    "api_call_count": 57
+    "input_tokens": 488,
+    "cache_creation_tokens": 865416,
+    "cache_read_tokens": 45421724,
+    "output_tokens": 235439,
+    "api_call_count": 245
   }
 }
