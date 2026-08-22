@@ -1,0 +1,54 @@
+Something new on our parser:
+
+Revised verdict: the pull contains real improvements and Game 28 was genuinely good, but it also introduces a significant large-case risk.
+Latest performance
+Game	Income	Expense	Net	Rank
+27	€21,798.90	€11,448.36	+€10,350.54	5th
+28	€5,618.00	€0	+€5,618.00	3rd
+
+
+Game 28 was cleaner than Game 27. All ten items were genuinely uncovered, so b=0 was correct and caused no penalties. Our fraudulent a charges earned opportunistic income when opponents accepted them. Official leaderboard
+What improved
+- Key polling now survives temporary network failures and can start 15 minutes early.
+- Historical T ranges no longer combine unrelated lower/upper bounds or treat coverage refusals as price evidence.
+- The fragile unit-based parser was removed, eliminating the 68 lines failure.
+- A Game 27 dry replay now classifies item 3 as covered.
+- All 77 tests pass.
+Important problems remaining
+1. Removing parsing disables chunking.
+Because case["items"] is always empty, [run.py (line 226)](/Users/crsaw7/HackathonSep/EHL-Hackathon-template-repo/c2f/run.py:226) sends every invoice through one model call. Game 28’s ten items finished in 12.8 seconds, but the 29–39-item cases are now untested and could miss the deadline.
+2. We can no longer detect missing items.
+If the model silently skips a POS number, the pipeline no longer knows that it was omitted.
+3. Category calibration is lost.
+Every model result now has _description="", so labour, drying, electronics, and material all use the global calibration rather than their category-specific bias.
+4. Game 27 is not fully fixed.
+The new dry replay produced:
+- Correct coverage for item 3
+- T_mid=€4,500
+- True value approximately €3,000–€3,022
+- a=€6,636, still fraudulent
+- b=€3,038, slightly above the proven fraud boundary
+Also, the prompt was effectively already raw-text-only in the failed Game 27 run. Therefore the corrected coverage call may be model randomness or updated history—not a deterministic parser fix.
+5. The current Game 27 log is contaminated.
+[game_27.json](/Users/crsaw7/HackathonSep/EHL-Hackathon-template-repo/runs/game_27.json) contains a post-game attempt that received 403, not the actual live board. Calibration and deviation tools may incorrectly treat those rows as submitted. The actual run remains in commit 0394790.
+Best next architecture: keep the full invoice text as authoritative, but restore a tiny extractor for POS numbers only. That preserves chunking and completeness checks without maintaining a brittle unit parser. Also restore the real Game 27 log and keep verification runs exclusively under dry_game_27.json
+
+---
+
+Install make on this machine first
+
+---
+
+We wrongfully rejected quite a lot:
+
+25.8% (1401)
+
+Which might cause us some lost, can you investigate
+
+---
+
+new changes hit, fix\
+
+---
+
+how to run make on windows
