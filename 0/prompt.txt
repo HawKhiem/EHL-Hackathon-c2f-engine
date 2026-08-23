@@ -1,0 +1,263 @@
+Something new on our parser:
+
+Revised verdict: the pull contains real improvements and Game 28 was genuinely good, but it also introduces a significant large-case risk.
+Latest performance
+Game	Income	Expense	Net	Rank
+27	€21,798.90	€11,448.36	+€10,350.54	5th
+28	€5,618.00	€0	+€5,618.00	3rd
+
+
+Game 28 was cleaner than Game 27. All ten items were genuinely uncovered, so b=0 was correct and caused no penalties. Our fraudulent a charges earned opportunistic income when opponents accepted them. Official leaderboard
+What improved
+- Key polling now survives temporary network failures and can start 15 minutes early.
+- Historical T ranges no longer combine unrelated lower/upper bounds or treat coverage refusals as price evidence.
+- The fragile unit-based parser was removed, eliminating the 68 lines failure.
+- A Game 27 dry replay now classifies item 3 as covered.
+- All 77 tests pass.
+Important problems remaining
+1. Removing parsing disables chunking.
+Because case["items"] is always empty, [run.py (line 226)](/Users/crsaw7/HackathonSep/EHL-Hackathon-template-repo/c2f/run.py:226) sends every invoice through one model call. Game 28’s ten items finished in 12.8 seconds, but the 29–39-item cases are now untested and could miss the deadline.
+2. We can no longer detect missing items.
+If the model silently skips a POS number, the pipeline no longer knows that it was omitted.
+3. Category calibration is lost.
+Every model result now has _description="", so labour, drying, electronics, and material all use the global calibration rather than their category-specific bias.
+4. Game 27 is not fully fixed.
+The new dry replay produced:
+- Correct coverage for item 3
+- T_mid=€4,500
+- True value approximately €3,000–€3,022
+- a=€6,636, still fraudulent
+- b=€3,038, slightly above the proven fraud boundary
+Also, the prompt was effectively already raw-text-only in the failed Game 27 run. Therefore the corrected coverage call may be model randomness or updated history—not a deterministic parser fix.
+5. The current Game 27 log is contaminated.
+[game_27.json](/Users/crsaw7/HackathonSep/EHL-Hackathon-template-repo/runs/game_27.json) contains a post-game attempt that received 403, not the actual live board. Calibration and deviation tools may incorrectly treat those rows as submitted. The actual run remains in commit 0394790.
+Best next architecture: keep the full invoice text as authoritative, but restore a tiny extractor for POS numbers only. That preserves chunking and completeness checks without maintaining a brittle unit parser. Also restore the real Game 27 log and keep verification runs exclusively under dry_game_27.json
+
+---
+
+Install make on this machine first
+
+---
+
+We wrongfully rejected quite a lot:
+
+25.8% (1401)
+
+Which might cause us some lost, can you investigate
+
+---
+
+new changes hit, fix\
+
+---
+
+how to run make on windows
+
+---
+
+Stop the submission for round 35, its not open yet
+
+---
+
+Analyze the latest rounds, we did poorly
+
+---
+
+Yes please
+
+---
+
+Have we committed and pushed?
+
+---
+
+I think some teams left, what are the crazies strategies we could play to maximize our gains, ignoring all the theories
+
+---
+
+Try the most effective one and be quick, next round in 8 minutes
+
+---
+
+PS C:\Users\Admin\Desktop\TUM\8.Semester\Hackathon\EHL-Hackathon-template-repo> git push
+[entire] Pushing 2 checkpoint ref(s) to origin...... done
+To https://github.com/HawKhiem/EHL-Hackathon-template-repo.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/HawKhiem/EHL-Hackathon-template-repo.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\Admin\Desktop\TUM\8.Semester\Hackathon\EHL-Hackathon-template-repo> git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   c2f/calibrate.py
+        modified:   c2f/llm.py
+        modified:   runs/backtest/game_10.json
+        modified:   runs/backtest/game_11.json
+        modified:   runs/backtest/game_12.json
+        modified:   runs/backtest/game_13.json
+        modified:   runs/backtest/game_14.json
+        modified:   runs/backtest/game_15.json
+        modified:   runs/backtest/game_16.json
+        modified:   runs/backtest/summary.json
+        modified:   runs/calibration.json
+        modified:   runs/deviation.json
+        modified:   runs/dry_game_08.json
+        modified:   tests/test_game06_regression.py
+        modified:   tests/test_price.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        runs/backtest/game_34.json
+        runs/backtest/game_35.json
+        runs/backtest/game_36.json
+        runs/backtest/game_37.json
+        runs/dry_game_35.json
+        runs/feed/g35_Alpha.json
+        runs/feed/g35_AsianSuperNerds.json
+        runs/feed/g35_Bin busy.json
+        runs/feed/g35_Claims Renaissance.json
+        runs/feed/g35_Codacabana.json
+        runs/feed/g35_Non Deterministic.json
+        runs/feed/g35_Nullpointer Naan.json
+        runs/feed/g35_OPUSMOPUS.json
+        runs/feed/g35_Oasis.json
+        runs/feed/g35_TBD.json
+        runs/feed/g35_TakeTheMoneyAndRun.json
+        runs/feed/g35_Teamers.json
+        runs/feed/g35_Trust Nobody.json
+        runs/feed/g35_error404 ai.json
+        runs/feed/g35_eyay.json
+        runs/feed/g35_harissa eagles.json
+        runs/feed/g35_makalu.json
+        runs/feed/g36_Alpha.json
+        runs/feed/g36_AsianSuperNerds.json
+        runs/feed/g36_Bin busy.json
+        runs/feed/g36_Claims Renaissance.json
+        runs/feed/g36_Codacabana.json
+        runs/feed/g36_Non Deterministic.json
+        runs/feed/g36_Nullpointer Naan.json
+        runs/feed/g36_OPUSMOPUS.json
+        runs/feed/g36_Oasis.json
+        runs/feed/g36_TBD.json
+        runs/feed/g36_TakeTheMoneyAndRun.json
+        runs/feed/g36_Teamers.json
+        runs/feed/g36_Trust Nobody.json
+        runs/feed/g36_error404 ai.json
+        runs/feed/g36_eyay.json
+        runs/feed/g36_harissa eagles.json
+        runs/feed/g36_makalu.json
+        runs/feed/g37_Alpha.json
+        runs/feed/g37_AsianSuperNerds.json
+        runs/feed/g37_Bin busy.json
+        runs/feed/g37_Claims Renaissance.json
+        runs/feed/g37_Codacabana.json
+        runs/feed/g37_Non Deterministic.json
+        runs/feed/g37_Nullpointer Naan.json
+        runs/feed/g37_OPUSMOPUS.json
+        runs/feed/g37_Oasis.json
+        runs/feed/g37_TBD.json
+        runs/feed/g37_TakeTheMoneyAndRun.json
+        runs/feed/g37_Teamers.json
+        runs/feed/g37_Trust Nobody.json
+        runs/feed/g37_error404 ai.json
+        runs/feed/g37_eyay.json
+        runs/feed/g37_harissa eagles.json
+        runs/feed/g37_makalu.json
+        runs/postmortem_game_32.json
+        runs/postmortem_game_35.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\Admin\Desktop\TUM\8.Semester\Hackathon\EHL-Hackathon-template-repo>
+
+---
+
+Game 38 is also finished, check it
+
+---
+
+Check our current implementation and see where are our pitfalls, analyze it deeply from a mathematical perspective and based on rounds 30 to 44
+
+---
+
+Yes try them now
+
+---
+
+Lets take a deep look back, how would you approach this problem from scratch. The extractor seems to work fine now. So lets focus on the mathematical models and the prompts design. Lets create a different version that our current approach and compare them and to the best team currently eyay. Now we have the data from previous rounds, use it. Dive into the researches first then to the problem
+
+---
+
+<task-notification>
+<task-id>bl3pyjufh</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>C:\Users\Admin\AppData\Local\Temp\claude\c--Users-Admin-Desktop-TUM-8-Semester-Hackathon-EHL-Hackathon-template-repo\a21b820b-bc59-4f2d-9fba-04083e32149d\tasks\bl3pyjufh.output</output-file>
+<status>completed</status>
+<summary>Background command "Replay v2 on rounds 38-45 and score vs v1 and eyay" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+how to submit using v2
+
+---
+
+Commit and push
+
+---
+
+Can we auto submit using version 2 30s before a round end
+
+---
+
+I want to ask how long it would wait for the key and when we start autoplaying? How do we measure the time start of a round?
+
+---
+
+commit and push the autoplay
+
+---
+
+v2 is working surprisingly well, analyze it deeply from the mathematical perspective and investigate the pitfalls we had in the rounds we had negative exp. Create a v4 from the findings and compare it to v2 in the most recent rounds where we used v2, dont push anything though, and dont stop the autoplaying of v2
+
+---
+
+<task-notification>
+<task-id>b0du1c7a6</task-id>
+<tool-use-id>REDACTED</tool-use-id>
+<output-file>C:\Users\Admin\AppData\Local\Temp\claude\c--Users-Admin-Desktop-TUM-8-Semester-Hackathon-EHL-Hackathon-template-repo\a21b820b-bc59-4f2d-9fba-04083e32149d\tasks\b0du1c7a6.output</output-file>
+<status>completed</status>
+<summary>Background command "Fresh v4 replay on v2's rounds" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+Remove the runs folder, clean up unused code
+
+---
+
+Also be sure to write a short write up on your approach and check into your repository. 
+
+Additionally it would be nice if you could write in few bullets why you think your team has succeeded/not succeeded 
+
+Also be sure to NOT check in any of the claim data into your repositories
+
+---
+
+push the writeup
+
+---
+
+pull from origin and sync local with origin
+
+---
+
+We have to make a pitch deck for our approach, generate a html then convert to pdf file covering all things
