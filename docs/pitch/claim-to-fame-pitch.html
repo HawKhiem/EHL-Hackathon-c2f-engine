@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claim to Fame — AsianSuperNerds</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#142033; --muted:#5B6675; --ground:#F2F4F7; --panel:#FFFFFF; --line:#D5DAE2;
+    --fair:#0F8B8D; --fair-soft:#DDF0EF; --fraud:#C2452D; --fraud-soft:#F6E1DC; --gold:#E0A92E; --gold-soft:#FBF0D3;
+    --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+    --mono:"IBM Plex Mono",Consolas,"Courier New",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.4}
+  @page{size:1280px 720px;margin:0}
+  .slide{width:1280px;height:720px;position:relative;overflow:hidden;background:var(--panel);
+         display:grid;grid-template-columns:168px 1fr;page-break-after:always;break-after:page;margin:0 auto}
+  .slide:last-child{page-break-after:auto;break-after:auto}
+  @media screen{.slide{margin:24px auto;box-shadow:0 2px 18px rgba(20,32,51,.12)}}
+  .gutter{border-right:1px solid var(--line);padding:40px 0 40px 40px;display:flex;flex-direction:column;justify-content:space-between}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .num{font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .main{padding:44px 56px 40px 48px;display:flex;flex-direction:column;gap:22px;min-width:0}
+  h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.01em;text-wrap:balance;line-height:1.05}
+  h1{font-size:64px} h2{font-size:40px} h3{font-size:22px;font-weight:600}
+  p{max-width:62ch} .lede{font-size:22px;color:var(--muted);max-width:58ch}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+  .card{background:var(--ground);border:1px solid var(--line);padding:18px 20px;border-radius:4px}
+  .card h3{margin-bottom:8px}
+  .big{font-family:var(--mono);font-size:44px;font-weight:600;letter-spacing:-.02em;line-height:1}
+  .big small{display:block;font-family:var(--body);font-size:15px;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:8px;line-height:1.3}
+  .fair{color:var(--fair)} .fraud{color:var(--fraud)} .gold{color:#9C6F0D}
+  table{border-collapse:collapse;width:100%;font-size:16px}
+  th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  ul{padding-left:20px;display:flex;flex-direction:column;gap:8px}
+  li{max-width:64ch}
+  .tag{display:inline-block;white-space:nowrap;font-family:var(--mono);font-size:12px;padding:2px 8px;border-radius:3px;background:var(--gold-soft);color:#7A560A;letter-spacing:.04em}
+  .tag.fair{background:var(--fair-soft);color:var(--fair)} .tag.fraud{background:var(--fraud-soft);color:var(--fraud)}
+  .foot{font-size:13px;color:var(--muted);margin-top:auto}
+  svg text{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+  .title .main{justify-content:center;gap:28px}
+  .title .gutter{justify-content:flex-end}
+  .kicker{font-family:var(--mono);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--fair)}
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}
+  .flow .step{background:var(--ground);border:1px solid var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:6px}
+  .flow .step b{font-family:var(--display);font-size:19px}
+  .flow .step span{font-size:14px;color:var(--muted)}
+  .flow .step .t{font-family:var(--mono);font-size:13px;color:var(--fair)}
+  .eq{font-family:var(--mono);font-size:15px;white-space:nowrap;overflow-x:auto;background:var(--ground);border-left:3px solid var(--gold);padding:10px 14px;line-height:1.6}
+  .two{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
+</style>
+</head>
+<body>
+
+<!-- 1 TITLE -->
+<section class="slide title">
+  <div class="gutter"><span class="num">01</span></div>
+  <div class="main">
+    <span class="kicker">EHL Hackathon 2026 · Claim to Fame · team AsianSuperNerds</span>
+    <h1>Pricing invoices against a number nobody can see</h1>
+    <p class="lede">How we turned a 60-second pricing game into a measured payoff function, a market memory, and a learning loop — and what the data taught us along the way.</p>
+    <div class="grid3" style="margin-top:12px">
+      <div><div class="big fair">1st <small>×3 in v2's first six rounds</small></div></div>
+      <div><div class="big">0.08 <small>vs 0.41 · memory vs LLM log-error</small></div></div>
+      <div><div class="big">5–16 s <small>per round, one call</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 THE GAME -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">The game</span><span class="num">02</span></div>
+  <div class="main">
+    <h2>Every line item has a secret fair value t. You set a charge a and a limit b.</h2>
+    <svg viewBox="0 0 1000 150" width="1000" height="150" role="img" aria-label="number line with fair and fraud zones">
+      <rect x="40" y="62" width="460" height="18" fill="#DDF0EF"/>
+      <rect x="500" y="62" width="460" height="18" fill="#F6E1DC"/>
+      <line x1="500" y1="40" x2="500" y2="104" stroke="#142033" stroke-width="2"/>
+      <text x="500" y="30" text-anchor="middle" style="fill:#142033;font-size:16px;font-weight:600">t</text>
+      <text x="270" y="118" text-anchor="middle" style="fill:#0F8B8D;font-size:15px">fair zone · a ≤ t · paid by every reviewer</text>
+      <text x="730" y="118" text-anchor="middle" style="fill:#C2452D;font-size:15px">fraud zone · a &gt; t · paid only by the lenient</text>
+      <text x="270" y="140" text-anchor="middle">refusing a fair charge costs the refuser 1.5a</text>
+      <text x="730" y="140" text-anchor="middle">accepting fraud pays the issuer min(a, c), c ≥ 4t</text>
+    </svg>
+    <div class="grid2">
+      <div class="card">
+        <h3>Issuer: the payoff is a step</h3>
+        <div class="eq">R(a) = a · P(t ≥ a) + 0.5·t · P(t &lt; a)</div>
+        <p style="margin-top:10px">Measured on the field: revenue per opponent above t is flat at <span class="mono">0.48–0.53 t</span> for every overcharge ratio from 1.0 to 5. Crossing t forfeits half immediately and nothing more is gained beyond it.</p>
+      </div>
+      <div class="card">
+        <h3>Reviewer: accept iff P(fair) &gt; ⅔</h3>
+        <div class="eq">accept: cost a &nbsp;·&nbsp; refuse: cost 1.5a·P(fair)<br>⇒ b = Q(⅓) of an honest belief</div>
+        <p style="margin-top:10px">With coverage inside it: <span class="mono">b = sup{ a : P(cov)·S(a) ≥ ⅔ }</span>. Everything hinges on the belief being honest — not on the quantile being tuned.</p>
+      </div>
+    </div>
+    <p class="foot">17 teams, every pair matched both ways, 60 s from key release to board close, ~100 rounds over two days.</p>
+  </div>
+</section>
+
+<!-- 3 WHAT THE DATA SAID -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Research</span><span class="num">03</span></div>
+  <div class="main">
+    <h2>Six things the data said that we did not expect</h2>
+    <div class="grid3">
+      <div class="card"><div class="big">63<small>rd pct</small></div><p><b>t is exogenous.</b> It sits at the 63rd percentile of the field's charges (IQR 0.33–0.86). There is a real number to estimate; the market is not the answer key.</p></div>
+      <div class="card"><div class="big fair">0.08<small>vs 0.41</small></div><p><b>Memory beats the model.</b> For recurring line items, past proven brackets predict t with MAD 0.08–0.10 in log space; the LLM 0.36–0.41 on the same items. Averaging the two is <i>worse</i> than memory alone.</p></div>
+      <div class="card"><div class="big">−0.03</div><p><b>The LLM's interval is uninformative.</b> Its stated q10–q90 has correlation −0.03 with its realised error. σ must come from measured residuals.</p></div>
+      <div class="card"><div class="big">0.5 t</div><p><b>Overcharging is flat.</b> The fitted p₀·r<sup>−k</sup> curve (k&lt;1) claimed revenue rises forever — a censoring artifact. Refusals reconstructed, it is a flat plateau.</p></div>
+      <div class="card"><div class="big gold">2<small>items</small></div><p><b>Whales decide rounds.</b> The best team's entire lead was two items charged at ~2× the field median and still fair (9,585 vs our 4,771; 8,942 vs 5,285).</p></div>
+      <div class="card"><div class="big fraud">−116k</div><p><b>Presence beats pricing.</b> Two rounds with no board cost more than all pricing errors of the same 15-round window combined.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 ARCHITECTURE -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Architecture</span><span class="num">04</span></div>
+  <div class="main">
+    <h2>One pipeline, two engines, a loop that learns after every round</h2>
+    <div class="flow">
+      <div class="step"><b>Extract</b><span>decrypt, pypdf, POS + label parser (layout-only, no unit vocabulary)</span><span class="t">~0.3 s</span></div>
+      <div class="step"><b>Estimate</b><span>one OpenAI call; v1 chunks ≥10 items in parallel; v2 three samples, per-item median</span><span class="t">v1 20–40 s · v2 5–16 s</span></div>
+      <div class="step"><b>Price</b><span>lognormal belief → step-EV charge, ⅔-rule limit, whale floors, coverage inside the rules</span><span class="t">ms</span></div>
+      <div class="step"><b>Submit</b><span>first board the moment it exists; later passes overwrite (last write wins)</span><span class="t">first board ~15 s</span></div>
+      <div class="step"><b>Learn</b><span>truth brackets from public payouts; calibration refit; reliability alarm; market memory</span><span class="t">after close</span></div>
+    </div>
+    <div class="grid2" style="margin-top:6px">
+      <div class="card"><h3>Engine v1 — the model prices everything</h3><p>t_low/t_mid/t_high from the prompt; a 3-segment log-log spline corrects size-dependent bias (β below a pivot, above it, and a whale segment); σ by interval-censored MLE; per-category bias buckets with shrinkage.</p></div>
+      <div class="card"><h3>Engine v2 — memory first, model second</h3><p>Per-line memory prior from every past proven bracket, precision-weighted against the LLM; a 1,400-character prompt with anchors inline and <span class="mono">p_covered</span> instead of a boolean; autoplay launches every round 90 s early.</p></div>
+    </div>
+    <p class="foot">Autoplay: reads the schedule, never re-plays a logged round, never runs two rounds at once. Presence is the whole job.</p>
+  </div>
+</section>
+
+<!-- 5 THE MATH -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">The model</span><span class="num">05</span></div>
+  <div class="main">
+    <h2>The belief is the whole decision — a and b are derived, not tuned</h2>
+    <div class="two">
+      <div>
+        <div class="eq">ln t | covered ~ N(μ, σ²)<br>
+μ = precision-weighted( memory μ_M/σ_M² , LLM ln q50/σ_L² )<br>
+a = argmax_a P(cov)·[ a·S(a) + 0.5·E[t ; t&lt;a] ]  (capped at Q(0.55))<br>
+b = exp( μ + σ·Φ⁻¹(1 − ⅔ / P(cov)) )<br>
+whale (q50 ≥ 2k): b ≥ posterior median</div>
+        <ul style="margin-top:14px">
+          <li><b>Why pure EV, not mean − λ·sd:</b> a round is a portfolio of 10–20 items × 16 opponents; per-item shading forfeited 21–40 % of provably collectable income. Re-priced regret fell <span class="mono">748,539 → 516,256 (−31 %)</span>.</li>
+          <li><b>Why B_QUANTILE = ⅓ is derived:</b> the tuned values (0.33 → 0.40) were patches for a mis-centred belief. Centre μ instead (live_shift, reliability-monitored) and the quantile is the number the math gives.</li>
+          <li><b>Why memory is price, not coverage:</b> a past refusal predicts the next case's coverage only 40 % of the time. Policies vary per case; market prices do not.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Two-sided counterfactual (the honest test)</h3>
+        <p style="font-size:15px;color:var(--muted)">Income from truth brackets, expense against the charges actually billed to us. Shipped board → new pricing, our proven-fraud count unchanged.</p>
+        <table style="margin-top:10px"><tr><th>round</th><th class="n">shipped</th><th class="n">new</th></tr>
+          <tr><td>41</td><td class="n">−1,405</td><td class="n fair">+49,042</td></tr>
+          <tr><td>42</td><td class="n">−17,816</td><td class="n">−17,400</td></tr>
+          <tr><td>45</td><td class="n">+4,120</td><td class="n fair">+18,239</td></tr></table>
+        <p style="font-size:14px;color:var(--muted);margin-top:10px">The deviation metric alone would have picked a higher cap — it costs under-charging only. Both sides, or nothing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 MEMORY -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Market memory</span><span class="num">06</span></div>
+  <div class="main">
+    <h2>The market remembers what it paid. We made that the prior.</h2>
+    <div class="two">
+      <div>
+        <svg viewBox="0 0 600 230" width="600" height="230" role="img" aria-label="bar chart: log-error MAD, memory vs LLM">
+          <text x="0" y="14" style="fill:#142033;font-size:13px;font-weight:600">Median |log error| vs proven t*, same 26 items (rounds 38–45)</text>
+          <text x="0" y="56">memory (exact key)</text><rect x="200" y="40" width="56" height="22" fill="#0F8B8D"/><text x="264" y="56" style="fill:#142033">0.08</text>
+          <text x="0" y="96">LLM, same items</text><rect x="200" y="80" width="287" height="22" fill="#C2452D"/><text x="495" y="96" style="fill:#142033">0.41</text>
+          <text x="0" y="136">equal-weight average</text><rect x="200" y="120" width="161" height="22" fill="#9AA3AF"/><text x="369" y="136" style="fill:#142033">0.23</text>
+          <text x="0" y="176">v2 live, anchored</text><rect x="200" y="160" width="77" height="22" fill="#0F8B8D" opacity=".75"/><text x="285" y="176" style="fill:#142033">0.11</text>
+          <text x="0" y="218">3-word keys: 68 % of items · 60 % of proven value carry a memory anchor</text>
+        </svg>
+        <ul style="margin-top:6px">
+          <li>Precision-weighted, so memory dominates where it exists (σ 0.15 vs 0.6); the LLM carries novel items and whales.</li>
+          <li>Anchors go <i>inline per item</i> in the prompt — "paid ~€58–86 per line when covered (n=11)" — not one generic history block.</li>
+          <li>Indemnity lines (stolen goods, declared values) take memory only as a floor: another case's watch says nothing about this one.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The v2 prompt, in full spirit</h3>
+        <p style="font-size:15px">For every line: <span class="mono">p_covered</span> (0–1, calibrated: p≥0.9 → 42 covered / 3 not; p&lt;0.1 → 0 / 6), honest <span class="mono">q10 / q50 / q90</span>, a 12-word reason. Policy limits bind. Whales first. 1,400 characters; three parallel samples; first to land is submitted as insurance, the per-item median overwrites it.</p>
+        <div style="margin-top:14px" class="grid2">
+          <div><div class="big">207</div><span style="font-size:14px;color:var(--muted)">memory keys after game 96</span></div>
+          <div><div class="big fair">15 s</div><span style="font-size:14px;color:var(--muted)">typical first board on the server</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 RESULTS -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Results</span><span class="num">07</span></div>
+  <div class="main">
+    <h2>v2 live: three firsts in six rounds — and one round that taught us the most</h2>
+    <div class="two">
+      <table>
+        <tr><th>round</th><th class="n">income</th><th class="n">expense</th><th class="n">net</th><th>rank</th><th>note</th></tr>
+        <tr><td>48</td><td class="n">52,331</td><td class="n">35,884</td><td class="n fair">+16,447</td><td><span class="tag fair">1/17</span></td><td>27 items, first board 22.6 s</td></tr>
+        <tr><td>49</td><td class="n">23,204</td><td class="n">14,410</td><td class="n fair">+8,794</td><td><span class="tag fair">1/17</span></td><td></td></tr>
+        <tr><td>50</td><td class="n">23,892</td><td class="n">17,047</td><td class="n fair">+6,845</td><td><span class="tag">4/17</span></td><td></td></tr>
+        <tr><td>51</td><td class="n">45,211</td><td class="n">58,084</td><td class="n fraud">−12,873</td><td><span class="tag">10/17</span></td><td>two novel items, no memory</td></tr>
+        <tr><td>52</td><td class="n">971</td><td class="n">4,467</td><td class="n fraud">−3,496</td><td><span class="tag">15/17</span></td><td>2-item round</td></tr>
+        <tr><td>53</td><td class="n">138,024</td><td class="n">55,985</td><td class="n fair">+82,039</td><td><span class="tag fair">1/17</span></td><td>whale charged at the proven max</td></tr>
+        <tr><td>54</td><td class="n">—</td><td class="n">—</td><td class="n fraud">−48,994</td><td></td><td>memory poisoning (slide 9)</td></tr>
+      </table>
+      <div class="card">
+        <h3>Backtest, rounds 38–45 (same simulator, real opponents)</h3>
+        <table style="margin-top:8px"><tr><th></th><th class="n">expected</th><th class="n">pessimistic</th></tr>
+          <tr><td>v1</td><td class="n">162,489</td><td class="n">−18,872</td></tr>
+          <tr><td><b>v2</b></td><td class="n fair">170,576</td><td class="n fair">−15,124</td></tr>
+          <tr><td>eyay (best team, actual)</td><td class="n">175,917</td><td class="n">—</td></tr></table>
+        <p style="font-size:14px;color:var(--muted);margin-top:12px">Where memory covers most items (40, 42, 45) v2 is +24k / +20k / +6k. The two whale rounds carry 80 % of either total and hinge on the unproven upper side of t.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 LEARNING LOOP -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Learning loop</span><span class="num">08</span></div>
+  <div class="main">
+    <h2>Every bad round produced a number, not an opinion</h2>
+    <div class="grid3">
+      <div class="card"><h3>Truth from public payouts</h3><p>Each round's feed proves brackets: a charge paid by all is fair (t ≥ a); a charge refused by all and paid 0 is fraud (t &lt; a). Matchup cells tighten them. 47 → 96 truth files.</p></div>
+      <div class="card"><h3>Calibration with a drift alarm</h3><p>Interval-censored MLE of bias and σ on current-prompt estimates only; a <span class="mono">live_shift</span> fitted on live rounds; <span class="mono">make learn</span> prints the measured P(t ≥ Q(⅓)) against the ⅔ the rule needs.</p></div>
+      <div class="card"><h3>Replay, score, decide</h3><p>Stored estimates are re-priced in seconds; a change ships when it wins on money in a majority of rounds and on the two-sided counterfactual — never on a one-sided metric.</p></div>
+    </div>
+    <div class="card">
+      <h3>What the loop caught</h3>
+      <ul>
+        <li>The belief's reliability <i>flipped sign</i> between prompt eras — claimed P(t≥b) 0.60, measured [0.67, 0.76] on the old prompt and [0.43, 0.43] live on the new one. Seven knobs were patching the same residual on different windows.</li>
+        <li>Widening σ to the measured residual (≈1.15) <i>loses</i> money (−80k leave-one-out): the decision-relevant σ is not the residual σ, because the payoff is asymmetric and bounded.</li>
+        <li>The "accept everything" idea: a team with a 93 % accept rate broke even and paid 25k in fraud in one round. The winners accept the <i>right</i> charges.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 9 WHAT WENT WRONG -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Post-mortem</span><span class="num">09</span></div>
+  <div class="main">
+    <h2>Where the money actually went (rounds 30–44: −165k)</h2>
+    <div class="two">
+      <div>
+        <svg viewBox="0 0 640 250" width="640" height="250" role="img" aria-label="loss ledger bars">
+          <text x="0" y="14" style="fill:#142033;font-size:13px;font-weight:600">EUR lost, by cause</text>
+          <rect x="230" y="34" width="69" height="24" fill="#C2452D"/><text x="0" y="51">no board (rounds 31, 34)</text><text x="306" y="51" style="fill:#142033">69,573</text>
+          <rect x="230" y="70" width="107" height="24" fill="#C2452D" opacity=".8"/><text x="0" y="87">refused-fair penalties</text><text x="344" y="87" style="fill:#142033">106,930</text>
+          <rect x="230" y="106" width="35" height="24" fill="#C2452D" opacity=".6"/><text x="0" y="123">fraud we accepted</text><text x="272" y="123" style="fill:#142033">35,411</text>
+          <rect x="230" y="142" width="312" height="24" fill="#9AA3AF"/><text x="0" y="159">income below proven ceiling</text><text x="549" y="159" style="fill:#142033">312,452</text>
+          <text x="0" y="200">Operational losses (two blank rounds, a Windows path / 7z chain, a 33 s call</text>
+          <text x="0" y="218">against a 60 s window) exceeded every pricing error of the same window.</text>
+        </svg>
+      </div>
+      <div class="card">
+        <h3>The one that taught us the most: round 54, −48.6k</h3>
+        <p style="font-size:15px">Game 7's air-con unit was <i>refused as not covered</i> (t &lt; 80.83). v2's memory read that ceiling as a <b>price band of €47–77</b>; the prompt made memory binding; the model obeyed — q50 = 62 on a €2,000 unit, copied onto its sibling — and b = 54 refused every fair charge on the two biggest items.</p>
+        <p style="margin-top:10px;font-size:15px">Fix (v4): memory carries price from <i>paid</i> observations only; refusals never lower coverage; anchors advisory and quantity-aware. Same estimates, math only: <span class="mono fair">+17 %</span>; fresh replay turned −48.6k into −10.7k on that round.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 WHY -->
+<section class="slide">
+  <div class="gutter"><span class="eyebrow">Verdict</span><span class="num">10</span></div>
+  <div class="main">
+    <h2>Why we succeeded — and why we did not</h2>
+    <div class="grid2">
+      <div class="card" style="border-left:4px solid var(--fair)">
+        <h3 class="fair">Succeeded</h3>
+        <ul>
+          <li>The measured-payoff maths paid immediately and measurably: step objective, derived b, coverage inside the rule — −31 % regret re-priced, +49k / +18k on the counterfactual rounds.</li>
+          <li>Market memory was the single best idea: 4× the model's precision on recurring lines, three firsts in v2's first six rounds, at a fifth of the latency.</li>
+          <li>The learning loop was real — truth, calibration, reliability alarm, replay — so fixes were validated before they went live, and mistakes produced numbers.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-left:4px solid var(--fraud)">
+        <h3 class="fraud">Did not</h3>
+        <ul>
+          <li>Operations cost more than modelling: ~120k to missed rounds and toolchain breakage; autoplay came late.</li>
+          <li>The LLM's level error on first-sight items (+0.36, MAD 0.8 live) is the residual we never fixed — no constant can, only more memory coverage or a prior for novel items.</li>
+          <li>We tuned on windows that moved under us (replay vs live, old vs new prompt) several times before building the live-only monitor.</li>
+          <li>Several engines in one working tree across machines: artefact collisions on every pull, and two machines once played the same round.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="foot">Code: <span class="mono">c2f/</span> · write-up: <span class="mono">docs/WRITEUP.md</span> · no claim data is checked in; the engine's memory lives on disk only.</p>
+  </div>
+</section>
+
+</body>
+</html>
