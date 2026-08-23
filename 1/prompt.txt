@@ -223,3 +223,7 @@ I want to ask how long it would wait for the key and when we start autoplaying? 
 ---
 
 commit and push the autoplay
+
+---
+
+v2 is working surprisingly well, analyze it deeply from the mathematical perspective and investigate the pitfalls we had in the rounds we had negative exp. Create a v4 from the findings and compare it to v2 in the most recent rounds where we used v2, dont push anything though, and dont stop the autoplaying of v2
