@@ -1,0 +1,1032 @@
+{
+  "game_id": 65,
+  "started_at": 1787451994.9868312,
+  "submissions": [
+    {
+      "tag": "v2[1/3]",
+      "at_s": 12.9,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 57.39,
+          "acceptance_limit": 40.18
+        },
+        {
+          "index": 2,
+          "charge_price": 24.72,
+          "acceptance_limit": 17.31
+        },
+        {
+          "index": 3,
+          "charge_price": 304.58,
+          "acceptance_limit": 213.25
+        },
+        {
+          "index": 4,
+          "charge_price": 30.9,
+          "acceptance_limit": 20.86
+        },
+        {
+          "index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 161.69
+        },
+        {
+          "index": 6,
+          "charge_price": 145.67,
+          "acceptance_limit": 100.79
+        },
+        {
+          "index": 7,
+          "charge_price": 663.17,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 478.96,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 810.54,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 3780.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 11,
+          "charge_price": 700.01,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 12,
+          "charge_price": 1068.44,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 13,
+          "charge_price": 3240.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 14,
+          "charge_price": 442.11,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 15,
+          "charge_price": 331.59,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 16,
+          "charge_price": 70.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 57.39,
+          "acceptance_limit": 40.18,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 24.72,
+          "acceptance_limit": 17.31,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 304.58,
+          "acceptance_limit": 213.25,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 30.9,
+          "acceptance_limit": 20.86,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 161.69,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 145.67,
+          "acceptance_limit": 100.79,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 663.17,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 478.96,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 810.54,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 3780.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 700.01,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 12,
+          "charge_price": 1068.44,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 13,
+          "charge_price": 3240.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 14,
+          "charge_price": 442.11,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 15,
+          "charge_price": 331.59,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 16,
+          "charge_price": 70.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.067525Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[2/3]",
+      "at_s": 13.0,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 50.76,
+          "acceptance_limit": 35.54
+        },
+        {
+          "index": 2,
+          "charge_price": 24.72,
+          "acceptance_limit": 17.31
+        },
+        {
+          "index": 3,
+          "charge_price": 297.96,
+          "acceptance_limit": 208.61
+        },
+        {
+          "index": 4,
+          "charge_price": 27.81,
+          "acceptance_limit": 18.16
+        },
+        {
+          "index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.63
+        },
+        {
+          "index": 6,
+          "charge_price": 165.53,
+          "acceptance_limit": 114.53
+        },
+        {
+          "index": 7,
+          "charge_price": 552.64,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 394.22,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 626.33,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 3600.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 11,
+          "charge_price": 515.8,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 12,
+          "charge_price": 902.65,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 13,
+          "charge_price": 2430.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 14,
+          "charge_price": 324.22,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 15,
+          "charge_price": 303.95,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 16,
+          "charge_price": 274.48,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 50.76,
+          "acceptance_limit": 35.54,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 24.72,
+          "acceptance_limit": 17.31,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 297.96,
+          "acceptance_limit": 208.61,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 27.81,
+          "acceptance_limit": 18.16,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.63,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 165.53,
+          "acceptance_limit": 114.53,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 552.64,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 394.22,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 626.33,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 3600.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 515.8,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 12,
+          "charge_price": 902.65,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 13,
+          "charge_price": 2430.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 14,
+          "charge_price": 324.22,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 15,
+          "charge_price": 303.95,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 16,
+          "charge_price": 274.48,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.174144Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[3/3]",
+      "at_s": 13.1,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 57.39,
+          "acceptance_limit": 40.18
+        },
+        {
+          "index": 2,
+          "charge_price": 24.72,
+          "acceptance_limit": 17.31
+        },
+        {
+          "index": 3,
+          "charge_price": 291.34,
+          "acceptance_limit": 203.18
+        },
+        {
+          "index": 4,
+          "charge_price": 24.72,
+          "acceptance_limit": 16.25
+        },
+        {
+          "index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.81
+        },
+        {
+          "index": 6,
+          "charge_price": 185.4,
+          "acceptance_limit": 128.79
+        },
+        {
+          "index": 7,
+          "charge_price": 442.11,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 309.48,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 442.11,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 3420.0,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 11,
+          "charge_price": 331.59,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 12,
+          "charge_price": 736.86,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 13,
+          "charge_price": 1326.34,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 14,
+          "charge_price": 206.32,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 15,
+          "charge_price": 276.32,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 16,
+          "charge_price": 140.0,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 57.39,
+          "acceptance_limit": 40.18,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 24.72,
+          "acceptance_limit": 17.31,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 291.34,
+          "acceptance_limit": 203.18,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 24.72,
+          "acceptance_limit": 16.25,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.81,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 185.4,
+          "acceptance_limit": 128.79,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 442.11,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 309.48,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 442.11,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 3420.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 331.59,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 12,
+          "charge_price": 736.86,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 13,
+          "charge_price": 1326.34,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 14,
+          "charge_price": 206.32,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 15,
+          "charge_price": 276.32,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        },
+        {
+          "game_id": 65,
+          "team_id": 5,
+          "line_item_index": 16,
+          "charge_price": 140.0,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:28:18.272463Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787452085.074197,
+  "case": {
+    "game_id": 65,
+    "policy": "===============================================================================\nRESIDENTIAL DWELLING INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\nPolicy wording \"WD-2026\" - Water Escape, External Surfaces and Site Charges\nEdition\nFictional mock document created for test purposes only. All wording is\ninvented. No real contract.\n===============================================================================\n\nThese conditions apply together with the General Contract Provisions and with\nthe Schedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods and percentages shown in square brackets are those stated\nin the Schedule. An optional peril is covered only where the Schedule shows it\nas agreed.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nCombined residential buildings insurance protects the policyholder against the\nfinancial consequences of physical damage to their building. The perils that can\nbe insured are the ones bundled together in these conditions - fire, escape of\nwater, storm and hail, further natural hazards, and frost action on the external\nsurfaces among them. Which of the insurable perils are actually covered is agreed\nbetween insurer and policyholder and recorded in the schedule.\n\nSome perils are available as standard and one only on request. A peril of the\nsecond kind attaches only where the schedule shows it as agreed; where it is not\nagreed, the damage it would have answered for is outside the contract, and so is\neverything done in consequence of that damage.\n\nWhere insured property is damaged by a covered peril, the insurer indemnifies the\ncost of putting it back, in the same kind and quality and to the standard in\nplace before the loss. Two questions decide every item of a claim: what caused\nthe damage to the part worked on, and whether that part was itself damaged.\nNeither question is answered by the trade that carried out the work, by the\naccount on which it appears, or by the occasion on which it was done.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nInsured event - the event for which the insurer pays. An event is an insured\nevent only where it is one of the perils described in Part 2 and shown in the\nschedule as agreed, and where it acted on property insured under Part 4.\n\nExclusion - a peril, a type of damage or an item of property for which no cover\nexists. Exclusions delimit what has been promised and keep the cover\ncalculable.\n\nAffected part - a pipe, a fitting, a component, an elevation, a surface or a room\nin which physical damage caused by an insured event is established by the loss\ninvestigation. A part bearing damage of another origin is not an affected part,\nwhether that origin is weather, age, wear, want of maintenance or a cause that\ncannot be established.\n\nPipework and fittings - the pipes of the water, drainage and heating systems\nwithin the building, together with the valves, taps, connection elements,\nflexible connectors, seals and comparable fittings incorporated in them.\n\nExternal surface - the outer skin of the building and its finishes on any\nelevation exposed to the weather: render, plaster, coatings, paint systems,\npointing, cladding, sealants and the substrate beneath them.\n\nLeak location - the investigation carried out to establish where water is\nescaping or where pipework has fractured, including the use of measuring,\nimaging, acoustic, tracer or comparable technical equipment for that purpose, and\nthe opening up needed to reach the suspected place.\n\nAccess provision - the scaffolding, towers, platforms, lifting equipment,\nprotective sheeting and comparable arrangements erected so that work at height or\nover an elevation can be carried out, together with their hire, erection and\ndismantling.\n\nLump-sum item - a single price covering an identified body of work rather than a\nseparately itemised labour and material breakdown. A lump-sum item prices work;\nit is assessed by the work it prices. It is to be distinguished from a charge\nlevied in addition to the work for administration, handling, coordination or\nprocessing, which prices no work at all.\n\nAncillary charge - a charge that exists only because of a principal item of work:\nthe material consumed in it, the access provision for it, its transport, the\nlabour of carrying it out, and the attendance of the undertaking at the building.\n\nIndex-linked reinstatement cover with enhancement - a basis of cover that works\nfrom the amount that would have to be spent to rebuild in the same kind and\nquality, tracked against movements in building costs; that tracking affects both\nthe amount payable and the premium.\n\nDuties - the things the policyholder must do or refrain from doing before,\nduring and after an insured event. Breaching a duty puts the cover at risk.\n\nSecured lenders - creditors whose claim is secured by a charge registered\nagainst the property. Their interests enjoy statutory protection: among other\nthings they must be brought into the process when insurance benefits are paid\nout and when the contract is brought to an end.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is destroyed or damaged by, or\nlost as a consequence of, the following events:\n\n  (a) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot.\n\n  (b) ESCAPE OF WATER.\n\n  (c) NATURAL HAZARDS, in two tiers:\n        (c1) storm and hail;\n        (c2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\n  (d) FROST ACTION ON EXTERNAL SURFACES, as defined in 2.6. This peril is\n      optional; it exists only where the schedule shows it as agreed.\n\n2.2 How the groups combine\n\nEach of the groups (a), (b) and (c1) can be taken separately. The further natural\nhazards under (c2) can only be taken in combination with one or more of the\nperils in (a), (b) or (c1). Group (d) can be taken alongside any of the others;\nit is never included by implication, and its absence does not narrow group (b).\n\n2.3 The fire group defined\n\n2.3.1 Fire\nA fire is a combustion that has started without a hearth intended for it, or\nthat has escaped such a hearth, and that is capable of spreading under its own\npower. Damage caused by a fire that developed out of a controlled, purposeful\nfire is also covered.\n\n2.3.2 Lightning strike\nThe direct passage of a lightning discharge onto property.\n\n2.3.3 Overvoltage caused by lightning\nDamage arising through overvoltage, overcurrent or short circuit, brought about\nby a lightning discharge or by other atmospheric electricity, in insured\nelectrical installations and appliances.\n\n2.3.4 Explosion and deflagration\nBoth are suddenly running force events resting on the tendency of gases or\nvapours to expand. The two differ only in the intensity of that force.\n\nAn explosion of a vessel - a boiler, a pipe run and the like - is present only\nunder a further condition: the vessel wall must be torn open to such an extent\nthat a sudden equalisation of the pressure difference between the inside and the\noutside occurs. Where an explosion inside a vessel is brought about by a chemical\nreaction, tearing of the wall is not required.\n\n2.3.5 Implosion\nA sudden, unforeseen collapse of a hollow body under external overpressure\nresulting from an internal underpressure.\n\n2.3.6 Impact or crash of an aircraft\nThe impact or crash of an aircraft is covered, and equally the impact or crash of\nits parts or its cargo.\n\n2.3.7 Vehicle impact\nThe impact of a road, rail or water-borne vehicle against insured property is\ncovered, as is the impact of parts or cargo of such a vehicle. Consequential\ndamage to insured property arising from such an impact is covered.\n\nNot covered is damage caused by a road or water-borne vehicle whose keeper or\ndriver is the policyholder or an occupant of the building.\n\nNot covered is damage to means of transport, to their parts and cargo, and to\nroads, drives and comparable trafficked surfaces.\n\n2.3.8 Scorching\nScorch damage arising out of one of the events in 2.3.1 to 2.3.7 is covered.\nScorch damage from any other cause is covered up to [amount].\n\n2.3.9 Smoke and soot\nSmoke and soot damage arising out of one of the events in 2.3.1 to 2.3.8 is\ncovered.\n\nBeyond that, damage is covered where smoke or soot directly damages or destroys\ninsured property, on condition that the smoke or soot escaped suddenly, and\ncontrary to intended operation, from a firing, heating, cooking or drying\ninstallation situated on the insured site. Indemnity for this extension is capped\nat [amount].\n\nNot covered is damage arising from the gradual action of smoke or soot -\nlong-term surface soiling of the fogging type, for instance.\n\n2.3.10 Damage excluded within the fire group\nNot covered:\n  (a) damage caused by earthquake, irrespective of any contributing causes;\n  (b) damage to internal combustion engines caused by the explosions occurring\n      inside the machine's combustion chamber, and damage arising at the\n      switching elements of electrical switches through the gas pressure\n      occurring inside them. Cover does exist, however, where such damage is the\n      consequence of an insured fire event under 2.3.1.\n\n2.4 Escape of water defined\n\n2.4.1 The three headings\nThe escape of water peril covers three things: escape of water damage; fracture\ndamage to pipework inside buildings; and fracture damage to pipework outside\nbuildings.\n\n2.4.2 Escape of water damage\nEscaping water means water that has emerged contrary to its intended purpose\nfrom:\n  (a) pipes of the water supply, whether supply or drainage lines, or hoses\n      connected to them;\n  (b) other installations connected to those pipes or hoses, or the\n      water-carrying parts of such installations;\n  (c) heating or air-conditioning systems;\n  (d) water-based extinguishing or sprinkler systems;\n  (e) water beds or aquaria.\n\nOperating fluids from heating or air-conditioning systems, and steam, also count\nas escaping water. Fluids intended for the generation of energy do not.\n\nDamage is also covered where it is caused by water that emerged, contrary to its\nintended purpose, from rainwater drainage pipes running inside the building. For\nthis extension the exclusion of damage caused by precipitation (see 3.3(c)) does\nnot apply.\n\nWater that reaches the building from outside - as precipitation, as run-off, as\nsplash, as wind-driven wetting of an elevation, or as moisture rising or\npenetrating through the fabric from without - is not escaping water.\n\n2.4.3 How far the escape of water damage extends\nThe indemnity extends to every part of the building that the escaping water\ndamaged, whichever side of the fabric that part lies on. An external surface is\ncovered under this heading where the escaping water reached it through the fabric\nand damaged it; that it forms the outer skin of the building makes no difference,\nand the optional peril in 2.1(d) is not needed for it.\n\nWhere escaping water within the meaning of 2.4.2 saturated a part of the fabric\nand that saturation subsequently froze, the damage the freezing did to the\nsaturated part is damage caused by the escape of water. The intervening frost\ndoes not displace the escape as the cause, and the fact that the same season's\nweather was cold does not turn such damage into weather damage.\n\nThe policyholder must be able to show, by the pattern and the extent of the\ndamage or by a technical investigation, that the water in the fabric came from\nthe escape. Where the investigation shows the moisture to have entered from\noutside, 2.6 and 3.5 apply instead.\n\n2.4.4 Fracture damage to pipework inside buildings\nCovered inside buildings:\n\n  (a) frost-related and other fracture damage to pipes of\n        - the water supply, whether supply or drainage lines, and the gas\n          supply, or hoses connected to them;\n        - heating or air-conditioning systems;\n        - water-based extinguishing or sprinkler systems;\n        - rainwater drainage.\n      This presupposes that the pipes concerned are not a structural component of\n      a boiler, a water heater or a comparable installation.\n\n  (b) frost-related fracture damage to the following installations:\n        - bath and shower fittings, washbasins, lavatories, taps and valves\n          together with their connection hoses;\n        - radiators, boilers, water heaters and comparable parts of heating or\n          air-conditioning systems.\n\nThe whole structural body of the building, including the floor slab, counts as\n\"inside the building\". Pipes of a solar heating installation on the roof count as\npipes inside the building. Unless something else has been agreed, pipes and\ninstallations beneath the floor slab are not insured, whether load-bearing or\nnot.\n\nWhere a fitting, valve, connection element or flexible connector incorporated in\nsuch pipework fractures through the action of frost, the fractured item and the\nconnection elements that have to be renewed with it are indemnified under 7.1.9,\ntogether with the labour, the material consumed in the work and one attendance.\n\n2.4.5 Fracture damage to pipework outside buildings\nCovered outside buildings: frost-related and other fracture damage to supply\npipes of the water supply, or to pipes of heating or air-conditioning systems, in\neach case insofar as the policyholder bears the risk for those pipes and insofar\nas they either\n  (a) serve the supply of insured buildings or installations, or\n  (b) are situated on the insured site.\n\nIndemnity for fracture damage to supply pipes that do not serve the supply of\ninsured buildings or installations, and for those not situated on the insured\nsite, is limited per insured event to the amounts agreed for those purposes.\n\n2.4.6 Leak location\nWhere a fracture or an escape of water is established or reasonably suspected,\nthe insurer indemnifies the leak location within the meaning of 1.3 - including\nthe use of measuring or imaging equipment brought to the building for that\npurpose, and the opening up needed to reach the suspected place - and the making\ngood of that opening up afterwards.\n\nLeak location is indemnified even where the investigation shows the escape to\nhave been smaller than supposed. It is not indemnified where the investigation\nshows the observed damage to have a cause that these conditions do not cover.\n\n2.5 Natural hazards defined\n\n2.5.1 Storm\nStorm means a weather-driven movement of air reaching at least the gale threshold\non the recognised scale of wind strength, expressed as a defined minimum\nsustained wind speed.\n\nWhere the wind strength at the loss location cannot be established, storm is\npresumed if the policyholder demonstrates either of the following:\n  (a) in the vicinity of the insured site the air movement caused damage to\n      buildings that were in sound condition, or to other property of comparable\n      resistance; or\n  (b) given the sound condition of the insured building, the damage can only have\n      arisen through storm.\n\n2.5.2 Hail\nHail means solid precipitation in the form of grains of ice.\n\n2.5.3 Which storm and hail events are covered\nOnly damage arising in one of the following ways is covered:\n  (a) storm or hail acts directly on insured property, or on buildings in which\n      insured property is located; consequential damage to insured property\n      arising from this is covered;\n  (b) storm or hail acts directly on buildings structurally joined to the insured\n      building;\n  (c) storm or hail acts directly on buildings structurally joined to buildings\n      in which insured property is located;\n  (d) storm or hail throws building parts, trees or other objects onto insured\n      property, or onto buildings in which insured property is located;\n      consequential damage to insured property arising from this is covered;\n  (e) storm or hail throws building parts, trees or other objects onto buildings\n      structurally joined to the insured building;\n  (f) storm or hail throws building parts, trees or other objects onto buildings\n      structurally joined to buildings in which insured property is located.\n\nA single identifiable weather event of the strength described in 2.5.1 is\nrequired. Repeated exposure to ordinary weather over a season or a number of\nyears is not such an event.\n\n2.5.4 The further natural hazards\n\nFlood\nFlood means the inundation of the ground and soil of the insured site, or of\ndirectly adjoining land, roads, footpaths or cycle paths, with substantial\nquantities of surface water. It counts only where the inundation was caused by\n  (a) the overflow of surface waters, standing or flowing,\n  (b) precipitation, or\n  (c) the emergence of groundwater at the surface as a consequence of (a) or (b).\n\nBacking-up of water\nBacking-up is present where water enters the building from the building's own\ndrainage pipes or from installations connected to them. It counts only where the\nbacking-up was caused by the overflow of surface waters, standing or flowing, or\nby precipitation.\n\nEarthquake\nEarthquake means a naturally caused tremor of the ground triggered by geophysical\nprocesses within the earth's interior. It is presumed on the conditions\ncorresponding to 2.5.1.\n\nGround subsidence\nA naturally caused sinking of the ground above naturally formed cavities.\n\nLandslip\nA naturally caused sliding or falling away of masses of earth or rock.\n\nSnow load\nThe effect of the weight of masses of snow or ice. Snow or ice masses sliding off\nroofs also count as snow load.\n\nAvalanche\nMasses of snow or ice descending a mountain slope.\n\nVolcanic eruption\nA sudden release of pressure on the rupturing of the earth's crust, accompanied\nby flows of lava, eruptions of ash, or the escape of other materials and gases.\n\n2.6 Frost action on external surfaces\n\n2.6.1 The peril\nWhere this peril is agreed, the insurer indemnifies external surfaces of the\ninsured building that are damaged by frost acting on them from without - by\nfreezing, by thawing, and by the repeated cycle of the two - so that the material\nspalls, loses adhesion, delaminates, blows, cracks or otherwise fails.\n\n2.6.2 What the indemnity comprises\nWhere this peril is agreed and an elevation has suffered such damage, the\nindemnity comprises the making good of the damaged area: taking off the loosened\nand failed material, preparing and re-forming the substrate beneath it, drying it\nwhere drying is needed before the new work can proceed, priming it, applying the\nfinish system in the number of coats the system requires, the labour of the\ntradespeople engaged, the access provision needed to reach the elevation, the\ndisposal of the removed material, and one attendance per undertaking.\n\n2.6.3 What is not within the peril even where it is agreed\n  (a) work on an elevation, or on a part of an elevation, that the frost did not\n      damage - including recoating an undamaged area or an undamaged elevation so\n      that the building presents a uniform appearance afterwards (7.1.5, 7.1.6);\n  (b) an upgrade of the surface system beyond the standard in place before the\n      loss (7.1.10);\n  (c) damage arising from a cause other than frost acting on the surface - damp\n      penetration, run-off, ageing, fatigue, shrinkage, settlement, loss of\n      adhesion through age, defective original execution, or want of maintenance\n      (3.1.4).\n\n2.6.4 Where the peril is not agreed\nWhere the schedule does not show this peril as agreed, frost damage to an\nexternal surface is not an insured event and 3.5 applies. This does not affect\n2.4.3: an external surface damaged by water that escaped inside the building\nremains covered under the escape of water peril whether or not the optional peril\nwas taken.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered, irrespective of any contributing causes.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered, irrespective of any\ncontributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered, irrespective of any contributing causes.\n\n3.1.4 Weathering, ageing and want of maintenance\nDamage arising from the action of the weather on the building otherwise than\nthrough a peril described in Part 2 and shown in the schedule as agreed is not\ncovered. This includes damage arising from rain, damp, wind-driven wetting and\nstanding moisture; from exposure, weathering, ageing, fatigue, shrinkage and\nsettlement cracking; from the gradual loss of adhesion or integrity of a\nmaterial; and from want of maintenance, deferred renewal or a defect in the\noriginal execution or specification.\n\n3.1.5 Perils not agreed\nDamage brought about by a peril that the schedule does not show as agreed is not\ncovered, however the damage is described, whatever part it affects, and whether\nor not the same notification also concerns covered damage.\n\n3.2 Exclusions within the fire group\n\nSee 2.3.10.\n\n3.3 Exclusions within the escape of water peril\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) splash water or cleaning water;\n  (b) dry rot and house-rot fungi of every kind;\n  (c) groundwater, standing or flowing surface water, flood, precipitation, or a\n      backing-up of water brought about by any of these causes;\n  (d) earthquake, snow load, avalanche, volcanic eruption;\n  (e) ground subsidence or landslip - unless escaping water within the meaning of\n      2.4.2 caused the subsidence or the landslip;\n  (f) fire; lightning strike; overvoltage caused by lightning; explosion;\n      deflagration; implosion; impact or crash of an aircraft; vehicle impact;\n      scorching; smoke and soot damage;\n  (g) the opening of sprinklers or the operation of sprinkler nozzles on account\n      of a fire, on account of pressure testing, or on account of alteration or\n      repair work;\n  (h) storm, hail.\n\nThe freezing of water that had already escaped within the meaning of 2.4.2 is not\none of these excluded causes; 2.4.3 second paragraph governs it.\n\nDamage to buildings or parts of buildings that are not ready for occupation is\nnot covered. The same applies to property located in such buildings or parts of\nbuildings.\n\n3.4 Exclusions within the natural hazards\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) storm surge;\n  (b) the penetration of rain, hail, snow or dirt through windows, external doors\n      or other openings that were not properly closed. This exclusion does not\n      apply where those openings were created by storm or hail and constitute\n      damage to the building;\n  (c) groundwater, except insofar as it emerged at the surface as a result of\n      precipitation or of the overflow of surface waters;\n  (d) fire; lightning strike; overvoltage caused by lightning; explosion;\n      deflagration; implosion; impact or crash of an aircraft; vehicle impact;\n      scorching; smoke and soot damage. This exclusion does not apply insofar as\n      those perils were triggered by an insured earthquake;\n  (e) drought or desiccation.\n\nDamage to buildings and parts of buildings that are not ready for occupation, and\nto property located within them, is not covered. Damage to shop windows and\ndisplay windows is likewise not covered.\n\n3.5 External surfaces where the optional peril is not agreed\n\nWhere the schedule does not show the peril in 2.1(d) as agreed, the following are\nnot covered:\n  (a) damage to an external surface caused by frost acting on it from without, or\n      by any other cause falling under 3.1.4;\n  (b) in consequence of (a), the taking off and renewal of loosened or failed\n      surface material, the preparation, levelling and re-forming of the\n      substrate beneath it, its drying, its priming, the successive coats of the\n      new finish however many are applied, and any further work carried out on\n      the elevation on the same occasion;\n  (c) every ancillary charge attributable to (a) or (b) - the material consumed,\n      the access provision, the labour, the attendance, the disposal of the\n      removed material, and any lump-sum item pricing that work;\n  (d) any upgrade of the surface system beyond the standard in place before the\n      loss.\n\nThis applies whether the work is carried out at the same time as covered work, by\na further trade engaged on the same occasion, under the same commission, or on\nthe same or a separate account.\n\n3.6 Site and establishment charges\n\nNot covered, whichever trade levies them and whether the work they accompany is\ncovered or not:\n  (a) provisioning, refreshment, catering and comparable subsistence for an\n      undertaking's own personnel;\n  (b) charges levied in addition to the work for administration, handling,\n      coordination or processing;\n  (c) an undertaking's own tools and consumable small equipment.\nThe equipment employed in leak location (2.4.6), the access provision under\n7.1.8, the consumables actually used in covered work (7.1.7(e)) and a lump-sum\nitem pricing covered work (7.1.12) are not charges of this kind.\n\n3.7 Work beyond the affected parts\n\nWork carried out beyond those parts of the insured property that were themselves\naffected by an insured event is not covered. Outlay that does not constitute a\nrepair or replacement cost is not indemnified. The delimitation is governed by\n7.1.5 to 7.1.13.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises:\n  (a) the buildings identified in the schedule;\n  (b) their building components, including their pipework and fittings and their\n      external surfaces;\n  (c) their building accessories;\n  (d) terraces on the insured site that directly adjoin the building;\n  (e) further site installations.\n\nThat an item is insured property states which objects the cover can attach to. It\ndoes not state that every kind of damage to that object is indemnified. What is\nindemnified is damage caused by a peril shown in the schedule as agreed.\n\n4.2 The categories defined\n\n4.2.1 Building and dwelling\nBuildings are structures connected to the ground. They must be capable of\naffording protection against external influences and, for the purposes of these\nconditions, must be intended for predominantly residential use.\n\nWhere the insured property is a self-contained dwelling within such a building,\nthese conditions apply to that dwelling and to those parts of the building that\nconstitute the policyholder's separate property, together with the policyholder's\nshare in the common parts.\n\n4.2.2 Building components\nBuilding components are items incorporated into a building that have lost their\nindependence through their firm connection with it. Fitted furniture and fitted\nkitchens fall within this category where they were made individually for the\nbuilding and adapted to it with substantial installation effort. Add-on furniture\nand add-on kitchens that are series-produced do not.\n\nAlso counting as building components are the fitting-out elements of the\ndwelling: floor coverings together with their bedding, adhesive, underlay,\ninsulating and levelling layers; wall and ceiling finishes; interior doors; fixed\ntrim, beading and comparable edging elements; the pipework and fittings within\nthe meaning of 1.3; and the external surfaces within the meaning of 1.3.\n\n4.2.3 Building accessories\nBuilding accessories are movable items located inside the building or attached to\nits exterior. They must serve the upkeep of the insured building or its\npredominant intended purpose.\n\n4.2.4 Terraces\nTerraces are paved surfaces intended for occupation in the open air.\n\n4.2.5 Further site installations\nFurther site installations means the items firmly connected with the ground and\nsoil of the insured site that are specified for that purpose in the schedule.\n\n4.3 Property not insured\n\nNot insured:\n  (a) photovoltaic installations and their components - solar modules, mounting\n      frames, fastening elements, inverters, module optimisers and the cabling.\n      This extends to an electricity storage installation permanently connected\n      to the photovoltaic installation and serving the supply of the building;\n  (b) all items subsequently incorporated into the building by a tenant or by a\n      condominium owner where that person both\n        - procured or took the items over at their own expense, and\n        - bears the risk for them.\n      Where items are merely exchanged, the newly incorporated items are insured.\n      Any different arrangement as to who bears the risk must be evidenced by the\n      policyholder;\n  (c) electronically stored data and programs. Costs of restoring electronically\n      stored data and programs are covered only where this has been additionally\n      agreed in the contract.\n\n4.4 The insured location\n\nThe insured location is the insured site: the land parcel or parcels on which the\ninsured building stands. Where several buildings stand on one parcel, the insured\nlocation is that part of the parcel which, by fencing or other demarcation,\nbelongs exclusively to the insured building or buildings.\n\n4.5 Condominium and part-ownership units\n\n4.5.1 Where the contract is with an association of condominium owners: if the\ninsurer is wholly or partly released from liability on account of the conduct of\nindividual condominium owners, it remains obliged to pay the remaining owners.\nThis applies to their separate property and to their shares in the common\nproperty.\n\n4.5.2 The co-ownership share of the owner against whom the insurer is wholly or\npartly released is not indemnified, or is indemnified only in part.\n\nThe remaining condominium owners may nevertheless claim indemnity for that\nco-ownership share. This presupposes that the additional indemnity is applied to\nreinstating the common property. The condominium owner against whom the insurer\nis wholly or partly released must reimburse the insurer for that additional\nindemnity.\n\n4.5.3 The two provisions above apply correspondingly to buildings insurance for\npart-ownership units.\n\n4.6 Deductibles\n\nA deductible is the share of the indemnity, or the amount, that the policyholder\nbears itself per insured event. Deductibles can be agreed individually and are\nset out in the schedule. Where one event damages several parts of the building,\nand where several trades are engaged in consequence of it, the deductible is\napplied once. A deductible is applied only to an indemnity that is otherwise\npayable; it does not create cover for damage of another origin.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS, LOSS OF RENT AND RENTAL VALUE\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nThe insurer reimburses the following costs where they were necessary as a\nconsequence of an insured event and were actually incurred:\n  (a) debris removal and disposal costs;\n  (b) costs of leak location under 2.4.6;\n  (c) costs of moving and protecting property;\n  (d) costs of lost water, gas and heating oil, and of electricity lost from\n      storage installations;\n  (e) hotel costs.\n\nReimbursement of each head is limited to the amount agreed for it. The list is\nexhaustive. Each head presupposes an insured event and relates only to property\nthat the event damaged.\n\n5.2 The cost heads defined\n\n5.2.1 Debris removal and disposal\nCosts incurred in clearing away and demolishing insured property that an insured\nevent damaged, in taking away the material removed in the course of covered\nrepair work, and in disposing of an affected part that a covered replacement\ntakes the place of. This includes transporting the material to the nearest\ndisposal site, depositing it and destroying it.\n\nIt does not extend to the removal or disposal of material taken off a part of the\nbuilding whose damage is not covered; such removal is part of the work on that\npart and follows it (7.1.11).\n\n5.2.2 Leak location\nCosts of the leak location within the meaning of 1.3 and 2.4.6, comprising the\nattendance of the investigating undertaking, the labour, the use of the measuring\nor imaging equipment employed, the opening up carried out to reach the suspected\nplace, and the making good of that opening up. Indemnity is capped at [amount]\nper insured event.\n\n5.2.3 Moving and protecting property\nCosts incurred in moving, altering or protecting other property, reimbursable\nwhere those measures serve to reinstate insured property damaged by an insured\nevent.\n\n5.2.4 Lost water, gas, heating oil and stored electricity\nCosts arising because water, gas or heating oil escaped contrary to its intended\npurpose as a result of an insured event. Additional wastewater charges fall under\nthis head. Costs of electricity lost from storage installations are also\nreimbursed. Indemnity is capped at [amount] per insured event.\n\n5.2.5 Hotel costs\nCosts of accommodation in a hotel or similar, excluding incidentals such as\nbreakfast. The precondition is that the dwelling permanently occupied by the\npolicyholder has become uninhabitable as a result of an insured event and that\nconfining themselves to a habitable part of it cannot reasonably be expected of\nthem.\n\nAccommodation costs are reimbursed only where indemnity cannot be claimed under\nanother insurance contract, and only to the extent that they exceed the indemnity\npayable for rental value under 7.5. Costs are reimbursed up to the point at which\nthe dwelling is habitable again, for a maximum of [number] days, capped at\n[amount] per day.\n\n5.3 Loss of rent and rental value\n\nThe insurer reimburses:\n  (a) loss of rent, where tenants of residential premises have lawfully stopped\n      paying rent in whole or in part, or have terminated the tenancy, on account\n      of an insured event, including the running service charges in the sense of\n      tenancy law;\n  (b) the locally customary rental value of residential premises occupied by the\n      policyholder itself, including those service charges, where on account of\n      the insured event the policyholder cannot reasonably be expected to use at\n      least parts of the dwelling;\n  (c) any additional loss of rent or rental value caused by public-law\n      restrictions on reinstatement.\n\n5.4 The period for loss of rent and rental value\n\n5.4.1 Loss of rent or rental value is reimbursed for the period during which the\nrooms are unusable, but for no longer than [number] months from the occurrence of\nthe insured event.\n\n5.4.2 It is reimbursed only to the extent that the policyholder has not culpably\ndelayed the resumption of use where resumption was possible. A delay attributable\nto work that is not covered does not extend the period.\n\n5.5 Commercially used premises\n\nFor commercially used premises, insurance of loss of rent or of the locally\ncustomary rental value can be agreed.\n\n5.6 Optionally insurable extensions\n\n5.6.1 Where the tenant terminates the tenancy on account of the insured event and\nthe policyholder is unable to re-let the dwelling after completion of the works,\nthe insurer also reimburses that loss of rent, provided the policyholder was\nunable to let the rooms at the time reinstatement was completed despite\nexercising the care required in commerce. It applies until the rooms are re-let,\nand at most until the end of the period under 5.4.\n\n5.6.2 Where a tenancy cannot be entered into on account of the insured event, the\ninsurer reimburses the loss of rent from the contractually agreed start of the\ntenancy until the end of the period under 5.4, provided the tenancy agreement had\nalready been concluded at the time of the insured event.\n\n\n-------------------------------------------------------------------------------\nPART 6 - BASIS OF COVER AND PREMIUM\n-------------------------------------------------------------------------------\n\n6.1 Insurable value\n\nThe insurable value forms the basis for calculating the indemnity. The insurable\nvalue determined for the building applies equally to building accessories,\nterraces and further site installations as defined in 4.2.3 to 4.2.5.\n\n6.2 Index-linked reinstatement value with enhancement\n\n6.2.1 What is insured is the locally customary new-build value of the buildings\nidentified in the schedule, taken at the time of the insured event, in the\nconstruction and finish standard existing at that time. Architects' fees and\nother construction and planning costs form part of that value.\n\nWhere, within an insurance period, structural measures alter the area, the\nbuilding type, the construction or other agreed features underlying the premium\ncalculation, cover subsists until the end of that insurance period, even where\nthe measure taken increases value.\n\n6.2.2 Two elements are built into the index-linked reinstatement value with\nenhancement:\n\n  - Additional costs arising from public-law restrictions on reinstatement, being\n    the additional costs incurred because property affected by the loss cannot be\n    reinstated in the same kind and quality on account of public-law\n    requirements;\n\n  - Price increases arising between the occurrence of the insured event and\n    reinstatement initiated without delay.\n\n6.2.3 The insurer tracks the cover under 6.2.1 against the development of\nbuilding costs (see 6.5). To that extent cover subsists on the basis of the\nlocally customary new-build value at the time of the reinstatement initiated\nwithout delay after the insured event.\n\n6.3 Index-linked current value with enhancement where reinstatement is omitted\n    or delayed\n\nFor buildings that are not reinstated, or are reinstated late (see 7.6), only the\nindex-linked current value with enhancement is insured. That value is the\nenhanced new-build value at the time of the insured event, less depreciation - in\nparticular depreciation for age and for the degree of wear.\n\n6.4 Market value for permanently devalued buildings\n\nFor buildings designated for demolition, or otherwise permanently devalued, only\nthe achievable sale price excluding the land share is insured.\n\n6.5 How the premium is calculated\n\nThe bases for calculating the premium are:\n  (a) the area;\n  (b) the building type;\n  (c) the construction and the fit-out, including the external surface system;\n  (d) the use;\n  (e) the perils agreed, including any optional peril taken;\n  (f) other agreed features material to the premium calculation; and\n  (g) the adjustment factor.\n\nThe annual premium payable is calculated by multiplying together the number of\nsquare metres of residential and usable floor area, the premium per square metre,\nand the adjustment factor, plus the premium element attributable to (e).\n\n6.6 Adjustment of cover and premium\n\n6.6.1 Where cover is adjusted under 6.2.3, the premium changes accordingly, as\nthe adjustment factor rises or falls.\n\n6.6.2 The adjustment factor changes with effect from 1 January of each year, for\nthe insurance period beginning in that year. It rises or falls in line with the\npercentage by which the following two indices have moved:\n  - a construction price index for residential buildings, taken for a defined\n    reference month of the preceding year, and\n  - a collectively agreed wage index for the construction sector, taken for a\n    defined reference quarter of the preceding year.\nBoth indices are published by the competent national statistical authority.\n\nIn this adjustment the movement in the construction price index is weighted\n[percentage] and the movement in the wage index [percentage]. When the\nyear-on-year rates of movement are calculated, and again when the two rates are\nweighted, the result is rounded to two decimal places at each step. The\nadjustment factor is rounded to two decimal places. In rounding, where the third\ndecimal place is a five or higher the figure is rounded up; otherwise it is\nrounded down.\n\n6.7 Subsequent change in a premium-rating feature\n\n6.7.1 Premium increase\nWhere a circumstance under 6.5(a) to (f) subsequently changes and a higher\npremium results, the insurer may demand the higher premium from the point at\nwhich the change is notified. Taking up an optional peril, and upgrading the\nexternal surface system, are changes of this kind. They take effect for the\nfuture only and do not extend to an event that has already occurred.\n\n6.7.2 Premium reduction\nWhere a circumstance under 6.5(a) to (f) subsequently ceases to apply and a lower\npremium results, the insurer must reduce the premium from the point at which it\nbecomes aware of that. The same applies where such circumstances have lost their\nsignificance, or where the policyholder had only mistakenly assumed that they\nexisted.\n\n\n-------------------------------------------------------------------------------\nPART 7 - CALCULATION AND PAYMENT OF THE INDEMNITY\n-------------------------------------------------------------------------------\n\n7.1 Basis of calculation\n\n7.1.1 The insurer reimburses:\n\n  (a) for destroyed buildings - the locally customary reinstatement costs under\n      6.2.1, taken at the time of the insured event, including the additional\n      costs under 6.2.2;\n\n  (b) for damaged buildings, damaged pipework and fittings, damaged external\n      surfaces and other damaged insured property - the necessary repair costs at\n      the time of the insured event, including the restoration of the finish of\n      the affected area. The insurer additionally compensates any diminution in\n      value that the repair does not offset. Reimbursement is capped at the\n      insurable value at the time of the insured event;\n\n  (c) for destroyed insured property, and for an affected part that can no longer\n      be repaired - the cost of a replacement of the same kind, quality and\n      specification, determined under 7.1.9.\n\nEvery head of this Part presupposes an insured event within the meaning of 1.3.\n\n7.1.2 Where technically still usable substance may not be used for reinstatement\nbecause of public-law requirements, the policyholder receives corresponding\nindemnity under 7.1.1, provided either that the official orders in question were\nnot issued before the insured event occurred, or that use of the property was not\nalready wholly or partly prohibited at that time.\n\n7.1.3 Price increases occurring between the insured event and reinstatement are\nindemnified where reinstatement is secured within three years of the occurrence\nof the insured event.\n\n7.1.4 The achievable sale price of remains is set off in calculating the\nindemnity under 7.1.1.\n\n7.1.5 Extent of the repair\nIndemnity is confined to those parts of the insured property that were themselves\naffected by the insured event, and within an elevation or a surface to the area\nin which damage caused by the event is established.\n\nWork carried out on a part, an area, an elevation or a room that was not itself\naffected is not covered. This applies even where the work is carried out\n  (a) so that treated and untreated areas correspond in appearance, colour,\n      texture, pattern or material;\n  (b) for reasons of convenience, or because treating a whole elevation is more\n      economical than treating the affected area of it;\n  (c) at the same time as covered work, in the course of it, or as part of the\n      same overall project;\n  (d) by the same undertaking as the covered work, or by a further trade engaged\n      on the same occasion, and invoiced together with it.\n\nWhere the damage claimed on a part of the building has an origin that is not\ncovered, that part is not an affected part, however close it may be in time or\nplace to covered damage, and however plainly it needs attention.\n\n7.1.6 Continuous surfaces\nWhere only part of a single continuous surface was affected, indemnity extends to\nthe cost of treating the adjoining unaffected sections of that same surface only\nwhere a replacement material corresponding to the original is no longer\nobtainable and a visible discontinuity would otherwise remain. It does not extend\nto a separate elevation, and it does not apply where the adjoining sections bear\ndamage of an origin that is not covered.\n\n7.1.7 Preparatory and ancillary work\nThe necessary repair costs under 7.1.1(b) include:\n  (a) taking down, dismantling and removing the affected components and finishes;\n  (b) the opening up needed to reach the affected part, and the making good of\n      that opening up afterwards;\n  (c) the drying and moisture-removal measures necessary before the repair of an\n      affected part can be carried out, and the preparation, levelling and\n      re-forming of the substrate before a new finish is applied to it;\n  (d) materials of a type, quality, grade and specification corresponding to\n      those in place immediately before the insured event, and the number of\n      coats that the specified finish system requires;\n  (e) the auxiliary material, sealing material, fixings, cleaning material and\n      comparable consumables actually used in carrying out the covered work;\n  (f) the labour of the tradespeople engaged on the covered work, at their\n      respective rates.\n\nEach of these heads exists only in respect of an affected part. Applied to a part\nwhose damage is not covered, none of them is indemnified.\n\n7.1.8 Access provision\nWhere covered work cannot be carried out without an access provision within the\nmeaning of 1.3, its hire, erection and dismantling are a repair cost and are\nindemnified. Where the access provision serves both covered and non-covered work,\nit is apportioned; where it serves only non-covered work, it is not indemnified.\nAn access provision retained beyond the period needed for the covered work is\nindemnified only for that period.\n\n7.1.9 Renewal of a fractured pipe or fitting\nWhere a pipe or a fitting has fractured in an insured event, the indemnity\ncomprises the fractured item, the connection elements and seals that have to be\nrenewed with it, the labour under 7.1.7(f), the consumables under 7.1.7(e), the\nopening up and making good under 7.1.7(b), and one attendance under 7.1.11.\nRenewal is on a like-for-like basis; 7.1.10 applies to any higher specification\nchosen.\n\n7.1.10 No improvement on the pre-loss standard\nReinstatement proceeds on the basis of the type, quality, grade, build-up and\nspecification in place immediately before the insured event. Where a system of\nhigher specification, greater thickness, added function or premium range is\nchosen instead, indemnity is limited to the cost of an equivalent replacement\ncorresponding to what was in place before the loss; the difference is borne by\nthe policyholder.\n\nWhere the principal work to which such an upgrade relates is not covered at all,\nthe upgrade is not covered either, and the question of a difference in cost does\nnot arise.\n\n7.1.11 Ancillary charges and attendance\nAn ancillary charge within the meaning of 1.3 is indemnified only to the extent\nthat the principal item of work to which it relates is itself indemnified. Where\nthe principal item is not covered, the labour, the material consumed in it, the\naccess provision for it, the disposal of what it removed and the attendance for\nit are not covered either, however designated, whichever trade levies them, and\nwhether they appear on the same account as covered work or on a separate one.\n\nOne attendance per undertaking per insured event is indemnified, provided that\nwork indemnified under these conditions was carried out at that attendance. A\nfurther or return visit by the same undertaking in respect of the same insured\nevent is not separately indemnified, whatever the reason for it and however\ndesignated, unless the insurer agreed to it in advance.\n\n7.1.12 Lump-sum items and charges levied in addition to the work\nA lump-sum item within the meaning of 1.3 is indemnified where the work it prices\nis covered work carried out on an affected part. Where it prices work that is not\ncovered, it is not indemnified; where it prices both, it is apportioned, and if it\ncannot be apportioned from the information supplied the insurer may require an\nitemised account before determining the claim.\n\nA charge that prices no work - one levied in addition to the itemised or\nlump-sum work for administration, handling, coordination or processing - is not\nindemnified, whether or not the work it accompanies is covered (3.6(b)). The same\napplies to provisioning for an undertaking's own personnel and to its own tools\nand small equipment (3.6(a), (c)).\n\n7.1.13 Assessment item by item and trade by trade\nEach item claimed is assessed on its own merits, and each trade's account is\nassessed in the same way. That covered work was carried out by one trade does not\ncarry the work of another; that two trades attended in respect of the same\nnotification does not make the second trade's work an insured loss, nor does it\nmake it a non-covered one.\n\nWhere an item is presented as a single combined line, it is assessed by its\npredominant stated purpose; where that purpose is work on a part whose damage is\nnot covered, the whole line falls, including the preparation, the finish, the\nlabour and the ancillary charges bundled into it.\n\n7.2 Market value\n\nInsofar as a building is designated for demolition or otherwise permanently\ndevalued, insured property is indemnified at the achievable sale price excluding\nthe land share.\n\n7.3 Construction specification lower or higher than described\n\n7.3.1 Where the insured buildings, in their actual specification at the time of\nthe insured event, are of lower value than described in the contract, the insurer\nis not obliged to compensate more than the loss actually incurred, measured at\nthe locally customary new-build value.\n\n7.3.2 Where the actual specification at the time of the insured event is of\nhigher value, this can lead to a reduction of the indemnity. The basis is then\nthe specification described in the contract (see 6.5(a) to (f)), and the insurer\nreimburses only the reinstatement costs (7.1.1(a)) or the necessary repair costs\n(7.1.1(b)) for that specification.\n\nThe following remain unaffected: the scope and adjustment of cover (Part 6);\nbreach of the pre-contractual duty of disclosure under the general contract\nprovisions; and increase in risk (9.4).\n\n7.4 Costs\n\nInsured costs under Part 5 are reimbursed where it is demonstrated that they were\nactually incurred, subject to the agreed limits. A cost falling outside the\nexhaustive list in 5.1, and not being a repair cost under this Part, is not\nreimbursed.\n\n7.5 Loss of rent and rental value\n\nThe insurer reimburses the insured loss of rent or rental value up to the end of\nthe agreed period under 5.4.\n\n7.6 The reinstatement element of the indemnity\n\nThe policyholder acquires a claim to payment of that part of the indemnity which\nexceeds the current-value loss - the reinstatement element - only where\n  (a) the policyholder ensures that it will use the indemnity to reinstate\n      insured property of the same kind and intended purpose at the previous\n      location; and\n  (b) the reinstatement is secured within three years of the occurrence of the\n      insured event.\n\nApplying the indemnity to work that is not covered does not satisfy condition\n(a). Where reinstatement at the previous location is legally impossible or cannot\nbe justified economically, it is sufficient to erect the building at another\nlocation within the same country. The policyholder must repay the reinstatement\nelement where, through its own fault, the property was not reinstated within a\nreasonable period.\n\n7.7 Value added tax\n\nValue added tax is reimbursed only if and to the extent that it was actually\nincurred on the occasion of the reinstatement. It is not reimbursed where the\npolicyholder is entitled to recover input tax. Tax charged on an item that is not\nindemnified is not indemnified either.\n\n7.8 Deductible\n\nDeductibles are deducted from the indemnity in the amount agreed, once per\ninsured event, across all trades engaged in consequence of that event.\n\n7.9 When the indemnity falls due\n\n7.9.1 The indemnity falls due once the insurer has conclusively determined the\nclaim as to its basis and its amount. One month after notifying the loss, the\npolicyholder may claim as an interim payment the amount that is, on the\nprevailing assessment, payable as a minimum.\n\n7.9.2 That part of the indemnity which goes beyond the current-value loss falls\ndue once the policyholder has demonstrated that it has secured the reinstatement.\n\n7.10 Repayment of the reinstatement element\n\nThe policyholder is obliged to repay indemnity paid under 7.9.2 where, through\nits own fault, the property was not reinstated within a reasonable period. This\nextends to any interest the insurer has paid under 7.11.2.\n\n7.11 Interest\n\nInsofar as no more extensive obligation to pay interest arises on another legal\nbasis:\n\n7.11.1 The indemnity bears interest from the notification of the loss, save\ninsofar as it was paid within one month.\n\n7.11.2 That part of the indemnity which goes beyond the current-value loss bears\ninterest from the point at which the policyholder demonstrated that it has\nsecured the reinstatement.\n\n7.11.3 The interest rate is [number] percentage point(s) below the applicable\nstatutory base rate of interest, but at least [percentage] and at most\n[percentage] per year. Interest falls due together with the indemnity.\n\n7.12 Suspension of time limits\n\nIn calculating the periods under 7.9, 7.11.1 and 7.11.2, any period during which\nthe indemnity cannot be determined or cannot be paid owing to the fault of the\npolicyholder is left out of account.\n\n7.13 Deferral of payment\n\nThe insurer may defer payment for as long as:\n  (a) there is doubt as to the policyholder's entitlement to receive payment;\n  (b) official or criminal proceedings against the policyholder or its\n      representative arising out of this insured event are still pending;\n  (c) a legally required involvement of a secured lender has not taken place.\n\n\n-------------------------------------------------------------------------------\nPART 8 - EXPERT DETERMINATION PROCEDURE\n-------------------------------------------------------------------------------\n\n8.1 Determining the amount of the loss\n\nAfter an insured event has occurred, the policyholder may require that the amount\nof the loss be determined in an expert determination procedure. Insurer and\npolicyholder may also agree on such a procedure jointly.\n\n8.2 Further determinations\n\nPolicyholder and insurer may agree to extend the procedure to further\ndeterminations relating to the insured event, including which parts of the\nbuilding the event damaged, the origin of damage found elsewhere on the building,\nand in particular whether moisture found in an elevation came from within the\nbuilding or from without. The procedure determines the amount of the loss; it\ncannot bring within the cover a peril that the schedule does not show as agreed.\n\n8.3 Procedure before the determination\n\n8.3.1 Each party is to nominate one expert in text form - by email, fax or letter,\nfor example. A party that has nominated its expert may call on the other party in\ntext form to nominate the second expert; in doing so it must name the expert it\nhas itself nominated. The second expert must be nominated within two weeks of\nreceipt of that request. If that does not happen, the requesting party may have\nthe expert appointed by the court with local jurisdiction for the loss location.\nWhere the insurer makes the request, it must draw the policyholder's attention to\nthis consequence.\n\n8.3.2 The insurer may not nominate as expert:\n  (a) competitors of the policyholder;\n  (b) persons standing in a permanent business relationship with the\n      policyholder;\n  (c) persons employed by competitors or business partners of the policyholder,\n      or standing in a comparable relationship with them.\n\n8.3.3 Before beginning their determinations, the two experts nominate in text\nform a third expert as umpire. The restriction in 8.3.2 applies to that\nnomination as well. If the experts cannot agree, the umpire is appointed by the\ncourt with local jurisdiction for the loss location, on the application of either\nparty.\n\n8.4 Content of the determination\n\nThe experts' findings must state:\n  (a) a schedule of the destroyed and the damaged insured property, together with\n      the corresponding insurable values at the time of the insured event,\n      distinguishing damage caused by the insured event from damage of another\n      origin, and the affected areas of an elevation from the unaffected ones;\n  (b) the reinstatement and repair costs;\n  (c) the residual values of the property affected by the loss;\n  (d) the insured costs and the insured loss of rent or rental value.\n\n8.5 Procedure after the determination\n\nEach expert transmits its findings to both parties simultaneously. Where the two\nsets of findings diverge, the insurer passes them to the umpire without delay.\nThe umpire decides the points that remain in dispute; the experts' findings form\nthe limits of the umpire's scope for decision. The umpire transmits its decision\nto both parties simultaneously.\n\nThe findings of the experts, or of the umpire, are binding on the contracting\nparties. They are not binding where it is demonstrated that they manifestly\ndeviate substantially from the true state of affairs. The insurer calculates the\nindemnity on the basis of binding findings.\n\nWhere the findings are not binding, the court makes a binding determination. The\nsame applies where the experts cannot or will not make the determination, or\nwhere they delay it.\n\n8.6 Costs\n\nUnless something else has been agreed, each party bears the costs of its own\nexpert. The costs of the umpire are borne by the two parties in equal shares.\n\n8.7 Duties remain unaffected\n\nThe expert determination procedure does not affect the policyholder's duties.\n\n\n-------------------------------------------------------------------------------\nPART 9 - POLICYHOLDER DUTIES AND INCREASE IN RISK\n-------------------------------------------------------------------------------\n\n9.1 Contractually agreed safety requirements before an insured event\n\n9.1.1 Insured property must be kept in proper condition at all times. This\napplies in particular to water-carrying installations and equipment, to roofs, to\nthe external surfaces of the building and their coatings, and to items attached\nto the exterior. Defects or damage to such property must be remedied without\ndelay. Keeping the external surfaces weathertight and sound is a matter of\nupkeep.\n\n9.1.2 Buildings or parts of buildings that are not in use must be inspected\nsufficiently frequently at every time of year. In addition, all water-carrying\ninstallations and equipment there must be shut off, drained, and kept drained.\n\n9.1.3 During the cold season all buildings and parts of buildings must be heated,\nand this must be checked sufficiently frequently. Alternatively, all\nwater-carrying installations and equipment there must be shut off, drained, and\nkept drained.\n\n9.1.4 To avoid flood and backing-up damage:\n  (a) in rooms at risk of backing-up, backflow prevention devices must be kept\n      operational;\n  (b) the drainage lines on the insured site must be kept clear.\n\n9.2 Duties after an insured event\n\n9.2.1 The policyholder must avert and mitigate the loss so far as it reasonably\ncan, and must shut off the supply and arrange for the leak to be located without\nundue delay.\n\n9.2.2 The replaced items, and the affected areas, must be kept available for\ninspection until the claim has been determined, unless the insurer releases them\nearlier.\n\n9.3 Consequences of a breach of duty\n\nWhere the policyholder breaches one of the duties in 9.1 or 9.2, the following\napplies, subject to the conditions set out in the general contract provisions:\nthe insurer is entitled to terminate the contract. It may also be wholly or\npartly released from liability.\n\n9.4 Circumstances constituting an increase in risk\n\nAn increase in risk subject to notification may exist in particular where:\n  (a) a circumstance changes about which the insurer asked before the contract\n      was concluded;\n  (b) the building, or the predominant part of it, is no longer in use;\n  (c) construction work is carried out on the building in the course of which the\n      roof is wholly or partly removed;\n  (d) construction work on the building renders it predominantly unusable;\n  (e) a commercial operation is taken up or changed within the building;\n  (f) the building is placed under heritage protection after conclusion of the\n      contract;\n  (g) the external surface system is changed for one of a materially different\n      build-up.\n\n9.5 Consequences of an increase in risk\n\nThe consequences of an increase in risk are governed by the general contract\nprovisions.\n\n9.6 Claims presentation\n\nEach item claimed must be presented in such a way that it can be allocated to a\nperil shown in the schedule as agreed, to a part of the building that the peril\ndamaged, and to a head of indemnity under Part 5 or Part 7. The claim must state,\nfor each part of the building on which work is claimed, what damaged it; where\nmoisture in an elevation is in question, it must state whether the moisture came\nfrom within the building or from without.\n\nWhere accounts from more than one trade are submitted in respect of one\nnotification, each is assessed separately under 7.1.13. Where an account covers\nboth covered and non-covered work, the two must be separated, and any lump-sum\nitem or access provision relating to both must be presented so that it can be\napportioned. An item that cannot be allocated to a part damaged by an insured\nevent is declined - the material, the preparation, the drying, the finish, the\nlabour, the disposal and any lump sum alike.\n\n\n-------------------------------------------------------------------------------\nPART 10 - CANCELLATION, SECURED LENDERS, TRANSFER OF OWNERSHIP\n-------------------------------------------------------------------------------\n\n10.1 Cancellation where a security right has been registered\n\nWhere a secured lender has registered its charge over the property, cancellation\nof the insurance relationship by the policyholder in respect of the fire peril\ngroup - fire; lightning strike; overvoltage caused by lightning; explosion;\ndeflagration; implosion; impact or crash of an aircraft; vehicle impact;\nscorching; smoke and soot damage - is effective only in the following cases:\n\n10.1.1 the policyholder demonstrated, at least one month before expiry of the\ninsurance contract, that at the point in time at which the cancellation was at\nthe latest permissible the property was no longer encumbered with the charge; or\n\n10.1.2 the policyholder demonstrated, at least one month before expiry of the\ninsurance contract, that the secured lender consented to the cancellation.\n\nThis does not apply to a cancellation following a disposal of the property, or to\na cancellation in the insured event.\n\n10.2 Legal position following a transfer of ownership\n\n10.2.1 Where the policyholder disposes of the insured property, the acquirer\nsteps into its place in the insurance contract. This happens at the time of the\ntransfer of ownership; in the case of real property, at the date of registration\nin the land register. From that time the acquirer takes over the rights and\nobligations of the policyholder under the insurance relationship.\n\n10.2.2 Seller and acquirer are jointly and severally liable for the premium for\nthe insurance period in which the transfer of ownership occurs.\n\n10.2.3 The insurer need only recognise the acquirer's entry into the insurance\ncontract once it becomes aware of that entry.\n\n10.3 Rights of cancellation on a transfer of ownership\n\n10.3.1 The insurer is entitled to cancel the insurance contract as against the\nacquirer, observing a notice period of one month. This right lapses if the\ninsurer does not exercise it within one month of becoming aware of the disposal.\n\n10.3.2 The acquirer is entitled to cancel the insurance contract with immediate\neffect, or with effect from the end of the current insurance period, in text form\n- by email, fax or letter, for example. That right lapses if the acquirer does\nnot exercise it within one month of the acquisition. Where the acquirer is\nunaware that the insurance exists, the right lapses one month after the acquirer\nbecomes aware of it.\n\n10.3.3 In the event of a cancellation under 10.3.1 or 10.3.2, the seller alone\nremains liable for payment of the premium.\n\n10.4 Duties of notification\n\n10.4.1 The disposal must be notified to the insurer without delay, in text form,\nby the seller or by the acquirer.\n\n10.4.2 Where that notification has been omitted, the insurer is not obliged to\npay in the insured event. This applies only where both of the following\nconditions are met:\n  - the insured event occurred later than one month after the point at which the\n    notification ought to have been received by the insurer; and\n  - the insurer demonstrates that it would not have concluded the existing\n    contract with the acquirer.\n\n10.4.3 By way of departure from 10.4.2, the insurer is obliged to pay where\n  - it was aware of the disposal at the point in time at which the notification\n    ought to have been received by it; or\n  - at the time of the insured event the period for the insurer's cancellation\n    had already expired and it had not cancelled.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
+    "description": "Buildings frost claim after a prolonged deep freeze. Two separate things happened. Inside, a water fitting failed in the cold and had to be repaired, with a thermal imaging camera used to find where the escape was before opening up.\n\nOutside, and unrelated to the internal fitting, the exterior render simply could not take the freeze-thaw cycling. The plaster cracked, blew and fell off the facade under the cold acting on it from the outside. No internal water reached that render; it was the outdoor temperature working on the wall surface.\n\nFor the file: the owner is not putting the plain render back as it was. The facade is being redone in a premium insulated render system, a clear upgrade on the old plain plaster, and the crew are taking the new finish across elevations that had not lost any render.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0195\nDATE\n20 Mar 2026\nDUE\n3 Apr 2026\nTRADE\nPlumbing\nFROM\nSoggy Bottom Plumbing Ltd\n7 U-Bend Boulevard\n23456 Pipeville\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Filling valve (internal frost-burst fitting) 1 pcs\n2 Connection hose 1 pcs\n3 Senior installer hours 3 hrs\n4 Auxiliary and cleaning material 1 pcs\n5 Vehicle costs 1 pcs\n6 Thermal imaging camera (leak detection) 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1\nInvoice\nINVOICE NO.\n2026-0196\nDATE\n20 Mar 2026\nDUE\n3 Apr 2026\nTRADE\nPainting\nFROM\nTwo Coats Minimum Painters Ltd\n27 Roller Road\n10999 Hueton\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n7 Facade frost damage from outdoor freeze-thaw 1 pcs\n8 Loose plaster removal 1 pcs\n9 Base plaster 1 pcs\n10 Premium insulated render system (upgrade on former\nplain plaster)\n1 pcs\n11 Newly plastered substrate 1 pcs\n12 Facade paint (4 coats) 1 pcs\n13 Repaint of undamaged elevations 1 flat rate\n14 Priming 1 pcs\n15 Painter hours 5 hrs\n16 Flat rate 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Plumbing",
+      "invoice_no": "2026-0195",
+      "date": "20 Mar 2026",
+      "vendor": "Soggy Bottom Plumbing Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "Filling valve (internal frost-burst fitting)"
+      },
+      {
+        "index": 2,
+        "description": "Connection hose"
+      },
+      {
+        "index": 3,
+        "description": "Senior installer hours"
+      },
+      {
+        "index": 4,
+        "description": "Auxiliary and cleaning material"
+      },
+      {
+        "index": 5,
+        "description": "Vehicle costs"
+      },
+      {
+        "index": 6,
+        "description": "Thermal imaging camera (leak detection)"
+      },
+      {
+        "index": 7,
+        "description": "Facade frost damage from outdoor freeze-thaw"
+      },
+      {
+        "index": 8,
+        "description": "Loose plaster removal"
+      },
+      {
+        "index": 9,
+        "description": "Base plaster"
+      },
+      {
+        "index": 10,
+        "description": "Premium insulated render system (upgrade on former plain plaster)"
+      },
+      {
+        "index": 11,
+        "description": "Newly plastered substrate"
+      },
+      {
+        "index": 12,
+        "description": "Facade paint (4 coats)"
+      },
+      {
+        "index": 13,
+        "description": "Repaint of undamaged elevations"
+      },
+      {
+        "index": 14,
+        "description": "Priming"
+      },
+      {
+        "index": 15,
+        "description": "Painter hours"
+      },
+      {
+        "index": 16,
+        "description": "Flat rate"
+      }
+    ],
+    "item_labels": {
+      "1": "Filling valve (internal frost-burst fitting)",
+      "2": "Connection hose",
+      "3": "Senior installer hours",
+      "4": "Auxiliary and cleaning material",
+      "5": "Vehicle costs",
+      "6": "Thermal imaging camera (leak detection)",
+      "7": "Facade frost damage from outdoor freeze-thaw",
+      "8": "Loose plaster removal",
+      "9": "Base plaster",
+      "10": "Premium insulated render system (upgrade on former plain plaster)",
+      "11": "Newly plastered substrate",
+      "12": "Facade paint (4 coats)",
+      "13": "Repaint of undamaged elevations",
+      "14": "Priming",
+      "15": "Painter hours",
+      "16": "Flat rate"
+    },
+    "n_images": 1
+  },
+  "strategy": "v2",
+  "estimate_v2": {
+    "items": [
+      {
+        "index": 1,
+        "q10": 45.0,
+        "q50": 65.0,
+        "q90": 100.0,
+        "p_covered": 0.98,
+        "reason": "Internal frost-burst fitting covered; like-for-like renewal, 7.1.9.",
+        "n_samples": 3
+      },
+      {
+        "index": 2,
+        "q10": 15.0,
+        "q50": 28.0,
+        "q90": 50.0,
+        "p_covered": 0.98,
+        "reason": "Necessary connection element for covered fitting renewal, 7.1.9.",
+        "n_samples": 3
+      },
+      {
+        "index": 3,
+        "q10": 270.0,
+        "q50": 330.0,
+        "q90": 420.0,
+        "p_covered": 0.9766666666666667,
+        "reason": "Labour for covered internal fitting repair, 7.1.7(f).",
+        "n_samples": 3
+      },
+      {
+        "index": 4,
+        "q10": 12.0,
+        "q50": 28.0,
+        "q90": 55.0,
+        "p_covered": 0.9299999999999999,
+        "reason": "Consumables actually used in covered repair, 7.1.7(e).",
+        "n_samples": 3
+      },
+      {
+        "index": 5,
+        "q10": 65.0,
+        "q50": 76.0,
+        "q90": 88.0,
+        "p_covered": 0.9233333333333333,
+        "reason": "One necessary attendance for covered repair, 7.1.11.",
+        "n_samples": 3
+      },
+      {
+        "index": 6,
+        "q10": 120.0,
+        "q50": 210.0,
+        "q90": 340.0,
+        "p_covered": 0.9733333333333333,
+        "reason": "Leak detection after reasonably suspected escape, 2.4.6.",
+        "n_samples": 3
+      },
+      {
+        "index": 7,
+        "q10": 250.0,
+        "q50": 600.0,
+        "q90": 1400.0,
+        "p_covered": 0.01,
+        "reason": "External frost damage excluded without optional peril, 3.5.",
+        "n_samples": 3
+      },
+      {
+        "index": 8,
+        "q10": 180.0,
+        "q50": 420.0,
+        "q90": 950.0,
+        "p_covered": 0.01,
+        "reason": "Removal follows excluded external frost render work, 3.5(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 9,
+        "q10": 250.0,
+        "q50": 600.0,
+        "q90": 1300.0,
+        "p_covered": 0.01,
+        "reason": "Base plaster relates to excluded external frost damage, 3.5.",
+        "n_samples": 3
+      },
+      {
+        "index": 10,
+        "q10": 1500.0,
+        "q50": 3800.0,
+        "q90": 7500.0,
+        "p_covered": 0.006666666666666667,
+        "reason": "Excluded frost work and premium upgrade, 3.5(d), 7.1.10.",
+        "n_samples": 3
+      },
+      {
+        "index": 11,
+        "q10": 180.0,
+        "q50": 450.0,
+        "q90": 1000.0,
+        "p_covered": 0.01,
+        "reason": "Substrate work follows excluded facade damage, 3.5(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 12,
+        "q10": 450.0,
+        "q50": 1000.0,
+        "q90": 2300.0,
+        "p_covered": 0.01,
+        "reason": "Finish coats follow excluded external frost work, 3.5(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 13,
+        "q10": 800.0,
+        "q50": 1800.0,
+        "q90": 4200.0,
+        "p_covered": 0.006666666666666667,
+        "reason": "Undamaged elevations are outside affected parts, 7.1.5.",
+        "n_samples": 3
+      },
+      {
+        "index": 14,
+        "q10": 120.0,
+        "q50": 280.0,
+        "q90": 650.0,
+        "p_covered": 0.01,
+        "reason": "Priming follows excluded external frost render work, 3.5(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 15,
+        "q10": 280.0,
+        "q50": 375.0,
+        "q90": 525.0,
+        "p_covered": 0.01,
+        "reason": "Painter labour relates to excluded facade works, 7.1.11.",
+        "n_samples": 3
+      },
+      {
+        "index": 16,
+        "q10": 90.0,
+        "q50": 190.0,
+        "q90": 400.0,
+        "p_covered": 0.01,
+        "reason": "Painting flat rate follows excluded principal work, 7.1.12.",
+        "n_samples": 3
+      }
+    ]
+  },
+  "v2_debug": {
+    "1": {
+      "p_cov": 0.98,
+      "mu": 3.9743872698956366,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 65.0,
+      "desc": "Filling valve (internal frost-burst fitt"
+    },
+    "2": {
+      "p_cov": 0.98,
+      "mu": 3.1322045101752036,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 28.0,
+      "desc": "Connection hose"
+    },
+    "3": {
+      "p_cov": 0.9766666666666667,
+      "mu": 5.5990926544605255,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 330.0,
+      "desc": "Senior installer hours"
+    },
+    "4": {
+      "p_cov": 0.9299999999999999,
+      "mu": 3.1322045101752036,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 28.0,
+      "desc": "Auxiliary and cleaning material"
+    },
+    "5": {
+      "p_cov": 0.9233333333333333,
+      "mu": 5.159696007605554,
+      "sg": 0.1455213750217998,
+      "mem": true,
+      "q50": 76.0,
+      "desc": "Vehicle costs"
+    },
+    "6": {
+      "p_cov": 0.9733333333333333,
+      "mu": 5.147107530717468,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 210.0,
+      "desc": "Thermal imaging camera (leak detection)"
+    },
+    "7": {
+      "p_cov": 0.01,
+      "mu": 6.196929655216146,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 600.0,
+      "desc": "Facade frost damage from outdoor freeze-"
+    },
+    "8": {
+      "p_cov": 0.01,
+      "mu": 5.840254711277414,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 420.0,
+      "desc": "Loose plaster removal"
+    },
+    "9": {
+      "p_cov": 0.01,
+      "mu": 6.196929655216146,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 600.0,
+      "desc": "Base plaster"
+    },
+    "10": {
+      "p_cov": 0.006666666666666667,
+      "mu": 8.242756345714477,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 3800.0,
+      "desc": "Premium insulated render system (upgrade"
+    },
+    "11": {
+      "p_cov": 0.01,
+      "mu": 5.909247582764365,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 450.0,
+      "desc": "Newly plastered substrate"
+    },
+    "12": {
+      "p_cov": 0.01,
+      "mu": 6.707755278982137,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 1000.0,
+      "desc": "Facade paint (4 coats)"
+    },
+    "13": {
+      "p_cov": 0.006666666666666667,
+      "mu": 7.295541943884256,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 1800.0,
+      "desc": "Repaint of undamaged elevations"
+    },
+    "14": {
+      "p_cov": 0.01,
+      "mu": 5.434789603169249,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 280.0,
+      "desc": "Priming"
+    },
+    "15": {
+      "p_cov": 0.01,
+      "mu": 5.7269260259704104,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 375.0,
+      "desc": "Painter hours"
+    },
+    "16": {
+      "p_cov": 0.01,
+      "mu": 5.047024072160486,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 190.0,
+      "desc": "Flat rate"
+    }
+  },
+  "finished_at_s": 13.2
+}
