@@ -1,0 +1,1 @@
+You are an expert statistic mathematician, how would you tackle this problem if you were to be implementing it from scratch, v2 is making good progress so far. How could v3 be even better and more consistent. Try to pitch it against v2 for the next 10 rounds
