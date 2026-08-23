@@ -7,29 +7,29 @@ CASE0 = Path(__file__).resolve().parents[1] / "cases" / "case_00"
 
 SAMPLE = """Invoice
 INVOICE NO.
-2026-0001
+1000-0001
 DATE
-6 Jan 2026
+6 Jan 2000
 TRADE
-Bikeshop
+Tradeshop
 FROM
-Bikey Bike Ltd
+Vendor C Ltd
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-1 New Bike 1 unit
+1 New Item 1 unit
 2 Labour for fitting the new
 rear wheel 2.5 hours
 3 Brake pads 4 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 """
 
 
 def test_parse_meta():
     m = parse_meta(SAMPLE)
-    assert m["trade"] == "Bikeshop"
-    assert m["vendor"] == "Bikey Bike Ltd"
-    assert m["date"] == "6 Jan 2026"
+    assert m["trade"] == "Tradeshop"
+    assert m["vendor"] == "Vendor C Ltd"
+    assert m["date"] == "6 Jan 2000"
 
 
 def test_load_case_0():
@@ -50,118 +50,118 @@ def test_load_case_0():
 
 
 # Real pypdf output from game 5: four invoices in one PDF, quantities glued to the description
-# ("sink1 pcs"), multi-word units ("flat rate"), wrapped descriptions, and a "DUE / 5 Mar 2026"
+# ("sink1 pcs"), multi-word units ("flat rate"), wrapped descriptions, and a "DUE / 5 Mar 2000"
 # header line between invoices that must not be mistaken for item 5.
 GAME5 = """Invoice
 INVOICE NO.
-2026-0117
+1000-0117
 DATE
-19 Feb 2026
+19 Feb 2000
 DUE
-5 Mar 2026
+5 Mar 2000
 TRADE
 Leak Detection
 FROM
-Drippy Dave Leak Hunters Ltd
+Vendor A Ltd
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-1 Leak detection call-out and electro-acoustic
-pinpointing of the leak beneath the kitchen sink
+1 Service call-out and acoustic
+locating of the fault beneath the fixture
 1 pcs
-2 Moisture measurement of the kitchen floor and wall
+2 Moisture measurement of the floor and wall
 base
 1 pcs
 3 Service technician hours 14 hrs
 4 Vehicle costs 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 Invoice
 INVOICE NO.
-2026-0118
+1000-0118
 DATE
-19 Feb 2026
+19 Feb 2000
 DUE
-5 Mar 2026
+5 Mar 2000
 TRADE
 Plumbing
 FROM
-Soggy Bottom Plumbing Ltd
+Vendor B Ltd
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-5 Freeing the affected pipe run beneath the kitchen sink1 pcs
+5 Freeing the affected pipe run beneath the fixture1 pcs
 6 Removal and disposal of damaged pipe insulation 2 pcs
 7 Repair of the confirmed leak on the copper supply pipe1 pcs
 8 Replacement copper pipe section and transition fittings1 flat rate
 9 Vehicle costs 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 Invoice
 INVOICE NO.
-2026-0119
+1000-0119
 DUE
-5 Mar 2026
+5 Mar 2000
 TRADE
 Drying Technology
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-10 Condensation dryer for the kitchen, rental for the
+10 Condensation dryer for the room, rental for the
 drying period
 1 pcs
-11 Room drying of the kitchen floor and wall base 1 pcs
+11 Room drying of the floor and wall base 1 pcs
 12 Vehicle costs 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 Invoice
 TRADE
 Carpentry
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-13 Removal, transport and disposal of the water-damaged
-wooden kitchen table
+13 Removal, transport and disposal of the damaged
+wooden table
 3 pcs
-14 Supply of replacement table - premium solid-oak
-designer model, higher specification than the original
+14 Supply of replacement table - premium
+model, higher specification than the original
 1 pcs
 15 Delivery and assembly of the replacement table 1 flat rate
 16 Cleaning of the installation area 1 pcs
 17 Vehicle costs 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 """
 
 # Real pypdf output from game 4: "– –" (no quantity, no unit), "flat rate" after a wrapped line.
 GAME4 = """ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-1 TV set (surge damaged) 1 pcs
-2 Speaker system (surge damaged) 1 pcs
-3 AV receiver / amplifier (surge damaged) 1 pcs
-4 Melted mains plug and power lead (physically surge-
+1 Device A (damaged) 1 pcs
+2 Device B (damaged) 1 pcs
+3 Device C (damaged) 1 pcs
+4 Damaged plug and power lead (physically
 damaged)
 1 flat rate
 5 HDMI cables and remote controls – –
 6 Wall-mount bracket – –
-7 DVD player (was already failing before the storm, age-
+7 Device D (was already failing before, age-
 related)
 1 pcs
-8 Router (no diagnostic report provided) – –
+8 Device E (no diagnostic report provided) – –
 9 Shipping 1 pcs
 10 Installation 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 Invoice
 DUE
-5 Mar 2026
+5 Mar 2000
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-11 Diagnostic inspection and surge-failure report for
-damaged electronics
+11 Diagnostic inspection and failure report for
+damaged devices
 2 pcs
 12 Vehicle costs – return visit – –
-13 Wiring safety check of property distribution board – –
+13 Wiring safety check of distribution board – –
 14 Administrative and claim-processing fee 1 flat rate
 15 Vehicle costs 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 """
 
 
@@ -173,30 +173,30 @@ Created on 21 Aug 2026 Page 1 / 1
 # history). Label recovery must never be all-or-nothing.
 GAME27 = """Invoice
 INVOICE NO.
-2026-0035
+1000-0035
 DATE
-17 Jan 2026
+17 Jan 2000
 DUE
-31 Jan 2026
+31 Jan 2000
 TRADE
 Translation Services
 FROM
-Lost in Translation Language Ltd
+Vendor D Ltd
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-1 Translation from Spanish to English 68 lines
+1 Translation service 68 lines
 2 Material costs 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 Invoice
 TRADE
 Compensation
 ITEMS
 POS. DESCRIPTION AMOUNTUNIT TOTAL
-3 Compensation for robbery damage 1 pcs
+3 Compensation for reported damage 1 pcs
 4 Shipping 1 pcs
 INVOICE
-Created on 21 Aug 2026 Page 1 / 1
+Created on 1 Jan 2000 Page 1 / 1
 """
 
 
@@ -204,16 +204,16 @@ def test_item_labels_unknown_unit_keeps_every_item():
     """The game 27 regression: one unfamiliar unit must not discard the invoice."""
     labels = item_labels(GAME27)
     assert labels == {
-        1: "Translation from Spanish to English",
+        1: "Translation service",
         2: "Material costs",
-        3: "Compensation for robbery damage",
+        3: "Compensation for reported damage",
         4: "Shipping",
     }
 
 
 def test_item_labels_strips_quantity_and_unit():
     labels = item_labels(SAMPLE)
-    assert labels[1] == "New Bike"
+    assert labels[1] == "New Item"
     assert labels[3] == "Brake pads"
 
 
@@ -224,7 +224,7 @@ def test_item_labels_joins_wrapped_descriptions():
 def test_item_labels_handles_glued_quantity_and_multiword_unit():
     """pypdf glues the quantity onto the description ("sink1 pcs"); "flat rate" is two words."""
     labels = item_labels(GAME5)
-    assert labels[5] == "Freeing the affected pipe run beneath the kitchen sink"
+    assert labels[5] == "Freeing the affected pipe run beneath the fixture"
     assert labels[8] == "Replacement copper pipe section and transition fittings"
 
 
@@ -236,7 +236,7 @@ def test_item_labels_reads_every_invoice_in_the_pdf():
 
 
 def test_item_labels_ignores_header_fields_between_invoices():
-    """"DUE / 5 Mar 2026" sits between invoices and must not be read as item 5."""
+    """"DUE / 5 Mar 2000" sits between invoices and must not be read as item 5."""
     assert "Mar 2026" not in item_labels(GAME5)[5]
 
 
@@ -284,7 +284,7 @@ def test_case_labels_reads_item_labels_through_a_json_round_trip():
 def test_case_labels_recovers_from_invoice_text_when_the_log_has_none():
     """Games 27-28 logged neither item_labels nor an items parse - only the invoice text."""
     case = {"items": [], "invoice_text": GAME27}
-    assert case_labels(case)[1] == "Translation from Spanish to English"
+    assert case_labels(case)[1] == "Translation service"
 
 
 def test_case_labels_falls_back_to_a_stored_items_parse():

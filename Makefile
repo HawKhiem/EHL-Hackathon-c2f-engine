@@ -31,14 +31,13 @@ TRUTH_WAIT ?= 60
 
 # $(call push_file,<prefix>,<game>,<msg>) commits+pushes runs/<prefix>_game_NN.json if present.
 define push_file
-	@if [ "$(PUSH)" = "1" ] && [ -f runs/$(1)game_$$(printf '%02d' $(2)).json ]; then \
-	  f=runs/$(1)game_$$(printf '%02d' $(2)).json; \
-	  git add "$$f" && git commit -q -m "$(3): game $(2)" -- "$$f" && git push -q && echo "pushed $$f" \
-	  || echo "warning: could not commit/push $$f"; \
-	fi
+	@echo "kept locally, not committed (runs/ is claim data and gitignored): runs/$(1)game_$$(printf '%02d' $(2)).json"
 endef
+# Run logs embed the case's policy/description/invoice text = CLAIM DATA, which must never be
+# checked in (hackathon rule). They stay on disk (the pricing engine's memory reads them) and are
+# gitignored; only the truth bounds and the calibration - numbers - are committed after a round.
 define push_log
-	$(call push_file,,$(1),run log)
+	@echo "run log kept locally (claim data is not committed): runs/game_$$(printf '%02d' $(1)).json"
 endef
 # $(call push_truth,<game>,<wait seconds>) waits for the game to close, then infers t bounds
 # and refits the calibration from every truth + feedback file we have.

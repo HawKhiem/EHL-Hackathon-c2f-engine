@@ -45,3 +45,9 @@ Thumbs.db
 
 # --- challenge case data (local only, never commit) ---
 cases/
+
+# --- claim data: NEVER check in (hackathon rule). The whole runs/ tree stays on disk only:
+# run logs embed each case's policy/description/invoice text, and the pricing engine reads
+# them as its market memory - but none of it belongs in the repository.
+cases/
+runs/
