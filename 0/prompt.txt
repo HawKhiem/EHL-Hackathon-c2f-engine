@@ -253,3 +253,7 @@ Also be sure to NOT check in any of the claim data into your repositories
 ---
 
 push the writeup
+
+---
+
+pull from origin and sync local with origin
