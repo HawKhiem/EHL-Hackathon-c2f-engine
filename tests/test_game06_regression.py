@@ -168,6 +168,10 @@ def test_game_06_log_reproduces_the_reported_bug_before_the_fix():
     """Sanity check that the fixture above matches what actually went out in Game 6. That run
     predates this fix (it used the old three-vote ensemble, since removed - see git history);
     the FULL_ITEMS/FAST_ITEMS fixtures above reproduce its estimates against today's pipeline."""
+    if not GAME_06_LOG.exists():
+        import pytest
+
+        pytest.skip("run log not present: runs/ is claim data and is not checked in")
     log = json.loads(GAME_06_LOG.read_text())
     priced_full = log["priced_full"]
     assert priced_full[0]["charge_price"] == 1375.0

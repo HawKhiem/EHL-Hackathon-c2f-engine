@@ -63,6 +63,10 @@ CASE = {
 
 def test_game_10_log_reproduces_the_reported_bug_before_the_fix():
     """Sanity check that the fixture above matches what actually went out in Game 10."""
+    if not GAME_10_LOG.exists():
+        import pytest
+
+        pytest.skip("run log not present: runs/ is claim data and is not checked in")
     log = json.loads(GAME_10_LOG.read_text())
     item3 = next(it for it in log["model_fast"]["output"]["items"] if it["index"] == 3)
     assert item3["covered"] is True and item3["related"] is True
