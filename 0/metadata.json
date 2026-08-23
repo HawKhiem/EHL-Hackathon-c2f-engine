@@ -1,0 +1,37 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "01M0NZ9DQV4S9JNBE9JBDJ18Q1",
+  "session_id": "0907c426-1faf-4550-9e9d-463d48506ed4",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-23T00:10:56.2039164Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "runs/truth_game_54.json"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5",
+  "turn_id": "a9839b8f22a5",
+  "checkpoint_transcript_start": 97,
+  "transcript_lines_at_start": 97,
+  "compact_transcript_start": 19,
+  "token_usage": {
+    "input_tokens": 198,
+    "cache_creation_tokens": 33738,
+    "cache_read_tokens": 426533,
+    "output_tokens": 7314,
+    "api_call_count": 3
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-23T00:10:56.1138306Z",
+    "agent_lines": 0,
+    "agent_removed": 0,
+    "human_added": 182,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 182,
+    "total_lines_changed": 182,
+    "agent_percentage": 0,
+    "metric_version": 2
+  }
+}
