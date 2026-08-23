@@ -241,3 +241,11 @@ v2 is working surprisingly well, analyze it deeply from the mathematical perspec
 ---
 
 Remove the runs folder, clean up unused code
+
+---
+
+Also be sure to write a short write up on your approach and check into your repository. 
+
+Additionally it would be nice if you could write in few bullets why you think your team has succeeded/not succeeded 
+
+Also be sure to NOT check in any of the claim data into your repositories
