@@ -1,0 +1,1154 @@
+{
+  "game_id": 71,
+  "started_at": 1787456540.4438121,
+  "submissions": [
+    {
+      "tag": "v2[1/3]",
+      "at_s": 18.4,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1000.14,
+          "acceptance_limit": 1059.74
+        },
+        {
+          "index": 2,
+          "charge_price": 176.85,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 3,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 4,
+          "charge_price": 47.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 161.2
+        },
+        {
+          "index": 6,
+          "charge_price": 1252.66,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 383.17,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 662.14,
+          "acceptance_limit": 429.26
+        },
+        {
+          "index": 10,
+          "charge_price": 1000.14,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 11,
+          "charge_price": 884.23,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 12,
+          "charge_price": 110.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 13,
+          "charge_price": 101.53,
+          "acceptance_limit": 69.4
+        },
+        {
+          "index": 14,
+          "charge_price": 73.69,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 15,
+          "charge_price": 117.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 16,
+          "charge_price": 257.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 17,
+          "charge_price": 147.37,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 18,
+          "charge_price": 110.36,
+          "acceptance_limit": 74.49
+        }
+      ],
+      "response": [
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1000.14,
+          "acceptance_limit": 1059.74,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 176.85,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 47.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 161.2,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 1252.66,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 383.17,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 662.14,
+          "acceptance_limit": 429.26,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 1000.14,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 884.23,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 12,
+          "charge_price": 110.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 13,
+          "charge_price": 101.53,
+          "acceptance_limit": 69.4,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 14,
+          "charge_price": 73.69,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 15,
+          "charge_price": 117.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 16,
+          "charge_price": 257.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 17,
+          "charge_price": 147.37,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 18,
+          "charge_price": 110.36,
+          "acceptance_limit": 74.49,
+          "submitted_at": "2026-08-23T03:44:09.029158Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[2/3]",
+      "at_s": 22.1,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1000.14,
+          "acceptance_limit": 976.18
+        },
+        {
+          "index": 2,
+          "charge_price": 165.79,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 3,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 4,
+          "charge_price": 49.74,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 158.5
+        },
+        {
+          "index": 6,
+          "charge_price": 1215.82,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 383.17,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 47.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 860.78,
+          "acceptance_limit": 550.06
+        },
+        {
+          "index": 10,
+          "charge_price": 1000.14,
+          "acceptance_limit": 906.71
+        },
+        {
+          "index": 11,
+          "charge_price": 1105.29,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 12,
+          "charge_price": 97.11,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 13,
+          "charge_price": 97.11,
+          "acceptance_limit": 65.97
+        },
+        {
+          "index": 14,
+          "charge_price": 73.69,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 15,
+          "charge_price": 132.63,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 16,
+          "charge_price": 272.64,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 17,
+          "charge_price": 154.74,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 18,
+          "charge_price": 99.32,
+          "acceptance_limit": 64.84
+        }
+      ],
+      "response": [
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1000.14,
+          "acceptance_limit": 976.18,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 165.79,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 49.74,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 158.5,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 1215.82,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 383.17,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 47.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 860.78,
+          "acceptance_limit": 550.06,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 1000.14,
+          "acceptance_limit": 906.71,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 1105.29,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 12,
+          "charge_price": 97.11,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 13,
+          "charge_price": 97.11,
+          "acceptance_limit": 65.97,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 14,
+          "charge_price": 73.69,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 15,
+          "charge_price": 132.63,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 16,
+          "charge_price": 272.64,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 17,
+          "charge_price": 154.74,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 18,
+          "charge_price": 99.32,
+          "acceptance_limit": 64.84,
+          "submitted_at": "2026-08-23T03:44:12.649897Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[3/3]",
+      "at_s": 23.6,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1000.14,
+          "acceptance_limit": 958.5
+        },
+        {
+          "index": 2,
+          "charge_price": 154.74,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 3,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 4,
+          "charge_price": 47.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.45
+        },
+        {
+          "index": 6,
+          "charge_price": 1178.97,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 383.17,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 662.14,
+          "acceptance_limit": 421.04
+        },
+        {
+          "index": 10,
+          "charge_price": 1000.14,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 11,
+          "charge_price": 1178.97,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 12,
+          "charge_price": 51.58,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 13,
+          "charge_price": 92.7,
+          "acceptance_limit": 62.03
+        },
+        {
+          "index": 14,
+          "charge_price": 73.69,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 15,
+          "charge_price": 117.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 16,
+          "charge_price": 257.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 17,
+          "charge_price": 147.37,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 18,
+          "charge_price": 92.7,
+          "acceptance_limit": 60.66
+        }
+      ],
+      "response": [
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1000.14,
+          "acceptance_limit": 958.5,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 154.74,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 47.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.45,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 1178.97,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 383.17,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 662.14,
+          "acceptance_limit": 421.04,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 1000.14,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 1178.97,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 12,
+          "charge_price": 51.58,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 13,
+          "charge_price": 92.7,
+          "acceptance_limit": 62.03,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 14,
+          "charge_price": 73.69,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 15,
+          "charge_price": 117.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 16,
+          "charge_price": 257.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 17,
+          "charge_price": 147.37,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        },
+        {
+          "game_id": 71,
+          "team_id": 5,
+          "line_item_index": 18,
+          "charge_price": 92.7,
+          "acceptance_limit": 60.66,
+          "submitted_at": "2026-08-23T03:44:14.183493Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787456630.5145652,
+  "case": {
+    "game_id": 71,
+    "policy": "===============================================================================\nRESIDENTIAL DWELLING INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\n===============================================================================\n\nThese conditions apply together with the General Contract Provisions and with\nthe Schedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods and percentages shown in square brackets are those stated\nin the Schedule.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nCombined residential buildings insurance protects the policyholder against the\nfinancial consequences of physical damage to their building. The perils that can\nbe insured are the ones bundled together in these conditions - fire, escape of\nwater, storm and hail, and further natural hazards among them. Which of the\ninsurable perils are actually covered is agreed between insurer and policyholder\nand recorded in the schedule.\n\nWhere insured property is destroyed or damaged, the insurer indemnifies the cost\nof putting it back in the same kind and quality. Alongside the building itself,\nthe cover extends to the ancillary structures standing on the insured site\ninsofar as they are insured property under Part 4. A range of consequential\nexpenses triggered by a loss event - clearance and disposal of the material\narising among them - is also carried.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nInsured event - the event for which the insurer pays.\n\nAffected part - a room, a surface, a structure, a building component or an item\nin which physical damage caused by the insured event has been established by the\nloss investigation. The affected parts, taken together, delimit what the insurer\nindemnifies.\n\nRepair cost - outlay that serves to put an affected part back into the condition\nit was in immediately before the insured event. Outlay that serves another\npurpose - preservation, upkeep, protection against future influences, the\nimprovement of the ground, or the running of a contractor's business - is not a\nrepair cost, whatever heading it is invoiced under.\n\nMaterial arising - the broken, displaced or otherwise unusable material that an\ninsured event leaves on the insured site, together with the material that the\nclearance work generates. It falls into distinct categories according to how it\nmust be routed for disposal: vegetal material, timber, mineral and aggregate\nmaterial, glazed material, and soil.\n\nItemised charge - a position that states the labour actually worked, or the\nmaterial actually supplied, together with its quantity and its rate. A position\nthat states neither, and instead prices an operation as a whole, is not an\nitemised charge.\n\nExclusion - a peril, a type of damage, an item of property or a type of outlay\nfor which no cover exists.\n\nDuties - the things the policyholder must do or refrain from doing before, during\nand after an insured event.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is destroyed or damaged by, or lost\nas a consequence of, the following events:\n\n  (a) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot.\n\n  (b) ESCAPE OF WATER.\n\n  (c) NATURAL HAZARDS, in two tiers:\n        (c1) storm and hail;\n        (c2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\n2.2 How the groups combine\n\nEach of the three groups (a), (b) and (c1) can be taken separately. The further\nnatural hazards under (c2) can only be taken in combination with one or more of\nthe perils in (a), (b) or (c1); they are not available on a standalone basis.\n\n2.5 Natural hazards defined\n\n2.5.1 Storm\nStorm means a weather-driven movement of air reaching at least the gale threshold\non the recognised scale of wind strength, expressed as a defined minimum\nsustained wind speed.\n\nWhere the wind strength at the loss location cannot be established, storm is\npresumed if the policyholder demonstrates either of the following:\n  (a) in the vicinity of the insured site the air movement caused damage to\n      buildings that were in sound condition, or to other property of comparable\n      resistance; or\n  (b) given the sound condition of the insured property, the damage can only have\n      arisen through storm.\n\n2.5.2 Hail\nHail means solid precipitation in the form of grains of ice.\n\n2.5.3 Which storm and hail events are covered\nOnly damage arising in one of the following ways is covered:\n  (a) storm or hail acts directly on insured property, or on structures in which\n      insured property is located; consequential damage to insured property\n      arising from this is covered;\n  (b) storm or hail acts directly on structures joined to the insured building or\n      to an insured site installation;\n  (c) storm or hail throws building parts, trees, branches, masonry or other\n      objects onto insured property, or onto structures in which insured property\n      is located; consequential damage to insured property arising from this is\n      covered.\n\n2.5.4 The further natural hazards\nThe further natural hazards are flood, backing-up of water, earthquake, ground\nsubsidence, landslip, snow load, avalanche and volcanic eruption, each as\ncustomarily defined in these conditions.\n\n2.5.5 Effect on ancillary structures\nAncillary structures standing on the insured site - and their cladding, glazing,\nroofing, fastenings and applied finishes - are within the cover on the same terms\nas the building itself, insofar as they are insured property under Part 4.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered. This applies irrespective of any contributing\ncauses.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered. This applies irrespective\nof any contributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered. This applies irrespective of any contributing causes.\n\n3.4 Exclusions within the natural hazards\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) storm surge;\n  (b) the penetration of rain, hail, snow or dirt through windows, doors or other\n      openings that were not properly closed. This exclusion does not apply where\n      those openings were created by storm or hail and constitute damage to the\n      insured property;\n  (c) groundwater, except insofar as it emerged at the surface as a result of\n      precipitation or of the overflow of surface waters;\n  (d) the perils of the fire group, unless triggered by an insured natural\n      hazard;\n  (e) drought or desiccation;\n  (f) the ordinary weathering, fading, decay, insect attack or gradual\n      deterioration of exposed surfaces, finishes and timber, and the\n      consequences of an omitted or overdue protective treatment.\n\nDamage to structures that are not ready for use, and to property located within\nthem, is not covered.\n\n3.5 Work beyond the affected parts, and outlay that is not a repair cost\n\nWork carried out beyond those parts of the insured property that were themselves\naffected by the insured event is not covered. Work carried out on, in or to\nproperty that is not insured property is not covered, save for the clearance\nexpressly provided for in 5.2.1. Outlay that does not constitute a repair cost is\nnot indemnified. The delimitation in each case is governed by 7.1.5 to 7.1.9.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises:\n  (a) the buildings identified in the schedule;\n  (b) their building components;\n  (c) their building accessories;\n  (d) terraces on the insured site that directly adjoin the building;\n  (e) further site installations.\n\n4.2 The categories defined\n\n4.2.1 Building and dwelling\nBuildings are structures connected to the ground. They must be capable of\naffording protection against external influences and, for the purposes of these\nconditions, must be intended for predominantly residential use.\n\n4.2.2 Building components\nBuilding components are items incorporated into a building or into an insured\nsite installation that have lost their independence through their firm connection\nwith it. Glazing elements, panes, cladding boards, roofing elements, doors,\nhatches, fastenings and the applied surface finishes count as building components\nof the structure to which they belong.\n\n4.2.4 Terraces\nTerraces are paved surfaces intended for occupation in the open air that directly\nadjoin the building, together with their bedding, jointing and edge restraint.\n\n4.2.5 Further site installations\nFurther site installations means, exclusively, the ancillary structures of light\nconstruction standing on the insured site and serving the storage, upkeep or\namenity of the insured building, together with the components listed in 4.2.2\nbelonging to them.\n\n4.3 Property not insured\n\nNot insured:\n  (a) photovoltaic installations and their components;\n  (b) all items subsequently incorporated into the building or into a site\n      installation by a tenant or by a condominium owner where that person both\n      procured or took the items over at their own expense and bears the risk for\n      them;\n  (c) electronically stored data and programs;\n  (d) the ground and soil of the insured site; paths, drives, standings and other\n      laid or paved surfaces that are not terraces within the meaning of 4.2.4;\n      and the bedding, jointing, grit, chippings and other aggregate material\n      belonging to such surfaces. Work of every kind on such property - taking\n      up, replacing, re-laying, levelling, regrading or disposing of it - is not\n      indemnified;\n  (e) trees, shrubs, hedges, lawns, planted beds and other vegetation, whether\n      standing, felled, uprooted or displaced, together with their root bodies.\n      Replacement, replanting and re-landscaping are not indemnified. The\n      clearance provided for in 5.2.1 is unaffected by this.\n\n4.5 The insured location\n\nThe insured location is the insured site: the land parcel or parcels on which the\ninsured building stands, together with the structures standing on it.\n\n4.7 Deductibles\n\nA deductible is the share of the indemnity, or the amount, that the policyholder\nbears itself per insured event. The deductible stated in the schedule is deducted\nonce from the indemnity for the insured event, irrespective of how many trades,\ninvoices or heads of claim are involved.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS, LOSS OF RENT AND RENTAL VALUE\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nThe insurer reimburses the following costs where they were necessary as a\nconsequence of an insured event and were actually incurred:\n  (a) clearance, debris removal, demolition and disposal costs;\n  (b) costs of moving and protecting property;\n  (c) costs of emergency and loss-mitigation measures;\n  (d) hotel costs;\n  (e) costs of returning early from a holiday.\n\nReimbursement of each of these heads is limited to the amount agreed for it.\n\n5.2 The cost heads defined\n\n5.2.1 Clearance, debris removal and disposal\nCosts incurred in clearing away and demolishing insured property, and in clearing\nthe insured site of the material arising. This includes gathering and loading\nthat material, sorting or sieving it where the disposal route requires it,\ntransporting it to the nearest suitable disposal site, depositing it and\ndestroying it.\n\nThe clearance extends to material that is not itself insured property, insofar as\nthe insured event deposited, displaced, broke up or churned it up and it has to\nbe taken away in order to make the insured site usable again. To that extent the\nexclusions in 4.3(d) and 4.3(e) do not apply.\n\nDisposal of any one category of the material arising is indemnified once per\ninsured event. Where more than one charge is raised for the disposal of the same\ncategory - on the same invoice, on a second invoice of the same contractor, or on\nthe invoice of another trade instructed on the same loss - only the first such\ncharge is indemnified, whatever wording, sub-description or degree of processing\nthe further charges carry. The categories are those named in 1.3, and a further\ncharge remains a charge in the same category even where it describes a different\nform, part or fraction of the same kind of material.\n\nNot indemnified under this head are:\n  (a) excavating, digging out, levelling, regrading or replacing the ground and\n      soil beyond what the clearance of displaced material requires;\n  (b) taking up, removing or disposing of the material of surfaces falling under\n      4.3(d), and of the aggregate and bedding material belonging to them,\n      irrespective of whether the insured event displaced it;\n  (c) grubbing out, cutting out or removing the root bodies and standing remains\n      of the vegetation falling under 4.3(e), as distinct from clearing away the\n      material lying on the site.\n\n5.2.2 Moving and protecting property\nCosts incurred in moving, altering or protecting other property, reimbursable\nwhere those measures serve to reinstate or replace insured property.\n\n5.2.3 Emergency and loss-mitigation measures\nCosts of the measures reasonably taken immediately after an insured event to make\nthe insured property and the insured site safe and to prevent further damage,\nincluding the labour required for them.\n\n5.2.4 Hotel costs\nCosts of accommodation in a hotel or similar, excluding incidentals such as\nbreakfast. The precondition is that the dwelling permanently occupied by the\npolicyholder has become uninhabitable and that confining themselves to a\nhabitable part of it cannot reasonably be expected of them. The loss of use of an\nancillary structure, of a garden or of another part of the insured site that is\nnot itself living accommodation does not render a dwelling uninhabitable within\nthe meaning of this head.\n\n5.3 Loss of rent and rental value\n\nThe insurer reimburses loss of rent where tenants of residential premises have\nlawfully stopped paying rent in whole or in part on account of an insured event,\nand the locally customary rental value of residential premises occupied by the\npolicyholder itself where, on account of the insured event, the policyholder\ncannot reasonably be expected to use at least parts of the dwelling.\n\n5.4 The period for loss of rent and rental value\n\nLoss of rent or rental value is reimbursed for the period during which the rooms\nare unusable, but for no longer than [number] months from the occurrence of the\ninsured event, and only to the extent that the policyholder has not culpably\ndelayed the resumption of use.\n\n\n-------------------------------------------------------------------------------\nPART 6 - BASIS OF COVER AND PREMIUM\n-------------------------------------------------------------------------------\n\n6.1 Insurable value\n\nThe insurable value forms the basis for calculating the indemnity. The insurable\nvalue determined for the building applies equally to building accessories,\nterraces and further site installations as defined in 4.2.\n\n6.2 Index-linked reinstatement value with enhancement\n\nWhat is insured is the locally customary new-build value of the insured property\nidentified in the schedule, taken at the time of the insured event, together with\nthe additional costs arising from public-law restrictions on reinstatement and\nthe price increases arising between the occurrence of the insured event and\nreinstatement initiated without delay.\n\n6.3 Index-linked current value with enhancement where reinstatement is omitted or\n    delayed\n\nFor property that is not reinstated, or is reinstated late, only the index-linked\ncurrent value with enhancement is insured - the enhanced new-build value at the\ntime of the insured event, less depreciation for age and for the degree of wear.\n\n6.5 How the premium is calculated\n\nThe bases for calculating the premium are the area, the building type, the\nconstruction and the fit-out, the use, other agreed features material to the\npremium calculation, and the adjustment factor.\n\n6.6 Adjustment of cover and premium\n\nWhere cover is adjusted in line with the development of building costs, the\npremium changes accordingly, by way of the adjustment factor taking effect from\n1 January of each year.\n\n\n-------------------------------------------------------------------------------\nPART 7 - CALCULATION AND PAYMENT OF THE INDEMNITY\n-------------------------------------------------------------------------------\n\n7.1 Basis of calculation\n\n7.1.1 The insurer reimburses:\n  (a) for destroyed buildings and destroyed site installations - the locally\n      customary reinstatement costs, taken at the time of the insured event;\n  (b) for damaged buildings, damaged site installations and other damaged\n      property - the necessary repair costs at the time of the insured event,\n      capped at the insurable value at that time;\n  (c) for destroyed or lost other property - the replacement price for property\n      of the same kind and quality in new condition, taken at the time of the\n      insured event.\n\n7.1.4 The achievable sale price of remains is set off in calculating the\nindemnity. Where the material arising has no realisable value, no set-off arises\nand its disposal is governed by 5.2.1.\n\n7.1.5 Extent of the repair\nIndemnity is confined to those parts of the insured property that were themselves\naffected by the insured event. The affected parts are the rooms, surfaces,\nstructures, building components and items in which physical damage caused by the\nevent is established by the loss investigation - by inspection, by photographic\nrecord, or by technical measurement taken at or shortly after the time of the\nloss.\n\nWork carried out on a structure, a surface, a component or an item that was not\nitself affected is not covered. This applies even where the work is carried out\n  (a) so that treated and untreated parts correspond in appearance, colour,\n      pattern, format or material;\n  (b) for reasons of convenience, or because treating a whole structure or surface\n      is more economical than treating the affected part of it;\n  (c) at the same time as covered work, in the course of it, or as part of the\n      same overall project; or\n  (d) by the same contractor as the covered work, and invoiced together with it.\n\n7.1.6 Continuous surfaces\nWhere only part of a single continuous surface was affected, indemnity extends to\nthe treatment of the adjoining unaffected sections of that same surface only where\na replacement material corresponding to the original is no longer obtainable and a\nvisible discontinuity would otherwise remain. It does not extend to a separate\nstructure, nor to a surface, component or item that does not form part of the same\ncontinuous affected surface.\n\n7.1.7 Preparatory and ancillary work\nThe necessary repair costs under 7.1.1(b) include:\n  (a) taking down, dismantling and disposing of the affected components,\n      claddings, glazing elements and finishes;\n  (b) the cleaning, stripping back and preparation of the substrate necessary\n      before a new finish is applied or a new element fitted;\n  (c) materials of a type, quality, grade and specification corresponding to those\n      in place immediately before the insured event, including replacement glazing\n      elements and panes, boards, fixings, and the ordinary finishing products\n      applied to the repaired part;\n  (d) the labour of the workers of each trade necessarily deployed on the covered\n      work, at the ordinary rate of that trade for the category of worker actually\n      deployed. Labour is indemnified whether it is billed as one position or as\n      several positions covering distinct operations, provided each position is an\n      itemised charge within the meaning of 1.3 and corresponds to work actually\n      carried out on the affected parts or on the clearance under 5.2.1;\n  (e) one travel, vehicle or call-out charge per trade invoice.\n\nThe rate charged for labour under (d) is taken to cover the deployment of the\nworker together with everything the worker needs in order to work; see 7.1.8(b).\n\n7.1.8 Outlay that is not a repair cost\nThe following do not constitute repair costs and are not indemnified, however they\nmay be described or invoiced:\n\n  (a) measures directed at the general condition, cleanliness, tidiness, upkeep,\n      preservation, modernisation or improvement of the insured property, as\n      distinct from making good the damage caused by the insured event. Treatments\n      and products whose purpose or effect is to protect a surface against future\n      weathering, ultraviolet light, moisture, decay or infestation belong to this\n      heading and are not indemnified, irrespective of whether they are applied in\n      the course of covered work, on an affected part, or by the same contractor\n      as the covered work. This does not affect the ordinary finishing products\n      under 7.1.7(c), nor the clearance and disposal under 5.2.1;\n\n  (b) outlay belonging to a contractor's own business operation rather than to the\n      repair. This heading covers, in particular, the contractor's own tools,\n      kits, sets, brushes, blades, ladders and consumable small equipment; its own\n      diagnostic and measuring devices; the machines, powered plant, appliances\n      and equipment it deploys in order to carry out the work, whether charged at\n      time, by unit, as a deployment or utilisation charge, or otherwise; the\n      catering, refreshment and provisioning of its own personnel; and general\n      administrative, handling, processing or coordination charges levied in\n      addition to itemised labour and materials. Outlay of this kind is deemed to\n      be included in the labour rate under 7.1.7(d) and is not separately\n      indemnified;\n\n  (c) the same item of cost where it is invoiced more than once in respect of the\n      same insured event, whether by one contractor or across several trades; only\n      the first such charge is indemnified. Two charges are the same item of cost\n      where they relate to the same operation, the same part or the same category\n      of material, even where they appear on different invoices, under different\n      trade headings, or in different words. In particular, where a trade bills the\n      labour and the materials of an operation as itemised charges and, in\n      addition, a position pricing that same operation as a whole, the itemised\n      charges are indemnified and the additional position is not;\n\n  (d) more than one travel, vehicle, call-out, return-visit or re-attendance charge\n      on the same invoice.\n\n7.1.9 No improvement on the pre-loss standard\nReinstatement proceeds on the basis of the type, quality, grade and specification\nin place immediately before the insured event. Where a higher specification, a\nlarger format, a superior material, a longer-lasting or more resistant product or\na premium range is chosen instead, indemnity is limited to the cost of an\nequivalent standard-grade replacement corresponding to what was in place before\nthe loss; the difference is borne by the policyholder. Products falling under\n7.1.8(a) are not indemnified at all and are not brought back into cover by this\nprovision.\n\n7.4 Costs\n\nInsured costs under Part 5 are reimbursed where it is demonstrated that they were\nactually incurred. The indemnity limits agreed for each head are applied.\n\n7.7 Value added tax\n\nValue added tax is reimbursed only if and to the extent that it was actually\nincurred on the occasion of the reinstatement or replacement. It is not reimbursed\nwhere the policyholder is entitled to recover input tax.\n\n7.8 Deductible\n\nDeductibles are deducted from the indemnity in the amount agreed.\n\n7.9 When the indemnity falls due\n\nThe indemnity falls due once the insurer has conclusively determined the claim as\nto its basis and its amount. One month after notifying the loss, the policyholder\nmay claim as an interim payment the amount that is, on the prevailing assessment,\npayable as a minimum.\n\n7.13 Deferral of payment\n\nThe insurer may defer payment for as long as there is doubt as to the\npolicyholder's entitlement to receive payment, official or criminal proceedings\narising out of this insured event are still pending, or a legally required\ninvolvement of a secured lender has not taken place.\n\n\n-------------------------------------------------------------------------------\nPART 8 - EXPERT DETERMINATION PROCEDURE\n-------------------------------------------------------------------------------\n\n8.1 Determining the amount of the loss\nAfter an insured event has occurred, the policyholder may require that the amount\nof the loss be determined in an expert determination procedure. Insurer and\npolicyholder may also agree on such a procedure jointly.\n\n8.3 Procedure before the determination\nEach party is to nominate one expert in text form - by email, fax or letter, for\nexample. Before beginning their determinations, the two experts nominate in text\nform a third expert as umpire. Where the experts cannot agree on the umpire, it is\nappointed by the court with local jurisdiction for the loss location, on the\napplication of either party.\n\n8.4 Content of the determination\nThe experts' findings must state a schedule of the destroyed and the damaged\ninsured property together with the corresponding insurable values at the time of\nthe insured event, the reinstatement and replacement costs, the residual values,\nand the insured costs and the insured loss of rent or rental value.\n\n8.5 Procedure after the determination\nEach expert transmits its findings to both parties simultaneously. Where the two\nsets of findings diverge, the umpire decides the points that remain in dispute,\nwithin the limits set by the experts' findings. The findings of the experts, or of\nthe umpire, are binding on the contracting parties. They are not binding where it\nis demonstrated that they manifestly deviate substantially from the true state of\naffairs.\n\n8.6 Costs\nUnless something else has been agreed, each party bears the costs of its own\nexpert. The costs of the umpire are borne by the two parties in equal shares.\n\n8.7 Duties remain unaffected\nThe expert determination procedure does not affect the policyholder's duties.\n\n\n-------------------------------------------------------------------------------\nPART 9 - POLICYHOLDER DUTIES AND INCREASE IN RISK\n-------------------------------------------------------------------------------\n\n9.1 Contractually agreed safety requirements before an insured event\n\n9.1.1 Insured property must be kept in proper condition at all times. This applies\nin particular to roofs and roof coverings, to items attached to the exterior, to\nthe fastenings of ancillary structures, and to exposed timber and surface\nfinishes, which must be maintained and re-treated at the intervals ordinarily\nrequired for them. Defects or damage must be remedied without delay.\n\n9.1.2 Structures or parts of structures that are not in use must be inspected\nsufficiently frequently at every time of year.\n\n9.1.4 To avoid flood and backing-up damage, backflow prevention devices must be\nkept operational and the drainage lines on the insured site kept clear.\n\n9.2 Duties after an insured event\n\nThe policyholder must avert and mitigate the loss so far as it reasonably can,\nmust make the insured property and the insured site safe without delay, and must\npreserve the affected parts and the material arising for inspection until the\ninsurer has had the opportunity to establish the extent of the damage.\n\n9.3 Consequences of a breach of duty\n\nWhere the policyholder breaches one of the duties in 9.1 or 9.2, the following\napplies, subject to the conditions set out in the general contract provisions: the\ninsurer is entitled to terminate the contract. It may also be wholly or partly\nreleased from liability.\n\n9.4 Circumstances constituting an increase in risk\n\nAn increase in risk subject to notification under the general contract provisions\nmay exist in particular where a circumstance changes about which the insurer asked\nbefore the contract was concluded; where the building or the predominant part of\nit is no longer in use; where construction work renders it predominantly unusable;\nor where a commercial operation is taken up or changed on the insured site.\n\n\n-------------------------------------------------------------------------------\nPART 10 - CANCELLATION, SECURED LENDERS, TRANSFER OF OWNERSHIP\n-------------------------------------------------------------------------------\n\n10.1 Cancellation where a security right has been registered\n\nWhere a secured lender has registered its charge over the property, cancellation\nof the insurance relationship by the policyholder in respect of the fire peril\ngroup is effective only where the policyholder demonstrated, at least one month\nbefore expiry of the insurance contract, that the property was no longer\nencumbered with the charge, or that the secured lender consented to the\ncancellation. This does not apply to a cancellation following a disposal of the\nproperty, or to a cancellation in the insured event.\n\n10.2 Legal position following a transfer of ownership\n\nWhere the policyholder disposes of the insured property, the acquirer steps into\nits place in the insurance contract at the date of registration in the land\nregister, and from that time takes over the rights and obligations of the\npolicyholder. Seller and acquirer are jointly and severally liable for the premium\nfor the insurance period in which the transfer of ownership occurs. The insurer\nneed only recognise the acquirer's entry once it becomes aware of it.\n\n10.3 Rights of cancellation on a transfer of ownership\n\nThe insurer is entitled to cancel the contract as against the acquirer on one\nmonth's notice, that right lapsing if it is not exercised within one month of the\ninsurer becoming aware of the disposal. The acquirer is entitled to cancel with\nimmediate effect or with effect from the end of the current insurance period, in\ntext form, that right lapsing one month after the acquisition. In either case the\nseller alone remains liable for payment of the premium.\n\n10.4 Duties of notification\n\nThe disposal must be notified to the insurer without delay, in text form, by the\nseller or by the acquirer. Where that notification has been omitted, the insurer\nis not obliged to pay in the insured event on the conditions set out in the\ngeneral contract provisions.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
+    "description": "During a storm, a large tree came down onto the garden shed. The roof took the brunt of it, and the impact was enough that the whole structure needed proper attention afterward, not just a quick patch \u2014 a couple of skilled workers spent the better part of two days on the shed itself, and it ended up getting fully repainted and resealed against the weather (fresh coat, protective UV treatment, all the trim redone), rather than just having the damaged section fixed.\n\nDealing with the tree took a separate crew with a saw and some heavier machinery to get it cut up and cleared off the roof. Underneath and around it, the ground had been churned up \u2014 roots, excavated soil, and displaced paving material all needed sorting out. Between the tree removal and the ground work, there was a fair amount of material to haul away: old wood from the damaged roof, green waste from the tree, the excavated soil, broken paving, and a glass pane from the shed that had been broken too. A separate waste and recycling service handled the disposal side of things.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0045\nDATE\n24 Jan 2026\nDUE\n7 Feb 2026\nTRADE\nGarden Service\nFROM\nWeeds Be Gone Garden Care Ltd\n42 Petunia Path\n28195 Mowerton\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Skilled worker hours 16 hrs\n2 Ultraviolet-resistant protective exterior coating 15 linear m\n3 Painter's kit 1 pcs\n4 Painter hours 1 hrs\n5 Vehicle costs 1 pcs\n6 Painting of the garden shed 26 hrs\n7 Paints 26 l\n8 Catering for work crew 1 pcs\n9 Disposal of green waste 15 m\u00b3\n10 Skilled worker hours 58 hrs\n11 Machine use charge 20 hrs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1\nInvoice\nINVOICE NO.\n2026-0046\nDATE\n24 Jan 2026\nDUE\n7 Feb 2026\nTRADE\nRecycling Service\nFROM\nTrash to Treasure Recycling Ltd\n3 Landfill Loop\n34117 Binbrook\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n12 Disposal of sieved topsoil from the churned-up ground1.25 m\u00b2\n13 Disposal of old timber 0.1 t\n14 Disposal of paving grit 0.4 t\n15 Disposal of green waste 2 m\u00b3\n16 Disposal of tree roots 2.5 m\u00b3\n17 Disposal of excavated soil 1.5 t\n18 Glass pane 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Garden Service",
+      "invoice_no": "2026-0045",
+      "date": "24 Jan 2026",
+      "vendor": "Weeds Be Gone Garden Care Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "Skilled worker hours"
+      },
+      {
+        "index": 2,
+        "description": "Ultraviolet-resistant protective exterior coating"
+      },
+      {
+        "index": 3,
+        "description": "Painter's kit"
+      },
+      {
+        "index": 4,
+        "description": "Painter hours"
+      },
+      {
+        "index": 5,
+        "description": "Vehicle costs"
+      },
+      {
+        "index": 6,
+        "description": "Painting of the garden shed"
+      },
+      {
+        "index": 7,
+        "description": "Paints"
+      },
+      {
+        "index": 8,
+        "description": "Catering for work crew"
+      },
+      {
+        "index": 9,
+        "description": "Disposal of green waste"
+      },
+      {
+        "index": 10,
+        "description": "Skilled worker hours"
+      },
+      {
+        "index": 11,
+        "description": "Machine use charge"
+      },
+      {
+        "index": 12,
+        "description": "Disposal of sieved topsoil from the churned-up ground"
+      },
+      {
+        "index": 13,
+        "description": "Disposal of old timber"
+      },
+      {
+        "index": 14,
+        "description": "Disposal of paving grit"
+      },
+      {
+        "index": 15,
+        "description": "Disposal of green waste"
+      },
+      {
+        "index": 16,
+        "description": "Disposal of tree roots"
+      },
+      {
+        "index": 17,
+        "description": "Disposal of excavated soil"
+      },
+      {
+        "index": 18,
+        "description": "Glass pane"
+      }
+    ],
+    "item_labels": {
+      "1": "Skilled worker hours",
+      "2": "Ultraviolet-resistant protective exterior coating",
+      "3": "Painter's kit",
+      "4": "Painter hours",
+      "5": "Vehicle costs",
+      "6": "Painting of the garden shed",
+      "7": "Paints",
+      "8": "Catering for work crew",
+      "9": "Disposal of green waste",
+      "10": "Skilled worker hours",
+      "11": "Machine use charge",
+      "12": "Disposal of sieved topsoil from the churned-up ground",
+      "13": "Disposal of old timber",
+      "14": "Disposal of paving grit",
+      "15": "Disposal of green waste",
+      "16": "Disposal of tree roots",
+      "17": "Disposal of excavated soil",
+      "18": "Glass pane"
+    },
+    "n_images": 1
+  },
+  "strategy": "v2",
+  "estimate_v2": {
+    "items": [
+      {
+        "index": 1,
+        "q10": 482.0,
+        "q50": 570.0,
+        "q90": 650.0,
+        "p_covered": 0.74,
+        "reason": "Necessary skilled labour on storm-damaged shed; memory-supported.",
+        "n_samples": 3
+      },
+      {
+        "index": 2,
+        "q10": 150.0,
+        "q50": 210.0,
+        "q90": 300.0,
+        "p_covered": 0.016666666666666666,
+        "reason": "Protective UV treatment expressly excluded by 7.1.8(a).",
+        "n_samples": 3
+      },
+      {
+        "index": 3,
+        "q10": 30.0,
+        "q50": 55.0,
+        "q90": 90.0,
+        "p_covered": 0.01,
+        "reason": "Contractor equipment is excluded under 7.1.8(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 4,
+        "q10": 45.0,
+        "q50": 65.0,
+        "q90": 95.0,
+        "p_covered": 0.45666666666666667,
+        "reason": "Only painting of affected shed surfaces is repair work.",
+        "n_samples": 3
+      },
+      {
+        "index": 5,
+        "q10": 65.0,
+        "q50": 76.0,
+        "q90": 88.0,
+        "p_covered": 0.9166666666666666,
+        "reason": "One vehicle charge per trade invoice is allowed.",
+        "n_samples": 3
+      },
+      {
+        "index": 6,
+        "q10": 1250.0,
+        "q50": 1600.0,
+        "q90": 2100.0,
+        "p_covered": 0.16,
+        "reason": "Whole-shed repaint exceeds affected parts absent matching evidence.",
+        "n_samples": 3
+      },
+      {
+        "index": 7,
+        "q10": 390.0,
+        "q50": 520.0,
+        "q90": 780.0,
+        "p_covered": 0.2,
+        "reason": "Only ordinary paint needed for affected surfaces is covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 8,
+        "q10": 25.0,
+        "q50": 55.0,
+        "q90": 100.0,
+        "p_covered": 0.01,
+        "reason": "Crew catering expressly excluded by 7.1.8(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 9,
+        "q10": 500.0,
+        "q50": 750.0,
+        "q90": 1100.0,
+        "p_covered": 0.9066666666666667,
+        "reason": "First green-waste clearance charge; fallen tree material covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 10,
+        "q10": 482.0,
+        "q50": 600.0,
+        "q90": 650.0,
+        "p_covered": 0.65,
+        "reason": "Only tree clearance, not excluded ground work; memory-supported.",
+        "n_samples": 3
+      },
+      {
+        "index": 11,
+        "q10": 1100.0,
+        "q50": 1600.0,
+        "q90": 2300.0,
+        "p_covered": 0.01,
+        "reason": "Contractor machine deployment expressly excluded by 7.1.8(b).",
+        "n_samples": 3
+      },
+      {
+        "index": 12,
+        "q10": 40.0,
+        "q50": 70.0,
+        "q90": 120.0,
+        "p_covered": 0.37666666666666665,
+        "reason": "Only displaced soil clearance, not ground excavation, is covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 13,
+        "q10": 70.0,
+        "q50": 105.0,
+        "q90": 160.0,
+        "p_covered": 0.9433333333333334,
+        "reason": "Damaged roof timber disposal is insured clearance.",
+        "n_samples": 3
+      },
+      {
+        "index": 14,
+        "q10": 60.0,
+        "q50": 100.0,
+        "q90": 160.0,
+        "p_covered": 0.01,
+        "reason": "Paving aggregate disposal is excluded under 4.3(d).",
+        "n_samples": 3
+      },
+      {
+        "index": 15,
+        "q10": 100.0,
+        "q50": 160.0,
+        "q90": 250.0,
+        "p_covered": 0.023333333333333334,
+        "reason": "Duplicate green-waste disposal; only first charge indemnified.",
+        "n_samples": 3
+      },
+      {
+        "index": 16,
+        "q10": 200.0,
+        "q50": 350.0,
+        "q90": 550.0,
+        "p_covered": 0.03666666666666667,
+        "reason": "Root-body removal is excluded by 5.2.1(c).",
+        "n_samples": 3
+      },
+      {
+        "index": 17,
+        "q10": 120.0,
+        "q50": 200.0,
+        "q90": 330.0,
+        "p_covered": 0.030000000000000002,
+        "reason": "Excavated-soil disposal is excluded ground work.",
+        "n_samples": 3
+      },
+      {
+        "index": 18,
+        "q10": 65.0,
+        "q50": 105.0,
+        "q90": 175.0,
+        "p_covered": 0.9266666666666666,
+        "reason": "Broken shed glazing is an insured building component.",
+        "n_samples": 3
+      }
+    ]
+  },
+  "v2_debug": {
+    "1": {
+      "p_cov": 0.74,
+      "mu": 7.052610809994816,
+      "sg": 0.1455213750217998,
+      "mem": true,
+      "q50": 570.0,
+      "desc": "Skilled worker hours"
+    },
+    "2": {
+      "p_cov": 0.016666666666666666,
+      "mu": 5.147107530717468,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 210.0,
+      "desc": "Ultraviolet-resistant protective exterio"
+    },
+    "3": {
+      "p_cov": 0.01,
+      "mu": 3.807333185232471,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 55.0,
+      "desc": "Painter's kit"
+    },
+    "4": {
+      "p_cov": 0.45666666666666667,
+      "mu": 3.9743872698956366,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 65.0,
+      "desc": "Painter hours"
+    },
+    "5": {
+      "p_cov": 0.9166666666666666,
+      "mu": 5.159696007605554,
+      "sg": 0.1455213750217998,
+      "mem": true,
+      "q50": 76.0,
+      "desc": "Vehicle costs"
+    },
+    "6": {
+      "p_cov": 0.16,
+      "mu": 7.177758908227872,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 1600.0,
+      "desc": "Painting of the garden shed"
+    },
+    "7": {
+      "p_cov": 0.2,
+      "mu": 6.053828811575473,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 520.0,
+      "desc": "Paints"
+    },
+    "8": {
+      "p_cov": 0.05,
+      "mu": 3.807333185232471,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 55.0,
+      "desc": "Catering for work crew"
+    },
+    "9": {
+      "p_cov": 0.9066666666666667,
+      "mu": 6.420073206530356,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 750.0,
+      "desc": "Disposal of green waste"
+    },
+    "10": {
+      "p_cov": 0.65,
+      "mu": 7.052610809994816,
+      "sg": 0.1455213750217998,
+      "mem": true,
+      "q50": 600.0,
+      "desc": "Skilled worker hours"
+    },
+    "11": {
+      "p_cov": 0.01,
+      "mu": 7.177758908227872,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 1600.0,
+      "desc": "Machine use charge"
+    },
+    "12": {
+      "p_cov": 0.37666666666666665,
+      "mu": 4.048495242049359,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 70.0,
+      "desc": "Disposal of sieved topsoil from the chur"
+    },
+    "13": {
+      "p_cov": 0.9433333333333334,
+      "mu": 4.453960350157523,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 105.0,
+      "desc": "Disposal of old timber"
+    },
+    "14": {
+      "p_cov": 0.01,
+      "mu": 4.405170185988092,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 100.0,
+      "desc": "Disposal of paving grit"
+    },
+    "15": {
+      "p_cov": 0.023333333333333334,
+      "mu": 4.875173815233826,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 160.0,
+      "desc": "Disposal of green waste"
+    },
+    "16": {
+      "p_cov": 0.03666666666666667,
+      "mu": 5.657933154483459,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 350.0,
+      "desc": "Disposal of tree roots"
+    },
+    "17": {
+      "p_cov": 0.030000000000000002,
+      "mu": 5.098317366548036,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 200.0,
+      "desc": "Disposal of excavated soil"
+    },
+    "18": {
+      "p_cov": 0.9266666666666666,
+      "mu": 4.453960350157523,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 105.0,
+      "desc": "Glass pane"
+    }
+  },
+  "finished_at_s": 23.7
+}
