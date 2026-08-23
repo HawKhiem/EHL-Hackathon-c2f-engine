@@ -2,8 +2,7 @@
   "cli_version": "0.10.2",
   "checkpoint_id": "01M0PXCPHQTBA5PJY19W9TDC02",
   "strategy": "manual-commit",
-  "branch": "main",
-  "checkpoints_count": 3,
+  "checkpoints_count": 1,
   "files_touched": [
     "runs/backtest/game_10.json",
     "runs/backtest/game_11.json",
@@ -30,10 +29,10 @@
     }
   ],
   "token_usage": {
-    "input_tokens": 11721,
-    "cache_creation_tokens": 2464113,
-    "cache_read_tokens": 89160728,
-    "output_tokens": 370919,
-    "api_call_count": 321
+    "input_tokens": 11729,
+    "cache_creation_tokens": 2474999,
+    "cache_read_tokens": 91381353,
+    "output_tokens": 375710,
+    "api_call_count": 325
   }
 }
