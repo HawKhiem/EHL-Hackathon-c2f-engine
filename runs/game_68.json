@@ -1,0 +1,727 @@
+{
+  "game_id": 68,
+  "started_at": 1787454267.711458,
+  "submissions": [
+    {
+      "tag": "v2[1/3]",
+      "at_s": 10.0,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 1059.42,
+          "acceptance_limit": 715.09
+        },
+        {
+          "index": 2,
+          "charge_price": 309.0,
+          "acceptance_limit": 208.57
+        },
+        {
+          "index": 3,
+          "charge_price": 264.85,
+          "acceptance_limit": 153.19
+        },
+        {
+          "index": 4,
+          "charge_price": 794.56,
+          "acceptance_limit": 500.2
+        },
+        {
+          "index": 5,
+          "charge_price": 10783.12,
+          "acceptance_limit": 10000.0
+        },
+        {
+          "index": 6,
+          "charge_price": 663.17,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 221.06,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 335.48,
+          "acceptance_limit": 234.88
+        },
+        {
+          "index": 10,
+          "charge_price": 423.77,
+          "acceptance_limit": 293.21
+        },
+        {
+          "index": 11,
+          "charge_price": 110.53,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 1059.42,
+          "acceptance_limit": 715.09,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 309.0,
+          "acceptance_limit": 208.57,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 264.85,
+          "acceptance_limit": 153.19,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 794.56,
+          "acceptance_limit": 500.2,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 10783.12,
+          "acceptance_limit": 10000.0,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 663.17,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 40.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 221.06,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 335.48,
+          "acceptance_limit": 234.88,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 423.77,
+          "acceptance_limit": 293.21,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 110.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:08.190974Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[2/3]",
+      "at_s": 11.4,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 971.13,
+          "acceptance_limit": 634.02
+        },
+        {
+          "index": 2,
+          "charge_price": 309.0,
+          "acceptance_limit": 208.57
+        },
+        {
+          "index": 3,
+          "charge_price": 264.85,
+          "acceptance_limit": 160.18
+        },
+        {
+          "index": 4,
+          "charge_price": 1015.27,
+          "acceptance_limit": 587.23
+        },
+        {
+          "index": 5,
+          "charge_price": 10783.12,
+          "acceptance_limit": 10000.0
+        },
+        {
+          "index": 6,
+          "charge_price": 331.59,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 20.26,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 110.53,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 322.24,
+          "acceptance_limit": 225.61
+        },
+        {
+          "index": 10,
+          "charge_price": 423.77,
+          "acceptance_limit": 294.96
+        },
+        {
+          "index": 11,
+          "charge_price": 55.26,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 971.13,
+          "acceptance_limit": 634.02,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 309.0,
+          "acceptance_limit": 208.57,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 264.85,
+          "acceptance_limit": 160.18,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 1015.27,
+          "acceptance_limit": 587.23,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 10783.12,
+          "acceptance_limit": 10000.0,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 331.59,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 20.26,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 110.53,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 322.24,
+          "acceptance_limit": 225.61,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 423.77,
+          "acceptance_limit": 294.96,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 55.26,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.518768Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[3/3]",
+      "at_s": 11.6,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 882.85,
+          "acceptance_limit": 583.0
+        },
+        {
+          "index": 2,
+          "charge_price": 309.0,
+          "acceptance_limit": 210.33
+        },
+        {
+          "index": 3,
+          "charge_price": 264.85,
+          "acceptance_limit": 164.16
+        },
+        {
+          "index": 4,
+          "charge_price": 794.56,
+          "acceptance_limit": 468.14
+        },
+        {
+          "index": 5,
+          "charge_price": 10783.12,
+          "acceptance_limit": 10000.0
+        },
+        {
+          "index": 6,
+          "charge_price": 515.8,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 7,
+          "charge_price": 33.16,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 8,
+          "charge_price": 221.06,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 309.0,
+          "acceptance_limit": 216.34
+        },
+        {
+          "index": 10,
+          "charge_price": 423.77,
+          "acceptance_limit": 294.38
+        },
+        {
+          "index": 11,
+          "charge_price": 95.79,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 882.85,
+          "acceptance_limit": 583.0,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 309.0,
+          "acceptance_limit": 210.33,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 264.85,
+          "acceptance_limit": 164.16,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 794.56,
+          "acceptance_limit": 468.14,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 10783.12,
+          "acceptance_limit": 10000.0,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 515.8,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 33.16,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 221.06,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 309.0,
+          "acceptance_limit": 216.34,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 423.77,
+          "acceptance_limit": 294.38,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        },
+        {
+          "game_id": 68,
+          "team_id": 5,
+          "line_item_index": 11,
+          "charge_price": 95.79,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T03:06:09.683665Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787454358.036205,
+  "case": {
+    "game_id": 68,
+    "policy": "===============================================================================\nFictional mock document created for test purposes only.\nAll designations and figures are generic. No real contract.\n===============================================================================\n\nHOUSEHOLD CONTENTS INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\nPolicy wording \"WD-2026\" - Theft, Break-in and Scheduled Articles Edition\n\nThese conditions apply together with the General Contract Provisions and with the\nSchedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods, percentages and endorsements shown in square brackets or\nmarked as optional are those stated in the Schedule.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nThis insurance protects the policyholder against the financial consequences of\nthe loss of, or physical damage to, insured movable property, and against the\ndamage done to the insured premises in the course of an entry by force. The\nperils that can be insured are the ones bundled together in these conditions -\namong them theft and break-in, fire, escape of water and the natural hazards.\nWhich of the insurable perils are actually covered, and which endorsements apply,\nis agreed between insurer and policyholder and recorded in the schedule.\n\nWhere insured property is taken, destroyed or damaged, the insurer indemnifies\nthe value of that property, or the cost of putting it back, on the basis set out\nin Part 6 and within the sums insured and sub-limits agreed. A limited and\nexhaustively listed range of consequential expenses is also carried, within the\nlimits agreed for each head.\n\nThree lines run through the whole of this wording. The first divides the property\nthat was taken or damaged from everything else. The second divides making good\nthat loss from putting the household generally back in order. The third divides\nthe indemnity itself from the effort of claiming it: what the policyholder spends\nin evidencing, reporting and presenting a claim is the policyholder's own, not a\nhead of loss.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nInsured event - the event for which the insurer pays.\n\nExclusion - a peril, a type of damage or an item of property for which no cover\nexists. Exclusions delimit what has been promised and keep the cover calculable.\n\nAffected item - an item of insured property which was taken, destroyed, damaged\nor lost in the insured event, and which is identified and evidenced as such in\nthe itemisation under 7.1.10.\n\nPhysical damage - a change in the substance, structure or working condition of\nproperty. Soiling, marking, disarrangement and comparable traces which leave the\nsubstance intact are not physical damage (3.1.7).\n\nScheduled article - an individual item listed in the scheduled-articles\nendorsement with a value agreed between the parties. A scheduled article is\nindemnified at that agreed value in place of any per-item or aggregate sub-limit\nwhich would otherwise apply to its class.\n\nSub-limit - a monetary ceiling that applies within the sum insured to a defined\nclass of property or to a defined head of cost. Where a sub-limit applies, the\nclass or head is indemnified only up to that ceiling; the excess is borne by the\npolicyholder. Where the loss on that class or head remains below the ceiling, the\nsub-limit does not reduce the indemnity.\n\nAncillary charge - any charge raised alongside the value of the affected items or\nthe itemised labour and materials: call-out and travel, carriage and dispatch,\nfitting, administration, handling, reporting and comparable items.\n\nDuties - the things the policyholder must do or refrain from doing before, during\nand after an insured event.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is taken, destroyed or damaged by,\nor lost as a consequence of, the following events:\n\n  (a) THEFT of insured property from the insured premises, and the damage done to\n      insured property in the course of a theft or an attempted theft;\n\n  (b) BREAK-IN DAMAGE to the insured premises, to their fittings and to their\n      locking and closing equipment;\n\n  (c) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot;\n\n  (d) ESCAPE OF WATER;\n\n  (e) NATURAL HAZARDS, in two tiers:\n        (e1) storm and hail;\n        (e2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\n2.2 How the groups combine\n\nEach of the groups (a), (b), (c), (d) and (e1) can be taken separately. The\nfurther natural hazards under (e2) can only be taken in combination with one or\nmore of the other groups.\n\n2.3 Theft defined\n\n2.3.1 What the peril is\nTheft is the taking of insured property from the insured premises against the\npolicyholder's will and with the intention of keeping it, where the perpetrator\ngained access by an act falling within 2.4. Covered under this heading are the\nloss of the items taken and the physical damage done to insured property in the\ncourse of the taking or the attempt.\n\n2.3.2 Damage excluded within this peril\nNot covered:\n  (a) property mislaid, misplaced, forgotten or left behind, and a shortfall\n      established only on a later review of possessions and not attributable to\n      an identified event;\n  (b) property surrendered voluntarily, including on a deception or a false\n      pretext;\n  (c) property taken by a person who lives in the insured premises, who is\n      employed in the household, or to whom access was entrusted;\n  (d) an item whose presence in the household at the time of the event, or whose\n      loss in that event, is not evidenced under 7.1.10.\n\n2.4 Break-in defined\n\n2.4.1 A break-in is present where a person breaks into, forces open, breaks out\nof, or enters by comparable means the insured premises, a part of them, or a\nlocked receptacle within them, or where a person uses a key or code obtained\nthrough such an act or by force against a person.\n\n2.4.2 The indemnity under 2.1(b) comprises the making good of the affected fabric\nand fittings: doors and door leaves, frames, thresholds and surrounds; windows,\nshutters and their frames; locks, cylinders, escutcheons, handles, hinges, bolts\nand comparable hardware; the associated glazing; and the affected surfaces and\nfinishes. Where a lock or locking system has been damaged, opened or compromised,\nthe indemnity comprises its replacement and, where the compromised element forms\npart of a system, the re-keying or replacement of the further elements of that\nsystem necessary to restore its security.\n\n2.4.3 Securing the premises provisionally until the permanent repair can be\ncarried out is covered under 5.2.2.\n\n2.4.4 Not covered under this heading is the strengthening of the security of the\npremises beyond the standard in place immediately before the event, and the\nfitting of additional locking, closing, monitoring or alarm equipment (7.1.9).\n\n2.5 Fire group, escape of water and natural hazards\n\n2.5.1 The fire group covers fire - a combustion that has started without a hearth\nintended for it, or that has escaped such a hearth, and that is capable of\nspreading under its own power - together with lightning strike, overvoltage\ncaused by lightning, explosion, deflagration, implosion, aircraft impact, vehicle\nimpact, scorching, and smoke and soot. Damage from the gradual action of smoke or\nsoot is not covered.\n\n2.5.2 Escaping water means water that has emerged contrary to its intended\npurpose from the water, heating, air-conditioning, extinguishing or comparable\ninstallations of the building in which the insured property is located.\n\n2.5.3 Storm means a weather-driven movement of air reaching at least the gale\nthreshold on the recognised scale of wind strength; hail means solid\nprecipitation in the form of grains of ice. The further natural hazards are\nflood, backing-up of water, earthquake, ground subsidence, landslip, snow load,\navalanche and volcanic eruption, each as customarily defined.\n\n2.5.4 Not covered within these groups is damage caused by storm surge; by the\npenetration of precipitation or dirt through openings that were not properly\nclosed; by groundwater save where it emerged at the surface as a result of\nprecipitation or overflow; by earthquake within the fire group; and by drought or\ndesiccation.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered, irrespective of any contributing causes.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered, irrespective of any\ncontributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered, irrespective of any contributing causes.\n\n3.1.4 Liability risks\nClaims of third parties against the policyholder, and any outlay directed at\ncovering, assessing, administering or settling such claims, are not the subject\nof this contract.\n\n3.1.5 Preparation, reporting and substantiation of the claim\nEstablishing, evidencing, reporting and presenting the claim is a matter for the\npolicyholder at its own expense. Outlay directed at the cause, the extent or the\nsubstantiation of the loss, or at bringing the claim to the insurer or to a\npublic authority, is not an indemnifiable head of loss under this contract.\n\nThis applies in particular to journeys, travel, mileage, fares and vehicle costs\nincurred by the policyholder or by a member of the household in reporting the\nevent or in dealing with the claim; to the time, effort and inconvenience of\nlisting the property lost, compiling the supporting documents, completing the\nforms and corresponding with the insurer or with any other body, whether valued\nat an hourly rate, at a daily rate, as lost earnings or as a lump sum; and to\ncharges for obtaining, copying, certifying, translating or forwarding documents\nfor the purposes of the claim. It applies whether the outlay is claimed by the\npolicyholder or billed by a third party engaged for the purpose.\n\nNothing in this clause reduces the policyholder's own duty of substantiation\nunder 7.1.10, and nothing in it affects the allocation of the costs of an expert\ndetermination under Part 8.\n\n3.1.6 Service, assistance and administration arrangements\nOutlay arising from a service, assistance, support, representation, handling or\ncomparable arrangement, and any charge for opening, registering, administering or\nprocessing a claim file, is not indemnifiable.\n\n3.1.7 Soiling, traces and cleaning\nSoiling, marking, staining of a superficial kind, footprints, deposits,\ndisarrangement and comparable traces left on the insured premises or on insured\nproperty, where the substance itself remains intact, are not physical damage and\nare not an insured loss. The cleaning, washing, wiping, sweeping, shampooing,\ntidying and restoration of order that removes such traces is an act of upkeep and\nis not indemnifiable, whoever performs it, at whatever point after the event, and\nwhether it is billed by the trade that also carries out indemnifiable work.\n\nWhere the substance was itself damaged - torn, broken, cut, scorched, saturated,\ngouged or otherwise altered - the making good of that damage falls under 7.1, and\nthe removal of the residues and debris generated by the covered making-good works\nfalls under 5.2.5.\n\n3.1.8 Upkeep, improvement and precautionary measures\nOutlay directed at the servicing, maintenance, cleaning, general condition,\nmodernisation or improvement of property, and the renewal of an item on which no\ndamage from the insured event has been established, is not indemnifiable, even\nwhere the measure is taken as a precaution or on a recommendation.\n\n3.1.9 Consequential disruption\nThe consequences an insured event has for the policyholder's arrangements are not\ninsured. Not indemnifiable in particular are replacement, additional or\nrearranged travel and transport; additional or extended accommodation; meals and\nsubsistence; missed or forfeited bookings; and time, inconvenience, loss of use\nand loss of earnings. The heads expressly listed in 5.1 remain unaffected within\ntheir own preconditions and limits.\n\n3.2 Exclusions within the theft and break-in perils\n\nSee 2.3.2 and 2.4.4.\n\n3.3 Exclusions within the remaining perils\n\nSee 2.5.4.\n\n3.4 Outlay that is not an indemnity for property\n\nOutlay that does not represent the value of an affected item, the cost of making\ngood physical damage to an affected item or to the insured premises, or a head\nexpressly listed in Part 5, is not indemnified. The delimitation is governed by\n7.1.5 to 7.1.10.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises the movable items belonging to the household of the\npolicyholder and serving its private use, insofar as the policyholder owns them\nor bears the risk for them, together with the classes of property described in\n4.2 within the sub-limits stated in the schedule, and - for the peril under\n2.1(b) - the fabric, fittings and locking equipment of the insured premises\ninsofar as the policyholder bears the risk for them.\n\n4.2 The categories defined\n\n4.2.1 General household effects\nMovable items of ordinary household use, including clothing, footwear, garments\nof every season and weight, luggage, and the ordinary personal effects of the\noccupants. This class carries no sub-limit of its own; it is indemnified up to\nthe sum insured stated in the schedule.\n\n4.2.2 Valuables\nItems of jewellery, adornment worked from precious metals or set with precious or\nsemi-precious stones, timepieces, loose precious metals and stones, collections\nand comparable items of concentrated value form a single class of property.\nIndemnity for this class is subject to the valuables sub-limit stated in the\nschedule, applied per item and, where more than one such item is affected, in the\naggregate per insured event.\n\nAn item of this class is not removed from it by everyday or habitual use, and an\nitem is not brought into it by price alone. Where several modest items of the\nclass are affected and their aggregate value remains below the ceiling, the\nsub-limit does not reduce the indemnity (6.3).\n\n4.2.3 Scheduled articles\nAn individual item listed in the scheduled-articles endorsement with a value\nagreed between the parties is indemnified at that agreed value. The per-item and\naggregate sub-limits of its class do not apply to it, and its value does not\nconsume the aggregate available to the unscheduled items of that class.\n\nWhere an item of a class carrying a sub-limit is not listed in that endorsement,\nthe sub-limit applies to it whatever its actual value and whatever evidence of a\nhigher value is produced.\n\n4.2.4 Means of payment\nCash, cash equivalents and comparable means of payment form a single class,\nsubject to the sub-limit stated in the schedule and applied in the aggregate per\ninsured event.\n\n4.2.5 Allocation to a class\nEach affected item is allocated to exactly one class under 4.2.1, 4.2.2 or 4.2.4\naccording to its nature, subject to 4.2.3.\n\n4.3 Property not insured\n\nNot insured:\n  (a) property used predominantly for a trade, business or profession;\n  (b) motor vehicles requiring registration, watercraft and aircraft, and their\n      parts and accessories;\n  (c) electronically stored data and programs, and the restoration, migration or\n      re-registration of software, media content, user accounts and comparable\n      intangible items;\n  (d) documents, entitlements and credit balances as such, and the cost of their\n      cancellation, blocking, re-issue or re-registration;\n  (e) property acquired on the occasion of the loss which does not replace an\n      affected item of the same kind and intended purpose;\n  (f) an item claimed without the evidence required under 7.1.10.\n\n4.4 Optionally insurable\n\nIndividual items may be listed at an agreed value in the scheduled-articles\nendorsement, and classes of property may be insured at raised sub-limits, where\nthis is agreed and recorded in the schedule.\n\n4.5 The insured location\n\nThe insured location is the dwelling stated in the schedule together with the\nancillary rooms and stores belonging to it.\n\n4.6 Several persons entitled\n\nWhere several persons are entitled under this contract, the insurer may render\nits benefit to any one of them with effect for all.\n\n4.7 Deductibles\n\nA deductible is the share of the indemnity, or the amount, that the policyholder\nbears itself per insured event. Deductibles can be agreed individually and may\ndiffer from one insured peril and one insured benefit to another. Each is set out\nin the schedule. The deductible is applied once per insured event to the covered\nsettlement, irrespective of the number of items, classes, trades or invoices\ninvolved.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nThe insurer reimburses the following costs where they were necessary as a\nconsequence of an insured event and were actually incurred:\n  (a) the cost of averting or mitigating the loss;\n  (b) the cost of provisionally securing and closing the insured premises after a\n      break-in, and of making them safe;\n  (c) the cost of changing the locks of the insured premises where their keys\n      were taken in an insured event;\n  (d) the cost of moving and protecting insured property;\n  (e) the cost of removing and disposing of destroyed insured property and of the\n      material taken out in the course of the covered works;\n  (f) hotel costs where the insured premises have become uninhabitable through\n      physical damage caused by an insured peril.\n\nReimbursement of each of these heads is limited to the amount agreed for it. This\nlist is exhaustive. A head of cost that does not fall within it, and that is not a\nrepair cost within the meaning of 7.1.7, is not insured, however closely it is\nconnected with the insured event and however reasonably it was incurred.\n\n5.2 The cost heads defined\n\n5.2.1 Averting and mitigating the loss\nCosts of measures taken during or immediately after the insured event to prevent\nthe loss from occurring or from increasing, capped at [amount] per insured event.\n\n5.2.2 Provisional securing of the premises\nCosts of the measures taken during or immediately after a break-in to close,\nboard, cover, bar, provisionally lock or otherwise secure the point of entry and\nthe premises, and to make them safe, so that the premises can be left until the\npermanent repair is carried out. These measures are covered whether they are\ncarried out at once, outside normal working hours, at a call-out rate, or on a\nlater occasion, and whether by the trade that afterwards performs the permanent\nrepair or by another. Indemnity is capped at [amount] per insured event.\n\n5.2.3 Change of locks\nCosts of replacing the locks of the insured premises where their keys were taken\nin an insured event, capped at [amount] per insured event.\n\n5.2.4 Moving and protecting property\nCosts incurred in moving, altering or protecting property, where those measures\nserve to secure or reinstate insured property.\n\n5.2.5 Removal and disposal\nCosts of removing and disposing of destroyed insured property and of the material\ntaken out in the course of the covered making-good works, including the residues\nand debris those works generate. This head does not extend to the cleaning\ndescribed in 3.1.7.\n\n5.2.6 Hotel costs\nCosts of accommodation where the insured premises have become uninhabitable\nthrough physical damage caused by an insured peril and confining oneself to a\nhabitable part cannot reasonably be expected, reimbursed only where indemnity\ncannot be claimed under another insurance contract, up to [amount] per day for a\nmaximum of [number] days.\n\n\n-------------------------------------------------------------------------------\nPART 6 - BASIS OF COVER AND PREMIUM\n-------------------------------------------------------------------------------\n\n6.1 Insurable value\n\nThe insurable value forms the basis for calculating the indemnity. It is\ndetermined separately for each class of property under 4.2, and for a scheduled\narticle by the value agreed for it.\n\n6.2 Replacement value\n\n6.2.1 What is insured is the amount that would have to be spent to procure\nproperty of the same kind and quality in new condition at the time of the insured\nevent. No deduction is made for the age of an item, for the use made of it, or\nfor the ordinary wear of an item in serviceable condition.\n\n6.2.2 By way of exception, for items whose current value has fallen to a\nsubstantial extent below the replacement value - in particular through advanced\nage, heavy wear, technical obsolescence or prolonged disuse - the current value\napplies in place of the replacement value. Recent acquisition, brief use or\nseasonal use does not bring an item within this exception, and an item that had\nbeen little used before the event is indemnified under 6.2.1 without abatement.\n\n6.2.3 For a scheduled article, the agreed value applies (4.2.3).\n\n6.2.4 For the means of payment, the nominal value applies.\n\n6.3 Relationship between basis of cover and sub-limits\n\nThe basis of cover under 6.2 does not displace a sub-limit. Where a class of\nproperty carries a sub-limit, the sub-limit determines the ceiling of the\nindemnity for that class even where the insurable value demonstrably exceeds it,\nand the balance is borne by the policyholder. Conversely, a sub-limit is a\nceiling and not a fixed benefit: where the indemnifiable loss on that class is\nlower, the indemnity is the loss, and where the class carries no sub-limit the\nindemnifiable loss is paid within the sum insured.\n\n6.4 Permanently devalued property\n\nFor property that can no longer be used for its purpose, only the achievable sale\nprice is insured.\n\n6.5 How the premium is calculated\n\nThe bases for calculating the premium are the sum insured, the area and type of\nthe insured premises, the sub-limits and endorsements agreed, the deductible\nagreed, the security arrangements agreed, other agreed features material to the\npremium calculation, and the adjustment factor.\n\n6.6 Adjustment of cover and premium\n\nWhere cover is adjusted, the premium changes accordingly. The adjustment factor\nchanges with effect from 1 January of each year in line with the movement of the\nrelevant published price indices, weighted as agreed and rounded to two decimal\nplaces.\n\n6.7 Subsequent change in a premium-rating feature\n\nWhere a rating circumstance subsequently changes and a higher premium results,\nthe insurer may demand the higher premium from the point at which the change is\nnotified. Where such a circumstance ceases to apply and a lower premium results,\nthe insurer must reduce the premium from the point at which it becomes aware of\nthat.\n\n\n-------------------------------------------------------------------------------\nPART 7 - CALCULATION AND PAYMENT OF THE INDEMNITY\n-------------------------------------------------------------------------------\n\n7.1 Basis of calculation\n\n7.1.1 The insurer reimburses:\n  (a) for taken, destroyed or lost items - the insurable value under Part 6 at\n      the time of the insured event;\n  (b) for damaged items - the necessary repair costs at the time of the insured\n      event, together with any diminution in value the repair does not offset,\n      capped at the insurable value of the item;\n  (c) for the fabric, fittings and locking equipment of the insured premises -\n      the necessary repair costs, including the replacement components and\n      hardware, their fitting into the premises, the labour hours of every grade\n      employed on that work, and the sundry materials consumed by it;\n  (d) for the means of payment - the nominal value.\n\nWhere the property concerned belongs to a class carrying a sub-limit, the\nindemnity under (a) or (b) is confined to that sub-limit, save for a scheduled\narticle (4.2.3).\n\n7.1.2 Where property that was taken is recovered, the policyholder must notify\nthe insurer without delay. Property recovered before the indemnity is paid is\ntreated as damaged property; property recovered afterwards is either surrendered\nto the insurer or retained against repayment.\n\n7.1.3 Price increases occurring between the insured event and the replacement are\nindemnified where the replacement is secured within [number] months.\n\n7.1.4 The achievable sale price of remains is set off in calculating the\nindemnity.\n\n7.1.5 Extent of the indemnity\nIndemnity is confined to the affected items and to the affected parts of the\ninsured premises. Property supplied for, and work carried out on, an item or a\npart that was not itself affected is not covered, even where it is done so that\naffected and unaffected items correspond in appearance or equipment; for reasons\nof convenience or economy; as a precaution against a future event; at the same\ntime as covered work or in the course of it; or by the same trade as the covered\nwork and invoiced together with it.\n\n7.1.6 Sets and matched items\nWhere one item of a set, suite, pair or collection was affected, indemnity is\nconfined to that item and does not extend to the remaining, unaffected items,\nwhatever the loss of uniformity or completeness. Where the affected element forms\npart of a locking or closing system whose security depends on the integrity of\nthe whole, 2.4.2 applies.\n\n7.1.7 What the repair cost comprises\nThe necessary repair costs under 7.1.1(b) and (c) include the removal,\ndismantling and disposal of the damaged parts; replacement components and\nhardware of a type, quality, grade and specification corresponding to those in\nplace immediately before the insured event; their fitting, mounting, adjustment\nand functional testing; the labour hours needed for that work at every grade of\npersonnel employed on it, at the rates customary in the trade; the small parts,\nfixings and comparable sundry materials consumed by it; and one attendance at the\ninsured premises by each trade performing indemnifiable work, in addition to any\nattendance forming part of a measure under 5.2.2.\n\n7.1.8 Outlay that is not an indemnity for property\nThe following are not indemnified, however they may be described, bundled or\ninvoiced, by whichever party they are raised, and irrespective of whether they\nappear on an invoice or settlement statement that also contains an indemnifiable\nelement:\n\n  (a) the cleaning, washing, wiping, tidying and restoration of order described in\n      3.1.7, and every measure directed at the general condition, cleanliness,\n      upkeep, modernisation or improvement of property (3.1.8);\n\n  (b) the renewal of an item or a part on which no damage from the insured event\n      has been established, and every measure directed at property outside Part 4;\n\n  (c) the improvement element where a replacement of a higher grade, superior\n      material, larger size or premium range is chosen; indemnity for that item is\n      limited to the cost of an equivalent standard-grade replacement\n      corresponding to what was in place before the loss, and the difference is\n      borne by the policyholder (7.1.9);\n\n  (d) the strengthening of the security of the premises beyond the standard in\n      place immediately before the event (2.4.4);\n\n  (e) journeys, mileage, fares, time, effort and comparable outlay of the\n      policyholder or of a member of the household in reporting the event or in\n      compiling, evidencing and presenting the claim, however quantified (3.1.5);\n\n  (f) charges of the kind described in 3.1.4, 3.1.6 and 3.1.9, including\n      administrative, handling, order-processing, claim-processing and file-opening\n      charges levied in addition to the itemised benefit;\n\n  (g) carriage, freight, delivery, dispatch, packaging, postage and comparable\n      charges for bringing replacement property to the insured premises;\n\n  (h) the same item of cost where it is invoiced more than once in respect of the\n      same insured event, whether by one party or across several; only the first\n      such charge is indemnified.\n\n7.1.9 No improvement on the pre-loss standard\nThe indemnity proceeds on the basis of the type, quality, grade, size, material\nand specification of the affected item immediately before the insured event.\nWhere a higher specification, a superior material, a premium range or a\nbetter-known maker is chosen instead, indemnity is limited to the cost of an\nequivalent standard-grade replacement corresponding to what was in place before\nthe loss; the difference is borne by the policyholder. Where the item held before\nthe loss is no longer obtainable, the nearest currently available equivalent of\nthe same grade sets the ceiling; an unavoidable difference is not treated as an\nimprovement, a chosen one is.\n\n7.1.10 Itemisation, evidence and apportionment\nThe policyholder itemises each affected item - its description, its approximate\nage or date of acquisition, its value, and the class to which it belongs - and\nsupports the itemisation, for each item, by such evidence of its existence,\nownership and value as can reasonably be expected: a receipt, an invoice, a bank\nor card record, a photograph, a valuation, a certificate, a manufacturer's or\nretailer's record, a guarantee document, a listing in the scheduled-articles\nendorsement, or comparable material.\n\nWhere no such evidence is produced for an item, that item is not indemnified. The\ninsurer does not infer the existence, the ownership or the value of an\nunevidenced item from the fact that other items in the same claim are evidenced,\nfrom the plausibility of its presence in the household, or from the circumstances\nof the event.\n\nWhere an invoice or settlement line bundles indemnifiable and non-indemnifiable\nelements and the elements can be identified and valued from the documents, the\nline is apportioned. Where they cannot be separated, the line is assessed by its\npredominant stated purpose; where the predominant purpose is not indemnifiable,\nthe line is not indemnified. Where a line bundles several affected items of one\nclass carrying a sub-limit, that sub-limit is applied to the line as a whole.\n\nLabour hours, sundry materials, fitting charges and attendance charges are\nallocated to the work they served; where that work is not indemnifiable, they are\nnot indemnifiable either.\n\n7.2 Devalued property\n\nInsofar as property can no longer be used for its purpose, it is indemnified at\nthe achievable sale price.\n\n7.3 Sum insured lower or higher than the insurable value\n\nWhere the sum insured is lower than the insurable value at the time of the insured\nevent, the indemnity is reduced in the proportion the sum insured bears to the\ninsurable value, insofar as this is agreed. Where the sum insured is higher, the\ninsurer is not obliged to compensate more than the loss actually incurred.\n\n7.4 Costs\n\nInsured costs under Part 5 are reimbursed where it is demonstrated that they were\nactually incurred, and the indemnity limits agreed for each head are applied.\n\n7.5 Order of application\n\nThe indemnity is determined in the following order: the indemnifiable loss is\nestablished item by item under 7.1, with 7.1.9 applied to each; the items are\nallocated to their classes, scheduled articles being taken separately; the class\nsub-limits under Part 4 are then applied; the insured costs under Part 5 are added\nwithin their own limits; and the deductible under 7.8 is deducted once from the\nresulting amount.\n\n7.6 Replacement element of the indemnity\n\nWhere the basis of cover is the replacement value, the policyholder acquires a\nclaim to that part of the indemnity which exceeds the current value only where it\ndemonstrates that it has secured the replacement of property of the same kind and\nintended purpose within the period under 7.1.3.\n\n7.7 Value added tax\n\nValue added tax is reimbursed only if and to the extent that it was actually\nincurred on the occasion of the replacement or repair, and not where the\npolicyholder is entitled to recover input tax.\n\n7.8 Deductible\n\nDeductibles are deducted from the indemnity in the amount agreed, once per insured\nevent.\n\n7.9 When the indemnity falls due\n\nThe indemnity falls due once the insurer has conclusively determined the claim as\nto its basis and its amount. One month after notifying the loss, the policyholder\nmay claim as an interim payment the amount that is, on the prevailing assessment,\npayable as a minimum.\n\n7.10 Repayment\n\nThe policyholder must repay indemnity paid on the replacement basis where, through\nits own fault, the property was not replaced within a reasonable period, and must\nrepay indemnity for property subsequently recovered and retained.\n\n7.11 Interest\n\nThe indemnity bears interest from the notification of the loss, save where paid\nwithin one month. The rate is [number] percentage point(s) below the applicable\nstatutory base rate, but at least [percentage] and at most [percentage] per year.\n\n7.12 Suspension of time limits\n\nAny period during which the indemnity cannot be determined or paid owing to the\nfault of the policyholder is left out of account.\n\n7.13 Deferral of payment\n\nThe insurer may defer payment for as long as there is doubt as to the\npolicyholder's entitlement to receive payment, or official or criminal proceedings\narising out of this insured event are pending.\n\n\n-------------------------------------------------------------------------------\nPART 8 - EXPERT DETERMINATION PROCEDURE\n-------------------------------------------------------------------------------\n\n8.1 After an insured event has occurred, the policyholder may require that the\namount of the loss be determined in an expert determination procedure. Insurer and\npolicyholder may also agree on such a procedure jointly, and may agree to extend it\nto further determinations relating to the insured event.\n\n8.2 Each party nominates one expert in text form. Where a party fails to nominate\nwithin two weeks of a request, the requesting party may have the expert appointed\nby the court with local jurisdiction for the loss location. Before beginning their\ndeterminations, the two experts nominate a third expert as umpire.\n\n8.3 The experts' findings must state a schedule of the taken, destroyed and damaged\ninsured property with the corresponding insurable values; the repair and\nreplacement costs; the residual values; and the insured costs. Where a class of\nproperty carries a sub-limit, the findings state the loss for that class\nseparately, and state scheduled articles separately again, so that the limits can\nbe applied. Where an item's existence, ownership or value is disputed, the findings\nstate on what evidence the answer rests.\n\n8.4 Each expert transmits its findings to both parties simultaneously. Where the\nfindings diverge, the umpire decides the points that remain in dispute within the\nlimits set by the experts' findings. The findings are binding unless they\nmanifestly deviate substantially from the true state of affairs.\n\n8.5 Unless something else has been agreed, each party bears the costs of its own\nexpert; the costs of the umpire are borne in equal shares. A report, valuation or\nother document obtained by one party outside this procedure remains that party's\nown cost (3.1.5).\n\n8.6 The expert determination procedure does not affect the policyholder's duties.\n\n\n-------------------------------------------------------------------------------\nPART 9 - POLICYHOLDER DUTIES AND INCREASE IN RISK\n-------------------------------------------------------------------------------\n\n9.1 Duties before an insured event\n\n9.1.1 The insured premises must be kept secured in the customary manner; doors and\nwindows must be closed and locked when the premises are left unattended, and the\nagreed locking and closing equipment must be kept operational.\n\n9.1.2 Items of the class under 4.2.2, and scheduled articles, must be kept in the\nmanner agreed in the schedule when not in use.\n\n9.1.3 The policyholder should keep the receipts, valuations, photographs and\ncomparable records of the property insured, so that the itemisation under 7.1.10\ncan be supported after a loss. Keeping them is a matter for the policyholder at its\nown expense (3.1.5).\n\n9.2 Duties after an insured event\n\n9.2.1 The policyholder must avert and mitigate the loss so far as can reasonably be\nexpected, secure the premises without delay, and follow the insurer's instructions\nwhere these can be obtained.\n\n9.2.2 The policyholder must report a theft or break-in without delay to the\ncompetent public authority, notify the insurer without delay, and keep the affected\nstate unchanged until released.\n\n9.2.3 The policyholder must provide the itemisation and the supporting evidence\nunder 7.1.10 and give the insurer any information required to assess the claim. The\nexpense of doing so is borne by the policyholder (3.1.5).\n\n9.3 Consequences of a breach of duty\n\nWhere the policyholder breaches one of these duties, and subject to the conditions\nset out in the general contract provisions, the insurer is entitled to terminate\nthe contract and may be wholly or partly released from liability.\n\n9.4 Increase in risk\n\nAn increase in risk subject to notification may exist in particular where the\ninsured premises are left unoccupied for a prolonged period, where the agreed\nsecurity or locking arrangements are altered or cease to be operational, or where\nthe composition or value of a class of property under 4.2 changes materially. The\nconsequences are governed by the general contract provisions.\n\n\n-------------------------------------------------------------------------------\nPART 10 - CANCELLATION AND CHANGE OF CIRCUMSTANCES\n-------------------------------------------------------------------------------\n\n10.1 Cancellation after an insured event\n\nAfter an insured event for which the insurer has rendered a benefit, or has\ndeclined to do so, each party may cancel the contract, observing a notice period of\none month, within one month of the conclusion of the negotiations on the indemnity.\n\n10.2 Change of the insured premises\n\nWhere the policyholder moves the household to other premises, cover passes to those\npremises. Both sets of premises are covered during the removal, for a maximum of\n[number] months. The change must be notified without delay in text form.\n\n10.3 Change of the rating features\n\nWhere a rating feature changes, 6.7 applies. The insurer may cancel the contract\nwhere the policyholder does not agree to a premium adjusted in accordance with 6.7,\nobserving a notice period of one month.\n\n10.4 Duties of notification\n\nChanges of the kind described in 10.2 and 10.3 must be notified without delay in\ntext form. Where notification has been omitted, the insurer is not obliged to pay\nin the insured event only where the event occurred later than one month after\nnotification ought to have been received and the insurer demonstrates that it would\nnot have concluded the existing contract on the changed circumstances.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
+    "description": "Burglary at the policyholder's home, and a fuller claim on this one. The front door was forced overnight and a range of things were taken from the ground floor and the bedroom - clothing, several pieces of jewellery, and some odds and ends.\n\nAmong the clothing was a winter coat that had only been worn a couple of times, and the settlement agent also put in for a premium designer jacket to replace a stolen mid-range one. The jewellery included several everyday unscheduled pieces plus one high-value ring, which this policy carries on a scheduled-articles endorsement. There was also a claim for an antique brooch, though there was no receipt, photo or valuation for it. On top of the property, the agent listed personal mileage to and from the police station and time spent putting the claim together.\n\nA locksmith boarded up and re-keyed the forced door the same night, and also cleaned up the muddy footprints the intruders had tracked through the hallway.\n\nThe police attended and there is a crime reference.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0232\nDATE\n15 Apr 2026\nDUE\n29 Apr 2026\nTRADE\nCompensation\nPayment\nFROM\nGolden Handshake Payouts Ltd\n88 Cheque Chase Road\n20095 Refundton\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Replacement of stolen everyday clothing and personal\neffects (like-for-like)\n1 pcs\n2 Replacement of a winter coat that had been worn only\ntwice before the theft\n1 pcs\n3 Premium designer jacket to replace a stolen mid-range\none (upgrade on the original)\n1 pcs\n4 Stolen jewellery - several unscheduled everyday\npieces\n1 pcs\n5 Stolen jewellery - one high-value ring listed on the\nscheduled-articles endorsement\n1 pcs\n6 Claimed antique brooch with no receipt, photograph or\nvaluation\n1 pcs\n7 Personal mileage to and from the police station to\nreport the theft\n1 flat rate\n8 Time spent compiling and reporting the claim 1 flat rate\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1\nInvoice\nINVOICE NO.\n2026-0233\nDATE\n15 Apr 2026\nDUE\n29 Apr 2026\nTRADE\nLocksmith\nFROM\nPicky Fingers Locksmiths Ltd\n6 Deadbolt Drive\n80336 Keyhole City\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n9 Emergency boarding of the forced entry door on the\nnight of the break-in\n1 flat rate\n10 Replacement lock and cylinder for the forced door 1 flat rate\n11 Cleaning of muddy footprints tracked through the\nhallway by the intruders\n1 \u2013\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Compensation",
+      "invoice_no": "2026-0232",
+      "date": "15 Apr 2026",
+      "vendor": "Golden Handshake Payouts Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "Replacement of stolen everyday clothing and personal effects (like-for-like)"
+      },
+      {
+        "index": 2,
+        "description": "Replacement of a winter coat that had been worn only twice before the theft"
+      },
+      {
+        "index": 3,
+        "description": "Premium designer jacket to replace a stolen mid-range one (upgrade on the original)"
+      },
+      {
+        "index": 4,
+        "description": "Stolen jewellery - several unscheduled everyday pieces"
+      },
+      {
+        "index": 5,
+        "description": "Stolen jewellery - one high-value ring listed on the scheduled-articles endorsement"
+      },
+      {
+        "index": 6,
+        "description": "Claimed antique brooch with no receipt, photograph or valuation"
+      },
+      {
+        "index": 7,
+        "description": "Personal mileage to and from the police station to report the theft"
+      },
+      {
+        "index": 8,
+        "description": "Time spent compiling and reporting the claim"
+      },
+      {
+        "index": 9,
+        "description": "Emergency boarding of the forced entry door on the night of the break-in"
+      },
+      {
+        "index": 10,
+        "description": "Replacement lock and cylinder for the forced door"
+      },
+      {
+        "index": 11,
+        "description": "Cleaning of muddy footprints tracked through the hallway by the intruders"
+      }
+    ],
+    "item_labels": {
+      "1": "Replacement of stolen everyday clothing and personal effects (like-for-like)",
+      "2": "Replacement of a winter coat that had been worn only twice before the theft",
+      "3": "Premium designer jacket to replace a stolen mid-range one (upgrade on the original)",
+      "4": "Stolen jewellery - several unscheduled everyday pieces",
+      "5": "Stolen jewellery - one high-value ring listed on the scheduled-articles endorsement",
+      "6": "Claimed antique brooch with no receipt, photograph or valuation",
+      "7": "Personal mileage to and from the police station to report the theft",
+      "8": "Time spent compiling and reporting the claim",
+      "9": "Emergency boarding of the forced entry door on the night of the break-in",
+      "10": "Replacement lock and cylinder for the forced door",
+      "11": "Cleaning of muddy footprints tracked through the hallway by the intruders"
+    },
+    "n_images": 1
+  },
+  "strategy": "v2",
+  "estimate_v2": {
+    "items": [
+      {
+        "index": 1,
+        "q10": 600.0,
+        "q50": 1000.0,
+        "q90": 1600.0,
+        "p_covered": 0.9333333333333333,
+        "reason": "Like-for-like stolen household effects; replacement value applies.",
+        "n_samples": 3
+      },
+      {
+        "index": 2,
+        "q10": 180.0,
+        "q50": 350.0,
+        "q90": 550.0,
+        "p_covered": 0.9566666666666667,
+        "reason": "Little-used coat receives new replacement value.",
+        "n_samples": 3
+      },
+      {
+        "index": 3,
+        "q10": 180.0,
+        "q50": 300.0,
+        "q90": 450.0,
+        "p_covered": 0.89,
+        "reason": "Only equivalent mid-range jacket; premium upgrade excluded.",
+        "n_samples": 3
+      },
+      {
+        "index": 4,
+        "q10": 400.0,
+        "q50": 900.0,
+        "q90": 1800.0,
+        "p_covered": 0.86,
+        "reason": "Unscheduled valuables covered, subject to unspecified valuables limit.",
+        "n_samples": 3
+      },
+      {
+        "index": 5,
+        "q10": 5000.0,
+        "q50": 10000.0,
+        "q90": 16000.0,
+        "p_covered": 0.98,
+        "reason": "Scheduled ring paid at agreed endorsement value.",
+        "n_samples": 3
+      },
+      {
+        "index": 6,
+        "q10": 250.0,
+        "q50": 700.0,
+        "q90": 1800.0,
+        "p_covered": 0.016666666666666666,
+        "reason": "Unevidenced item excluded under clause 7.1.10.",
+        "n_samples": 3
+      },
+      {
+        "index": 7,
+        "q10": 15.0,
+        "q50": 45.0,
+        "q90": 100.0,
+        "p_covered": 0.01,
+        "reason": "Claim-reporting mileage excluded under clause 3.1.5.",
+        "n_samples": 3
+      },
+      {
+        "index": 8,
+        "q10": 100.0,
+        "q50": 300.0,
+        "q90": 700.0,
+        "p_covered": 0.01,
+        "reason": "Claim compilation time excluded under clause 3.1.5.",
+        "n_samples": 3
+      },
+      {
+        "index": 9,
+        "q10": 220.0,
+        "q50": 350.0,
+        "q90": 550.0,
+        "p_covered": 0.98,
+        "reason": "Emergency securing after break-in covered under clause 5.2.2.",
+        "n_samples": 3
+      },
+      {
+        "index": 10,
+        "q10": 280.0,
+        "q50": 480.0,
+        "q90": 750.0,
+        "p_covered": 0.9733333333333333,
+        "reason": "Forced-door lock replacement covered under clause 2.4.2.",
+        "n_samples": 3
+      },
+      {
+        "index": 11,
+        "q10": 60.0,
+        "q50": 130.0,
+        "q90": 250.0,
+        "p_covered": 0.01,
+        "reason": "Footprint cleaning expressly excluded under clause 3.1.7.",
+        "n_samples": 3
+      }
+    ]
+  },
+  "v2_debug": {
+    "1": {
+      "p_cov": 0.9333333333333333,
+      "mu": 6.707755278982137,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 1000.0,
+      "desc": "Replacement of stolen everyday clothing "
+    },
+    "2": {
+      "p_cov": 0.9566666666666667,
+      "mu": 5.657933154483459,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 350.0,
+      "desc": "Replacement of a winter coat that had be"
+    },
+    "3": {
+      "p_cov": 0.89,
+      "mu": 5.503782474656201,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 300.0,
+      "desc": "Premium designer jacket to replace a sto"
+    },
+    "4": {
+      "p_cov": 0.86,
+      "mu": 6.602394763324311,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 900.0,
+      "desc": "Stolen jewellery - several unscheduled e"
+    },
+    "5": {
+      "p_cov": 0.98,
+      "mu": 9.210340371976184,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 10000.0,
+      "desc": "Stolen jewellery - one high-value ring l"
+    },
+    "6": {
+      "p_cov": 0.016666666666666666,
+      "mu": 6.351080335043404,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 700.0,
+      "desc": "Claimed antique brooch with no receipt, "
+    },
+    "7": {
+      "p_cov": 0.01,
+      "mu": 3.6066624897703194,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 45.0,
+      "desc": "Personal mileage to and from the police "
+    },
+    "8": {
+      "p_cov": 0.01,
+      "mu": 5.503782474656201,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 300.0,
+      "desc": "Time spent compiling and reporting the c"
+    },
+    "9": {
+      "p_cov": 0.98,
+      "mu": 5.657933154483459,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 350.0,
+      "desc": "Emergency boarding of the forced entry d"
+    },
+    "10": {
+      "p_cov": 0.9733333333333333,
+      "mu": 5.973786103901936,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 480.0,
+      "desc": "Replacement lock and cylinder for the fo"
+    },
+    "11": {
+      "p_cov": 0.01,
+      "mu": 4.667534450455582,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 130.0,
+      "desc": "Cleaning of muddy footprints tracked thr"
+    }
+  },
+  "finished_at_s": 11.7
+}
