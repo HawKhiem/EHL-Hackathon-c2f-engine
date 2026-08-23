@@ -3,7 +3,7 @@
   "checkpoint_id": "01M0NZ9DQV4S9JNBE9JBDJ18Q1",
   "strategy": "manual-commit",
   "branch": "main",
-  "checkpoints_count": 1,
+  "checkpoints_count": 3,
   "files_touched": [
     "runs/truth_game_54.json"
   ],
@@ -14,13 +14,20 @@
       "compact_transcript": "/0/transcript.jsonl",
       "content_hash": "/0/content_hash.txt",
       "prompt": ""
+    },
+    {
+      "metadata": "/1/metadata.json",
+      "transcript": "/1/full.jsonl",
+      "compact_transcript": "/1/transcript.jsonl",
+      "content_hash": "/1/content_hash.txt",
+      "prompt": "/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 198,
-    "cache_creation_tokens": 33738,
-    "cache_read_tokens": 426533,
-    "output_tokens": 7314,
-    "api_call_count": 3
+    "input_tokens": 7012,
+    "cache_creation_tokens": 1930459,
+    "cache_read_tokens": 75001929,
+    "output_tokens": 321534,
+    "api_call_count": 295
   }
 }
