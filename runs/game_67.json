@@ -1,0 +1,666 @@
+{
+  "game_id": 67,
+  "started_at": 1787453510.139573,
+  "submissions": [
+    {
+      "tag": "v2[1/3]",
+      "at_s": 9.9,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 19948.77,
+          "acceptance_limit": 18500.0
+        },
+        {
+          "index": 2,
+          "charge_price": 1103.56,
+          "acceptance_limit": 754.31
+        },
+        {
+          "index": 3,
+          "charge_price": 397.28,
+          "acceptance_limit": 271.55
+        },
+        {
+          "index": 4,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.63
+        },
+        {
+          "index": 5,
+          "charge_price": 1103.56,
+          "acceptance_limit": 763.56
+        },
+        {
+          "index": 6,
+          "charge_price": 229.54,
+          "acceptance_limit": 154.94
+        },
+        {
+          "index": 7,
+          "charge_price": 423.77,
+          "acceptance_limit": 289.66
+        },
+        {
+          "index": 8,
+          "charge_price": 176.85,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 162.11,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 156.7,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 19948.77,
+          "acceptance_limit": 18500.0,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 1103.56,
+          "acceptance_limit": 754.31,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 397.28,
+          "acceptance_limit": 271.55,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 150.65,
+          "acceptance_limit": 159.63,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 1103.56,
+          "acceptance_limit": 763.56,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 229.54,
+          "acceptance_limit": 154.94,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 423.77,
+          "acceptance_limit": 289.66,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 176.85,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 162.11,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 156.7,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:30.329289Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[2/3]",
+      "at_s": 10.1,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 19679.19,
+          "acceptance_limit": 18250.0
+        },
+        {
+          "index": 2,
+          "charge_price": 949.06,
+          "acceptance_limit": 652.71
+        },
+        {
+          "index": 3,
+          "charge_price": 441.42,
+          "acceptance_limit": 301.72
+        },
+        {
+          "index": 4,
+          "charge_price": 150.65,
+          "acceptance_limit": 160.17
+        },
+        {
+          "index": 5,
+          "charge_price": 1103.56,
+          "acceptance_limit": 763.56
+        },
+        {
+          "index": 6,
+          "charge_price": 211.88,
+          "acceptance_limit": 143.93
+        },
+        {
+          "index": 7,
+          "charge_price": 498.81,
+          "acceptance_limit": 345.13
+        },
+        {
+          "index": 8,
+          "charge_price": 217.37,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 173.16,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 156.7,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 19679.19,
+          "acceptance_limit": 18250.0,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 949.06,
+          "acceptance_limit": 652.71,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 441.42,
+          "acceptance_limit": 301.72,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 150.65,
+          "acceptance_limit": 160.17,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 1103.56,
+          "acceptance_limit": 763.56,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 211.88,
+          "acceptance_limit": 143.93,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 498.81,
+          "acceptance_limit": 345.13,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 217.37,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 173.16,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 156.7,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:30.588318Z"
+        }
+      ]
+    },
+    {
+      "tag": "v2[3/3]",
+      "at_s": 11.3,
+      "rows": [
+        {
+          "index": 1,
+          "charge_price": 19409.62,
+          "acceptance_limit": 18000.0
+        },
+        {
+          "index": 2,
+          "charge_price": 794.56,
+          "acceptance_limit": 547.56
+        },
+        {
+          "index": 3,
+          "charge_price": 485.57,
+          "acceptance_limit": 331.9
+        },
+        {
+          "index": 4,
+          "charge_price": 150.65,
+          "acceptance_limit": 156.64
+        },
+        {
+          "index": 5,
+          "charge_price": 1103.56,
+          "acceptance_limit": 763.56
+        },
+        {
+          "index": 6,
+          "charge_price": 194.23,
+          "acceptance_limit": 131.1
+        },
+        {
+          "index": 7,
+          "charge_price": 423.77,
+          "acceptance_limit": 294.38
+        },
+        {
+          "index": 8,
+          "charge_price": 257.9,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 9,
+          "charge_price": 184.21,
+          "acceptance_limit": 0.0
+        },
+        {
+          "index": 10,
+          "charge_price": 156.7,
+          "acceptance_limit": 0.0
+        }
+      ],
+      "response": [
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 1,
+          "charge_price": 19409.62,
+          "acceptance_limit": 18000.0,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 2,
+          "charge_price": 794.56,
+          "acceptance_limit": 547.56,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 3,
+          "charge_price": 485.57,
+          "acceptance_limit": 331.9,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 4,
+          "charge_price": 150.65,
+          "acceptance_limit": 156.64,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 5,
+          "charge_price": 1103.56,
+          "acceptance_limit": 763.56,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 6,
+          "charge_price": 194.23,
+          "acceptance_limit": 131.1,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 7,
+          "charge_price": 423.77,
+          "acceptance_limit": 294.38,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 8,
+          "charge_price": 257.9,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 9,
+          "charge_price": 184.21,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        },
+        {
+          "game_id": 67,
+          "team_id": 5,
+          "line_item_index": 10,
+          "charge_price": 156.7,
+          "acceptance_limit": 0.0,
+          "submitted_at": "2026-08-23T02:53:31.823859Z"
+        }
+      ]
+    }
+  ],
+  "key_obtained_at": 1787453600.328664,
+  "case": {
+    "game_id": 67,
+    "policy": "===============================================================================\nRESIDENTIAL DWELLING INSURANCE\nGENERAL POLICY CONDITIONS - PROPERTY DAMAGE COVER\n===============================================================================\n\nThese conditions apply together with the General Contract Provisions and with\nthe Schedule, both of which form part of this contract. Sums insured, limits,\ndeductibles, periods and percentages shown in square brackets are those stated\nin the Schedule.\n\n\n-------------------------------------------------------------------------------\nPART 1 - PURPOSE AND KEY CONCEPTS\n-------------------------------------------------------------------------------\n\n1.1 What this insurance does\n\nCombined residential buildings insurance protects the policyholder against the\nfinancial consequences of physical damage to their building. The perils that can\nbe insured are the ones bundled together in these conditions - fire, escape of\nwater, storm and hail, and further natural hazards among them. Which of the\ninsurable perils are actually covered is agreed between insurer and policyholder\nand recorded in the schedule.\n\nWhere insured property is destroyed or damaged by a peril that is insured, the\ninsurer indemnifies the cost of putting it back in the same kind and quality. The\ntechnical plant that serves the building, and the electrical installation\nbelonging to it, share in that cover. A range of consequential expenses triggered\nby such a loss event - the removal of what the event destroyed, the measures\ntaken to limit the damage, and the accommodation of the persons who occupy the\ndwellings among them - is also carried.\n\nThe cover is a cover against causes, not against outlay. Every benefit under this\ncontract presupposes that damage to insured property was caused by an insured\nperil and that this has been established.\n\n1.2 How the wording is to be read\n\nPersonal designations are to be understood as gender-neutral throughout; no\nparallel male and female forms are used.\n\n1.3 Explanation of recurring terms (not legally binding)\n\nPolicyholder - the insurer's contracting party and the purchaser of the cover.\n\nOccupants - the persons who live in the dwellings of the insured building,\nwhether as the policyholder itself or as its tenants.\n\nInsured event - an event by which insured property was destroyed or damaged and\nwhich falls within a peril insured under Part 2.\n\nEstablished cause - the attribution of the damage to a peril insured under Part\n2, made by the loss investigation and resting on the identification of the\ninstallation, the defect or the occurrence from which the damage proceeded. A\nrecord that states only that water was present in a part of the building, that a\nroom or a storey stood under water, or that a part of the building was inundated,\ndoes not establish a cause: it describes a condition and leaves open what brought\nthat condition about.\n\nAffected part - a room, a surface, a building component, an installation or an\nitem in which physical damage caused by the insured event has been established by\nthe loss investigation. The affected parts, taken together, delimit what the\ninsurer indemnifies.\n\nRepair cost - outlay that serves to put an affected part back into the condition\nit was in immediately before the insured event, or to put a destroyed\ninstallation back into service. Outlay that serves another purpose -\npreservation, upkeep, appearance, protection against future influences, or the\nrunning of a contractor's business - is not a repair cost, whatever heading it is\ninvoiced under.\n\nPlant of the building - the installations that are permanently connected to the\nbuilding, serve its supply, its heating, its ventilation, its water or its power,\nand remain in place once the work is finished. Heat generators, storage vessels,\nexhaust and flue routes, permanently installed pumps, control equipment and the\nelectrical installation are plant of the building. Plant of the building is\ninsured property; it is replaced, not hired.\n\nWorking equipment - the devices, appliances, machines, pumps and comparable items\nthat are brought to the insured site in order to carry out an operation and taken\naway again once the operation is finished. Working equipment does not become part\nof the building and is not insured property, whether it is described as hired,\ndeployed, supplied or procured.\n\nMeasure - an operation billed by reference to what it achieves rather than by\nreference to the items used to achieve it. The removal of standing water is an\nexample.\n\nJourney charge - a charge for attending the insured site, however described,\nincluding travel, vehicle, company vehicle, call-out, attendance, mileage and\nre-attendance charges.\n\nCombined position - a single line of an invoice that covers more than one\noperation, more than one installation or more than one part of the insured\nproperty, and that does not state separately what falls to each.\n\nExclusion - a peril, a type of damage, an item of property or a type of outlay\nfor which no cover exists.\n\nDuties - the things the policyholder must do or refrain from doing before, during\nand after an insured event.\n\n\n-------------------------------------------------------------------------------\nPART 2 - INSURED PERILS\n-------------------------------------------------------------------------------\n\n2.1 The perils that can be covered\n\nThe insurer indemnifies insured property that is destroyed or damaged by, or lost\nas a consequence of, the following events:\n\n  (a) FIRE GROUP - fire; lightning strike; overvoltage caused by lightning;\n      explosion; deflagration; implosion; impact or crash of an aircraft, its\n      parts or its cargo; impact of a vehicle; scorching; smoke and soot.\n\n  (b) ESCAPE OF WATER.\n\n  (c) NATURAL HAZARDS, in two tiers:\n        (c1) storm and hail;\n        (c2) the further natural hazards - flood, backing-up of water,\n             earthquake, ground subsidence, landslip, snow load, avalanche and\n             volcanic eruption.\n\n2.2 How the groups combine\n\nEach of the three groups (a), (b) and (c1) can be taken separately. The further\nnatural hazards under (c2) can only be taken in combination with one or more of\nthe perils in (a), (b) or (c1); they are not available on a standalone basis.\nWhere a group is not recorded in the schedule, damage falling within it is not\ncovered.\n\n2.4 Escape of water defined\n\n2.4.2 Escape of water damage\nEscaping water means water that has emerged contrary to its intended purpose\nfrom:\n  (a) pipes of the water supply, whether supply or drainage lines, or hoses\n      connected to them;\n  (b) other installations connected to those pipes or hoses, or the\n      water-carrying parts of such installations;\n  (c) heating or air-conditioning systems;\n  (d) water-based extinguishing or sprinkler systems;\n  (e) water beds or aquaria.\n\nOperating fluids from heating or air-conditioning systems, and steam, also count\nas escaping water. Fluids intended for the generation of energy do not.\n\n2.4.3 What the peril requires\nThis peril presupposes that the water proceeded from one of the sources in 2.4.2\nand that this has been established as a cause within the meaning of 1.3. The\npresence of water in a room, a basement, a plant room or another part of the\nbuilding is the condition that the peril produces; it is not itself the peril,\nand it does not by itself bring the damage within this cover.\n\n2.4.5 Plant and the electrical installation\nDamage to the plant of the building within the meaning of 1.3 is covered where\nthat damage was caused by the insured event. This extends to the whole of an\ninstallation where its parts form one functional unit and the unit cannot be\nbrought back into service by replacing a single part.\n\nThe same applies to the electrical installation of the building - circuits,\ncabling, distribution boards, terminals, protective and switching devices -\ninsofar as it was exposed to the escaped water, and to the labour of establishing\nwhich of its parts were affected.\n\n2.5 Natural hazards defined\nStorm, hail and the further natural hazards - flood, backing-up of water,\nearthquake, ground subsidence, landslip, snow load, avalanche and volcanic\neruption - are each defined as customarily in these conditions. Flood means the\ninundation of the ground and soil of the insured site, or of parts of the\nbuilding, with substantial quantities of surface water. Backing-up is present\nwhere water enters the building from the building's own drainage pipes or from\ninstallations connected to them, caused by the overflow of surface waters or by\nprecipitation.\n\n\n-------------------------------------------------------------------------------\nPART 3 - EXCLUSIONS\n-------------------------------------------------------------------------------\n\n3.1 General exclusions\n\n3.1.1 War\nDamage caused by war, warlike events, civil war, revolution, rebellion or\ninsurrection is not covered. This applies irrespective of any contributing\ncauses.\n\n3.1.2 Civil commotion\nDamage caused by internal civil unrest is not covered. This applies irrespective\nof any contributing causes.\n\n3.1.3 Nuclear energy\nDamage caused by nuclear energy, nuclear radiation or radioactive substances is\nnot covered. This applies irrespective of any contributing causes.\n\n3.3 Exclusions within the escape of water peril\n\nDamage caused by the following is not covered, irrespective of any contributing\ncauses except where such causes are named below:\n  (a) splash water or cleaning water;\n  (b) dry rot and house-rot fungi of every kind;\n  (c) groundwater, standing or flowing surface water, flood, precipitation, or a\n      backing-up of water brought about by any of these causes;\n  (d) earthquake, snow load, avalanche, volcanic eruption;\n  (e) ground subsidence or landslip - unless escaping water within the meaning of\n      2.4.2 caused the subsidence or the landslip;\n  (f) the perils of the fire group;\n  (g) storm, hail.\n\nDamage to buildings or parts of buildings that are not ready for occupation is\nnot covered.\n\n3.6 Where no insured cause is established\n\nWhere the loss investigation does not establish a cause within the meaning of\n1.3, no indemnity arises. This applies to the whole of the claim and not merely\nto individual positions.\n\nIn that case the following are not indemnified, whatever they consist of and\nhowever they are described or invoiced: the repair, renewal or replacement of any\ninstallation, component or surface; the labour of any trade; the materials\nsupplied; the measures taken, including those taken to remove water or to limit\nfurther damage; the clearance and disposal of anything removed; every journey\ncharge; and every head of cost under Part 5, including the accommodation of\noccupants and the loss of rent or rental value.\n\nThe costs under Part 5 and the ancillary charges under Part 7 are accessory to an\nindemnifiable damage to insured property. They have no existence independent of\nit, and the fact that work was genuinely carried out, was reasonable, or was\nurgent does not create a benefit where the cause of the damage is not one that\nthis contract covers.\n\n3.7 Work beyond the affected parts, and outlay that is not a repair cost\n\nWork carried out beyond those parts of the insured property that were themselves\naffected by the insured event is not covered. Outlay that does not constitute a\nrepair cost is not indemnified. The delimitation in each case is governed by\n7.1.5 to 7.1.10.\n\n\n-------------------------------------------------------------------------------\nPART 4 - INSURED PROPERTY, INSURED LOCATION, DEDUCTIBLES\n-------------------------------------------------------------------------------\n\n4.1 What is insured\n\nInsured property comprises:\n  (a) the buildings identified in the schedule;\n  (b) their building components;\n  (c) their building accessories;\n  (d) terraces on the insured site that directly adjoin the building;\n  (e) further site installations.\n\n4.2 The categories defined\n\n4.2.1 Building and dwelling\nBuildings are structures connected to the ground. They must be capable of\naffording protection against external influences and, for the purposes of these\nconditions, must be intended for predominantly residential use.\n\n4.2.2 Building components\nBuilding components are items incorporated into a building that have lost their\nindependence through their firm connection with it. The plant of the building\nwithin the meaning of 1.3 counts as a building component, together with the\npipework, cabling, connection and discharge elements by which it is joined to the\nbuilding, and the housings, mountings and bases on which it stands.\n\n4.2.3 Building accessories\nBuilding accessories are movable items located inside the building or attached to\nits exterior that serve the upkeep of the insured building or its predominant\nintended purpose.\n\n4.3 Property not insured\n\nNot insured:\n  (a) photovoltaic installations and their components;\n  (b) all items subsequently incorporated into the building by a tenant or by a\n      condominium owner where that person both procured or took the items over at\n      their own expense and bears the risk for them;\n  (c) electronically stored data and programs;\n  (d) working equipment within the meaning of 1.3, irrespective of who brings it\n      to the insured site, of how it is charged, and of whether it is hired or\n      purchased for the occasion. Its treatment is governed by 5.2.2 and\n      7.1.8(b).\n\n4.5 The insured location\n\nThe insured location is the insured site: the land parcel on which the insured\nbuilding stands, together with the building and its ancillary and technical\nrooms.\n\n4.7 Deductibles\n\nA deductible is the share of the indemnity, or the amount, that the policyholder\nbears itself per insured event. The deductible stated in the schedule is deducted\nonce from the indemnity for the insured event, irrespective of how many trades,\ninvoices or heads of claim are involved.\n\n\n-------------------------------------------------------------------------------\nPART 5 - INSURED COSTS, LOSS OF RENT AND RENTAL VALUE\n-------------------------------------------------------------------------------\n\n5.1 Which costs are covered\n\nWhere a cause within the meaning of 1.3 has been established, the insurer\nreimburses the following costs, insofar as they were necessary as a consequence\nof the insured event and were actually incurred:\n  (a) debris removal, dismantling and disposal costs;\n  (b) costs of emergency and loss-mitigation measures;\n  (c) costs of accommodating the occupants;\n  (d) costs of moving and protecting property;\n  (e) costs of lost water, gas and heating oil, and of electricity lost from\n      storage installations;\n  (f) costs of returning early from a holiday.\n\nReimbursement of each of these heads is limited to the amount agreed for it.\n\n5.2 The cost heads defined\n\n5.2.1 Debris removal, dismantling and disposal\nCosts incurred in clearing away and demolishing insured property. This includes\nthe expense of removing the remains of that property, transporting them to the\nnearest disposal site, depositing them and destroying them.\n\nPlant and installations that the insured event has rendered unusable fall under\nthis head, together with the work of disconnecting and taking them out. It is\nimmaterial whether the material to be removed arose from the damage itself or\nfrom the repair work carried out because of it.\n\n5.2.2 Emergency and loss-mitigation measures\nCosts of the measures reasonably taken to stop the ingress or spread of water, to\nremove standing water from rooms, voids and shafts, and to prevent further\ndamage. Such a measure is indemnified as a measure within the meaning of 1.3,\nthat is, by reference to what it achieves.\n\nThe charge for a measure is taken to cover everything deployed in order to\nachieve it, including the labour and the working equipment used. Working\nequipment is therefore not separately indemnified alongside the charge for the\nmeasure it served, and this holds however the equipment is described, whether it\nis charged as a hire, a deployment, a supply or a procurement, whether one item\nor several are charged, and whether the contractor already owned it or obtained\nit for the occasion.\n\n5.2.3 Accommodation of the occupants\nCosts of accommodation in a hotel or similar, excluding incidentals such as\nbreakfast, for the occupants within the meaning of 1.3. The insurer reimburses\nthese costs for the policyholder itself and, where the insured building is let,\nfor its tenants; it is immaterial that the tenants are not parties to this\ncontract, and the policyholder may claim the benefit on their behalf.\n\nThe precondition is that the dwelling concerned cannot reasonably be used. That\ncondition is met not only where the rooms themselves are damaged, but also where\na supply, an installation or a technical room serving the dwelling has been put\nout of service by the insured event, so that heating, hot water, water or power\nis unavailable and confining themselves to the remaining usable rooms cannot\nreasonably be expected of the occupants.\n\nCosts are reimbursed up to the point at which the dwelling can be used again,\nsubject to the daily amount and the maximum number of days stated in the\nschedule, and only to the extent that indemnity cannot be claimed under another\ninsurance contract.\n\n5.2.4 Moving and protecting property\nCosts incurred in moving, altering or protecting other property, reimbursable\nwhere those measures serve to reinstate or replace insured property.\n\n5.3 Loss of rent and rental value\n\nThe insurer reimburses loss of rent where tenants of residential premises have\nlawfully stopped paying rent in whole or in part on account of an insured event,\nand the locally customary rental value of residential premises occupied by the\npolicyholder itself where, on account of the insured event, the policyholder\ncannot reasonably be expected to use at least parts of the dwelling.\n\n5.4 The period for loss of rent and rental value\n\nLoss of rent or rental value is reimbursed for the period during which the rooms\nare unusable, but for no longer than [number] months from the occurrence of the\ninsured event, and only to the extent that the policyholder has not culpably\ndelayed the resumption of use.\n\n\n-------------------------------------------------------------------------------\nPART 6 - BASIS OF COVER AND PREMIUM\n-------------------------------------------------------------------------------\n\n6.1 Insurable value\n\nThe insurable value forms the basis for calculating the indemnity. The insurable\nvalue determined for the building applies equally to building accessories,\nterraces and further site installations.\n\n6.2 Index-linked reinstatement value with enhancement\n\nWhat is insured is the locally customary new-build value of the insured property\nidentified in the schedule, taken at the time of the insured event, together with\nthe additional costs arising from public-law restrictions on reinstatement and\nthe price increases arising between the occurrence of the insured event and\nreinstatement initiated without delay.\n\n6.3 Index-linked current value with enhancement where reinstatement is omitted or\n    delayed\n\nFor property that is not reinstated, or is reinstated late, only the index-linked\ncurrent value with enhancement is insured - the enhanced new-build value at the\ntime of the insured event, less depreciation for age and for the degree of wear.\n\n6.5 How the premium is calculated\n\nThe bases for calculating the premium are the area, the building type, the\nconstruction and the fit-out, the use, other agreed features material to the\npremium calculation, and the adjustment factor.\n\n6.6 Adjustment of cover and premium\n\nWhere cover is adjusted in line with the development of building costs, the\npremium changes accordingly, by way of the adjustment factor taking effect from\n1 January of each year.\n\n\n-------------------------------------------------------------------------------\nPART 7 - CALCULATION AND PAYMENT OF THE INDEMNITY\n-------------------------------------------------------------------------------\n\n7.1 Basis of calculation\n\n7.1.1 Where a cause within the meaning of 1.3 has been established, the insurer\nreimburses:\n  (a) for destroyed buildings - the locally customary reinstatement costs, taken\n      at the time of the insured event;\n  (b) for damaged buildings and other damaged property - the necessary repair\n      costs at the time of the insured event, capped at the insurable value at\n      that time;\n  (c) for destroyed or lost plant of the building and other property - the\n      procurement price for property of the same kind and quality in new\n      condition, taken at the time of the insured event, together with the cost\n      of installing it and putting it into service.\n\n7.1.5 Extent of the repair\nIndemnity is confined to those parts of the insured property that were themselves\naffected by the insured event. The affected parts are the rooms, surfaces,\nbuilding components, installations and items in which physical damage caused by\nthe event is established by the loss investigation - by inspection, by\nphotographic record, or by technical measurement taken at or shortly after the\ntime of the loss.\n\nWork carried out in a room, on a surface, on a building component, on an\ninstallation or on an item that was not itself affected is not covered. This\napplies even where the work is carried out\n  (a) so that treated and untreated parts correspond in appearance, colour,\n      pattern, format or material;\n  (b) for reasons of convenience, or because treating a whole room, surface or\n      installation is more economical than treating the affected part of it;\n  (c) at the same time as covered work, in the course of it, or as part of the\n      same overall project; or\n  (d) by the same contractor as the covered work, and invoiced together with it.\n\nWhere the parts of one installation form a functional unit within the meaning of\n2.4.5, that unit is the affected part, and the elements that have to be renewed\nwith it are not treated as unaffected parts.\n\n7.1.6 Continuous surfaces\nWhere only part of a single continuous surface was affected, indemnity extends to\nthe treatment of the adjoining unaffected sections of that same surface only\nwhere a replacement material corresponding to the original is no longer\nobtainable and a visible discontinuity would otherwise remain.\n\n7.1.7 Preparatory and ancillary work\nThe necessary repair costs under 7.1.1(b) and the replacement costs under\n7.1.1(c) include:\n  (a) disconnecting, dismantling, taking out and disposing of the affected\n      installations, components and finishes;\n  (b) the drying, dehumidification and moisture-removal measures necessary before\n      the repair can be carried out, and the necessary preparation of the\n      substrate or supporting structure;\n  (c) materials of a type, quality, grade and specification corresponding to\n      those in place immediately before the insured event, including the small\n      materials, conductors, terminals, fixings, protective devices and\n      comparable consumable items actually built into the covered work, whether\n      itemised individually or billed as a materials position;\n  (d) where an affected installation cannot economically be repaired and is\n      replaced, the work of adapting the immediately adjoining supply, connection\n      and discharge elements so far as the dimensions, positions or connection\n      points of the replacement require it, together with the work of connecting\n      it and putting it into service. Such adaptation is part of putting the\n      installation back into service and is not an improvement under 7.1.9;\n  (e) the investigatory labour reasonably needed to establish which parts of an\n      installation were affected, including the testing of circuits and\n      components before they are put back into service;\n  (f) the labour of the workers of each trade necessarily deployed on the covered\n      work, at the ordinary rate of that trade for the category of worker\n      actually deployed, whether billed as one position or as several positions\n      covering distinct operations;\n  (g) one journey charge within the meaning of 1.3 per insured event. The\n      attendance of the trades at the insured site is treated as one head of\n      cost, however many trades attend and however many invoices are rendered:\n      the first journey charge raised in respect of the insured event is\n      indemnified, and every further journey charge is governed by 7.1.8(d).\n\n7.1.8 Outlay that is not a repair cost\nThe following do not constitute repair costs and are not indemnified, however\nthey may be described or invoiced:\n\n  (a) measures directed at the general condition, cleanliness, tidiness, upkeep,\n      appearance, preservation, modernisation or improvement of the insured\n      property, as distinct from making good the damage caused by the insured\n      event. The cleaning, redecoration or re-coating of a surface that was not\n      itself affected belongs to this heading, and so does any treatment or\n      product whose purpose is to protect against future influences;\n\n  (b) outlay belonging to a contractor's own business operation rather than to\n      the repair - its own tools and consumable small equipment, its own\n      diagnostic and measuring devices, the provisioning of its own personnel,\n      the provision, running, maintenance and availability of its own vehicles\n      and plant, and general administrative, handling, processing, coordination\n      or project management charges levied in addition to itemised labour and\n      materials, whether expressed as a flat fee, a lump sum or a percentage.\n      Working equipment within the meaning of 1.3 belongs to this heading and is\n      not separately indemnified; it is covered by the charge for the measure or\n      the operation in which it was used, in accordance with 5.2.2. The plant of\n      the building within the meaning of 1.3 does not belong to this heading and\n      is indemnified as insured property under 7.1.1(c);\n\n  (c) the same item of cost where it is invoiced more than once in respect of the\n      same insured event, whether by one contractor or across several trades;\n      only the first such charge is indemnified;\n\n  (d) every journey charge beyond the first raised in respect of the insured\n      event, whether it appears on the same invoice, on a further invoice of the\n      same trade, or on the invoice of another trade, and whether it is described\n      as a first attendance, a second attendance, a return visit, a follow-up or\n      otherwise. A further attendance is not indemnified even where the work done\n      on it is itself indemnifiable, and an attendance that the policyholder did\n      not request is not indemnified in any event.\n\n7.1.9 No improvement on the pre-loss standard\nReinstatement proceeds on the basis of the type, quality, grade and specification\nin place immediately before the insured event. Where a higher specification, a\nlarger format, a superior material or a premium range is chosen instead,\nindemnity is limited to the cost of an equivalent standard-grade replacement\ncorresponding to what was in place before the loss; the difference is borne by\nthe policyholder.\n\nA replacement installation that differs in construction or technology from the\ndestroyed one is not an improvement within the meaning of this provision where it\nperforms the same function to the same extent and corresponds to what is\ncustomarily supplied for that function at the time of the reinstatement.\n\n7.1.10 Combined positions\nA combined position within the meaning of 1.3 is indemnified where every\noperation, every installation and every part of the insured property that it\ncovers is itself indemnifiable under these conditions. Where an installation is\nrenewed as a functional unit under 2.4.5, a position covering that unit together\nwith the connection work belonging to it is one such position and is indemnified\nas a whole.\n\nWhere any element of a combined position is not indemnifiable, the position is\nnot indemnified as it stands. The policyholder may submit the position re-stated\nby the contractor in separate lines, each showing the operation or the\ninstallation concerned together with its quantity and its price; the separate\nlines are then assessed individually and those that are indemnifiable are\nindemnified.\n\n7.4 Costs\n\nInsured costs under Part 5 are reimbursed where it is demonstrated that they were\nactually incurred. The indemnity limits agreed for each head are applied. Part 5\nis subject throughout to 3.6.\n\n7.7 Value added tax\n\nValue added tax is reimbursed only if and to the extent that it was actually\nincurred on the occasion of the reinstatement or replacement. It is not\nreimbursed where the policyholder is entitled to recover input tax.\n\n7.8 Deductible\n\nDeductibles are deducted from the indemnity in the amount agreed.\n\n7.9 When the indemnity falls due\n\nThe indemnity falls due once the insurer has conclusively determined the claim as\nto its basis and its amount. One month after notifying the loss, the policyholder\nmay claim as an interim payment the amount that is, on the prevailing assessment,\npayable as a minimum.\n\n7.13 Deferral of payment\n\nThe insurer may defer payment for as long as there is doubt as to the\npolicyholder's entitlement to receive payment, official or criminal proceedings\narising out of this insured event are still pending, or a legally required\ninvolvement of a secured lender has not taken place.\n\n\n-------------------------------------------------------------------------------\nPART 8 - EXPERT DETERMINATION PROCEDURE\n-------------------------------------------------------------------------------\n\n8.1 Determining the amount of the loss\nAfter an insured event has occurred, the policyholder may require that the amount\nof the loss be determined in an expert determination procedure. Insurer and\npolicyholder may also agree on such a procedure jointly.\n\n8.2 Further determinations\nPolicyholder and insurer may agree to extend the procedure to further\ndeterminations relating to the insured event, including the cause of the damage.\nAbsent such an agreement, the procedure determines the amount of the loss and\ndoes not determine whether a cause within the meaning of 1.3 has been\nestablished.\n\n8.3 Procedure before the determination\nEach party is to nominate one expert in text form - by email, fax or letter, for\nexample. Before beginning their determinations, the two experts nominate in text\nform a third expert as umpire. Where the experts cannot agree on the umpire, it\nis appointed by the court with local jurisdiction for the loss location, on the\napplication of either party.\n\n8.4 Content of the determination\nThe experts' findings must state a schedule of the destroyed and the damaged\ninsured property together with the corresponding insurable values at the time of\nthe insured event, the extent of any installation that has to be renewed as a\nfunctional unit, the reinstatement and replacement costs, the residual values,\nand the insured costs and the insured loss of rent or rental value.\n\n8.5 Procedure after the determination\nEach expert transmits its findings to both parties simultaneously. Where the two\nsets of findings diverge, the umpire decides the points that remain in dispute,\nwithin the limits set by the experts' findings. The findings of the experts, or\nof the umpire, are binding on the contracting parties. They are not binding where\nit is demonstrated that they manifestly deviate substantially from the true state\nof affairs.\n\n8.6 Costs\nUnless something else has been agreed, each party bears the costs of its own\nexpert. The costs of the umpire are borne by the two parties in equal shares.\n\n8.7 Duties remain unaffected\nThe expert determination procedure does not affect the policyholder's duties.\n\n\n-------------------------------------------------------------------------------\nPART 9 - POLICYHOLDER DUTIES AND INCREASE IN RISK\n-------------------------------------------------------------------------------\n\n9.1 Contractually agreed safety requirements before an insured event\n\n9.1.1 Insured property must be kept in proper condition at all times. This\napplies in particular to water-carrying installations and equipment. Defects or\ndamage to such property must be remedied without delay.\n\n9.1.2 Buildings or parts of buildings that are not in use must be inspected\nsufficiently frequently at every time of year, and the water-carrying\ninstallations there shut off, drained and kept drained.\n\n9.1.3 During the cold season all buildings and parts of buildings must be heated,\nand this must be checked sufficiently frequently.\n\n9.1.4 In rooms at risk of backing-up, backflow prevention devices must be kept\noperational, and the drainage lines on the insured site kept clear.\n\n9.2 Duties after an insured event\n\nThe policyholder must avert and mitigate the loss so far as it reasonably can,\nand must in particular take the measures needed to stop the escape of water and\nto remove standing water without delay.\n\nBefore the affected parts are altered or the water removed, the policyholder must\nso far as reasonably possible secure and preserve what shows where the water came\nfrom, and must notify the insurer so that the cause can be established within the\nmeaning of 1.3. Where that is not done, the policyholder bears the consequences\nof the cause remaining unestablished, subject to 3.6.\n\nAttendances at the insured site are to be arranged so far as possible so that the\nwork is carried out on one occasion; the consequences of further attendances are\ngoverned by 7.1.7(g) and 7.1.8(d).\n\n9.3 Consequences of a breach of duty\n\nWhere the policyholder breaches one of the duties in 9.1 or 9.2, the following\napplies, subject to the conditions set out in the general contract provisions:\nthe insurer is entitled to terminate the contract. It may also be wholly or\npartly released from liability.\n\n9.4 Circumstances constituting an increase in risk\n\nAn increase in risk subject to notification under the general contract provisions\nmay exist in particular where a circumstance changes about which the insurer\nasked before the contract was concluded; where the building or the predominant\npart of it is no longer in use; where construction work renders it predominantly\nunusable; or where a commercial operation is taken up or changed within the\nbuilding.\n\n\n-------------------------------------------------------------------------------\nPART 10 - CANCELLATION, SECURED LENDERS, TRANSFER OF OWNERSHIP\n-------------------------------------------------------------------------------\n\n10.1 Cancellation where a security right has been registered\n\nWhere a secured lender has registered its charge over the property, cancellation\nof the insurance relationship by the policyholder in respect of the fire peril\ngroup is effective only where the policyholder demonstrated, at least one month\nbefore expiry of the insurance contract, that the property was no longer\nencumbered with the charge, or that the secured lender consented to the\ncancellation. This does not apply to a cancellation following a disposal of the\nproperty, or to a cancellation in the insured event.\n\n10.2 Legal position following a transfer of ownership\n\nWhere the policyholder disposes of the insured property, the acquirer steps into\nits place in the insurance contract at the date of registration in the land\nregister, and from that time takes over the rights and obligations of the\npolicyholder. Seller and acquirer are jointly and severally liable for the\npremium for the insurance period in which the transfer of ownership occurs. The\ninsurer need only recognise the acquirer's entry once it becomes aware of it.\n\n10.3 Rights of cancellation on a transfer of ownership\n\nThe insurer is entitled to cancel the contract as against the acquirer on one\nmonth's notice, that right lapsing if it is not exercised within one month of the\ninsurer becoming aware of the disposal. The acquirer is entitled to cancel with\nimmediate effect or with effect from the end of the current insurance period, in\ntext form, that right lapsing one month after the acquisition. In either case the\nseller alone remains liable for payment of the premium.\n\n10.4 Duties of notification\n\nThe disposal must be notified to the insurer without delay, in text form, by the\nseller or by the acquirer. Where that notification has been omitted, the insurer\nis not obliged to pay in the insured event on the conditions set out in the\ngeneral contract provisions.\n\n===============================================================================\nEND OF DOCUMENT\n===============================================================================",
+    "description": "Escape-of-water claim in the basement plant room. A fixed heating pipe running down there let go suddenly and burst, and before anyone could reach the stopcock it had flooded the room - close to a meter of water standing by the time it was shut off.\n\nThe boiler sat in that water along with its flue and storage tank and stopped working, so the whole unit needed renewing rather than repairing. The old one was hauled out and disposed of, and the supply pipework was adjusted to fit the replacement.\n\nClearing the water took a fair bit of pumping, so a submersible pump was procured for the job. Once the water was down, an electrician spent the better part of a day and a half checking and rewiring the circuits that had been under water. Both firms were on site the same day.",
+    "invoice_text": "Invoice\nINVOICE NO.\n2026-0223\nDATE\n9 Apr 2026\nDUE\n23 Apr 2026\nTRADE\nHeating\nFROM\nToasty Toes Heating Ltd\n19 Radiator Row\n90402 Warmingham\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n1 Renew boiler system including flue gas system and\nstorage tank\n1 flat rate\n2 Adjust supply pipework to fit the replacement boiler 1 flat rate\n3 Dispose of the old boiler system 1 \u2013\n4 Vehicle costs 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1\nInvoice\nINVOICE NO.\n2026-0224\nDATE\n9 Apr 2026\nDUE\n23 Apr 2026\nTRADE\nElectrical\nFROM\nSparky McShockface Electrical Ltd\n50 Ohm Street\n70565 Voltaville\nTO\nEuropean Hackathon\nMain Street 1\n80331 Munich\nITEMS\nPOS. DESCRIPTION AMOUNTUNIT TOTAL\n5 Electrician labour checking and rewiring the flooded\nbasement circuits\n12 hrs\n6 Small electrical materials for the rewiring 1 pcs\n7 Water extraction from the flooded plant room 1 pcs\n8 Procurement of a motor pump 1 pcs\n9 Submersible pump 1 pcs\n10 Vehicle costs 1 pcs\nINVOICE\nCreated on 21 Aug 2026 Page 1 / 1",
+    "invoice_meta": {
+      "trade": "Heating",
+      "invoice_no": "2026-0223",
+      "date": "9 Apr 2026",
+      "vendor": "Toasty Toes Heating Ltd"
+    },
+    "items": [
+      {
+        "index": 1,
+        "description": "Renew boiler system including flue gas system and storage tank"
+      },
+      {
+        "index": 2,
+        "description": "Adjust supply pipework to fit the replacement boiler"
+      },
+      {
+        "index": 3,
+        "description": "Dispose of the old boiler system"
+      },
+      {
+        "index": 4,
+        "description": "Vehicle costs"
+      },
+      {
+        "index": 5,
+        "description": "Electrician labour checking and rewiring the flooded basement circuits"
+      },
+      {
+        "index": 6,
+        "description": "Small electrical materials for the rewiring"
+      },
+      {
+        "index": 7,
+        "description": "Water extraction from the flooded plant room"
+      },
+      {
+        "index": 8,
+        "description": "Procurement of a motor pump"
+      },
+      {
+        "index": 9,
+        "description": "Submersible pump"
+      },
+      {
+        "index": 10,
+        "description": "Vehicle costs"
+      }
+    ],
+    "item_labels": {
+      "1": "Renew boiler system including flue gas system and storage tank",
+      "2": "Adjust supply pipework to fit the replacement boiler",
+      "3": "Dispose of the old boiler system",
+      "4": "Vehicle costs",
+      "5": "Electrician labour checking and rewiring the flooded basement circuits",
+      "6": "Small electrical materials for the rewiring",
+      "7": "Water extraction from the flooded plant room",
+      "8": "Procurement of a motor pump",
+      "9": "Submersible pump",
+      "10": "Vehicle costs"
+    },
+    "n_images": 1
+  },
+  "strategy": "v2",
+  "estimate_v2": {
+    "items": [
+      {
+        "index": 1,
+        "q10": 13000.0,
+        "q50": 18000.0,
+        "q90": 25000.0,
+        "p_covered": 0.9766666666666667,
+        "reason": "Flood-damaged functional heating unit; equivalent replacement covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 2,
+        "q10": 500.0,
+        "q50": 900.0,
+        "q90": 1600.0,
+        "p_covered": 0.9666666666666667,
+        "reason": "Necessary adjoining pipe adaptation for replacement is covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 3,
+        "q10": 300.0,
+        "q50": 550.0,
+        "q90": 950.0,
+        "p_covered": 0.96,
+        "reason": "Removal and disposal of unusable damaged plant covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 4,
+        "q10": 65.0,
+        "q50": 76.0,
+        "q90": 88.0,
+        "p_covered": 0.87,
+        "reason": "First journey charge per event is indemnified.",
+        "n_samples": 3
+      },
+      {
+        "index": 5,
+        "q10": 950.0,
+        "q50": 1250.0,
+        "q90": 1600.0,
+        "p_covered": 0.97,
+        "reason": "Flooded electrical circuits required testing and rewiring.",
+        "n_samples": 3
+      },
+      {
+        "index": 6,
+        "q10": 100.0,
+        "q50": 220.0,
+        "q90": 450.0,
+        "p_covered": 0.95,
+        "reason": "Materials actually incorporated into covered rewiring are covered.",
+        "n_samples": 3
+      },
+      {
+        "index": 7,
+        "q10": 280.0,
+        "q50": 480.0,
+        "q90": 850.0,
+        "p_covered": 0.9733333333333333,
+        "reason": "Necessary water extraction is a covered mitigation measure.",
+        "n_samples": 3
+      },
+      {
+        "index": 8,
+        "q10": 150.0,
+        "q50": 350.0,
+        "q90": 800.0,
+        "p_covered": 0.02,
+        "reason": "Separately procured working equipment excluded from repair costs.",
+        "n_samples": 3
+      },
+      {
+        "index": 9,
+        "q10": 100.0,
+        "q50": 250.0,
+        "q90": 550.0,
+        "p_covered": 0.016666666666666666,
+        "reason": "Submersible pump is working equipment, not insured property.",
+        "n_samples": 3
+      },
+      {
+        "index": 10,
+        "q10": 65.0,
+        "q50": 76.0,
+        "q90": 88.0,
+        "p_covered": 0.04,
+        "reason": "Further journey charge excluded; heating charge is first.",
+        "n_samples": 3
+      }
+    ]
+  },
+  "v2_debug": {
+    "1": {
+      "p_cov": 0.9766666666666667,
+      "mu": 9.798127036878302,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 18000.0,
+      "desc": "Renew boiler system including flue gas s"
+    },
+    "2": {
+      "p_cov": 0.9666666666666667,
+      "mu": 6.602394763324311,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 900.0,
+      "desc": "Adjust supply pipework to fit the replac"
+    },
+    "3": {
+      "p_cov": 0.96,
+      "mu": 6.109918278226516,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 550.0,
+      "desc": "Dispose of the old boiler system"
+    },
+    "4": {
+      "p_cov": 0.87,
+      "mu": 5.159696007605554,
+      "sg": 0.1455213750217998,
+      "mem": true,
+      "q50": 76.0,
+      "desc": "Vehicle costs"
+    },
+    "5": {
+      "p_cov": 0.97,
+      "mu": 6.930898830296346,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 1250.0,
+      "desc": "Electrician labour checking and rewiring"
+    },
+    "6": {
+      "p_cov": 0.95,
+      "mu": 5.193627546352362,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 220.0,
+      "desc": "Small electrical materials for the rewir"
+    },
+    "7": {
+      "p_cov": 0.9733333333333333,
+      "mu": 5.973786103901936,
+      "sg": 0.6,
+      "mem": false,
+      "q50": 480.0,
+      "desc": "Water extraction from the flooded plant "
+    },
+    "8": {
+      "p_cov": 0.02,
+      "mu": 5.657933154483459,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 350.0,
+      "desc": "Procurement of a motor pump"
+    },
+    "9": {
+      "p_cov": 0.016666666666666666,
+      "mu": 5.321460917862246,
+      "sg": 0.6,
+      "why": "uncovered free shot",
+      "q50": 250.0,
+      "desc": "Submersible pump"
+    },
+    "10": {
+      "p_cov": 0.04,
+      "mu": 5.159696007605554,
+      "sg": 0.1455213750217998,
+      "why": "uncovered free shot",
+      "q50": 76.0,
+      "desc": "Vehicle costs"
+    }
+  },
+  "finished_at_s": 11.5
+}
