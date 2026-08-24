@@ -22,16 +22,15 @@ WHAT THE RESEARCH FOUND (rounds 30-45, see the chat log of the same date):
 
 THE MODEL:
   belief on ln t | covered  =  precision-weighted combination of
-      memory   N(mu_M, sigma_M^2)   from every past bracket of the same item key (censoring-aware)
+      memory   N(mu_M, sigma_M^2)   comparable goods or normalized service-rate history
       LLM      N(mu_L, sigma_L^2)   mu_L = ln q50 from the v2 prompt, sigma_L from MEASURED residuals
-  coverage   P(cov) = the prompt's p_covered, overridden by memory when memory is unanimous.
+  coverage   primary P(cov) drives a; the independent coverage audit drives b. Memory drives neither.
   a  = argmax_a P(cov) [ a S(a) + 0.5 E[t ; t < a] ]            (measured step payoff), capped at Q(A_MAX_Q)
   b  = sup { a : P(cov) S(a) >= 2/3 }                            (the accept rule, with coverage inside it)
-  whale: b floored at the posterior median when q50 >= WHALE_T and P(cov) >= 0.5.
   uncovered (P(cov) < 0.5): free-shot charge at 0.9 q50, b = 0.
 
-THE PROMPT: per-item memory anchors inline (not one generic block), honest quantiles, and
-p_covered instead of a boolean. Everything else is deliberately shorter than v1.
+THE PROMPTS: primary, coverage skeptic, and valuation auditor run in parallel. Only the
+valuation lanes see quantity-normalized memory; the coverage lane judges the current case alone.
 """
 
 from __future__ import annotations
@@ -46,11 +45,12 @@ import re
 import statistics
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from statistics import NormalDist
 
 from c2f import llm
-from c2f.extract import load_case
-from c2f.labels import estimates as any_estimates
+from c2f.extract import case_labels, item_quantities, load_case
+from c2f.labels import log as run_log
 from c2f.submit import ROOT
 
 _N = NormalDist()
@@ -68,23 +68,68 @@ def key_of(desc: str) -> str:
     return " ".join([w for w in d.split() if w not in STOP][:KEY_WORDS])
 
 
-def build_memory(exclude_game: int | None = None) -> dict[str, list[tuple[float, float | None]]]:
-    """key -> [(t_lo, t_hi or None)] over every past labelled item with a description."""
-    mem: dict[str, list[tuple[float, float | None]]] = collections.defaultdict(list)
+MemoryObs = tuple[float, float | None, float | None, str, int, int, str, str]
+UNIT_ALIASES = {
+    "hr": "hour", "hrs": "hour", "hours": "hour", "labor unit": "hour",
+    "labor units": "hour", "labour unit": "hour", "labour units": "hour",
+    "m²": "m2", "sqm": "m2", "pieces": "pcs", "piece": "pcs",
+    "linear m": "m", "flat rate": "flat",
+}
+
+
+def _unit(unit: str) -> str:
+    unit = " ".join((unit or "").lower().split())
+    return UNIT_ALIASES.get(unit, unit)
+
+
+def build_memory(exclude_game: int | None = None) -> dict[str, list[MemoryObs]]:
+    """Historical t brackets with their billed quantity; gross totals are never reused raw."""
+    mem: dict[str, list[MemoryObs]] = collections.defaultdict(list)
     for p in sorted(glob.glob(str(ROOT / "runs" / "truth_game_*.json"))):
         g = int(p.split("_")[-1].split(".")[0])
         if exclude_game is not None and g >= exclude_game:
             continue  # only the PAST: never let a later round leak into an earlier replay
         truth = json.loads(open(p).read())
-        est = any_estimates(g) or {}
+        case = (run_log(g).get("case") or {})
+        descs = case_labels(case)
+        quantities = item_quantities(case.get("invoice_text") or "")
         for i, tv in truth.items():
-            e = est.get(int(i)) or {}
-            d = e.get("_description") or ""
+            i = int(i)
+            d = descs.get(i, "")
             lo, hi = float(tv.get("t_lo") or 0.0), tv.get("t_hi")
             if not d or (lo <= 0 and hi is None):
                 continue
-            mem[key_of(d)].append((lo, float(hi) if hi is not None else None))
+            quantity, unit = quantities.get(i, (None, ""))
+            mem[key_of(d)].append((lo, float(hi) if hi is not None else None, quantity, _unit(unit),
+                                   g, i, d, str(case.get("description") or "")))
     return mem
+
+
+def scale_memory(obs: list[MemoryObs] | None, quantity: float | None, unit: str = "") -> list[tuple[float, float | None]]:
+    """Scale historical totals to this invoice's quantity, only for compatible units."""
+    out = []
+    unit = _unit(unit)
+    if unit in {"", "-", "–", "—"}:
+        return out
+    for row in obs or []:
+        lo, hi, old_quantity, old_unit = row[:4]
+        if not quantity or not old_quantity or unit != old_unit:
+            continue
+        ratio = quantity / old_quantity
+        out.append((lo * ratio, hi * ratio if hi is not None else None))
+    return out
+
+
+def _case_items(case: dict) -> list[dict]:
+    """Items enriched from invoice text for older run logs that predate quantity fields."""
+    quantities = item_quantities(case.get("invoice_text") or "")
+    out = []
+    for item in case.get("items", []):
+        item = dict(item)
+        if "quantity" not in item and int(item["index"]) in quantities:
+            item["quantity"], item["unit"] = quantities[int(item["index"])]
+        out.append(item)
+    return out
 
 
 SIGMA_MEM_1 = 0.25   # one past bracket
@@ -128,10 +173,11 @@ SYSTEM_V2 = """You are a senior German insurance claims expert. For EVERY line i
               (quantity x unit price, incl. 19% VAT, EUR, standard mid-market German 2026 rates).
               q50 is your median. Do not shade q50 up or down for safety - put uncertainty in q10/q90.
 
-MARKET MEMORY: some items below carry a <memory> line - what reviewers in PAST rounds of this
-same game proved they would pay for that exact line. That is ground truth from this market.
-Your q50 must sit inside the memory band unless the policy or description gives a concrete
-case-specific reason, which you state in `reason`.
+MARKET MEMORY: some items below carry candidates matched mechanically by short label and unit.
+Their paid ranges are ground truth for those historical cases, but they may represent a different
+brand, model, quality standard or scope. Identity-sensitive goods use only candidates listed in
+comparable_history_ids; never transfer a cheap item's value to an expensive item or the reverse.
+Fungible unit-priced service history may be normalized and applied automatically by code.
 
 POLICY LIMITS BIND: sum insured, per-item sub-limits (jewellery, cash, valuables, electronics),
 deductibles and "market value at the time of loss" cap t - read them off the policy and apply
@@ -143,22 +189,57 @@ hints (declared value, "expensive", tier, age, make) carefully for those, and sp
 reasoning there, not on the call-out fees.
 
 Answer ONLY with JSON, no fences:
-{"items":[{"index":1,"p_covered":0.95,"q10":380,"q50":420,"q90":480,"reason":"<= 12 words"}, ...]}
+{"items":[{"index":1,"p_covered":0.95,"q10":380,"q50":420,"q90":480,
+"coverage_supported":null,"value_supported":null,"unit_q10":0,"unit_q50":0,"unit_q90":0,
+"coverage_denial":null,"policy_quote":"","comparable_history_ids":[],"history_reason":"",
+"reason":"short evidence"}, ...]}
 Every POS number on the invoice appears exactly once."""
 
 
-def user_message_v2(case: dict, memory: dict) -> str:
+ROLES = ("primary", "coverage", "valuation")
+ROLE_INSTRUCTIONS = {
+    "primary": """You are the primary balanced estimator. Read the whole current case. Leave
+coverage_supported and value_supported null: the independent auditors decide those.""",
+    "coverage": """You are the adversarial COVERAGE auditor. Ignore market memory and decide
+coverage from the CURRENT policy, damage and invoice only. Set coverage_supported=true only
+when the line is related and every material prerequisite is evidenced. Set it false for a
+concrete exclusion, unrelated/upgrade work, a combined line containing uncovered work, or a
+missing prerequisite. Set coverage_denial to policy_exclusion, unrelated_or_upgrade,
+mixed_scope, or missing_prerequisite when false; otherwise null. For policy_exclusion copy at
+least four consecutive words verbatim from the decisive policy clause into policy_quote. Never
+paraphrase that quote. For every other denial type use an empty policy_quote. Cite the decisive
+current-case fact. Leave value_supported null.""",
+    "valuation": """You are the VALUATION auditor. Verify quantity, unit, duration, scope and
+policy limits. Set value_supported=true only when the current case gives a defensible price
+basis. For quantities above one, return fair per-unit unit_q10/unit_q50/unit_q90; code will do
+the multiplication. Set it false when quantity, duration, rate basis or scope is missing. Leave
+coverage_supported null. Still return gross q10/q50/q90 for every line.
+
+Historical candidates match only by a short label and unit. For each item with candidates,
+compare brand, model, quality tier, material, age, condition, specification and work scope.
+For identity-sensitive goods, put a candidate ID in comparable_history_ids only when the evidence
+shows genuinely like-for-like standards; a shared generic noun such as watch, painting or boiler
+is not enough. If either case lacks the details needed to establish equivalence, omit it and
+explain why in history_reason. Standard unit-priced services are normalized by code and do not
+require identical brands or claim narratives.""",
+}
+
+
+def user_message_v2(case: dict, memory: dict, role: str = "primary") -> str:
     anchors = []
-    for it in case.get("items", []):
-        obs = memory.get(key_of(it.get("description", "")))
-        if not obs:
+    for it in (_case_items(case) if role == "valuation" else []):
+        raw_obs = memory.get(key_of(it.get("description", "")))
+        if not scale_memory(raw_obs, it.get("quantity"), it.get("unit", "")):
             continue
-        mu, sd, pcov = memory_prior(obs)
-        if pcov == 0.0:
-            anchors.append(f"  POS {it['index']} \"{it['description'][:60]}\": refused as NOT covered in {len(obs)} past round(s)")
-        elif mu is not None:
-            lo, hi = math.exp(mu - sd), math.exp(mu + sd)
-            anchors.append(f"  POS {it['index']} \"{it['description'][:60]}\": past rounds paid ~EUR {lo:,.0f}-{hi:,.0f} (n={len(obs)})")
+        anchors.append(f"  POS {it['index']} \"{it['description'][:60]}\": mechanically matched candidates:")
+        for old in raw_obs or []:
+            scaled = scale_memory([old], it.get("quantity"), it.get("unit", ""))
+            if len(old) >= 8 and scaled:
+                lo, hi = scaled[0]
+                game, index, old_item, old_claim = old[4:8]
+                old_claim = " ".join(old_claim.split())
+                paid = f"EUR {lo:,.0f}-{hi:,.0f}" if lo > 0 and hi else f"EUR >= {lo:,.0f}" if lo > 0 else f"EUR < {hi:,.0f}"
+                anchors.append(f"    candidate id=\"{game}:{index}\": scaled paid={paid}; item=\"{old_item[:120]}\"; claim=\"{old_claim[:240]}\"")
     mem_txt = ("<memory>\n" + "\n".join(anchors) + "\n</memory>\n\n") if anchors else ""
     meta = case.get("invoice_meta") or {}
     meta_txt = " ".join(f'{k}="{v}"' for k, v in meta.items())
@@ -168,7 +249,8 @@ def user_message_v2(case: dict, memory: dict) -> str:
             + f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n\nReturn the JSON now.")
 
 
-def call_v2(case: dict, memory: dict, timeout: float = 60.0, model: str | None = None) -> tuple[dict, float]:
+def call_v2(case: dict, memory: dict, timeout: float = 60.0, model: str | None = None,
+            role: str = "primary") -> tuple[dict, float]:
     from openai import OpenAI
 
     llm.provider()
@@ -178,10 +260,11 @@ def call_v2(case: dict, memory: dict, timeout: float = 60.0, model: str | None =
     kwargs = {"reasoning_effort": os.environ.get("C2F_REASONING", "medium")} if model.startswith(("gpt-5", "o")) else {}
     resp = client.chat.completions.create(
         model=model,
-        messages=[{"role": "system", "content": SYSTEM_V2},
-                  {"role": "user", "content": [{"type": "text", "text": user_message_v2(case, memory)}]}],
+        messages=[{"role": "system", "content": SYSTEM_V2 + "\n\n" + ROLE_INSTRUCTIONS[role]},
+                  {"role": "user", "content": [{"type": "text", "text": user_message_v2(case, memory, role)}]}],
         max_completion_tokens=8000, **kwargs)
     out = llm._parse_json(resp.choices[0].message.content or "")
+    out["_role"] = role
     return out, round(time.time() - t0, 1)
 
 
@@ -229,14 +312,16 @@ def _indemnity(desc: str) -> bool:
 def price_v2(item: dict, obs: list[tuple[float, float | None]] | None, desc: str = "") -> tuple[float, float, dict]:
     q50 = float(item.get("q50") or 0)
     whale = q50 >= WHALE_T
+    coverage_supported = item.get("coverage_supported")
+    independently_supported = coverage_supported is True and item.get("value_supported") is True
     # memory is a floor-only on indemnity lines; a service whale (a conservator's restoration
     # with past brackets) keeps memory as its centre - game 42's restoration needs it.
     floor_only = bool(obs) and _indemnity(desc)
     p_cov = float(item.get("p_covered") if item.get("p_covered") is not None else (1.0 if item.get("covered") else 0.0))
     p_cov = min(1.0, max(0.0, p_cov))
-    mu_M, sg_M, pcov_M = memory_prior(obs) if obs else (None, SIGMA_MEM_1, None)
-    if pcov_M is not None:
-        p_cov = 0.05 if pcov_M == 0.0 else max(p_cov, 0.9)
+    p_accept = float(item.get("p_accept") if item.get("p_accept") is not None else p_cov)
+    p_accept = min(1.0, max(0.0, p_accept))
+    mu_M, sg_M, _ = memory_prior(obs) if obs else (None, SIGMA_MEM_1, None)
     # combine (memory as a centre only for market-stable services; see _indemnity)
     if floor_only:
         mu_M = None
@@ -248,7 +333,7 @@ def price_v2(item: dict, obs: list[tuple[float, float | None]] | None, desc: str
     elif q50 > 0:
         # the +0.20 level error was measured on small/mid items; on whales the model has run LOW
         # for the whole history (mid/t_lo median 0.88), so no downward shift there
-        mu, sg = math.log(q50) + (0.0 if whale else LLM_SHIFT_NOMEM), SIGMA_LLM
+        mu, sg = math.log(q50) + (0.0 if whale or independently_supported else LLM_SHIFT_NOMEM), SIGMA_LLM
     else:
         return 0.0, 0.0, {"p_cov": p_cov, "why": "no estimate"}
     # a PROVEN floor is a floor, not a centre: when memory holds only one-sided brackets the
@@ -261,36 +346,44 @@ def price_v2(item: dict, obs: list[tuple[float, float | None]] | None, desc: str
             mu = math.log(floor) + 0.05
     med = math.exp(mu)
     if p_cov < 0.5:
-        return round(UNCOVERED_SHOT * med, 2), 0.0, {"p_cov": p_cov, "mu": mu, "sg": sg, "why": "uncovered free shot"}
-    # a: step-payoff EV, capped
-    a_cap = math.exp(mu + sg * _N.inv_cdf(A_MAX_Q))
-    best_a, best_v = 0.0, -1.0
-    for j in range(1, 200):
-        a = math.exp(mu + sg * _N.inv_cdf(j / 200))
-        if a > a_cap:
-            break
-        v = p_cov * (a * _S(mu, sg, a) + FRAUD_FRAC * _Et_below(mu, sg, a))
-        if v > best_v:
-            best_a, best_v = a, v
+        best_a = UNCOVERED_SHOT * med
+    else:
+        # a: step-payoff EV, capped
+        a_cap = math.exp(mu + sg * _N.inv_cdf(A_MAX_Q))
+        best_a, best_v = 0.0, -1.0
+        for j in range(1, 200):
+            a = math.exp(mu + sg * _N.inv_cdf(j / 200))
+            if a > a_cap:
+                break
+            v = p_cov * (a * _S(mu, sg, a) + FRAUD_FRAC * _Et_below(mu, sg, a))
+            if v > best_v:
+                best_a, best_v = a, v
     # b: largest a with P(cov) * S(a) >= 2/3
-    if p_cov * 1.0 < ACCEPT_P:
+    if coverage_supported is False or p_accept <= ACCEPT_P:
         b = 0.0
     else:
-        b = math.exp(mu + sg * _N.inv_cdf(1.0 - ACCEPT_P / p_cov))
-    if q50 >= WHALE_T and p_cov >= 0.5:
-        b = max(b, med)
-    return round(best_a, 2), round(b, 2), {"p_cov": p_cov, "mu": mu, "sg": sg, "mem": obs is not None}
+        b = math.exp(mu + sg * _N.inv_cdf(1.0 - ACCEPT_P / p_accept))
+    return round(best_a, 2), round(b, 2), {
+        "p_cov": p_cov, "p_accept": p_accept, "mu": mu, "sg": sg, "mem": bool(obs),
+        "coverage_supported": coverage_supported, "value_supported": item.get("value_supported"),
+    }
 
 
 def rows_v2(case: dict, out: dict, memory: dict) -> tuple[list[dict], dict]:
-    descs = {int(it["index"]): it.get("description", "") for it in case.get("items", [])}
+    case_items = {int(it["index"]): it for it in _case_items(case)}
+    descs = {i: it.get("description", "") for i, it in case_items.items()}
     rows, dbg = [], {}
     for it in out.get("items", []):
         try:
             i = int(it["index"])
         except (KeyError, TypeError, ValueError):
             continue
-        obs = memory.get(key_of(descs.get(i, "")))
+        current = case_items.get(i, {})
+        allowed = {str(x) for x in it.get("comparable_history_ids") or []}
+        raw_obs = memory.get(key_of(descs.get(i, "")), [])
+        if _indemnity(descs.get(i, "")):
+            raw_obs = [x for x in raw_obs if len(x) >= 6 and f"{x[4]}:{x[5]}" in allowed]
+        obs = scale_memory(raw_obs, current.get("quantity"), current.get("unit", ""))
         a, b, d = price_v2(it, obs, descs.get(i, ""))
         rows.append({"index": i, "charge_price": a, "acceptance_limit": b})
         dbg[i] = {**d, "q50": it.get("q50"), "desc": descs.get(i, "")[:40]}
@@ -301,25 +394,64 @@ def rows_v2(case: dict, out: dict, memory: dict) -> tuple[list[dict], dict]:
     return sorted(rows, key=lambda r: r["index"]), dbg
 
 
-def combine_samples(outs: list[dict]) -> dict:
-    """Per-item median of q10/q50/q90 and mean p_covered across independent samples of the same
-    prompt. Whales came back q50 20,000 on one call and 15,000 on the next in the replays; a
-    median-of-k takes that noise out of the round's biggest item. Items missing from some
-    samples use the ones that have them."""
+def _policy_has_quote(policy: str, quote: str) -> bool:
+    """True only for a useful verbatim clause fragment, ignoring punctuation and whitespace."""
+    policy_words = re.findall(r"\w+", policy.casefold())
+    quote_words = re.findall(r"\w+", quote.casefold())
+    return len(quote_words) >= 4 and " ".join(quote_words) in " ".join(policy_words)
+
+
+def combine_samples(outs: list[dict], case: dict | None = None) -> dict:
+    """Merge the primary estimate with independent coverage and valuation audits."""
     by: dict[int, list[dict]] = collections.defaultdict(list)
     for o in outs:
         for it in o.get("items", []):
             try:
-                by[int(it["index"])].append(it)
+                by[int(it["index"])].append({**it, "_role": o.get("_role", "primary")})
             except (KeyError, TypeError, ValueError):
                 continue
+    case_items = {int(it["index"]): it for it in _case_items(case or {})}
     items = []
     for i in sorted(by):
         xs = by[i]
-        med = lambda k: statistics.median(float(x.get(k) or 0) for x in xs)
-        items.append({"index": i, "q10": med("q10"), "q50": med("q50"), "q90": med("q90"),
-                      "p_covered": statistics.mean(float(x.get("p_covered") or 0) for x in xs),
-                      "reason": xs[0].get("reason", ""), "n_samples": len(xs)})
+        roles = {x["_role"]: x for x in xs}
+        primary = roles.get("primary") or roles.get("coverage") or roles.get("valuation") or xs[0]
+        coverage = roles.get("coverage")
+        valuation = roles.get("valuation")
+        quantity = case_items.get(i, {}).get("quantity")
+        qs = []
+        for key in ("q10", "q50", "q90"):
+            gross = float((valuation or {}).get(key) or 0) or float(primary.get(key) or 0)
+            unit_price = float((valuation or {}).get("unit_" + key) or 0)
+            qs.append(unit_price * quantity if valuation and quantity and quantity > 1 and unit_price else gross)
+        qs.sort()
+        value_supported = (valuation or {}).get("value_supported") is True
+        if valuation and quantity and quantity > 1 and not float(valuation.get("unit_q50") or 0):
+            value_supported = False
+        coverage_supported = (coverage or {}).get("coverage_supported")
+        coverage_denial = (coverage or {}).get("coverage_denial")
+        policy_quote = str((coverage or {}).get("policy_quote") or "")
+        quote_verified = None
+        if coverage_supported is False and coverage_denial == "policy_exclusion":
+            quote_verified = _policy_has_quote(str((case or {}).get("policy") or ""), policy_quote)
+            if not quote_verified:
+                coverage_supported = None
+        items.append({
+            "index": i, "q10": qs[0], "q50": qs[1], "q90": qs[2],
+            "p_covered": float(primary.get("p_covered") or 0),
+            "p_accept": float((coverage or primary).get("p_covered") or 0),
+            "coverage_supported": coverage_supported,
+            "coverage_denial": coverage_denial,
+            "policy_quote": policy_quote,
+            "policy_quote_verified": quote_verified,
+            "value_supported": value_supported,
+            "comparable_history_ids": [str(x) for x in (valuation or {}).get("comparable_history_ids") or []],
+            "history_reason": (valuation or {}).get("history_reason", ""),
+            "reason": primary.get("reason", ""),
+            "coverage_reason": (coverage or {}).get("reason", ""),
+            "valuation_reason": (valuation or {}).get("reason", ""),
+            "n_samples": len(xs),
+        })
     return {"items": items}
 
 
@@ -348,7 +480,9 @@ def main(argv=None) -> int:
         if args.score_only and path.exists():
             rec = json.loads(path.read_text()); out, secs = rec["estimate"], rec["seconds"]
         else:
-            out, secs = call_v2(case, memory)
+            with ThreadPoolExecutor(max_workers=len(ROLES)) as ex:
+                answers = list(ex.map(lambda role: call_v2(case, memory, role=role), ROLES))
+            out, secs = combine_samples([answer for answer, _ in answers], case), max(s for _, s in answers)
         rows, dbg = rows_v2(case, out, memory)
         sc2 = bt.score(g, rows, d, US)
         # v1 = the stored current-prompt replay, priced by the CURRENT price.py

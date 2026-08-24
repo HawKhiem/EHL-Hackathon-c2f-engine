@@ -214,21 +214,22 @@ def main(argv: list[str] | None = None) -> int:
         save()
         log(f"submitted [{tag}]: " + ", ".join(f"#{r['index']} a={r['charge_price']} b={r['acceptance_limit']}" for r in rows), t0)
 
-    # ---- STRATEGY v2 (C2F_STRATEGY=v2): memory-anchored single call, K parallel samples.
-    # See c2f.v2. The first sample to land is submitted at once as insurance; when all K are in,
-    # the per-item median board overwrites it (last write wins on the server).
+    # ---- STRATEGY v2: primary estimate + independent coverage and valuation audits in parallel.
+    # Every role can produce a complete fallback board; later roles tighten b as they land.
     if os.environ.get("C2F_STRATEGY", "").lower() == "v2":
         from c2f import v2 as V2
 
-        k = int(os.environ.get("C2F_V2_SAMPLES") or 3)
-        # v2 lands its first board at ~15-17 s; later samples only refine it. Past this cutoff
-        # we stop waiting and keep whatever is on the board - the round's last 30 s are margin.
-        v2_deadline = float(os.environ.get("C2F_V2_DEADLINE_S") or 30.0)
+        # The first completed role still lands the safety board immediately. Keep listening for
+        # audit refinements until the real submission deadline; the backtest measured 31-51 s.
+        v2_deadline = float(os.environ.get("C2F_V2_DEADLINE_S") or DEADLINE_S)
         memory = V2.live_memory()
         record["strategy"] = "v2"
         budget = max(MIN_MODEL_S, DEADLINE_S - (time.time() - t0))
-        exv = ThreadPoolExecutor(max_workers=k)
-        futs = [exv.submit(V2.call_v2, dict(case), memory, budget) for _ in range(k)]
+        exv = ThreadPoolExecutor(max_workers=len(V2.ROLES))
+        futs = {
+            exv.submit(V2.call_v2, dict(case), memory, budget, role=role): role
+            for role in V2.ROLES
+        }
         outs: list[dict] = []
         try:
             pending = set(futs)
@@ -242,15 +243,15 @@ def main(argv: list[str] | None = None) -> int:
                     try:
                         out, secs = f.result()
                     except Exception as e:  # noqa: BLE001
-                        log(f"v2 sample failed: {e}", t0)
+                        log(f"v2 {futs[f]} failed: {e}", t0)
                         continue
                     outs.append(out)
-                    log(f"v2 sample {len(outs)}/{k} answered in {secs}s", t0)
-                    combined = V2.combine_samples(outs)
+                    log(f"v2 {futs[f]} answered in {secs}s", t0)
+                    combined = V2.combine_samples(outs, case)
                     rows, dbg = V2.rows_v2(case, combined, memory)
                     record["estimate_v2"] = combined
                     record["v2_debug"] = {str(i): d for i, d in dbg.items()}
-                    do_submit(rows, f"v2[{len(outs)}/{k}]")
+                    do_submit(rows, "v2[" + "+".join(o.get("_role", "?") for o in outs) + "]")
         finally:
             exv.shutdown(wait=False, cancel_futures=True)
         if not record["submissions"]:

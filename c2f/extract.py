@@ -6,7 +6,7 @@
   "description": str,       # description.txt verbatim
   "invoice_text": str,      # full text of invoices.pdf, for the model
   "invoice_meta": {...},    # trade / vendor / date if found
-  "items": [],              # always empty: the invoice is NOT line-parsed, the model reads it
+  "items": [{"index", "description", "quantity"?, "unit"?}],  # scheduling/pricing metadata
   "item_labels": {index: description},  # best-effort line labels, for pricing bias + history
   "images": [{"name", "media_type"}],   # listed only - photos are not sent to the model
 }
@@ -60,8 +60,8 @@ def _label(parts: list[str]) -> str:
     return TAIL_RE.sub("", text).strip() or text
 
 
-def item_labels(text: str) -> dict[int, str]:
-    """POS number -> line description, for every item table in the pdf text.
+def _item_rows(text: str) -> dict[int, list[str]]:
+    """POS number -> raw wrapped description/quantity columns.
 
     Best effort and per item: an item that cannot be read is the only one lost. A pdf may hold
     several invoices, each with its own POS./DESCRIPTION header, numbered continuously across
@@ -72,7 +72,7 @@ def item_labels(text: str) -> dict[int, str]:
     lines = text.splitlines()
     if not any(HEADER_RE.match(ln) for ln in lines):
         return {}
-    labels: dict[int, str] = {}
+    rows: dict[int, list[str]] = {}
     in_table = False
     idx: int | None = None
     buf: list[str] = []
@@ -81,9 +81,7 @@ def item_labels(text: str) -> dict[int, str]:
     def flush() -> None:
         nonlocal idx, buf
         if idx is not None and buf:
-            label = _label(buf)
-            if label:
-                labels[idx] = label
+            rows[idx] = buf
         idx, buf = None, []
 
     for ln in lines:
@@ -106,7 +104,32 @@ def item_labels(text: str) -> dict[int, str]:
         elif idx is not None:
             buf.append(s)
     flush()
-    return labels
+    return rows
+
+
+def item_labels(text: str) -> dict[int, str]:
+    """POS number -> line description, for every item table in the pdf text."""
+    return {i: label for i, parts in _item_rows(text).items() if (label := _label(parts))}
+
+
+QTY_CAPTURE_RE = re.compile(r"(" + _QTY + r")\s*(" + _UNIT + r")\s*$", re.I)
+
+
+def item_quantities(text: str) -> dict[int, tuple[float, str]]:
+    """Best-effort POS -> (quantity, unit); pricing never depends on missing entries."""
+    out = {}
+    for i, parts in _item_rows(text).items():
+        m = QTY_CAPTURE_RE.search(" ".join(parts).strip())
+        if not m:
+            continue
+        raw = m.group(1)
+        if "," in raw and "." in raw:
+            raw = raw.replace(",", "")
+        elif raw.count(",") == 1:
+            left, right = raw.split(",")
+            raw = left + ("" if len(right) == 3 else ".") + right
+        out[i] = (float(raw), " ".join(m.group(2).lower().split()))
+    return out
 
 
 
@@ -177,6 +200,7 @@ def load_case(case_dir: Path, game_id: int) -> dict:
     pdfs = sorted(case_dir.glob("*.pdf"))
     invoice_text = "\n\n".join(pdf_text(p) for p in pdfs)
     labels = item_labels(invoice_text)
+    quantities = item_quantities(invoice_text)
     images = []
     for p in sorted(case_dir.iterdir()):
         ext = p.suffix.lower()
@@ -214,7 +238,12 @@ def load_case(case_dir: Path, game_id: int) -> dict:
         #    slow chunk costs its own items instead of shipping an empty board.
         # A wrong or short list still cannot lose a line: chunk 0 sweeps for POS numbers
         # missing from its list, and merge_estimates unions the model's indices with these.
-        "items": [{"index": i, "description": d} for i, d in sorted(labels.items())],
+        "items": [
+            {"index": i, "description": d, **(
+                {"quantity": quantities[i][0], "unit": quantities[i][1]} if i in quantities else {}
+            )}
+            for i, d in sorted(labels.items())
+        ],
         "item_labels": labels,
         "images": images,
     }
