@@ -1,5 +1,5 @@
 from c2f.extract import item_quantities
-from c2f.v2 import ROLE_INSTRUCTIONS, combine_samples, key_of, price_v2, rows_v2, scale_memory, user_message_v2
+from c2f.v2 import ROLE_INSTRUCTIONS, call_v2_codex, combine_samples, key_of, message_content_v2, price_v2, rows_v2, scale_memory, user_message_v2
 
 
 def test_coverage_prompt_requires_verbatim_quote_for_policy_exclusion():
@@ -8,6 +8,58 @@ def test_coverage_prompt_requires_verbatim_quote_for_policy_exclusion():
     assert "missing prerequisite" in prompt
     assert "four consecutive words verbatim" in prompt
     assert "Never paraphrase that quote" in prompt
+
+
+def test_expensive_or_large_scope_attaches_image_to_valuation_only(tmp_path, monkeypatch):
+    from c2f import v2
+
+    case_dir = tmp_path / "cases" / "case_53"
+    case_dir.mkdir(parents=True)
+    (case_dir / "photo.jpg").write_bytes(b"image bytes")
+    monkeypatch.setattr(v2, "ROOT", tmp_path)
+    case = {
+        "game_id": 53,
+        "policy": "policy",
+        "description": "An expensive watch was stolen.",
+        "invoice_text": "1 Compensation for watch 1 pcs",
+        "invoice_meta": {},
+        "items": [],
+        "images": [{"name": "photo.jpg", "media_type": "image/jpeg"}],
+    }
+
+    valuation = message_content_v2(case, {}, "valuation")
+    assert len(valuation) == 2
+    assert valuation[1]["image_url"]["url"].startswith("data:image/jpeg;base64,")
+    assert valuation[1]["image_url"]["detail"] == "high"
+    assert len(message_content_v2(case, {}, "primary")) == 1
+
+    case["description"] = "An ordinary small repair."
+    assert len(message_content_v2(case, {}, "valuation")) == 1
+    case["invoice_text"] = "1 Large-area drying 121.9 m²"
+    large_area = message_content_v2(case, {}, "valuation")
+    assert len(large_area) == 2 and large_area[1]["image_url"]["detail"] == "low"
+
+
+def test_codex_backend_uses_saved_login_not_api_key(tmp_path, monkeypatch):
+    import json
+    from pathlib import Path
+    from types import SimpleNamespace
+    from c2f import v2
+
+    monkeypatch.setattr(v2.shutil, "which", lambda _: "/usr/bin/codex")
+    monkeypatch.setenv("OPENAI_API_KEY", "exhausted")
+
+    def run(cmd, **kwargs):
+        assert cmd[:2] == ["/usr/bin/codex", "exec"]
+        assert "--output-schema" in cmd and kwargs["env"].get("OPENAI_API_KEY") is None
+        Path(cmd[cmd.index("-o") + 1]).write_text(json.dumps({"items": []}))
+        return SimpleNamespace(returncode=0, stderr="")
+
+    monkeypatch.setattr(v2.subprocess, "run", run)
+    case = {"game_id": 1, "policy": "p", "description": "d", "invoice_text": "i",
+            "invoice_meta": {}, "items": [], "images": []}
+    out, seconds = call_v2_codex(case, {}, 60, "gpt-5.6-terra", "primary")
+    assert out == {"items": [], "_role": "primary"} and seconds >= 0
 
 
 def test_quantity_memory_and_independent_b_gate():

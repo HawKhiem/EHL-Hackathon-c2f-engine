@@ -36,14 +36,18 @@ valuation lanes see quantity-normalized memory; the coverage lane judges the cur
 from __future__ import annotations
 
 import argparse
+import base64
 import collections
 import glob
 import json
 import math
 import os
 import re
+import shutil
 import statistics
+import subprocess
 import sys
+import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor
 from statistics import NormalDist
@@ -90,7 +94,10 @@ def build_memory(exclude_game: int | None = None) -> dict[str, list[MemoryObs]]:
         if exclude_game is not None and g >= exclude_game:
             continue  # only the PAST: never let a later round leak into an earlier replay
         truth = json.loads(open(p).read())
-        case = (run_log(g).get("case") or {})
+        case = run_log(g).get("case") or {}
+        case_dir = ROOT / "cases" / f"case_{g:02d}"
+        if not case and case_dir.exists():
+            case = load_case(case_dir, g)
         descs = case_labels(case)
         quantities = item_quantities(case.get("invoice_text") or "")
         for i, tv in truth.items():
@@ -188,6 +195,14 @@ Whales first: the one or two biggest-value items decide the round. Read the desc
 hints (declared value, "expensive", tier, age, make) carefully for those, and spend your
 reasoning there, not on the call-out fees.
 
+VALUE AND SCALE SIGNALS ARE EVIDENCE, NOT DECORATION. If the current case calls an item
+expensive, luxury, premium, high-value, rare or collectible, price the appropriate expensive
+market tier for that item class rather than its generic category median. Use q10/q90 for genuine
+brand, authenticity or condition uncertainty; do not erase the explicit high-value signal by
+defaulting q50 to a cheap generic comparable. For large-area work, whole-system replacement,
+heavy machinery or unusually high quantities, calculate quantity x a defensible current unit
+rate and cross-check that the gross total reflects the full stated scope.
+
 Answer ONLY with JSON, no fences:
 {"items":[{"index":1,"p_covered":0.95,"q10":380,"q50":420,"q90":480,
 "coverage_supported":null,"value_supported":null,"unit_q10":0,"unit_q50":0,"unit_q90":0,
@@ -214,6 +229,13 @@ policy limits. Set value_supported=true only when the current case gives a defen
 basis. For quantities above one, return fair per-unit unit_q10/unit_q50/unit_q90; code will do
 the multiplication. Set it false when quantity, duration, rate basis or scope is missing. Leave
 coverage_supported null. Still return gross q10/q50/q90 for every line.
+
+If a claim image is attached, inspect it for visible brand/model, material and quality tier, and
+for physical evidence of the number of rooms, equipment, workers or machinery involved. Use it
+as valuation evidence, never as proof of authenticity. An explicit word such as "expensive" or
+"luxury" means q50 belongs in the expensive market tier supported by the current item class, not
+the all-market median. Explicit large-area or high-quantity work must be valued bottom-up as
+quantity x current market unit rate; show the assumed tier or rate in reason.
 
 Historical candidates match only by a short label and unit. For each item with candidates,
 compare brand, model, quality tier, material, age, condition, specification and work scope.
@@ -249,19 +271,143 @@ def user_message_v2(case: dict, memory: dict, role: str = "primary") -> str:
             + f"<invoice {meta_txt}>\n{case['invoice_text']}\n</invoice>\n\nReturn the JSON now.")
 
 
+HIGH_VALUE_IMAGE_SIGNALS = re.compile(
+    r"\b(?:expensive|high[- ]value|luxury|premium|valuable|rare|collect(?:or|ible)|antique|"
+    r"designer|declared value|scheduled value)\b",
+    re.I,
+)
+LARGE_SCOPE_IMAGE_SIGNALS = re.compile(
+    r"\b(?:large[- ]area|heav(?:y|ier) machinery|whole[- ]system|full replacement|"
+    r"renew \w+ system)\b",
+    re.I,
+)
+
+
+def valuation_image_v2(case: dict, role: str) -> tuple[object, str] | None:
+    """The first claim image and useful detail level, only when current text signals high stakes."""
+    if role != "valuation" or not case.get("images"):
+        return None
+    signal_text = f"{case.get('description', '')}\n{case.get('invoice_text', '')}"
+    high_value = HIGH_VALUE_IMAGE_SIGNALS.search(signal_text)
+    large_scope = LARGE_SCOPE_IMAGE_SIGNALS.search(signal_text)
+    if not (high_value or large_scope):
+        return None
+    image = case["images"][0]
+    try:
+        path = ROOT / "cases" / f"case_{int(case['game_id']):02d}" / image["name"]
+    except (KeyError, TypeError, ValueError):
+        return None
+    return (path, "high" if high_value else "low") if path.is_file() else None
+
+
+def message_content_v2(case: dict, memory: dict, role: str) -> list[dict]:
+    """Text for every role; one claim photo for valuation only when value/scope signals justify it."""
+    content = [{"type": "text", "text": user_message_v2(case, memory, role)}]
+    selected = valuation_image_v2(case, role)
+    if not selected:
+        return content
+    path, detail = selected
+    try:
+        encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+        media_type = case["images"][0]["media_type"]
+    except (OSError, KeyError, TypeError):
+        return content
+    content.append({
+        "type": "image_url",
+        "image_url": {
+            "url": f"data:{media_type};base64,{encoded}",
+            "detail": detail,
+        },
+    })
+    return content
+
+
+CODEX_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "items": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "index": {"type": "integer"},
+                    "p_covered": {"type": "number"},
+                    "q10": {"type": "number"},
+                    "q50": {"type": "number"},
+                    "q90": {"type": "number"},
+                    "coverage_supported": {"type": ["boolean", "null"]},
+                    "value_supported": {"type": ["boolean", "null"]},
+                    "unit_q10": {"type": "number"},
+                    "unit_q50": {"type": "number"},
+                    "unit_q90": {"type": "number"},
+                    "coverage_denial": {"type": ["string", "null"]},
+                    "policy_quote": {"type": "string"},
+                    "comparable_history_ids": {"type": "array", "items": {"type": "string"}},
+                    "history_reason": {"type": "string"},
+                    "reason": {"type": "string"},
+                },
+                "required": ["index", "p_covered", "q10", "q50", "q90", "coverage_supported",
+                             "value_supported", "unit_q10", "unit_q50", "unit_q90",
+                             "coverage_denial", "policy_quote", "comparable_history_ids",
+                             "history_reason", "reason"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["items"],
+    "additionalProperties": False,
+}
+
+
+def call_v2_codex(case: dict, memory: dict, timeout: float, model: str, role: str) -> tuple[dict, float]:
+    """Same role prompt through the logged-in Codex CLI, consuming Codex rather than API usage."""
+    codex = shutil.which("codex")
+    if not codex:
+        raise RuntimeError("C2F_V2_PROVIDER=codex but the codex CLI is not installed")
+    prompt = ("Return only the requested insurance JSON. Do not run commands or inspect files.\n\n"
+              + SYSTEM_V2 + "\n\n" + ROLE_INSTRUCTIONS[role] + "\n\n"
+              + user_message_v2(case, memory, role))
+    t0 = time.time()
+    with tempfile.TemporaryDirectory(prefix="c2f-codex-") as td:
+        schema = os.path.join(td, "schema.json")
+        output = os.path.join(td, "output.json")
+        with open(schema, "w", encoding="utf-8") as f:
+            json.dump(CODEX_SCHEMA, f)
+        cmd = [codex, "exec", "--ephemeral", "--sandbox", "read-only", "--ignore-user-config",
+               "--ignore-rules", "--skip-git-repo-check", "-C", td, "--output-schema", schema,
+               "-o", output, "-m", model, "-c",
+               f'model_reasoning_effort="{os.environ.get("C2F_REASONING", "medium")}"']
+        selected = valuation_image_v2(case, role)
+        if selected:
+            cmd += ["-i", str(selected[0])]
+        cmd.append("-")
+        env = os.environ.copy()
+        env.pop("OPENAI_API_KEY", None)
+        env.pop("CODEX_API_KEY", None)
+        p = subprocess.run(cmd, input=prompt, text=True, capture_output=True, env=env,
+                           timeout=float(os.environ.get("C2F_CODEX_TIMEOUT", timeout)))
+        if p.returncode or not os.path.exists(output):
+            raise RuntimeError(f"codex exec failed ({p.returncode}): {p.stderr[-800:]}")
+        out = json.loads(open(output, encoding="utf-8").read())
+    out["_role"] = role
+    return out, round(time.time() - t0, 1)
+
+
 def call_v2(case: dict, memory: dict, timeout: float = 60.0, model: str | None = None,
             role: str = "primary") -> tuple[dict, float]:
+    model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-terra"
+    if os.environ.get("C2F_V2_PROVIDER", "").lower() == "codex":
+        return call_v2_codex(case, memory, timeout, model, role)
     from openai import OpenAI
 
     llm.provider()
-    model = model or os.environ.get("C2F_MODEL") or "gpt-5.6-terra"
     client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], timeout=timeout, max_retries=0)
     t0 = time.time()
     kwargs = {"reasoning_effort": os.environ.get("C2F_REASONING", "medium")} if model.startswith(("gpt-5", "o")) else {}
     resp = client.chat.completions.create(
         model=model,
         messages=[{"role": "system", "content": SYSTEM_V2 + "\n\n" + ROLE_INSTRUCTIONS[role]},
-                  {"role": "user", "content": [{"type": "text", "text": user_message_v2(case, memory, role)}]}],
+                  {"role": "user", "content": message_content_v2(case, memory, role)}],
         max_completion_tokens=8000, **kwargs)
     out = llm._parse_json(resp.choices[0].message.content or "")
     out["_role"] = role
@@ -468,6 +614,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("games", nargs="+", type=int)
     ap.add_argument("--score-only", action="store_true")
+    ap.add_argument("--resume", action="store_true", help="reuse completed v2 game files")
     args = ap.parse_args(argv)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     tot = collections.Counter()
@@ -477,7 +624,7 @@ def main(argv=None) -> int:
         memory = build_memory(exclude_game=g)
         d = digest(g); bt.t_bounds(g, d)
         path = OUT_DIR / f"game_{g:02d}.json"
-        if args.score_only and path.exists():
+        if (args.score_only or args.resume) and path.exists():
             rec = json.loads(path.read_text()); out, secs = rec["estimate"], rec["seconds"]
         else:
             with ThreadPoolExecutor(max_workers=len(ROLES)) as ex:
